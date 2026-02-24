@@ -12,20 +12,27 @@ This space is early-stage — entries are selected for functionality and officia
 
 ## Contents
 
-- [Claude Code Skills & Plugins for Web3](#claude-code-skills--plugins-for-web3)
-- [Smart Contract Development Tools](#smart-contract-development-tools)
-- [AI Agent Frameworks — Onchain](#ai-agent-frameworks--onchain)
+**Claude Code Native** — built specifically for Claude Code (Skills, MCP, config)
+
+- [Skills & Plugins — Security & Auditing](#skills--plugins--security--auditing)
+- [Skills & Plugins — Protocol-Specific](#skills--plugins--protocol-specific)
+- [Skills & Plugins — General Web3 Rules](#skills--plugins--general-web3-rules)
 - [MCP Servers — Onchain Data & Analytics](#mcp-servers--onchain-data--analytics)
 - [MCP Servers — Smart Contract & DeFi](#mcp-servers--smart-contract--defi)
+
+**Compatible Tools** — general-purpose tools with strong Claude Code synergy
+
+- [Smart Contract Development Tools](#smart-contract-development-tools)
+- [AI Agent Frameworks — Onchain](#ai-agent-frameworks--onchain)
 - [Learning & Reference](#learning--reference)
 
 ---
 
-## Claude Code Skills & Plugins for Web3
+# Claude Code Native
 
-> Skills, plugins, and rules for Web3 development with Claude Code and other AI coding agents.
+> Built for Claude Code — Skills (SKILL.md), MCP servers, and Claude Code configurations that integrate directly.
 
-### Security & Auditing
+## Skills & Plugins — Security & Auditing
 
 | Repository | Stars | Type | Last Updated | Description |
 |:-----------|------:|:----:|:---:|:------------|
@@ -34,53 +41,20 @@ This space is early-stage — entries are selected for functionality and officia
 | [trailofbits/claude-code-devcontainer](https://github.com/trailofbits/claude-code-devcontainer) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-devcontainer?style=flat-square&logo=github) | `Official` | '26.02 | Sandboxed devcontainer for running Claude Code safely in bypass mode |
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ![](https://img.shields.io/github/stars/trailofbits/skills-curated?style=flat-square&logo=github) | `Official` | '26.02 | Curated marketplace, community-vetted plugins with code review (warns of backdoor risks) |
 
-### Protocol-Specific Skills
+## Skills & Plugins — Protocol-Specific
 
 | Repository | Stars | Type | Last Updated | Description |
 |:-----------|------:|:----:|:---:|:------------|
 | [Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) | ![](https://img.shields.io/github/stars/Uniswap/uniswap-ai?style=flat-square&logo=github) | `Official` | '26.02 | 7 skills: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration |
 | [austintgriffith/ethskills](https://github.com/austintgriffith/ethskills) | ![](https://img.shields.io/github/stars/austintgriffith/ethskills?style=flat-square&logo=github) | `Community` | '26.02 | 18 skills correcting LLM blind spots (gas, wallets, L2s, standards, addresses). [ethskills.com](https://ethskills.com/) |
 
-### General Web3 Rules
+## Skills & Plugins — General Web3 Rules
 
 | Repository | Stars | Type | Last Updated | Description |
 |:-----------|------:|:----:|:---:|:------------|
 | [leerob/directories](https://github.com/leerob/directories) | ![](https://img.shields.io/github/stars/leerob/directories?style=flat-square&logo=github) | `Community` | '26.02 | Cursor & Windsurf community directory, discover Web3 rules and MCP servers |
 | [sanjeed5/awesome-cursor-rules-mdc](https://github.com/sanjeed5/awesome-cursor-rules-mdc) | ![](https://img.shields.io/github/stars/sanjeed5/awesome-cursor-rules-mdc?style=flat-square&logo=github) | `Community` | '25.12 | Cursor rules curation (includes Solidity/Web3), convertible to CLAUDE.md |
 | [BankrBot/openclaw-skills](https://github.com/BankrBot/openclaw-skills) | ![](https://img.shields.io/github/stars/BankrBot/openclaw-skills?style=flat-square&logo=github) | `Community` | '26.02 | OpenClaw skill library, includes crypto trading, DeFi operations, Polymarket, and automation skills |
-
-## Smart Contract Development Tools
-
-> Core CLI tools with strong synergy when used alongside Claude Code.
-
-| Repository | Stars | Type | Last Updated | Description |
-|:-----------|------:|:----:|:---:|:------------|
-| [OpenZeppelin/openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) | ![](https://img.shields.io/github/stars/OpenZeppelin/openzeppelin-contracts?style=flat-square&logo=github) | `Official` | '26.02 | The standard library, import patterns and security primitives for any contract |
-| [foundry-rs/foundry](https://github.com/foundry-rs/foundry) | ![](https://img.shields.io/github/stars/foundry-rs/foundry?style=flat-square&logo=github) | `Official` | '26.02 | CLI-native toolkit, `forge test`, `cast call` are directly executable by agents |
-| [NomicFoundation/hardhat](https://github.com/NomicFoundation/hardhat) | ![](https://img.shields.io/github/stars/NomicFoundation/hardhat?style=flat-square&logo=github) | `Official` | '26.02 | Ethereum development environment, compile/deploy/test/debug, `npx hardhat test` directly executable by agents |
-| [crytic/slither](https://github.com/crytic/slither) | ![](https://img.shields.io/github/stars/crytic/slither?style=flat-square&logo=github) | `Official` | '26.02 | Static analysis, run `slither .` in Claude Code, analyze and fix vulnerabilities |
-| [ConsenSysDiligence/mythril](https://github.com/ConsenSysDiligence/mythril) | ![](https://img.shields.io/github/stars/ConsenSysDiligence/mythril?style=flat-square&logo=github) | `Official` | '26.02 | Symbolic execution analyzer, run `myth analyze` to detect vulnerabilities |
-| [crytic/echidna](https://github.com/crytic/echidna) | ![](https://img.shields.io/github/stars/crytic/echidna?style=flat-square&logo=github) | `Official` | '26.02 | Property-based fuzzing, write invariant tests, run echidna, analyze results |
-| [protofire/solhint](https://github.com/protofire/solhint) | ![](https://img.shields.io/github/stars/protofire/solhint?style=flat-square&logo=github) | `Community` | '26.02 | Solidity linter, enforce style and security rules, `solhint .` directly executable by agents |
-| [sc-forks/solidity-coverage](https://github.com/sc-forks/solidity-coverage) | ![](https://img.shields.io/github/stars/sc-forks/solidity-coverage?style=flat-square&logo=github) | `Community` | '25.12 | Code coverage for Solidity tests, identify untested contract paths |
-| [a16z/halmos](https://github.com/a16z/halmos) | ![](https://img.shields.io/github/stars/a16z/halmos?style=flat-square&logo=github) | `Official` | '25.08 | Symbolic testing for EVM smart contracts, formal verification via CLI |
-| [Cyfrin/aderyn](https://github.com/Cyfrin/aderyn) | ![](https://img.shields.io/github/stars/Cyfrin/aderyn?style=flat-square&logo=github) | `Official` | '26.02 | Rust-based Solidity static analyzer, complementary to Slither |
-| [crytic/medusa](https://github.com/crytic/medusa) | ![](https://img.shields.io/github/stars/crytic/medusa?style=flat-square&logo=github) | `Official` | '26.02 | Parallelized coverage-guided Solidity fuzzer, faster alternative to Echidna |
-
-## AI Agent Frameworks — Onchain
-
-> Frameworks for AI agents that autonomously execute onchain transactions.
-
-| Repository | Stars | Type | Last Updated | Description |
-|:-----------|------:|:----:|:---:|:------------|
-| [elizaOS/eliza](https://github.com/elizaOS/eliza) | ![](https://img.shields.io/github/stars/elizaOS/eliza?style=flat-square&logo=github) | `Community` | '26.02 | Autonomous AI agent, token swaps, NFT minting, onchain txs with plugin system |
-| [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) | ![](https://img.shields.io/github/stars/sendaifun/solana-agent-kit?style=flat-square&logo=github) | `Community` | '26.01 | Solana AI agent framework, connect any AI agent to Solana protocols |
-| [coinbase/agentkit](https://github.com/coinbase/agentkit) | ![](https://img.shields.io/github/stars/coinbase/agentkit?style=flat-square&logo=github) | `Official` | '26.02 | "Every AI Agent deserves a wallet." ERC-4337 account abstraction |
-| [piotrostr/listen](https://github.com/piotrostr/listen) | ![](https://img.shields.io/github/stars/piotrostr/listen?style=flat-square&logo=github) | `Community` | '25.11 | DeFAI Swiss Army Knife, AI-powered DeFi agent toolkit for Solana and EVM |
-| [goat-sdk/goat](https://github.com/goat-sdk/goat) | ![](https://img.shields.io/github/stars/goat-sdk/goat?style=flat-square&logo=github) | `Community` | '26.01 | Agentic finance toolkit, connect LLM agents to DeFi protocols across chains |
-| [edwin-finance/edwin](https://github.com/edwin-finance/edwin) | ![](https://img.shields.io/github/stars/edwin-finance/edwin?style=flat-square&logo=github) | `Community` | '25.11 | Enable AI agents to understand and execute DeFi protocol operations |
-| [Bink-AI/BinkOS](https://github.com/Bink-AI/BinkOS) | ![](https://img.shields.io/github/stars/Bink-AI/BinkOS?style=flat-square&logo=github) | `Community` | '25.08 | AI-powered DeFi OS on BNB Chain, swaps, bridges, yield optimization |
-| [AmbireTech/aura](https://github.com/AmbireTech/aura) | ![](https://img.shields.io/github/stars/AmbireTech/aura?style=flat-square&logo=github) | `Community` | '25.12 | Onchain activity analyzer and personal AI agent framework for web3 |
 
 ## MCP Servers — Onchain Data & Analytics
 
@@ -113,6 +87,45 @@ This space is early-stage — entries are selected for functionality and officia
 | [nirholas/UCAI](https://github.com/nirholas/UCAI) | ![](https://img.shields.io/github/stars/nirholas/UCAI?style=flat-square&logo=github) | `Community` | '26.02 | Universal Contract AI Interface, ABI-to-MCP server generator for any smart contract |
 | [thirdweb-dev/ai](https://github.com/thirdweb-dev/ai) | ![](https://img.shields.io/github/stars/thirdweb-dev/ai?style=flat-square&logo=github) | `Official` | '25.06 | All-in-one Web3 SDK (wallets, AA, RPC) for AI agents |
 | [ahnlabio/bicscan-mcp](https://github.com/ahnlabio/bicscan-mcp) | ![](https://img.shields.io/github/stars/ahnlabio/bicscan-mcp?style=flat-square&logo=github) | `Official` | '26.02 | EVM address risk scoring and asset analysis |
+
+---
+
+# Compatible Tools
+
+> General-purpose Web3 tools that work well with Claude Code — CLI-executable, agent-friendly, or useful as development context.
+
+## Smart Contract Development Tools
+
+> Core CLI tools directly executable by Claude Code via Bash.
+
+| Repository | Stars | Type | Last Updated | Description |
+|:-----------|------:|:----:|:---:|:------------|
+| [OpenZeppelin/openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) | ![](https://img.shields.io/github/stars/OpenZeppelin/openzeppelin-contracts?style=flat-square&logo=github) | `Official` | '26.02 | The standard library, import patterns and security primitives for any contract |
+| [foundry-rs/foundry](https://github.com/foundry-rs/foundry) | ![](https://img.shields.io/github/stars/foundry-rs/foundry?style=flat-square&logo=github) | `Official` | '26.02 | CLI-native toolkit, `forge test`, `cast call` are directly executable by agents |
+| [NomicFoundation/hardhat](https://github.com/NomicFoundation/hardhat) | ![](https://img.shields.io/github/stars/NomicFoundation/hardhat?style=flat-square&logo=github) | `Official` | '26.02 | Ethereum development environment, compile/deploy/test/debug, `npx hardhat test` directly executable by agents |
+| [crytic/slither](https://github.com/crytic/slither) | ![](https://img.shields.io/github/stars/crytic/slither?style=flat-square&logo=github) | `Official` | '26.02 | Static analysis, run `slither .` in Claude Code, analyze and fix vulnerabilities |
+| [ConsenSysDiligence/mythril](https://github.com/ConsenSysDiligence/mythril) | ![](https://img.shields.io/github/stars/ConsenSysDiligence/mythril?style=flat-square&logo=github) | `Official` | '26.02 | Symbolic execution analyzer, run `myth analyze` to detect vulnerabilities |
+| [crytic/echidna](https://github.com/crytic/echidna) | ![](https://img.shields.io/github/stars/crytic/echidna?style=flat-square&logo=github) | `Official` | '26.02 | Property-based fuzzing, write invariant tests, run echidna, analyze results |
+| [protofire/solhint](https://github.com/protofire/solhint) | ![](https://img.shields.io/github/stars/protofire/solhint?style=flat-square&logo=github) | `Community` | '26.02 | Solidity linter, enforce style and security rules, `solhint .` directly executable by agents |
+| [sc-forks/solidity-coverage](https://github.com/sc-forks/solidity-coverage) | ![](https://img.shields.io/github/stars/sc-forks/solidity-coverage?style=flat-square&logo=github) | `Community` | '25.12 | Code coverage for Solidity tests, identify untested contract paths |
+| [a16z/halmos](https://github.com/a16z/halmos) | ![](https://img.shields.io/github/stars/a16z/halmos?style=flat-square&logo=github) | `Official` | '25.08 | Symbolic testing for EVM smart contracts, formal verification via CLI |
+| [Cyfrin/aderyn](https://github.com/Cyfrin/aderyn) | ![](https://img.shields.io/github/stars/Cyfrin/aderyn?style=flat-square&logo=github) | `Official` | '26.02 | Rust-based Solidity static analyzer, complementary to Slither |
+| [crytic/medusa](https://github.com/crytic/medusa) | ![](https://img.shields.io/github/stars/crytic/medusa?style=flat-square&logo=github) | `Official` | '26.02 | Parallelized coverage-guided Solidity fuzzer, faster alternative to Echidna |
+
+## AI Agent Frameworks — Onchain
+
+> Frameworks for AI agents that autonomously execute onchain transactions.
+
+| Repository | Stars | Type | Last Updated | Description |
+|:-----------|------:|:----:|:---:|:------------|
+| [elizaOS/eliza](https://github.com/elizaOS/eliza) | ![](https://img.shields.io/github/stars/elizaOS/eliza?style=flat-square&logo=github) | `Community` | '26.02 | Autonomous AI agent, token swaps, NFT minting, onchain txs with plugin system |
+| [sendaifun/solana-agent-kit](https://github.com/sendaifun/solana-agent-kit) | ![](https://img.shields.io/github/stars/sendaifun/solana-agent-kit?style=flat-square&logo=github) | `Community` | '26.01 | Solana AI agent framework, connect any AI agent to Solana protocols |
+| [coinbase/agentkit](https://github.com/coinbase/agentkit) | ![](https://img.shields.io/github/stars/coinbase/agentkit?style=flat-square&logo=github) | `Official` | '26.02 | "Every AI Agent deserves a wallet." ERC-4337 account abstraction |
+| [piotrostr/listen](https://github.com/piotrostr/listen) | ![](https://img.shields.io/github/stars/piotrostr/listen?style=flat-square&logo=github) | `Community` | '25.11 | DeFAI Swiss Army Knife, AI-powered DeFi agent toolkit for Solana and EVM |
+| [goat-sdk/goat](https://github.com/goat-sdk/goat) | ![](https://img.shields.io/github/stars/goat-sdk/goat?style=flat-square&logo=github) | `Community` | '26.01 | Agentic finance toolkit, connect LLM agents to DeFi protocols across chains |
+| [edwin-finance/edwin](https://github.com/edwin-finance/edwin) | ![](https://img.shields.io/github/stars/edwin-finance/edwin?style=flat-square&logo=github) | `Community` | '25.11 | Enable AI agents to understand and execute DeFi protocol operations |
+| [Bink-AI/BinkOS](https://github.com/Bink-AI/BinkOS) | ![](https://img.shields.io/github/stars/Bink-AI/BinkOS?style=flat-square&logo=github) | `Community` | '25.08 | AI-powered DeFi OS on BNB Chain, swaps, bridges, yield optimization |
+| [AmbireTech/aura](https://github.com/AmbireTech/aura) | ![](https://img.shields.io/github/stars/AmbireTech/aura?style=flat-square&logo=github) | `Community` | '25.12 | Onchain activity analyzer and personal AI agent framework for web3 |
 
 ## Learning & Reference
 
