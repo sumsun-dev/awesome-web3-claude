@@ -47,6 +47,7 @@ This space is early-stage — entries are selected for functionality and officia
 |:-----------|------:|:----:|:---:|:------------|
 | [Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) | ![](https://img.shields.io/github/stars/Uniswap/uniswap-ai?style=flat-square&logo=github) | `Official` | '26.02 | 7 skills: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration |
 | [austintgriffith/ethskills](https://github.com/austintgriffith/ethskills) | ![](https://img.shields.io/github/stars/austintgriffith/ethskills?style=flat-square&logo=github) | `Community` | '26.02 | 18 skills correcting LLM blind spots (gas, wallets, L2s, standards, addresses). [ethskills.com](https://ethskills.com/) |
+| [trustwallet/tw-agent-skills](https://github.com/trustwallet/tw-agent-skills) | ![](https://img.shields.io/github/stars/trustwallet/tw-agent-skills?style=flat-square&logo=github) | `Official` | '26.02 | 5 skills: trust-web3-provider (multichain dApp integration), wallet-core (140+ chain wallet/signing), barz (ERC-4337 smart wallet), assets (token metadata), trust-developer (deep links/WalletConnect) |
 
 ## Skills & Plugins — General Web3 Rules
 

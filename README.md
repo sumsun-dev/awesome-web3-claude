@@ -47,6 +47,7 @@
 |:-----------|------:|:----:|:---:|:------------|
 | [Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) | ![](https://img.shields.io/github/stars/Uniswap/uniswap-ai?style=flat-square&logo=github) | `Official` | '26.02 | 7개 스킬: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration |
 | [austintgriffith/ethskills](https://github.com/austintgriffith/ethskills) | ![](https://img.shields.io/github/stars/austintgriffith/ethskills?style=flat-square&logo=github) | `Community` | '26.02 | LLM 사각지대(가스, 지갑, L2, 표준, 주소)를 교정하는 18개 스킬. [ethskills.com](https://ethskills.com/) |
+| [trustwallet/tw-agent-skills](https://github.com/trustwallet/tw-agent-skills) | ![](https://img.shields.io/github/stars/trustwallet/tw-agent-skills?style=flat-square&logo=github) | `Official` | '26.02 | 5개 스킬: trust-web3-provider (멀티체인 dApp 연동), wallet-core (140+ 체인 지갑/서명), barz (ERC-4337 스마트 지갑), assets (토큰 메타데이터), trust-developer (딥링크/WalletConnect) |
 
 ## 스킬 & 플러그인 — 범용 Web3 규칙
 
