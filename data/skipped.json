@@ -4,6 +4,11 @@
       "action": "keep",
       "skippedAt": "2026-03-01T09:27:17.243Z",
       "reason": "User kept existing repo"
+    },
+    "a16z/halmos": {
+      "action": "keep",
+      "skippedAt": "2026-03-01T09:32:05.666Z",
+      "reason": "User kept existing repo"
     }
   }
 }
