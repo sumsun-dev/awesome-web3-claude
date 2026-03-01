@@ -117,26 +117,12 @@ function buildCandidateMessage(c) {
   if (m.license) lines.push(`📜 라이선스: ${m.license}`);
   lines.push('');
 
-  // 설명 (한국어 요약)
+  // 설명
   lines.push(`<b>📝 설명</b>`);
-  const descText = c.description || '';
-  const topics = c.topics || [];
-  const summaryParts = [];
-  if (/mcp|model.context.protocol/i.test(descText + ' ' + topics.join(' ')))
-    summaryParts.push('MCP 서버');
-  if (/skill|plugin/i.test(descText + ' ' + topics.join(' ')))
-    summaryParts.push('스킬/플러그인');
-  if (/agent/i.test(descText)) summaryParts.push('AI 에이전트');
-  if (/defi|swap|liquidity/i.test(descText)) summaryParts.push('DeFi');
-  if (/nft/i.test(descText)) summaryParts.push('NFT');
-  if (/security|audit|vulnerability/i.test(descText)) summaryParts.push('보안/감사');
-  if (/wallet/i.test(descText)) summaryParts.push('지갑');
-  if (/solana/i.test(descText)) summaryParts.push('Solana');
-  if (/ethereum|evm/i.test(descText)) summaryParts.push('Ethereum/EVM');
-  if (summaryParts.length > 0) lines.push(`분류: ${summaryParts.join(', ')}`);
-  lines.push(escapeHtml(descText.slice(0, 200)));
-  if (c.readmeExcerpt) {
-    lines.push(`<i>${escapeHtml(c.readmeExcerpt.slice(0, 200))}</i>`);
+  if (c.descriptionKo) {
+    lines.push(escapeHtml(c.descriptionKo));
+  } else {
+    lines.push(escapeHtml((c.description || '설명 없음').slice(0, 200)));
   }
   lines.push('');
 

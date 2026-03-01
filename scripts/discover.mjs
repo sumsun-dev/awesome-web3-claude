@@ -20,6 +20,9 @@ if (!GITHUB_TOKEN) {
   process.exit(1);
 }
 
+const VPS_API_URL = process.env.VPS_API_URL;
+const VPS_API_SECRET = process.env.VPS_API_SECRET;
+
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 // ---------------------------------------------------------------------------
@@ -176,6 +179,52 @@ async function analyzeReadme(owner, repo) {
 }
 
 // ---------------------------------------------------------------------------
+// VPS Claude Code headless로 한국어 설명 생성
+// ---------------------------------------------------------------------------
+async function generateKoDescription(candidate) {
+  if (!VPS_API_URL || !VPS_API_SECRET) return null;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 310000); // 5분 + 여유 10초
+
+  try {
+    const res = await fetch(VPS_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${VPS_API_SECRET}`,
+      },
+      body: JSON.stringify({
+        owner: candidate.owner,
+        repo: candidate.repo,
+        context: {
+          description: candidate.description || '',
+          readmeExcerpt: candidate.readmeExcerpt || '',
+          topics: candidate.topics || [],
+          language: candidate.language || '',
+        },
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
+    if (!res.ok) {
+      console.log(`  [KO] VPS API error: ${res.status}`);
+      return null;
+    }
+
+    const data = await res.json();
+    const text = data.descriptionKo || null;
+    if (text) console.log(`  [KO] ${candidate.fullName}: ${text.slice(0, 60)}...`);
+    return text;
+  } catch (err) {
+    clearTimeout(timeout);
+    console.log(`  [KO] Error: ${err.message}`);
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // 후보 심층 분석 — GitHub API 메타데이터 + README 분석 + 신뢰 평가
 // ---------------------------------------------------------------------------
 async function deepAnalyze(candidate) {
@@ -222,6 +271,11 @@ async function deepAnalyze(candidate) {
 
   // 6. 추천 등급
   candidate.recommendation = calcRecommendation(candidate);
+
+  // 7. 한국어 설명 생성 (skip 제외)
+  if (candidate.recommendation !== 'skip') {
+    candidate.descriptionKo = await generateKoDescription(candidate);
+  }
 
   await new Promise(r => setTimeout(r, 300));
 }

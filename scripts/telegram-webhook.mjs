@@ -7,12 +7,13 @@
 import express from 'express';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { execFile } from 'node:child_process';
+import { spawn } from 'node:child_process';
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO || 'anthropic-ai-study/awesome-web3-claude';
+const API_SECRET = process.env.API_SECRET;
 const PORT = process.env.PORT || 3847;
 
 if (!BOT_TOKEN || !CHAT_ID || !GITHUB_TOKEN) {
@@ -58,33 +59,70 @@ async function editMessage(chatId, messageId, text) {
 }
 
 /**
- * Claude Code headless로 한국어 설명 생성 (60초 타임아웃)
+ * Claude Code headless로 한국어 설명 생성 (5분 타임아웃)
+ * stdin을 ignore해야 Claude CLI가 hang되지 않음
+ *
+ * @param {string} owner - GitHub owner
+ * @param {string} repo - GitHub repo name
+ * @param {object} [context] - 추가 컨텍스트 (description, readmeExcerpt, topics, language)
  */
-async function generateKoDescription(owner, repo) {
-  const prompt = `GitHub 레포지토리 ${owner}/${repo}의 README와 description을 확인하고, awesome-web3-claude 목록에 넣을 한국어 설명 1문장(80자 이내)을 작성해줘. Claude Code/MCP/Web3 관점에서 이 도구가 뭘 하는지 간결하게. 설명만 출력하고 다른 말은 하지 마.`;
+async function generateKoDescription(owner, repo, context) {
+  let prompt;
+  const args = ['-p'];
+
+  if (context) {
+    // discover.mjs에서 호출: 컨텍스트 제공되므로 웹 접근 불필요
+    prompt = `GitHub 레포지토리 "${owner}/${repo}"의 정보:
+- 설명: ${context.description || 'N/A'}
+- README 발췌: ${(context.readmeExcerpt || '').slice(0, 300)}
+- 토픽: ${(context.topics || []).join(', ')}
+- 언어: ${context.language || 'N/A'}
+
+이 레포가 Web3/블록체인 개발에서 어떤 역할을 하는지, Claude Code/MCP와 어떻게 활용할 수 있는지 한국어 1~2문장(100자 이내)으로 설명해줘. 설명만 출력해.`;
+    args.push(prompt, '--model', 'haiku');
+  } else {
+    // Telegram callback에서 호출: 웹 접근 필요
+    prompt = `GitHub 레포지토리 ${owner}/${repo}의 README와 description을 확인하고, awesome-web3-claude 목록에 넣을 한국어 설명 1문장(80자 이내)을 작성해줘. Claude Code/MCP/Web3 관점에서 이 도구가 뭘 하는지 간결하게. 설명만 출력하고 다른 말은 하지 마.`;
+    args.push(prompt, '--model', 'haiku', '--allowedTools', 'WebFetch', 'WebSearch');
+  }
+
+  const TIMEOUT_MS = 300000; // 5분
 
   return new Promise((resolve) => {
     let resolved = false;
     const done = (val) => { if (!resolved) { resolved = true; resolve(val); } };
 
-    const timer = setTimeout(() => {
-      console.log('[CLAUDE] Timeout (60s), using fallback');
-      done(null);
-    }, 60000);
+    const child = spawn('claude', args, {
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env: { ...process.env, HOME: process.env.HOME || '/root' },
+    });
 
-    execFile('claude', ['-p', prompt, '--model', 'haiku'], {
-      timeout: 60000,
-      env: { ...process.env, CLAUDE_CODE_ENTRYPOINT: 'cli' },
-    }, (err, stdout) => {
+    let stdout = '';
+    child.stdout.on('data', (d) => { stdout += d; });
+    child.stderr.on('data', (d) => { /* discard stderr */ });
+
+    const timer = setTimeout(() => {
+      console.log('[CLAUDE] Timeout (5m), using fallback');
+      child.kill('SIGTERM');
+      done(null);
+    }, TIMEOUT_MS);
+
+    child.on('close', (code) => {
       clearTimeout(timer);
-      if (err) {
-        console.log(`[CLAUDE] Error: ${err.message}`);
+      if (code !== 0) {
+        console.log(`[CLAUDE] Exit code: ${code}`);
         done(null);
         return;
       }
       const desc = stdout.trim().replace(/^["']|["']$/g, '');
       console.log(`[CLAUDE] Generated: ${desc}`);
       done(desc || null);
+    });
+
+    child.on('error', (err) => {
+      clearTimeout(timer);
+      console.log(`[CLAUDE] Error: ${err.message}`);
+      done(null);
     });
   });
 }
@@ -238,6 +276,28 @@ app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
   } catch (err) {
     console.error(`Error handling callback: ${err.message}`);
     await answerCallback(callback_query.id, `❌ 오류: ${err.message.slice(0, 100)}`);
+  }
+});
+
+// ---------------------------------------------------------------------------
+// /api/describe — Claude Code headless로 한국어 설명 생성 (discover.mjs에서 호출)
+// ---------------------------------------------------------------------------
+app.post('/api/describe', async (req, res) => {
+  if (!API_SECRET || req.headers.authorization !== `Bearer ${API_SECRET}`) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const { owner, repo, context } = req.body;
+  if (!owner || !repo) {
+    return res.status(400).json({ error: 'owner and repo are required' });
+  }
+
+  try {
+    const descKo = await generateKoDescription(owner, repo, context || null);
+    res.json({ descriptionKo: descKo });
+  } catch (err) {
+    console.error(`[API] /api/describe error: ${err.message}`);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

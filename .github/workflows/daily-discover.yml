@@ -24,6 +24,8 @@ jobs:
       - name: Run discovery
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VPS_API_URL: https://technotekorea.com/awc/api/describe
+          VPS_API_SECRET: ${{ secrets.VPS_API_SECRET }}
         run: node scripts/discover.mjs
 
       - name: Send Telegram notifications
