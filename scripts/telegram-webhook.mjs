@@ -7,6 +7,7 @@
 import express from 'express';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { execFile } from 'node:child_process';
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -56,9 +57,38 @@ async function editMessage(chatId, messageId, text) {
 }
 
 /**
+ * Claude Code headless로 한국어 설명 생성
+ */
+async function generateKoDescription(owner, repo) {
+  const prompt = `GitHub 레포지토리 ${owner}/${repo}의 README와 description을 확인하고, awesome-web3-claude 목록에 넣을 한국어 설명 1문장(80자 이내)을 작성해줘. Claude Code/MCP/Web3 관점에서 이 도구가 뭘 하는지 간결하게. 설명만 출력하고 다른 말은 하지 마.`;
+
+  return new Promise((resolve) => {
+    const timeout = setTimeout(() => {
+      console.log('[CLAUDE] Timeout, using fallback');
+      resolve(null);
+    }, 30000);
+
+    execFile('claude', ['-p', prompt, '--model', 'haiku'], {
+      timeout: 30000,
+      env: { ...process.env, CLAUDE_CODE_ENTRYPOINT: 'cli' },
+    }, (err, stdout) => {
+      clearTimeout(timeout);
+      if (err) {
+        console.log(`[CLAUDE] Error: ${err.message}`);
+        resolve(null);
+        return;
+      }
+      const desc = stdout.trim().replace(/^["']|["']$/g, '');
+      console.log(`[CLAUDE] Generated: ${desc}`);
+      resolve(desc || null);
+    });
+  });
+}
+
+/**
  * Trigger GitHub workflow_dispatch
  */
-async function triggerWorkflow(action, owner, repo, sectionId) {
+async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo) {
   const [repoOwner, repoName] = GITHUB_REPO.split('/');
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/actions/workflows/update-readme.yml/dispatches`;
 
@@ -76,6 +106,7 @@ async function triggerWorkflow(action, owner, repo, sectionId) {
         owner,
         repo,
         sectionId: sectionId || '',
+        descriptionKo: descriptionKo || '',
       },
     }),
   });
@@ -151,11 +182,18 @@ app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
           await answerCallback(callback_query.id, '❌ 해시 참조, 수동 처리 필요');
           return;
         }
-        await triggerWorkflow('add', parsed.owner, parsed.repo, parsed.sectionId);
-        await answerCallback(callback_query.id, '✅ 추가 요청 전송');
+        await answerCallback(callback_query.id, '⏳ 한국어 설명 생성 중...');
         await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n✅ <b>추가 승인됨</b> — workflow 실행 중');
-        console.log(`[ADD] ${parsed.owner}/${parsed.repo} → ${parsed.sectionId}`);
+          callback_query.message.text + '\n\n⏳ <b>한국어 설명 생성 중...</b>');
+
+        const descKo = await generateKoDescription(parsed.owner, parsed.repo);
+        console.log(`[ADD] ${parsed.owner}/${parsed.repo} → ${parsed.sectionId} (ko: ${descKo || 'fallback'})`);
+
+        await triggerWorkflow('add', parsed.owner, parsed.repo, parsed.sectionId, descKo);
+        await editMessage(chatId, messageId,
+          callback_query.message.text +
+          `\n\n✅ <b>추가 승인됨</b> — workflow 실행 중` +
+          (descKo ? `\n📝 설명: ${descKo}` : '\n⚠️ 한국어 설명 생성 실패, GitHub description 사용'));
         break;
       }
       case 'remove': {
