@@ -88,14 +88,23 @@ async function notifyCandidates(candidates) {
 
   // Send each candidate with inline keyboard
   for (const c of candidates) {
-    const text = [
+    const lines = [
       `📦 <b><a href="${c.url}">${c.fullName}</a></b>`,
-      `⭐ ${c.stars} | 🔤 ${c.language || 'N/A'} | 📅 ${c.lastPush?.slice(0, 10)}`,
+      `⭐ ${c.stars} | 🔤 ${c.language || 'N/A'} | 📅 ${c.lastPush?.slice(0, 10)} | 🎯 ${c.web3Score || 0}점`,
       `📝 ${escapeHtml(c.description || 'No description')}`,
-      `🏷️ ${c.topics?.slice(0, 5).join(', ') || 'no topics'}`,
-      `🎯 추천 섹션: ${c.suggestedSection}`,
-      `🔎 매칭 쿼리: ${c.matchedQueries.length}개`,
-    ].join('\n');
+    ];
+
+    // README excerpt (더 자세한 설명)
+    if (c.readmeExcerpt) {
+      lines.push(`📖 ${escapeHtml(c.readmeExcerpt.slice(0, 200))}`);
+    }
+
+    lines.push(
+      `🏷️ ${c.topics?.slice(0, 8).join(', ') || 'no topics'}`,
+      `🎯 섹션: <b>${c.suggestedSection}</b> | 쿼리: ${c.matchedQueries.length}개`,
+    );
+
+    const text = lines.join('\n');
 
     const keyboard = {
       inline_keyboard: [[
@@ -152,7 +161,7 @@ async function sendSummary(results) {
     `📊 <b>일일 요약</b> (${new Date().toISOString().slice(0, 10)})`,
     '',
     `총 엔트리: ${stats.totalExisting}`,
-    `신규 후보: ${stats.totalCandidates}개 (상위 ${results.candidates.length}개 표시)`,
+    `신규 후보: ${stats.totalCandidatesFiltered || stats.totalCandidates || 0}개 (상위 ${results.candidates.length}개 표시)`,
     `건강 이슈: ${stats.totalIssues}개`,
     `  - Archived: ${stats.archived}`,
     `  - Stale (6개월+): ${stats.stale}`,

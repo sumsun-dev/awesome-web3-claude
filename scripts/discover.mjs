@@ -2,6 +2,8 @@
  * discover.mjs
  * GitHub Search API로 신규 Web3 Claude Code 레포 탐색 + 기존 엔트리 health check
  * 출력: data/discover-results.json
+ *
+ * 핵심 필터: Web3/블록체인 관련성 + Claude Code 활용 가능성
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -20,29 +22,128 @@ if (!GITHUB_TOKEN) {
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
-// Search queries for discovering new repos
+// ---------------------------------------------------------------------------
+// 검색 쿼리 — Web3 + Claude Code/MCP 교집합에 집중
+// ---------------------------------------------------------------------------
 const SEARCH_QUERIES = [
-  'claude code web3',
-  'claude code solidity',
-  'claude code ethereum',
-  'mcp server ethereum',
-  'mcp server solana',
-  'mcp server web3',
-  'mcp server blockchain',
-  'mcp server defi',
-  'claude skills solidity',
-  'claude skills web3',
-  'claude skills blockchain',
-  'topic:mcp web3',
-  'topic:claude-code blockchain',
-  'AI agent onchain MCP',
+  // Claude Code Skills (Web3 특화)
   'SKILL.md solidity',
+  'SKILL.md ethereum',
+  'SKILL.md web3',
+  'claude skills smart contract',
+  'claude-code blockchain topic:claude-code',
+  // MCP 서버 (Web3 특화)
+  'mcp server ethereum solidity',
+  'mcp server blockchain onchain',
+  'mcp server defi swap',
+  'mcp server solana token',
+  'mcp server web3 wallet',
+  'mcp-server topic:ethereum',
+  'mcp-server topic:solana',
+  'mcp-server topic:defi',
+  'mcp-server topic:web3',
+  // AI 에이전트 (온체인)
+  'AI agent onchain transaction',
 ];
 
 // Minimum criteria
 const MIN_STARS = 5;
 const MAX_STALE_MONTHS = 3;
 const HEALTH_STALE_MONTHS = 6;
+
+// ---------------------------------------------------------------------------
+// Web3 관련성 판단 — description, topics, README에서 키워드 매칭
+// ---------------------------------------------------------------------------
+
+// Web3/블록체인 필수 키워드 (하나 이상 포함해야 함)
+const WEB3_KEYWORDS = [
+  'web3', 'blockchain', 'ethereum', 'solana', 'solidity',
+  'smart contract', 'smartcontract', 'defi', 'nft', 'evm',
+  'onchain', 'on-chain', 'dapp', 'dex', 'token', 'wallet',
+  'crypto', 'cryptocurrency', 'layer2', 'l2', 'rollup',
+  'zk-proof', 'zkp', 'foundry', 'hardhat', 'vyper', 'openzeppelin',
+  'erc-20', 'erc20', 'erc-721', 'erc721', 'erc-4337',
+  'uniswap', 'aave', 'chainlink', 'ipfs', 'abi',
+  'metamask', 'wagmi', 'viem', 'ethers', 'web3.js',
+  'bitcoin', 'lightning', 'staking', 'bridge', 'cross-chain',
+  'cosmos', 'polkadot', 'avalanche', 'arbitrum', 'optimism', 'base',
+  'polygon', 'bnb', 'binance',
+];
+
+// Claude Code / MCP / AI Agent 키워드 (하나 이상 포함 시 가산점)
+const CLAUDE_KEYWORDS = [
+  'claude', 'claude-code', 'mcp', 'model context protocol',
+  'skill.md', 'skills', 'ai agent', 'ai-agent', 'llm',
+  'copilot', 'codex', 'coding agent',
+];
+
+// 명시적 제외 패턴 (Web3와 무관한 레포)
+const EXCLUDE_PATTERNS = [
+  /badge/i, /readme.*profile/i, /free-for-dev/i,
+  /awesome-rust$/i, /awesome-python$/i, /awesome-go$/i,
+  /chatgpt.*repositor/i, /scraping/i, /markdown-badge/i,
+];
+
+/**
+ * Web3 관련성 점수 계산 (0~100)
+ * description + topics + repo name 기반
+ */
+function calcWeb3Score(candidate) {
+  const text = [
+    candidate.description,
+    candidate.topics.join(' '),
+    candidate.fullName,
+  ].join(' ').toLowerCase();
+
+  // 제외 패턴 체크
+  for (const pat of EXCLUDE_PATTERNS) {
+    if (pat.test(text) || pat.test(candidate.fullName)) return -1;
+  }
+
+  let web3Hits = 0;
+  let claudeHits = 0;
+
+  for (const kw of WEB3_KEYWORDS) {
+    if (text.includes(kw.toLowerCase())) web3Hits++;
+  }
+  for (const kw of CLAUDE_KEYWORDS) {
+    if (text.includes(kw.toLowerCase())) claudeHits++;
+  }
+
+  // Web3 키워드 0개면 무조건 탈락
+  if (web3Hits === 0) return 0;
+
+  // 점수: Web3 키워드 히트 * 10 + Claude 키워드 히트 * 15 (최대 100)
+  const score = Math.min(100, web3Hits * 10 + claudeHits * 15);
+  return score;
+}
+
+// ---------------------------------------------------------------------------
+// README 첫 단락 가져오기 (한국어 설명용 컨텍스트)
+// ---------------------------------------------------------------------------
+async function fetchReadmeExcerpt(owner, repo) {
+  try {
+    const { data } = await octokit.rest.repos.getReadme({ owner, repo });
+    const content = Buffer.from(data.content, 'base64').toString('utf-8');
+    // 첫 비어있지 않은 단락 추출 (헤더, 배지, 빈줄 제외)
+    const lines = content.split('\n');
+    const textLines = [];
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed) { if (textLines.length > 0) break; continue; }
+      if (trimmed.startsWith('#')) continue;
+      if (trimmed.startsWith('[![')) continue;
+      if (trimmed.startsWith('![')) continue;
+      if (trimmed.startsWith('<')) continue;
+      if (trimmed.startsWith('---')) continue;
+      textLines.push(trimmed);
+      if (textLines.length >= 3) break;
+    }
+    return textLines.join(' ').slice(0, 300) || null;
+  } catch {
+    return null;
+  }
+}
 
 function monthsAgo(dateStr) {
   const d = new Date(dateStr);
@@ -88,7 +189,7 @@ function loadExisting() {
  * Search GitHub for new candidate repos
  */
 async function searchNewRepos(existing, skipped) {
-  const candidates = new Map(); // fullName → repoData
+  const candidates = new Map();
   let searchCount = 0;
 
   for (const query of SEARCH_QUERIES) {
@@ -104,7 +205,7 @@ async function searchNewRepos(existing, skipped) {
       for (const repo of data.items) {
         const fullName = repo.full_name.toLowerCase();
 
-        // Filters
+        // Basic filters
         if (repo.fork) continue;
         if (repo.archived) continue;
         if (repo.stargazers_count < MIN_STARS) continue;
@@ -130,22 +231,46 @@ async function searchNewRepos(existing, skipped) {
         }
       }
 
-      // Rate limit respect: small delay between searches
       await new Promise(r => setTimeout(r, 500));
     } catch (err) {
       console.log(`  ⚠ Query "${query}" failed: ${err.message}`);
     }
   }
 
-  console.log(`Searched ${searchCount} queries, found ${candidates.size} unique candidates`);
+  console.log(`Searched ${searchCount} queries, found ${candidates.size} raw candidates`);
 
-  // Sort by relevance (matched queries count) then stars
-  return [...candidates.values()]
-    .sort((a, b) => {
-      const queryDiff = b.matchedQueries.length - a.matchedQueries.length;
-      if (queryDiff !== 0) return queryDiff;
-      return b.stars - a.stars;
-    });
+  // -----------------------------------------------------------------------
+  // Web3 관련성 필터 적용
+  // -----------------------------------------------------------------------
+  const scored = [...candidates.values()].map(c => ({
+    ...c,
+    web3Score: calcWeb3Score(c),
+  }));
+
+  const filtered = scored.filter(c => c.web3Score >= 10);
+  const rejected = scored.length - filtered.length;
+  console.log(`Web3 relevance filter: ${filtered.length} passed, ${rejected} rejected`);
+
+  // Sort: web3Score (desc) → matchedQueries count (desc) → stars (desc)
+  filtered.sort((a, b) => {
+    if (b.web3Score !== a.web3Score) return b.web3Score - a.web3Score;
+    if (b.matchedQueries.length !== a.matchedQueries.length)
+      return b.matchedQueries.length - a.matchedQueries.length;
+    return b.stars - a.stars;
+  });
+
+  return filtered;
+}
+
+/**
+ * Enrich candidates with README excerpt
+ */
+async function enrichCandidates(candidates) {
+  console.log(`Fetching README excerpts for ${candidates.length} candidates...`);
+  for (const c of candidates) {
+    c.readmeExcerpt = await fetchReadmeExcerpt(c.owner, c.repo);
+    await new Promise(r => setTimeout(r, 200));
+  }
 }
 
 /**
@@ -163,14 +288,12 @@ async function healthCheckExisting(reposData) {
           repo: repo.repo,
         });
 
-        // Update health data
         repo.health.starsPrev = repo.health.stars;
         repo.health.stars = data.stargazers_count;
         repo.health.archived = data.archived;
         repo.health.lastPush = data.pushed_at;
         repo.health.exists = true;
 
-        // Check for issues
         if (data.archived) {
           issues.push({
             type: 'archived',
@@ -246,7 +369,7 @@ function suggestSection(candidate) {
   if (text.includes('learn') || text.includes('tutorial') || text.includes('course') || text.includes('awesome')) {
     return 'learning';
   }
-  return 'mcp-onchain-data'; // default
+  return 'mcp-onchain-data';
 }
 
 async function main() {
@@ -259,16 +382,20 @@ async function main() {
   console.log('--- Searching for new candidates ---');
   const candidates = await searchNewRepos(existing, skipped);
 
-  // Add suggested section to each candidate
+  // Add suggested section
   for (const c of candidates) {
     c.suggestedSection = suggestSection(c);
   }
 
-  // 2. Health check existing repos
+  // 2. Enrich top candidates with README excerpt
+  const topCandidates = candidates.slice(0, 15);
+  await enrichCandidates(topCandidates);
+
+  // 3. Health check existing repos
   console.log('\n--- Health checking existing repos ---');
   const issues = await healthCheckExisting(reposData);
 
-  // 3. Save updated repos.json with health data
+  // 4. Save updated repos.json
   reposData.metadata.lastUpdated = new Date().toISOString();
   writeFileSync(
     resolve(ROOT, 'data', 'repos.json'),
@@ -276,21 +403,23 @@ async function main() {
     'utf-8',
   );
 
-  // 4. Save updated skipped.json
+  // 5. Save updated skipped.json
   writeFileSync(
     resolve(ROOT, 'data', 'skipped.json'),
     JSON.stringify(skippedData, null, 2) + '\n',
     'utf-8',
   );
 
-  // 5. Save discovery results
+  // 6. Save discovery results
   const results = {
     timestamp: new Date().toISOString(),
-    candidates: candidates.slice(0, 20), // top 20
+    candidates: topCandidates,
     issues,
     stats: {
       totalExisting: existing.size,
-      totalCandidates: candidates.length,
+      totalCandidatesRaw: candidates.length + (candidates.length > 0 ? 0 : 0),
+      totalCandidatesFiltered: candidates.length,
+      totalShown: topCandidates.length,
       totalIssues: issues.length,
       archived: issues.filter(i => i.type === 'archived').length,
       stale: issues.filter(i => i.type === 'stale').length,
@@ -302,9 +431,14 @@ async function main() {
   writeFileSync(outPath, JSON.stringify(results, null, 2) + '\n', 'utf-8');
 
   console.log(`\n=== Results ===`);
-  console.log(`Candidates: ${results.stats.totalCandidates} found, top ${results.candidates.length} saved`);
+  console.log(`Candidates: ${results.stats.totalCandidatesFiltered} passed filter, top ${results.stats.totalShown} saved`);
   console.log(`Issues: ${results.stats.totalIssues} (archived: ${results.stats.archived}, stale: ${results.stats.stale}, 404: ${results.stats.notFound})`);
   console.log(`Written: ${outPath}`);
+
+  // Print top candidates for log
+  for (const c of topCandidates.slice(0, 5)) {
+    console.log(`  ${c.fullName} (⭐${c.stars}, score:${c.web3Score}) → ${c.suggestedSection}`);
+  }
 }
 
 main().catch(err => {
