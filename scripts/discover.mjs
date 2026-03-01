@@ -399,7 +399,7 @@ async function searchNewRepos(existing, skipped) {
     web3Score: calcWeb3Score(c),
   }));
 
-  const filtered = scored.filter(c => c.web3Score >= 20);
+  const filtered = scored.filter(c => c.web3Score >= 50);
   const rejected = scored.length - filtered.length;
   console.log(`Web3 relevance filter: ${filtered.length} passed, ${rejected} rejected`);
 
