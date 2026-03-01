@@ -5,6 +5,7 @@
  */
 
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
@@ -29,6 +30,15 @@ if (API_SECRET && API_SECRET.length < 32) {
 const API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const app = express();
 app.use(express.json());
+
+// Rate limiting: /api/ 엔드포인트 — 15분당 30회
+app.use('/api/', rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, try again later' },
+}));
 
 /**
  * Answer callback query (remove loading indicator)
@@ -344,8 +354,12 @@ app.post('/api/describe', async (req, res) => {
   }
 });
 
-// Health check endpoint
+// Health check endpoint (localhost only)
 app.get('/health', (req, res) => {
+  const ip = req.ip || req.socket.remoteAddress;
+  if (ip !== '127.0.0.1' && ip !== '::1' && ip !== '::ffff:127.0.0.1') {
+    return res.sendStatus(403);
+  }
   res.json({ status: 'ok', uptime: process.uptime() });
 });
 
