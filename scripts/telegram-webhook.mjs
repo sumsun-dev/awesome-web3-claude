@@ -162,6 +162,19 @@ async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo) {
 }
 
 /**
+ * 알림 메시지 텍스트에서 한국어 설명 추출
+ * notify-telegram.mjs의 메시지 형식: "📝 설명\n{descriptionKo}\n\n🔧"
+ */
+function extractDescriptionKo(text) {
+  const match = text.match(/📝 설명\n(.+?)(?:\n\n|$)/s);
+  if (!match) return null;
+  const desc = match[1].trim();
+  // 영문 description이 아닌 한국어인지 간단 체크
+  if (!desc || /^[a-zA-Z\s.,!?()-]+$/.test(desc)) return null;
+  return desc;
+}
+
+/**
  * Parse callback_data: "action:owner/repo:sectionId" or "action:hash:sectionId"
  */
 function parseCallbackData(data) {
@@ -224,16 +237,26 @@ app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
           await answerCallback(callback_query.id, '❌ 해시 참조, 수동 처리 필요');
           return;
         }
-        await answerCallback(callback_query.id, '⏳ 한국어 설명 생성 중...');
-        await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n⏳ <b>한국어 설명 생성 중...</b>');
 
-        const descKo = await generateKoDescription(parsed.owner, parsed.repo);
+        // 알림 메시지에서 이미 생성된 한국어 설명 추출
+        const msgText = callback_query.message.text || '';
+        let descKo = extractDescriptionKo(msgText);
+
+        if (descKo) {
+          await answerCallback(callback_query.id, '✅ 추가 요청 전송');
+        } else {
+          // 설명이 없으면 Claude Code로 새로 생성
+          await answerCallback(callback_query.id, '⏳ 한국어 설명 생성 중...');
+          await editMessage(chatId, messageId,
+            msgText + '\n\n⏳ <b>한국어 설명 생성 중...</b>');
+          descKo = await generateKoDescription(parsed.owner, parsed.repo);
+        }
+
         console.log(`[ADD] ${parsed.owner}/${parsed.repo} → ${parsed.sectionId} (ko: ${descKo || 'fallback'})`);
 
         await triggerWorkflow('add', parsed.owner, parsed.repo, parsed.sectionId, descKo);
         await editMessage(chatId, messageId,
-          callback_query.message.text +
+          msgText +
           `\n\n✅ <b>추가 승인됨</b> — workflow 실행 중` +
           (descKo ? `\n📝 설명: ${descKo}` : '\n⚠️ 한국어 설명 생성 실패, GitHub description 사용'));
         break;
