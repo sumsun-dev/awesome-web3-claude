@@ -119,14 +119,27 @@ function calcWeb3Score(candidate) {
 }
 
 // ---------------------------------------------------------------------------
-// README 첫 단락 가져오기 (한국어 설명용 컨텍스트)
+// 신뢰 지표용 알려진 조직
 // ---------------------------------------------------------------------------
-async function fetchReadmeExcerpt(owner, repo) {
+const TRUSTED_ORGS = new Set([
+  'trailofbits', 'openzeppelin', 'foundry-rs', 'crytic', 'consensys',
+  'uniswap', 'aave', 'chainlink', 'solana-foundation', 'coinbase',
+  'alchemyplatform', 'thirdweb-dev', 'cyfrin', 'a16z',
+  'moralisweb3', 'bankless', 'getAlby', 'debridge-finance',
+  'noditlabs', 'heurist-network', 'trustwallet', 'goat-sdk',
+  'scaffold-eth', 'elizaos', 'sendaifun',
+]);
+
+// ---------------------------------------------------------------------------
+// README 분석 — 설명 추출 + 기능 키워드 감지
+// ---------------------------------------------------------------------------
+async function analyzeReadme(owner, repo) {
   try {
     const { data } = await octokit.rest.repos.getReadme({ owner, repo });
     const content = Buffer.from(data.content, 'base64').toString('utf-8');
-    // 첫 비어있지 않은 단락 추출 (헤더, 배지, 빈줄 제외)
     const lines = content.split('\n');
+
+    // 1. 첫 의미있는 텍스트 단락 추출
     const textLines = [];
     for (const line of lines) {
       const trimmed = line.trim();
@@ -134,15 +147,146 @@ async function fetchReadmeExcerpt(owner, repo) {
       if (trimmed.startsWith('#')) continue;
       if (trimmed.startsWith('[![')) continue;
       if (trimmed.startsWith('![')) continue;
-      if (trimmed.startsWith('<')) continue;
+      if (/^<[a-z]/.test(trimmed)) continue;
       if (trimmed.startsWith('---')) continue;
+      if (/^[═╔║╚█▓░┌│└─┐┘]/.test(trimmed)) continue; // ASCII art
+      if (trimmed.startsWith('```')) continue;
       textLines.push(trimmed);
-      if (textLines.length >= 3) break;
+      if (textLines.length >= 4) break;
     }
-    return textLines.join(' ').slice(0, 300) || null;
+    const excerpt = textLines.join(' ').replace(/[*_`>]/g, '').slice(0, 400) || null;
+
+    // 2. README 전체 텍스트에서 기능 신호 감지
+    const lower = content.toLowerCase();
+    const signals = {
+      hasMcpConfig: /mcp|model.context.protocol/.test(lower),
+      hasSkillMd: /skill\.md/.test(lower),
+      hasInstallGuide: /install|npm install|pip install|cargo install|getting started/.test(lower),
+      hasTests: /test|jest|mocha|vitest|pytest/.test(lower),
+      hasCI: /github.actions|\.github\/workflows|ci\/cd/.test(lower),
+      hasSecurity: /security|audit|vulnerability|slither|mythril/.test(lower),
+      hasLicense: /license|mit|apache|gpl|isc|bsd/.test(lower),
+      lineCount: lines.length,
+    };
+
+    return { excerpt, signals };
   } catch {
-    return null;
+    return { excerpt: null, signals: {} };
   }
+}
+
+// ---------------------------------------------------------------------------
+// 후보 심층 분석 — GitHub API 메타데이터 + README 분석 + 신뢰 평가
+// ---------------------------------------------------------------------------
+async function deepAnalyze(candidate) {
+  const { owner, repo } = candidate;
+
+  // 1. 상세 레포 정보
+  try {
+    const { data } = await octokit.rest.repos.get({ owner, repo });
+    candidate.meta = {
+      forks: data.forks_count,
+      openIssues: data.open_issues_count,
+      watchers: data.watchers_count,
+      license: data.license?.spdx_id || null,
+      ownerType: data.owner.type, // 'Organization' or 'User'
+      defaultBranch: data.default_branch,
+      createdAt: data.created_at,
+      size: data.size,
+    };
+  } catch {
+    candidate.meta = {};
+  }
+
+  // 2. 기여자 수 (가볍게)
+  try {
+    const { data: contribs } = await octokit.rest.repos.listContributors({
+      owner, repo, per_page: 5,
+    });
+    candidate.meta.contributors = contribs.length;
+    candidate.meta.topContributor = contribs[0]?.login || null;
+  } catch {
+    candidate.meta.contributors = 0;
+  }
+
+  // 3. README 분석
+  const { excerpt, signals } = await analyzeReadme(owner, repo);
+  candidate.readmeExcerpt = excerpt;
+  candidate.readmeSignals = signals;
+
+  // 4. 신뢰도 점수 계산 (0~5)
+  candidate.trustScore = calcTrustScore(candidate);
+
+  // 5. Claude Code 호환성 평가
+  candidate.claudeCompat = assessClaudeCompat(candidate);
+
+  // 6. 추천 등급
+  candidate.recommendation = calcRecommendation(candidate);
+
+  await new Promise(r => setTimeout(r, 300));
+}
+
+/**
+ * 신뢰도 점수 (0~5)
+ */
+function calcTrustScore(c) {
+  let score = 0;
+  const m = c.meta || {};
+  const s = c.readmeSignals || {};
+
+  // 조직 계정 (+1)
+  if (m.ownerType === 'Organization') score++;
+  // 알려진 조직 (+1)
+  if (TRUSTED_ORGS.has(c.owner.toLowerCase())) score++;
+  // 라이선스 있음 (+1)
+  if (m.license && m.license !== 'NOASSERTION') score++;
+  // 기여자 2명 이상 (+0.5)
+  if (m.contributors >= 2) score += 0.5;
+  // 스타 50+ (+0.5)
+  if (c.stars >= 50) score += 0.5;
+  // README에 테스트/CI 언급 (+0.5)
+  if (s.hasTests || s.hasCI) score += 0.5;
+  // 설치 가이드 있음 (+0.5)
+  if (s.hasInstallGuide) score += 0.5;
+
+  return Math.min(5, Math.round(score * 2) / 2);
+}
+
+/**
+ * Claude Code 호환성 평가
+ */
+function assessClaudeCompat(c) {
+  const s = c.readmeSignals || {};
+  const text = `${c.description} ${c.topics.join(' ')}`.toLowerCase();
+
+  const compat = [];
+  if (s.hasMcpConfig) compat.push('MCP 서버');
+  if (s.hasSkillMd) compat.push('SKILL.md');
+  if (text.includes('claude-code') || text.includes('claude code')) compat.push('Claude Code 전용');
+  if (text.includes('cli') || text.includes('command')) compat.push('CLI 실행');
+  if (text.includes('sdk') || text.includes('library')) compat.push('SDK/라이브러리');
+
+  if (compat.length === 0) {
+    if (text.includes('mcp')) compat.push('MCP 호환 가능');
+    else compat.push('간접 활용');
+  }
+
+  return compat;
+}
+
+/**
+ * 추천 등급: strong_add, add, neutral, skip
+ */
+function calcRecommendation(c) {
+  const trust = c.trustScore;
+  const compat = c.claudeCompat || [];
+  const hasDirect = compat.some(x =>
+    x.includes('MCP') || x.includes('SKILL') || x.includes('Claude Code'));
+
+  if (trust >= 3.5 && hasDirect) return 'strong_add';
+  if (trust >= 2.5 && hasDirect) return 'add';
+  if (trust >= 2 || hasDirect) return 'neutral';
+  return 'skip';
 }
 
 function monthsAgo(dateStr) {
@@ -263,13 +407,13 @@ async function searchNewRepos(existing, skipped) {
 }
 
 /**
- * Enrich candidates with README excerpt
+ * Enrich candidates with deep analysis
  */
 async function enrichCandidates(candidates) {
-  console.log(`Fetching README excerpts for ${candidates.length} candidates...`);
-  for (const c of candidates) {
-    c.readmeExcerpt = await fetchReadmeExcerpt(c.owner, c.repo);
-    await new Promise(r => setTimeout(r, 200));
+  console.log(`Deep analyzing ${candidates.length} candidates...`);
+  for (let i = 0; i < candidates.length; i++) {
+    await deepAnalyze(candidates[i]);
+    console.log(`  [${i + 1}/${candidates.length}] ${candidates[i].fullName} → trust:${candidates[i].trustScore} rec:${candidates[i].recommendation}`);
   }
 }
 
