@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-01T07:33:41.439Z",
-    "totalEntries": 46
+    "lastUpdated": "2026-03-01T09:14:12.823Z",
+    "totalEntries": 47
   },
   "sections": [
     {
@@ -203,6 +203,24 @@
             "starsPrev": 0,
             "archived": false,
             "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "nirholas",
+          "repo": "free-crypto-news",
+          "type": "Community",
+          "addedDate": "2026-03-01",
+          "description": {
+            "ko": "Free crypto news API - real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. RSS/Atom feeds, JSON REST API, historical archive with market context, embeddable widgets, ChatGPT plugin, Claude MCP server, SDKs (Python, TypeScript, Go, React, PHP). AI/LLM ready. Vibe coding friendly. Open source.",
+            "en": "Free crypto news API - real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. RSS/Atom feeds, JSON REST API, historical archive with market context, embeddable widgets, ChatGPT plugin, Claude MCP server, SDKs (Python, TypeScript, Go, React, PHP). AI/LLM ready. Vibe coding friendly. Open source."
+          },
+          "status": "active",
+          "health": {
+            "stars": 52,
+            "starsPrev": 52,
+            "archived": false,
+            "lastPush": "2026-02-25T15:15:54Z",
             "exists": true
           }
         }
