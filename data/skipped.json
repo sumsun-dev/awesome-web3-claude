@@ -29,6 +29,11 @@
       "action": "skip",
       "skippedAt": "2026-03-01T12:40:09.137Z",
       "reason": "User skipped candidate"
+    },
+    "test4/repo4": {
+      "action": "skip",
+      "skippedAt": "2026-03-01T12:40:19.575Z",
+      "reason": "User skipped candidate"
     }
   }
 }
