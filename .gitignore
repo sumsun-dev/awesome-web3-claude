@@ -1,3 +1,4 @@
 node_modules/
 .env
+discover-results.json
 data/discover-results.json
