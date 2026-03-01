@@ -40,7 +40,7 @@ async function answerCallback(callbackQueryId, text) {
 }
 
 /**
- * Edit inline keyboard message to show result
+ * Edit inline keyboard message to show result (removes buttons to prevent double-click)
  */
 async function editMessage(chatId, messageId, text) {
   await fetch(`${API_BASE}/editMessageText`, {
@@ -52,35 +52,39 @@ async function editMessage(chatId, messageId, text) {
       text,
       parse_mode: 'HTML',
       disable_web_page_preview: true,
+      reply_markup: JSON.stringify({ inline_keyboard: [] }),
     }),
   });
 }
 
 /**
- * Claude Code headless로 한국어 설명 생성
+ * Claude Code headless로 한국어 설명 생성 (60초 타임아웃)
  */
 async function generateKoDescription(owner, repo) {
   const prompt = `GitHub 레포지토리 ${owner}/${repo}의 README와 description을 확인하고, awesome-web3-claude 목록에 넣을 한국어 설명 1문장(80자 이내)을 작성해줘. Claude Code/MCP/Web3 관점에서 이 도구가 뭘 하는지 간결하게. 설명만 출력하고 다른 말은 하지 마.`;
 
   return new Promise((resolve) => {
-    const timeout = setTimeout(() => {
-      console.log('[CLAUDE] Timeout, using fallback');
-      resolve(null);
-    }, 30000);
+    let resolved = false;
+    const done = (val) => { if (!resolved) { resolved = true; resolve(val); } };
+
+    const timer = setTimeout(() => {
+      console.log('[CLAUDE] Timeout (60s), using fallback');
+      done(null);
+    }, 60000);
 
     execFile('claude', ['-p', prompt, '--model', 'haiku'], {
-      timeout: 30000,
+      timeout: 60000,
       env: { ...process.env, CLAUDE_CODE_ENTRYPOINT: 'cli' },
     }, (err, stdout) => {
-      clearTimeout(timeout);
+      clearTimeout(timer);
       if (err) {
         console.log(`[CLAUDE] Error: ${err.message}`);
-        resolve(null);
+        done(null);
         return;
       }
       const desc = stdout.trim().replace(/^["']|["']$/g, '');
       console.log(`[CLAUDE] Generated: ${desc}`);
-      resolve(desc || null);
+      done(desc || null);
     });
   });
 }
