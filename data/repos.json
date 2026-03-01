@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-01T09:52:58.237Z",
-    "totalEntries": 49
+    "lastUpdated": "2026-03-01T10:33:23.542Z",
+    "totalEntries": 50
   },
   "sections": [
     {
@@ -153,6 +153,24 @@
             "starsPrev": 0,
             "archived": false,
             "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "ruvnet",
+          "repo": "ruflo",
+          "type": "Community",
+          "addedDate": "2026-03-01",
+          "description": {
+            "ko": "Claude Code와 MCP를 통해 여러 AI 에이전트를 조율하여 소프트웨어 엔지니어링 작업을 자동화하는 기업용 에이전트 오케스트레이션 플랫폼.",
+            "en": "🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate autonomous workflows, and build conversational AI systems. Features    enterprise-grade architecture, distributed swarm intelligence, RAG integration, and native Claude Code / Codex Integration"
+          },
+          "status": "active",
+          "health": {
+            "stars": 16847,
+            "starsPrev": 16847,
+            "archived": false,
+            "lastPush": "2026-02-28T18:26:54Z",
             "exists": true
           }
         }
