@@ -7,6 +7,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { TRUSTED_ORGS, SECTION_LABELS } from './config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -73,18 +74,6 @@ const REC_LABEL = {
   skip: '🔴 스킵 권장',
 };
 
-// 섹션 ID → 한국어 섹션명
-const SECTION_LABEL = {
-  'skills-security': '스킬 — 보안/감사',
-  'skills-protocol': '스킬 — 프로토콜별',
-  'skills-general': '스킬 — 범용 Web3',
-  'mcp-onchain-data': 'MCP — 온체인 데이터',
-  'mcp-smart-contract': 'MCP — 스마트 컨트랙트',
-  'dev-tools': '개발 도구',
-  'ai-agents': 'AI 에이전트',
-  'learning': '학습/레퍼런스',
-};
-
 // 신뢰도 점수 → 별 표시
 function trustStars(score) {
   const full = Math.floor(score);
@@ -144,7 +133,7 @@ function buildCandidateMessage(c) {
 
   // 신뢰도 평가
   lines.push(`<b>🛡 신뢰도 ${trustStars(trust)} (${trust}/5)</b>`);
-  if (TRUSTED_ORGS_SET.has(c.owner.toLowerCase())) {
+  if (TRUSTED_ORGS.has(c.owner.toLowerCase())) {
     lines.push('✅ 알려진 신뢰 조직');
   } else if (m.ownerType === 'Organization') {
     lines.push('✅ 조직 계정');
@@ -161,20 +150,10 @@ function buildCandidateMessage(c) {
   lines.push('');
 
   // 추천 섹션
-  lines.push(`📂 추천 섹션: <b>${SECTION_LABEL[c.suggestedSection] || c.suggestedSection}</b>`);
+  lines.push(`📂 추천 섹션: <b>${SECTION_LABELS[c.suggestedSection] || c.suggestedSection}</b>`);
 
   return lines.join('\n');
 }
-
-// 신뢰 조직 set (notify에서도 사용)
-const TRUSTED_ORGS_SET = new Set([
-  'trailofbits', 'openzeppelin', 'foundry-rs', 'crytic', 'consensys',
-  'uniswap', 'aave', 'chainlink', 'solana-foundation', 'coinbase',
-  'alchemyplatform', 'thirdweb-dev', 'cyfrin', 'a16z',
-  'moralisweb3', 'bankless', 'getalby', 'debridge-finance',
-  'noditlabs', 'heurist-network', 'trustwallet', 'goat-sdk',
-  'scaffold-eth', 'elizaos', 'sendaifun',
-]);
 
 // ---------------------------------------------------------------------------
 // 후보 알림
@@ -242,7 +221,7 @@ async function notifyIssues(issues) {
     const emoji = issue.type === 'not_found' ? '🔴' : issue.type === 'archived' ? '📦' : '⏳';
     const text = [
       `${emoji} <b>${issue.fullName}</b>`,
-      `유형: ${issue.type} | 섹션: ${SECTION_LABEL[issue.sectionId] || issue.sectionId}`,
+      `유형: ${issue.type} | 섹션: ${SECTION_LABELS[issue.sectionId] || issue.sectionId}`,
       `사유: ${issue.reason}`,
     ].join('\n');
 

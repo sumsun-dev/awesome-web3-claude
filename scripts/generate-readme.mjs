@@ -6,21 +6,10 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SECTION_ORDER } from './config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-
-// Section ordering (must match current README)
-const SECTION_ORDER = [
-  'skills-security',
-  'skills-protocol',
-  'skills-general',
-  'mcp-onchain-data',
-  'mcp-smart-contract',
-  'dev-tools',
-  'ai-agents',
-  'learning',
-];
 
 const NATIVE_SECTIONS = new Set([
   'skills-security', 'skills-protocol', 'skills-general',

@@ -10,6 +10,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Octokit } from '@octokit/rest';
+import { TRUSTED_ORGS } from './config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -120,18 +121,6 @@ function calcWeb3Score(candidate) {
   const score = Math.min(100, web3Hits * 10 + claudeHits * 15);
   return score;
 }
-
-// ---------------------------------------------------------------------------
-// 신뢰 지표용 알려진 조직
-// ---------------------------------------------------------------------------
-const TRUSTED_ORGS = new Set([
-  'trailofbits', 'openzeppelin', 'foundry-rs', 'crytic', 'consensys',
-  'uniswap', 'aave', 'chainlink', 'solana-foundation', 'coinbase',
-  'alchemyplatform', 'thirdweb-dev', 'cyfrin', 'a16z',
-  'moralisweb3', 'bankless', 'getAlby', 'debridge-finance',
-  'noditlabs', 'heurist-network', 'trustwallet', 'goat-sdk',
-  'scaffold-eth', 'elizaos', 'sendaifun',
-]);
 
 // ---------------------------------------------------------------------------
 // README 분석 — 설명 추출 + 기능 키워드 감지
