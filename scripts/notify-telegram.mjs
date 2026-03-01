@@ -117,42 +117,61 @@ function buildCandidateMessage(c) {
   if (m.license) lines.push(`📜 라이선스: ${m.license}`);
   lines.push('');
 
-  // 설명
+  // 설명 (한국어 요약)
   lines.push(`<b>📝 설명</b>`);
-  lines.push(escapeHtml(c.description || 'No description'));
+  const descText = c.description || '';
+  const topics = c.topics || [];
+  const summaryParts = [];
+  if (/mcp|model.context.protocol/i.test(descText + ' ' + topics.join(' ')))
+    summaryParts.push('MCP 서버');
+  if (/skill|plugin/i.test(descText + ' ' + topics.join(' ')))
+    summaryParts.push('스킬/플러그인');
+  if (/agent/i.test(descText)) summaryParts.push('AI 에이전트');
+  if (/defi|swap|liquidity/i.test(descText)) summaryParts.push('DeFi');
+  if (/nft/i.test(descText)) summaryParts.push('NFT');
+  if (/security|audit|vulnerability/i.test(descText)) summaryParts.push('보안/감사');
+  if (/wallet/i.test(descText)) summaryParts.push('지갑');
+  if (/solana/i.test(descText)) summaryParts.push('Solana');
+  if (/ethereum|evm/i.test(descText)) summaryParts.push('Ethereum/EVM');
+  if (summaryParts.length > 0) lines.push(`분류: ${summaryParts.join(', ')}`);
+  lines.push(escapeHtml(descText.slice(0, 200)));
   if (c.readmeExcerpt) {
-    lines.push(`<i>${escapeHtml(c.readmeExcerpt.slice(0, 250))}</i>`);
+    lines.push(`<i>${escapeHtml(c.readmeExcerpt.slice(0, 200))}</i>`);
   }
   lines.push('');
 
   // Claude Code 호환성
-  lines.push(`<b>🔧 Claude Code 호환</b>`);
-  lines.push(compat.join(', ') || '미확인');
-  const compatDetails = [];
-  if (s.hasMcpConfig) compatDetails.push('✅ MCP 설정 감지');
-  if (s.hasSkillMd) compatDetails.push('✅ SKILL.md 감지');
-  if (s.hasInstallGuide) compatDetails.push('✅ 설치 가이드 있음');
-  if (!s.hasMcpConfig && !s.hasSkillMd) compatDetails.push('⚠️ MCP/SKILL.md 미감지');
-  if (compatDetails.length > 0) lines.push(compatDetails.join(' | '));
+  lines.push(`<b>🔧 Claude Code 호환성</b>`);
+  const compatKo = compat.map(x => {
+    if (x === 'MCP 서버') return '✅ MCP 서버 (바로 연결 가능)';
+    if (x === 'SKILL.md') return '✅ SKILL.md (바로 설치 가능)';
+    if (x === 'Claude Code 전용') return '✅ Claude Code 전용 도구';
+    if (x === 'CLI 실행') return '✅ CLI로 실행 가능';
+    if (x === 'SDK/라이브러리') return '📦 SDK/라이브러리 (코드에서 활용)';
+    if (x === 'MCP 호환 가능') return '🔄 MCP 호환 가능성 있음';
+    if (x === '간접 활용') return '⚠️ 간접 활용 (직접 연동 없음)';
+    return x;
+  });
+  lines.push(compatKo.join('\n'));
+  if (s.hasInstallGuide) lines.push('📋 설치 가이드 있음');
   lines.push('');
 
   // 신뢰도 평가
-  lines.push(`<b>🛡 신뢰도: ${trustStars(trust)} (${trust}/5)</b>`);
-  const trustDetails = [];
+  lines.push(`<b>🛡 신뢰도 ${trustStars(trust)} (${trust}/5)</b>`);
   if (TRUSTED_ORGS_SET.has(c.owner.toLowerCase())) {
-    trustDetails.push('✅ 알려진 조직');
+    lines.push('✅ 알려진 신뢰 조직');
   } else if (m.ownerType === 'Organization') {
-    trustDetails.push('✅ 조직 계정');
+    lines.push('✅ 조직 계정');
   } else {
-    trustDetails.push('⚠️ 개인 계정');
+    lines.push('⚠️ 개인 계정 — 코드 검토 권장');
   }
-  if (m.contributors <= 1) trustDetails.push('⚠️ 단독 개발');
-  else trustDetails.push(`✅ ${m.contributors}명 기여`);
-  if (s.hasTests) trustDetails.push('✅ 테스트');
-  else trustDetails.push('⚠️ 테스트 미확인');
-  if (m.license) trustDetails.push(`✅ ${m.license}`);
-  else trustDetails.push('⚠️ 라이선스 없음');
-  lines.push(trustDetails.join(' | '));
+  if (m.contributors <= 1) lines.push('⚠️ 단독 개발 (버스 팩터 1)');
+  else lines.push(`✅ ${m.contributors}명 기여`);
+  if (s.hasTests) lines.push('✅ 테스트 코드 있음');
+  else lines.push('⚠️ 테스트 미확인');
+  if (s.hasSecurity) lines.push('✅ 보안 관련 코드/문서 있음');
+  if (m.license) lines.push(`✅ 라이선스: ${m.license}`);
+  else lines.push('⚠️ 라이선스 없음 — 사용 주의');
   lines.push('');
 
   // 추천 섹션
@@ -196,8 +215,8 @@ async function notifyCandidates(candidates) {
     `각 후보의 상세 분석을 확인하고 버튼으로 결정하세요.`,
   );
 
-  // strong_add + add만 인라인 키보드로 전송
-  const actionable = [...strong, ...add];
+  // strong_add + add + neutral 모두 상세 평가 + 버튼으로 전송
+  const actionable = [...strong, ...add, ...neutral];
 
   for (const c of actionable) {
     const text = buildCandidateMessage(c);
@@ -211,15 +230,6 @@ async function notifyCandidates(candidates) {
 
     await sendMessage(CHAT_ID, text, keyboard);
     await new Promise(r => setTimeout(r, 300));
-  }
-
-  // neutral은 요약만 전송 (버튼 없음)
-  if (neutral.length > 0) {
-    const neutralList = neutral.map(c =>
-      `• <a href="${c.url}">${c.fullName}</a> (⭐${c.stars}) — ${escapeHtml((c.description || '').slice(0, 60))}`
-    ).join('\n');
-    await sendMessage(CHAT_ID,
-      `🟡 <b>검토 필요 ${neutral.length}개</b> (자동 스킵, 관심 시 수동 추가)\n\n${neutralList}`);
   }
 
   // skip은 자동 스킵 처리 (알림 없음)
