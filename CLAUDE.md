@@ -57,6 +57,7 @@ awesome-web3-claude/
 │   ├── daily-discover.yml      # 일일 탐색 + 알림
 │   └── update-readme.yml       # 승인 후 README 업데이트
 ├── scripts/
+│   ├── config.mjs              # 공유 상수 (TRUSTED_ORGS, SECTION_ORDER, SECTION_LABELS)
 │   ├── discover.mjs            # 신규 레포 탐색 + 분석
 │   ├── notify-telegram.mjs     # Telegram 알림 (상세 평가)
 │   ├── telegram-webhook.mjs    # VPS Express 서버

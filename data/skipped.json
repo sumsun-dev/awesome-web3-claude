@@ -14,26 +14,6 @@
       "action": "keep",
       "skippedAt": "2026-03-01T09:52:05.648Z",
       "reason": "User kept existing repo"
-    },
-    "test/test": {
-      "action": "skip",
-      "skippedAt": "2026-03-01T12:35:36.983Z",
-      "reason": "User skipped candidate"
-    },
-    "test1/repo1": {
-      "action": "skip",
-      "skippedAt": "2026-03-01T12:37:51.716Z",
-      "reason": "User skipped candidate"
-    },
-    "test3/repo3": {
-      "action": "skip",
-      "skippedAt": "2026-03-01T12:40:09.137Z",
-      "reason": "User skipped candidate"
-    },
-    "test4/repo4": {
-      "action": "skip",
-      "skippedAt": "2026-03-01T12:40:19.575Z",
-      "reason": "User skipped candidate"
     }
   }
 }
