@@ -14,10 +14,15 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO || 'anthropic-ai-study/awesome-web3-claude';
 const API_SECRET = process.env.API_SECRET;
+const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
 const PORT = process.env.PORT || 3847;
 
 if (!BOT_TOKEN || !CHAT_ID || !GITHUB_TOKEN) {
   console.error('✗ Required env vars: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, GITHUB_TOKEN');
+  process.exit(1);
+}
+if (API_SECRET && API_SECRET.length < 32) {
+  console.error('✗ API_SECRET must be at least 32 characters');
   process.exit(1);
 }
 
@@ -175,6 +180,12 @@ function extractDescriptionKo(text) {
 }
 
 /**
+ * GitHub owner/repo 이름 검증 (Command Injection 방어)
+ * GitHub 규칙: alphanumeric, hyphen, underscore, dot만 허용
+ */
+const VALID_GITHUB_NAME = /^[a-zA-Z0-9_.-]+$/;
+
+/**
  * Parse callback_data: "action:owner/repo:sectionId" or "action:hash:sectionId"
  */
 function parseCallbackData(data) {
@@ -182,6 +193,8 @@ function parseCallbackData(data) {
   if (parts.length < 2) return null;
 
   const action = parts[0]; // add, skip, keep, remove
+  if (!['add', 'skip', 'keep', 'remove'].includes(action)) return null;
+
   const repoOrHash = parts[1];
   const sectionId = parts[2] || null;
 
@@ -192,21 +205,25 @@ function parseCallbackData(data) {
 
   // owner/repo format
   const slashIdx = repoOrHash.indexOf('/');
-  if (slashIdx === -1) return { action, owner: repoOrHash, repo: '', sectionId, isHash: false };
+  if (slashIdx === -1) return null;
 
-  return {
-    action,
-    owner: repoOrHash.slice(0, slashIdx),
-    repo: repoOrHash.slice(slashIdx + 1),
-    sectionId,
-    isHash: false,
-  };
+  const owner = repoOrHash.slice(0, slashIdx);
+  const repo = repoOrHash.slice(slashIdx + 1);
+
+  if (!VALID_GITHUB_NAME.test(owner) || !VALID_GITHUB_NAME.test(repo)) return null;
+
+  return { action, owner, repo, sectionId, isHash: false };
 }
 
 /**
  * Webhook endpoint for Telegram updates
  */
 app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
+  // Telegram webhook secret 검증
+  if (WEBHOOK_SECRET && req.headers['x-telegram-bot-api-secret-token'] !== WEBHOOK_SECRET) {
+    return res.sendStatus(403);
+  }
+
   res.sendStatus(200); // respond immediately
 
   const update = req.body;
@@ -314,6 +331,9 @@ app.post('/api/describe', async (req, res) => {
   if (!owner || !repo) {
     return res.status(400).json({ error: 'owner and repo are required' });
   }
+  if (!VALID_GITHUB_NAME.test(owner) || !VALID_GITHUB_NAME.test(repo)) {
+    return res.status(400).json({ error: 'Invalid owner or repo name' });
+  }
 
   try {
     const descKo = await generateKoDescription(owner, repo, context || null);
@@ -331,6 +351,6 @@ app.get('/health', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`AWC Webhook server running on port ${PORT}`);
-  console.log(`Webhook URL: https://YOUR_DOMAIN/webhook/${BOT_TOKEN}`);
+  console.log(`Webhook: configured (token redacted)`);
   console.log(`Health: http://localhost:${PORT}/health`);
 });

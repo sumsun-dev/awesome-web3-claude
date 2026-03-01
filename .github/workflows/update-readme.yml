@@ -64,6 +64,13 @@ jobs:
           const repo = process.env.REPO_NAME;
           const sectionId = process.env.SECTION_ID;
           const descriptionKo = process.env.DESCRIPTION_KO;
+
+          // 입력값 검증
+          const VALID_NAME = /^[a-zA-Z0-9_.-]+$/;
+          if (!VALID_NAME.test(owner) || !VALID_NAME.test(repo)) {
+            console.error('Invalid owner/repo:', owner, repo);
+            process.exit(1);
+          }
           const fullName = owner + '/' + repo;
 
           if (action === 'add') {
@@ -174,7 +181,11 @@ jobs:
           const channelId = process.env.TELEGRAM_CHANNEL_ID;
           const chatId = process.env.TELEGRAM_CHAT_ID;
           const action = process.env.ACTION;
-          const fullName = process.env.REPO_OWNER + '/' + process.env.REPO_NAME;
+          const owner = process.env.REPO_OWNER;
+          const repoName = process.env.REPO_NAME;
+          const VALID_NAME = /^[a-zA-Z0-9_.-]+$/;
+          if (!VALID_NAME.test(owner) || !VALID_NAME.test(repoName)) { process.exit(0); }
+          const fullName = owner + '/' + repoName;
           const section = process.env.SECTION_ID || '';
           const descKo = process.env.DESCRIPTION_KO || '';
 
