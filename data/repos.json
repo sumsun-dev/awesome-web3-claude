@@ -1,0 +1,948 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-03-01T07:33:41.439Z",
+    "totalEntries": 46
+  },
+  "sections": [
+    {
+      "id": "skills-security",
+      "group": "claude-code-native",
+      "title": {
+        "ko": "스킬 & 플러그인 — 보안 & 감사",
+        "en": "Skills & Plugins — Security & Auditing"
+      },
+      "description": {
+        "ko": null,
+        "en": null
+      },
+      "repos": [
+        {
+          "owner": "trailofbits",
+          "repo": "skills",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "보안 감사, 스마트 컨트랙트 분석, 정적분석(Semgrep, CodeQL), 속성 기반 테스팅, 취약점 탐지용 28개 플러그인",
+            "en": "28 plugins for security auditing, smart contract analysis, static analysis (Semgrep, CodeQL), property-based testing, and vulnerability detection"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "trailofbits",
+          "repo": "claude-code-config",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Claude Code 설정 프레임워크 (오피니어니티드 디폴트 및 워크플로우)",
+            "en": "Opinionated Claude Code defaults, documentation, and workflows"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "trailofbits",
+          "repo": "claude-code-devcontainer",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "바이패스 모드에서 안전하게 Claude Code를 실행하기 위한 샌드박스 devcontainer",
+            "en": "Sandboxed devcontainer for running Claude Code safely in bypass mode"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "trailofbits",
+          "repo": "skills-curated",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "큐레이티드 마켓플레이스, 코드 리뷰를 거친 커뮤니티 검증 플러그인 (백도어 위험 경고)",
+            "en": "Curated marketplace, community-vetted plugins with code review (warns of backdoor risks)"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "skills-protocol",
+      "group": "claude-code-native",
+      "title": {
+        "ko": "스킬 & 플러그인 — 프로토콜별",
+        "en": "Skills & Plugins — Protocol-Specific"
+      },
+      "description": {
+        "ko": null,
+        "en": null
+      },
+      "repos": [
+        {
+          "owner": "Uniswap",
+          "repo": "uniswap-ai",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "7개 스킬: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration",
+            "en": "7 skills: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "austintgriffith",
+          "repo": "ethskills",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "LLM 사각지대(가스, 지갑, L2, 표준, 주소)를 교정하는 18개 스킬. [ethskills.com](https://ethskills.com/)",
+            "en": "18 skills correcting LLM blind spots (gas, wallets, L2s, standards, addresses). [ethskills.com](https://ethskills.com/)"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "trustwallet",
+          "repo": "tw-agent-skills",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "5개 스킬: trust-web3-provider (멀티체인 dApp 연동), wallet-core (140+ 체인 지갑/서명), barz (ERC-4337 스마트 지갑), assets (토큰 메타데이터), trust-developer (딥링크/WalletConnect)",
+            "en": "5 skills: trust-web3-provider (multichain dApp integration), wallet-core (140+ chain wallet/signing), barz (ERC-4337 smart wallet), assets (token metadata), trust-developer (deep links/WalletConnect)"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "skills-general",
+      "group": "claude-code-native",
+      "title": {
+        "ko": "스킬 & 플러그인 — 범용 Web3 규칙",
+        "en": "Skills & Plugins — General Web3 Rules"
+      },
+      "description": {
+        "ko": null,
+        "en": null
+      },
+      "repos": [
+        {
+          "owner": "leerob",
+          "repo": "directories",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Cursor & Windsurf 커뮤니티 디렉토리, Web3 규칙 및 MCP 서버 탐색",
+            "en": "Cursor & Windsurf community directory, discover Web3 rules and MCP servers"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "BankrBot",
+          "repo": "openclaw-skills",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "OpenClaw 스킬 라이브러리, 크립토 트레이딩, DeFi 운영, Polymarket, 자동화 스킬 포함",
+            "en": "OpenClaw skill library, includes crypto trading, DeFi operations, Polymarket, and automation skills"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "mcp-onchain-data",
+      "group": "claude-code-native",
+      "title": {
+        "ko": "MCP 서버 — 온체인 데이터 & 분석",
+        "en": "MCP Servers — Onchain Data & Analytics"
+      },
+      "description": {
+        "ko": "Claude Code에서 온체인 데이터를 직접 조회할 수 있게 해주는 MCP 서버.",
+        "en": "MCP servers that let Claude Code query onchain data directly."
+      },
+      "repos": [
+        {
+          "owner": "mcpdotdirect",
+          "repo": "evm-mcp-server",
+          "type": "Community",
+          "addedDate": "2025-11-01",
+          "description": {
+            "ko": "범용 EVM MCP, Ethereum, Base, Arbitrum, Polygon 등과 상호작용",
+            "en": "General-purpose EVM MCP, interact with Ethereum, Base, Arbitrum, Polygon and more"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "aaronjmars",
+          "repo": "web3-research-mcp",
+          "type": "Community",
+          "addedDate": "2025-10-01",
+          "description": {
+            "ko": "크립토 딥 리서치 에이전트, 로컬, 무료, 프로토콜 분석 자동화",
+            "en": "Crypto deep research agent, local, free, protocol analysis automation"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "alchemyplatform",
+          "repo": "alchemy-mcp-server",
+          "type": "Official",
+          "addedDate": "2026-01-01",
+          "description": {
+            "ko": "60개 이상 네트워크에서 잔액, 트랜잭션, NFT, 토큰 데이터",
+            "en": "Balances, transactions, NFTs, and token data across 60+ networks"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "Bankless",
+          "repo": "onchain-mcp",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "MCP를 통한 스마트 컨트랙트 상호작용, tx 조회, 토큰 정보",
+            "en": "Smart contract interactions, tx queries, and token info via MCP"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "solana-foundation",
+          "repo": "solana-mcp-official",
+          "type": "Official",
+          "addedDate": "2025-08-01",
+          "description": {
+            "ko": "솔라나 재단 공식 MCP 서버",
+            "en": "Solana Foundation MCP server"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "heurist-network",
+          "repo": "heurist-mesh-mcp-server",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Web3 AI 에이전트 메시, 블록체인 분석, 보안 감사, 토큰 메트릭, DeFi 분석",
+            "en": "Web3 AI agent mesh, blockchain analysis, security audits, token metrics, DeFi analytics"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "getAlby",
+          "repo": "mcp",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "비트코인 라이트닝 지갑 MCP, Nostr Wallet Connect로 결제 송수신",
+            "en": "Bitcoin Lightning wallet MCP, send and receive payments via Nostr Wallet Connect"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "truss44",
+          "repo": "mcp-crypto-price",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "CoinCap API를 통한 실시간 암호화폐 가격 분석",
+            "en": "Real-time crypto price analysis via CoinCap API"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "coinpaprika",
+          "repo": "dexpaprika-mcp",
+          "type": "Official",
+          "addedDate": "2025-10-01",
+          "description": {
+            "ko": "DEX 데이터 MCP, 20개 이상 체인에서 실시간 가격, 유동성 풀, OHLCV",
+            "en": "DEX data MCP, real-time prices, liquidity pools, OHLCV across 20+ chains"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "noditlabs",
+          "repo": "nodit-mcp-server",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Nodit Web3 Data API MCP, AI 에이전트를 위한 멀티체인 블록체인 데이터 접근",
+            "en": "Nodit Web3 Data API MCP, multi-chain blockchain data access for AI agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "MoralisWeb3",
+          "repo": "moralis-mcp-server",
+          "type": "Official",
+          "addedDate": "2025-10-01",
+          "description": {
+            "ko": "Moralis Web3 API MCP, NFT, 토큰, DeFi 등 멀티 네트워크 블록체인 데이터 조회",
+            "en": "Moralis Web3 API MCP, query blockchain data across multiple networks including NFTs, tokens, and DeFi"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "mcp-smart-contract",
+      "group": "claude-code-native",
+      "title": {
+        "ko": "MCP 서버 — 스마트 컨트랙트 & DeFi",
+        "en": "MCP Servers — Smart Contract & DeFi"
+      },
+      "description": {
+        "ko": "스마트 컨트랙트 분석, 디컴파일, DeFi 프로토콜 접근.",
+        "en": "Smart contract analysis, decompilation, and DeFi protocol access."
+      },
+      "repos": [
+        {
+          "owner": "PraneshASP",
+          "repo": "foundry-mcp-server",
+          "type": "Community",
+          "addedDate": "2026-01-01",
+          "description": {
+            "ko": "Foundry용 MCP 서버, AI 에이전트를 통한 Solidity 컨트랙트 컴파일/테스트/배포",
+            "en": "MCP server for Foundry, compile/test/deploy Solidity contracts via AI agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "debridge-finance",
+          "repo": "debridge-mcp",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "deBridge 프로토콜을 통한 크로스체인 스왑 및 전송을 AI 에이전트에서 실행",
+            "en": "Cross-chain swaps and transfers via deBridge protocol for AI agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "nirholas",
+          "repo": "UCAI",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "범용 컨트랙트 AI 인터페이스, 모든 스마트 컨트랙트용 ABI-to-MCP 서버 생성기",
+            "en": "Universal Contract AI Interface, ABI-to-MCP server generator for any smart contract"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "thirdweb-dev",
+          "repo": "ai",
+          "type": "Official",
+          "addedDate": "2025-06-01",
+          "description": {
+            "ko": "AI 에이전트용 올인원 Web3 SDK (지갑, AA, RPC)",
+            "en": "All-in-one Web3 SDK (wallets, AA, RPC) for AI agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-tools",
+      "group": "compatible-tools",
+      "title": {
+        "ko": "스마트 컨트랙트 개발 도구",
+        "en": "Smart Contract Development Tools"
+      },
+      "description": {
+        "ko": "Claude Code가 Bash를 통해 직접 실행 가능한 핵심 CLI 도구.",
+        "en": "Core CLI tools directly executable by Claude Code via Bash."
+      },
+      "repos": [
+        {
+          "owner": "OpenZeppelin",
+          "repo": "openzeppelin-contracts",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "표준 라이브러리, 모든 컨트랙트를 위한 임포트 패턴 및 보안 프리미티브",
+            "en": "The standard library, import patterns and security primitives for any contract"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "foundry-rs",
+          "repo": "foundry",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "CLI 네이티브 툴킷, `forge test`, `cast call`을 에이전트가 직접 실행 가능",
+            "en": "CLI-native toolkit, `forge test`, `cast call` are directly executable by agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "NomicFoundation",
+          "repo": "hardhat",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Ethereum 개발 환경, 컴파일/배포/테스트/디버그, `npx hardhat test` 에이전트 직접 실행 가능",
+            "en": "Ethereum development environment, compile/deploy/test/debug, `npx hardhat test` directly executable by agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "crytic",
+          "repo": "slither",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "정적 분석, Claude Code에서 `slither .` 실행 후 취약점 분석 및 수정",
+            "en": "Static analysis, run `slither .` in Claude Code, analyze and fix vulnerabilities"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "ConsenSysDiligence",
+          "repo": "mythril",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "심볼릭 실행 분석기, `myth analyze` 실행으로 취약점 탐지",
+            "en": "Symbolic execution analyzer, run `myth analyze` to detect vulnerabilities"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "crytic",
+          "repo": "echidna",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "속성 기반 퍼징, 불변성 테스트 작성, echidna 실행, 결과 분석",
+            "en": "Property-based fuzzing, write invariant tests, run echidna, analyze results"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "protofire",
+          "repo": "solhint",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Solidity 린터, 스타일 및 보안 규칙 적용, `solhint .` 에이전트 직접 실행 가능",
+            "en": "Solidity linter, enforce style and security rules, `solhint .` directly executable by agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "sc-forks",
+          "repo": "solidity-coverage",
+          "type": "Community",
+          "addedDate": "2025-12-01",
+          "description": {
+            "ko": "Solidity 테스트 코드 커버리지, 미테스트 컨트랙트 경로 식별",
+            "en": "Code coverage for Solidity tests, identify untested contract paths"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "a16z",
+          "repo": "halmos",
+          "type": "Official",
+          "addedDate": "2025-08-01",
+          "description": {
+            "ko": "EVM 스마트 컨트랙트 심볼릭 테스팅, CLI 기반 정형 검증",
+            "en": "Symbolic testing for EVM smart contracts, formal verification via CLI"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "Cyfrin",
+          "repo": "aderyn",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Rust 기반 Solidity 정적 분석기, Slither 보완용",
+            "en": "Rust-based Solidity static analyzer, complementary to Slither"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "crytic",
+          "repo": "medusa",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "병렬 커버리지 기반 Solidity 퍼저, Echidna보다 빠른 대안",
+            "en": "Parallelized coverage-guided Solidity fuzzer, faster alternative to Echidna"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "group": "compatible-tools",
+      "title": {
+        "ko": "AI 에이전트 프레임워크 — 온체인",
+        "en": "AI Agent Frameworks — Onchain"
+      },
+      "description": {
+        "ko": "온체인 트랜잭션을 자율적으로 실행하는 AI 에이전트 프레임워크.",
+        "en": "Frameworks for AI agents that autonomously execute onchain transactions."
+      },
+      "repos": [
+        {
+          "owner": "elizaOS",
+          "repo": "eliza",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "자율 AI 에이전트, 토큰 스왑, NFT 민팅, 온체인 tx (플러그인 시스템)",
+            "en": "Autonomous AI agent, token swaps, NFT minting, onchain txs with plugin system"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "sendaifun",
+          "repo": "solana-agent-kit",
+          "type": "Community",
+          "addedDate": "2026-01-01",
+          "description": {
+            "ko": "솔라나 AI 에이전트 프레임워크, 모든 AI 에이전트를 솔라나 프로토콜에 연결",
+            "en": "Solana AI agent framework, connect any AI agent to Solana protocols"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "coinbase",
+          "repo": "agentkit",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "\"모든 AI 에이전트에게는 지갑이 필요합니다.\" ERC-4337 계정 추상화",
+            "en": "\"Every AI Agent deserves a wallet.\" ERC-4337 account abstraction"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "piotrostr",
+          "repo": "listen",
+          "type": "Community",
+          "addedDate": "2025-11-01",
+          "description": {
+            "ko": "DeFAI 스위스 아미 나이프, Solana 및 EVM용 AI 기반 DeFi 에이전트 툴킷",
+            "en": "DeFAI Swiss Army Knife, AI-powered DeFi agent toolkit for Solana and EVM"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "goat-sdk",
+          "repo": "goat",
+          "type": "Community",
+          "addedDate": "2026-01-01",
+          "description": {
+            "ko": "에이전틱 금융 툴킷, LLM 에이전트를 DeFi 프로토콜에 크로스체인 연결",
+            "en": "Agentic finance toolkit, connect LLM agents to DeFi protocols across chains"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning",
+      "group": "compatible-tools",
+      "title": {
+        "ko": "학습 & 레퍼런스",
+        "en": "Learning & Reference"
+      },
+      "description": {
+        "ko": "AI 코딩 에이전트를 활용한 Web3 개발 학습 자료.",
+        "en": "Resources for learning Web3 development with AI coding agents."
+      },
+      "repos": [
+        {
+          "owner": "punkpeye",
+          "repo": "awesome-mcp-servers",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "MCP 서버 메가 목록, 새로운 Web3 MCP 서버 탐색 시작점",
+            "en": "MCP server mega-list, starting point for discovering new Web3 MCP servers"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "ethereumbook",
+          "repo": "ethereumbook",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "\"Mastering Ethereum\" 오픈소스 도서, AI 에이전트를 위한 포괄적 Ethereum/EVM 레퍼런스",
+            "en": "\"Mastering Ethereum\" open-source book, comprehensive Ethereum/EVM reference for AI agents"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "Cyfrin",
+          "repo": "foundry-full-course-cu",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Foundry 전체 과정, Claude Code를 활용한 Solidity 개발 학습 레퍼런스",
+            "en": "Foundry full course, learning reference for Solidity dev with Claude Code"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "OpenZeppelin",
+          "repo": "ethernaut",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "보안 CTF, Claude Code로 풀면서 스마트 컨트랙트 보안 패턴 학습",
+            "en": "Security CTF, learn smart contract security patterns by solving with Claude Code"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "scaffold-eth",
+          "repo": "scaffold-eth-2",
+          "type": "Community",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "Next.js + Foundry/Hardhat 기반 포크 가능한 dApp 개발 스택, 빠른 프로토타이핑용",
+            "en": "Forkable dApp dev stack with Next.js + Foundry/Hardhat for rapid prototyping"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "solana-foundation",
+          "repo": "awesome-solana-ai",
+          "type": "Official",
+          "addedDate": "2026-02-01",
+          "description": {
+            "ko": "솔라나 재단의 Solana 빌드를 위한 AI 툴링 큐레이션 목록",
+            "en": "Solana Foundation's curated list of AI tooling for building on Solana"
+          },
+          "status": "active",
+          "health": {
+            "stars": 0,
+            "starsPrev": 0,
+            "archived": false,
+            "lastPush": null,
+            "exists": true
+          }
+        }
+      ]
+    }
+  ]
+}

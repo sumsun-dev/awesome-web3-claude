@@ -1,0 +1,183 @@
+name: Update README
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        type: choice
+        options:
+          - add
+          - remove
+      owner:
+        description: 'Repository owner'
+        required: true
+        type: string
+      repo:
+        description: 'Repository name'
+        required: true
+        type: string
+      sectionId:
+        description: 'Target section ID (for add action)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Modify repos.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTION: ${{ inputs.action }}
+          REPO_OWNER: ${{ inputs.owner }}
+          REPO_NAME: ${{ inputs.repo }}
+          SECTION_ID: ${{ inputs.sectionId }}
+        run: |
+          node -e "
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { Octokit } from '@octokit/rest';
+
+          const data = JSON.parse(readFileSync('data/repos.json', 'utf-8'));
+          const action = process.env.ACTION;
+          const owner = process.env.REPO_OWNER;
+          const repo = process.env.REPO_NAME;
+          const sectionId = process.env.SECTION_ID;
+          const fullName = owner + '/' + repo;
+
+          if (action === 'add') {
+            const section = data.sections.find(s => s.id === sectionId);
+            if (!section) { console.error('Section not found:', sectionId); process.exit(1); }
+
+            // Check duplicate
+            if (section.repos.some(r => r.owner === owner && r.repo === repo)) {
+              console.log('Already exists:', fullName);
+              process.exit(0);
+            }
+
+            // Fetch repo info
+            const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+            const { data: ghRepo } = await octokit.rest.repos.get({ owner, repo });
+
+            const desc = ghRepo.description || '';
+            section.repos.push({
+              owner,
+              repo,
+              type: 'Community',
+              addedDate: new Date().toISOString().slice(0, 10),
+              description: { ko: desc, en: desc },
+              status: 'active',
+              health: {
+                stars: ghRepo.stargazers_count,
+                starsPrev: ghRepo.stargazers_count,
+                archived: ghRepo.archived,
+                lastPush: ghRepo.pushed_at,
+                exists: true,
+              },
+            });
+            console.log('Added:', fullName, 'to', sectionId);
+
+          } else if (action === 'remove') {
+            let removed = false;
+            for (const section of data.sections) {
+              const idx = section.repos.findIndex(r => r.owner === owner && r.repo === repo);
+              if (idx !== -1) {
+                section.repos.splice(idx, 1);
+                removed = true;
+                console.log('Removed:', fullName, 'from', section.id);
+                break;
+              }
+            }
+            if (!removed) { console.log('Not found:', fullName); process.exit(0); }
+          }
+
+          data.metadata.lastUpdated = new Date().toISOString();
+          data.metadata.totalEntries = data.sections.reduce((s, sec) => s + sec.repos.length, 0);
+          writeFileSync('data/repos.json', JSON.stringify(data, null, 2) + '\n');
+          " --input-type=module
+
+      - name: Generate README files
+        run: node scripts/generate-readme.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/repos.json README.md README_EN.md
+          git diff --staged --quiet && echo "No changes" && exit 0
+          ACTION="${{ inputs.action }}"
+          FULLNAME="${{ inputs.owner }}/${{ inputs.repo }}"
+          if [ "$ACTION" = "add" ]; then
+            git commit -m "feat: add ${FULLNAME}"
+          else
+            git commit -m "chore: remove ${FULLNAME}"
+          fi
+          git push
+
+      - name: Notify public channel
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ACTION: ${{ inputs.action }}
+          REPO_OWNER: ${{ inputs.owner }}
+          REPO_NAME: ${{ inputs.repo }}
+          SECTION_ID: ${{ inputs.sectionId }}
+        run: |
+          node -e "
+          const token = process.env.TELEGRAM_BOT_TOKEN;
+          const channelId = process.env.TELEGRAM_CHANNEL_ID;
+          const chatId = process.env.TELEGRAM_CHAT_ID;
+          const action = process.env.ACTION;
+          const fullName = process.env.REPO_OWNER + '/' + process.env.REPO_NAME;
+          const section = process.env.SECTION_ID || '';
+
+          // Read stars from repos.json
+          const fs = await import('node:fs');
+          let stars = '';
+          try {
+            const data = JSON.parse(fs.readFileSync('data/repos.json', 'utf-8'));
+            for (const s of data.sections) {
+              const r = s.repos.find(r => r.owner === process.env.REPO_OWNER && r.repo === process.env.REPO_NAME);
+              if (r) { stars = r.health.stars; break; }
+            }
+          } catch {}
+
+          let msg;
+          if (action === 'add') {
+            msg = '🆕 Added: ' + fullName + (stars ? ' (⭐ ' + stars + ')' : '') + (section ? ' #' + section : '');
+          } else {
+            msg = '🗑 Removed: ' + fullName;
+          }
+
+          // Post to public channel
+          if (channelId) {
+            await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ chat_id: channelId, text: msg }),
+            });
+          }
+
+          // Notify admin DM
+          if (chatId) {
+            await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ chat_id: chatId, text: '✅ ' + msg + ' — 완료' }),
+            });
+          }
+          " --input-type=module

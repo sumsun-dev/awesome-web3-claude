@@ -1,0 +1,21 @@
+{
+  "name": "awesome-web3-claude",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Semi-automated curation system for awesome-web3-claude",
+  "scripts": {
+    "migrate": "node scripts/migrate-readme.mjs",
+    "generate": "node scripts/generate-readme.mjs",
+    "discover": "node scripts/discover.mjs",
+    "notify": "node scripts/notify-telegram.mjs",
+    "webhook": "node scripts/telegram-webhook.mjs"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.0",
+    "express": "^4.21.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

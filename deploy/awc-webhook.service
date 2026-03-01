@@ -1,0 +1,17 @@
+[Unit]
+Description=AWC Telegram Webhook Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/awc-webhook
+ExecStart=/usr/bin/node telegram-webhook.mjs
+EnvironmentFile=/root/awc-webhook/.env
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,40 @@
+name: Daily Discover
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # 09:00 UTC = 18:00 KST
+  workflow_dispatch: # 수동 실행
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Run discovery
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/discover.mjs
+
+      - name: Send Telegram notifications
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/notify-telegram.mjs
+
+      - name: Upload discover results
+        uses: actions/upload-artifact@v4
+        with:
+          name: discover-results
+          path: data/discover-results.json
+          retention-days: 7
