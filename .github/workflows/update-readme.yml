@@ -10,6 +10,8 @@ on:
         options:
           - add
           - remove
+          - skip
+          - keep
       owner:
         description: 'Repository owner'
         required: true
@@ -109,6 +111,22 @@ jobs:
               }
             }
             if (!removed) { console.log('Not found:', fullName); process.exit(0); }
+
+          } else if (action === 'skip' || action === 'keep') {
+            // Record decision in skipped.json (7-day cooldown)
+            let skipped;
+            try {
+              skipped = JSON.parse(readFileSync('data/skipped.json', 'utf-8'));
+            } catch { skipped = { skippedRepos: {} }; }
+
+            skipped.skippedRepos[fullName.toLowerCase()] = {
+              action,
+              skippedAt: new Date().toISOString(),
+              reason: action === 'skip' ? 'User skipped candidate' : 'User kept existing repo',
+            };
+            writeFileSync('data/skipped.json', JSON.stringify(skipped, null, 2) + '\n');
+            console.log(action === 'skip' ? 'Skipped:' : 'Kept:', fullName, '(7-day cooldown)');
+            process.exit(0);
           }
 
           data.metadata.lastUpdated = new Date().toISOString();
@@ -117,24 +135,30 @@ jobs:
           " --input-type=module
 
       - name: Generate README files
+        if: inputs.action == 'add' || inputs.action == 'remove'
         run: node scripts/generate-readme.mjs
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/repos.json README.md README_EN.md
+          git add data/repos.json data/skipped.json README.md README_EN.md
           git diff --staged --quiet && echo "No changes" && exit 0
           ACTION="${{ inputs.action }}"
           FULLNAME="${{ inputs.owner }}/${{ inputs.repo }}"
           if [ "$ACTION" = "add" ]; then
             git commit -m "feat: add ${FULLNAME}"
-          else
+          elif [ "$ACTION" = "remove" ]; then
             git commit -m "chore: remove ${FULLNAME}"
+          elif [ "$ACTION" = "skip" ]; then
+            git commit -m "chore: skip ${FULLNAME} (7-day cooldown)"
+          elif [ "$ACTION" = "keep" ]; then
+            git commit -m "chore: keep ${FULLNAME} (7-day cooldown)"
           fi
           git push
 
       - name: Notify public channel
+        if: inputs.action == 'add' || inputs.action == 'remove'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}

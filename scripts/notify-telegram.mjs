@@ -196,10 +196,10 @@ async function notifyCandidates(candidates) {
     `각 후보의 상세 분석을 확인하고 버튼으로 결정하세요.`,
   );
 
-  // 강력추천 → 추천 → 검토필요 → 스킵 순으로 전송
-  const ordered = [...strong, ...add, ...neutral, ...skip];
+  // strong_add + add만 인라인 키보드로 전송
+  const actionable = [...strong, ...add];
 
-  for (const c of ordered) {
+  for (const c of actionable) {
     const text = buildCandidateMessage(c);
 
     const keyboard = {
@@ -211,6 +211,20 @@ async function notifyCandidates(candidates) {
 
     await sendMessage(CHAT_ID, text, keyboard);
     await new Promise(r => setTimeout(r, 300));
+  }
+
+  // neutral은 요약만 전송 (버튼 없음)
+  if (neutral.length > 0) {
+    const neutralList = neutral.map(c =>
+      `• <a href="${c.url}">${c.fullName}</a> (⭐${c.stars}) — ${escapeHtml((c.description || '').slice(0, 60))}`
+    ).join('\n');
+    await sendMessage(CHAT_ID,
+      `🟡 <b>검토 필요 ${neutral.length}개</b> (자동 스킵, 관심 시 수동 추가)\n\n${neutralList}`);
+  }
+
+  // skip은 자동 스킵 처리 (알림 없음)
+  if (skip.length > 0) {
+    console.log(`Auto-skipped ${skip.length} repos: ${skip.map(c => c.fullName).join(', ')}`);
   }
 }
 

@@ -276,16 +276,24 @@ function assessClaudeCompat(c) {
 
 /**
  * 추천 등급: strong_add, add, neutral, skip
+ *
+ * 강화된 기준:
+ * - strong_add: 신뢰도 4+, Claude Code/MCP 직접 호환, stars 30+
+ * - add: 신뢰도 3+, 직접 호환, stars 15+
+ * - neutral: 신뢰도 2+ AND 직접 호환 (하나만으로는 부족)
+ * - skip: 나머지
  */
 function calcRecommendation(c) {
   const trust = c.trustScore;
   const compat = c.claudeCompat || [];
   const hasDirect = compat.some(x =>
+    x.includes('MCP 서버') || x.includes('SKILL') || x.includes('Claude Code'));
+  const hasAny = compat.some(x =>
     x.includes('MCP') || x.includes('SKILL') || x.includes('Claude Code'));
 
-  if (trust >= 3.5 && hasDirect) return 'strong_add';
-  if (trust >= 2.5 && hasDirect) return 'add';
-  if (trust >= 2 || hasDirect) return 'neutral';
+  if (trust >= 4 && hasDirect && c.stars >= 30) return 'strong_add';
+  if (trust >= 3 && hasDirect && c.stars >= 15) return 'add';
+  if (trust >= 2 && hasAny) return 'neutral';
   return 'skip';
 }
 
@@ -314,11 +322,11 @@ function loadExisting() {
     skippedData = { skippedRepos: {} };
   }
 
-  // Clean expired skipped entries (30 days)
+  // Clean expired skipped entries (7 days)
   const now = Date.now();
   const cleaned = {};
   for (const [key, val] of Object.entries(skippedData.skippedRepos)) {
-    if (now - new Date(val.skippedAt).getTime() < 30 * 24 * 60 * 60 * 1000) {
+    if (now - new Date(val.skippedAt).getTime() < 7 * 24 * 60 * 60 * 1000) {
       cleaned[key] = val;
     }
   }
@@ -391,7 +399,7 @@ async function searchNewRepos(existing, skipped) {
     web3Score: calcWeb3Score(c),
   }));
 
-  const filtered = scored.filter(c => c.web3Score >= 10);
+  const filtered = scored.filter(c => c.web3Score >= 20);
   const rejected = scored.length - filtered.length;
   console.log(`Web3 relevance filter: ${filtered.length} passed, ${rejected} rejected`);
 
@@ -420,12 +428,18 @@ async function enrichCandidates(candidates) {
 /**
  * Health check existing repos
  */
-async function healthCheckExisting(reposData) {
+async function healthCheckExisting(reposData, skipped) {
   const issues = [];
   let checked = 0;
 
   for (const section of reposData.sections) {
     for (const repo of section.repos) {
+      // Skip repos that were recently "kept" (7-day cooldown)
+      const fullNameLower = `${repo.owner}/${repo.repo}`.toLowerCase();
+      if (skipped.has(fullNameLower)) {
+        checked++;
+        continue;
+      }
       try {
         const { data } = await octokit.rest.repos.get({
           owner: repo.owner,
@@ -532,12 +546,12 @@ async function main() {
   }
 
   // 2. Enrich top candidates with README excerpt
-  const topCandidates = candidates.slice(0, 15);
+  const topCandidates = candidates.slice(0, 10);
   await enrichCandidates(topCandidates);
 
   // 3. Health check existing repos
   console.log('\n--- Health checking existing repos ---');
-  const issues = await healthCheckExisting(reposData);
+  const issues = await healthCheckExisting(reposData, skipped);
 
   // 4. Save updated repos.json
   reposData.metadata.lastUpdated = new Date().toISOString();

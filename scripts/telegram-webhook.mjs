@@ -209,17 +209,23 @@ app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
         break;
       }
       case 'skip': {
-        await answerCallback(callback_query.id, '❌ 스킵됨');
+        await answerCallback(callback_query.id, '❌ 스킵 (7일간 재추천 안 함)');
+        if (!parsed.isHash && parsed.owner && parsed.repo) {
+          await triggerWorkflow('skip', parsed.owner, parsed.repo, parsed.sectionId);
+        }
         await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n❌ <b>스킵됨</b>');
-        console.log(`[SKIP] ${callbackData}`);
+          callback_query.message.text + '\n\n❌ <b>스킵됨</b> (7일 후 재추천 가능)');
+        console.log(`[SKIP] ${parsed.owner}/${parsed.repo}`);
         break;
       }
       case 'keep': {
-        await answerCallback(callback_query.id, '👍 유지');
+        await answerCallback(callback_query.id, '👍 유지 (7일간 재알림 안 함)');
+        if (!parsed.isHash && parsed.owner && parsed.repo) {
+          await triggerWorkflow('keep', parsed.owner, parsed.repo, parsed.sectionId);
+        }
         await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n👍 <b>유지됨</b>');
-        console.log(`[KEEP] ${callbackData}`);
+          callback_query.message.text + '\n\n👍 <b>유지됨</b> (7일 후 재검토 가능)');
+        console.log(`[KEEP] ${parsed.owner}/${parsed.repo}`);
         break;
       }
       default:
