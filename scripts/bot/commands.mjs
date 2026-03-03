@@ -41,6 +41,10 @@ export async function routeCommand(chatId, text) {
       return handleMove(chatId, arg);
     case '/edit':
       return handleEdit(chatId, arg);
+    case '/skills': {
+      const { handleSkills } = await import('./approve-publish.mjs');
+      return handleSkills(chatId, arg);
+    }
     default:
       return sendMessage(chatId, `알 수 없는 명령어입니다. /help 로 사용 가능한 명령어를 확인하세요.`);
   }
@@ -69,6 +73,7 @@ async function handleHelp(chatId) {
 /remove &lt;owner/repo&gt; — 레포 삭제
 /move &lt;owner/repo&gt; — 섹션 이동
 /edit &lt;owner/repo&gt; — 설명 수정
+/skills &lt;owner/repo&gt; — 스킬 선별 발행
 
 <b>섹션 ID 목록</b>
 ${sectionList}`;
@@ -481,7 +486,7 @@ async function handleEdit(chatId, input) {
  * Parse "owner/repo" or "https://github.com/owner/repo" input
  * Returns { owner, repo } or null
  */
-function parseRepoInput(input) {
+export function parseRepoInput(input) {
   let owner, repo;
 
   // GitHub URL

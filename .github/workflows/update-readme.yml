@@ -254,12 +254,14 @@ jobs:
           git pull --rebase origin main
           git push
 
-      - name: Notify public channel
+      - name: Notify and approve
         if: inputs.action == 'add' || inputs.action == 'remove' || inputs.action == 'move' || inputs.action == 'update-desc' || inputs.action == 'update-skills'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          VPS_API_URL: ${{ secrets.VPS_API_URL }}
+          VPS_API_SECRET: ${{ secrets.VPS_API_SECRET }}
           ACTION: ${{ inputs.action }}
           REPO_OWNER: ${{ inputs.owner }}
           REPO_NAME: ${{ inputs.repo }}
@@ -280,61 +282,96 @@ jobs:
           const section = process.env.SECTION_ID || '';
           const descKo = process.env.DESCRIPTION_KO || '';
 
-          // Read stars and description from repos.json
+          const telegramUrl = 'https://api.telegram.org/bot' + token;
+          const sendTelegram = async (to, text, replyMarkup) => {
+            const body = { chat_id: to, text };
+            if (replyMarkup) body.reply_markup = JSON.stringify(replyMarkup);
+            await fetch(telegramUrl + '/sendMessage', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(body),
+            });
+          };
+
+          // Read repo data from repos.json
           const fs = await import('node:fs');
           let stars = '';
           let desc = descKo;
+          let skills = null;
+          let skillCount = 0;
           try {
             const data = JSON.parse(fs.readFileSync('data/repos.json', 'utf-8'));
             for (const s of data.sections) {
-              const r = s.repos.find(r => r.owner === process.env.REPO_OWNER && r.repo === process.env.REPO_NAME);
-              if (r) { stars = r.health.stars; if (!desc) desc = r.description?.ko || ''; break; }
+              const r = s.repos.find(r => r.owner === owner && r.repo === repoName);
+              if (r) {
+                stars = r.health?.stars || '';
+                if (!desc) desc = r.description?.ko || '';
+                if (r.skills && r.skills.length > 0) { skills = r.skills; skillCount = r.skills.length; }
+                break;
+              }
             }
           } catch {}
 
-          let msg;
           if (action === 'add') {
-            msg = '🆕 Added: ' + fullName + (stars ? ' (⭐ ' + stars + ')' : '') + (section ? ' #' + section : '') + (desc ? '\\n📝 ' + desc : '');
-          } else if (action === 'remove') {
-            msg = '🗑 Removed: ' + fullName;
-          } else if (action === 'move') {
-            const fromSec = process.env.FROM_SECTION_ID || '';
-            msg = '🔄 Moved: ' + fullName + (fromSec ? ' ' + fromSec + ' → ' : ' → ') + (section || '?');
-          } else if (action === 'update-desc') {
-            msg = '✏️ Updated: ' + fullName + (desc ? '\\n📝 ' + desc : '');
-          } else if (action === 'update-skills') {
-            // Read skill count from repos.json
-            let skillCount = 0;
-            try {
-              const data2 = JSON.parse(fs.readFileSync('data/repos.json', 'utf-8'));
-              for (const s2 of data2.sections) {
-                const r2 = s2.repos.find(r => r.owner === owner && r.repo === repoName);
-                if (r2 && r2.skills) { skillCount = r2.skills.length; break; }
+            // --- ADD: VPS approval flow (no channel auto-send) ---
+            const vpsUrl = process.env.VPS_API_URL;
+            const vpsSecret = process.env.VPS_API_SECRET;
+
+            if (vpsUrl && vpsSecret) {
+              const approveUrl = vpsUrl.replace('/api/describe', '/api/approve');
+              const repoData = { owner, repo: repoName, sectionId: section, descriptionKo: desc, stars, skills, skillCount };
+
+              try {
+                const resp = await fetch(approveUrl, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + vpsSecret },
+                  body: JSON.stringify(repoData),
+                });
+                if (!resp.ok) throw new Error('VPS ' + resp.status);
+              } catch (err) {
+                console.log('VPS approve failed:', err.message, '— sending fallback DM button');
+                if (chatId) {
+                  await sendTelegram(chatId, '⚠️ VPS 연결 실패 — 수동 채널 발행 버튼', {
+                    inline_keyboard: [[{ text: '채널 발행', callback_data: 'ap:' + fullName }]],
+                  });
+                }
               }
-            } catch {}
-            msg = '🔄 Skills updated: ' + fullName + ' (' + skillCount + ' skills)';
+            } else if (chatId) {
+              // No VPS configured — fallback button
+              await sendTelegram(chatId, '⚠️ VPS 미설정 — 수동 채널 발행', {
+                inline_keyboard: [[{ text: '채널 발행', callback_data: 'ap:' + fullName }]],
+              });
+            }
+
+            // Admin DM notification
+            if (chatId) {
+              await sendTelegram(chatId, '✅ ' + fullName + ' 추가 완료 — 채널 메시지 승인 대기');
+            }
+
           } else {
-            process.exit(0);
-          }
+            // --- REMOVE/MOVE/UPDATE-DESC/UPDATE-SKILLS: direct channel send (admin already triggered) ---
+            let msg;
+            if (action === 'remove') {
+              msg = '🗑 Removed: ' + fullName;
+            } else if (action === 'move') {
+              const fromSec = process.env.FROM_SECTION_ID || '';
+              msg = '🔄 Moved: ' + fullName + (fromSec ? ' ' + fromSec + ' → ' : ' → ') + (section || '?');
+            } else if (action === 'update-desc') {
+              msg = '✏️ Updated: ' + fullName + (desc ? '\\n📝 ' + desc : '');
+            } else if (action === 'update-skills') {
+              msg = '🔄 Skills updated: ' + fullName + ' (' + skillCount + ' skills)';
+            } else {
+              process.exit(0);
+            }
 
-          const repoUrl = 'https://github.com/' + (process.env.GITHUB_REPOSITORY || 'sumsun-dev/awesome-web3-claude');
-          msg += '\\n\\n⭐ ' + repoUrl;
+            const repoUrl = 'https://github.com/' + (process.env.GITHUB_REPOSITORY || 'sumsun-dev/awesome-web3-claude');
+            msg += '\\n\\n⭐ ' + repoUrl;
 
-          // Post to public channel
-          if (channelId) {
-            await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ chat_id: channelId, text: msg }),
-            });
-          }
-
-          // Notify admin DM
-          if (chatId) {
-            await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ chat_id: chatId, text: '✅ ' + msg + ' — 완료' }),
-            });
+            if (channelId) {
+              await sendTelegram(channelId, msg);
+            }
+            if (chatId) {
+              await sendTelegram(chatId, '✅ ' + msg + ' — 완료');
+            }
           }
           " --input-type=module

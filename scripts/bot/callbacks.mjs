@@ -7,8 +7,16 @@ import { SECTION_LABELS } from '../config.mjs';
 import { answerCallback, editMessage, sendMessage, sendChatAction, escapeHtml } from './telegram-api.mjs';
 import { getSession, setSession, clearSession } from './state.mjs';
 import { sendSectionDetail } from './commands.mjs';
+import { handleApproveCallback } from './approve-publish.mjs';
 
 const VALID_GITHUB_NAME = /^[a-zA-Z0-9_.-]+$/;
+const APPROVE_CALLBACKS = new Set(['ape', 'apr', 'apb', 'apc', 'psa', 'psn', 'pss']);
+const APPROVE_PREFIXES = ['ap:', 'pst:', 'psp:'];
+
+function isApproveCallback(data) {
+  return APPROVE_CALLBACKS.has(data)
+    || APPROVE_PREFIXES.some(p => data.startsWith(p));
+}
 
 /**
  * Route callback_query to appropriate handler
@@ -17,6 +25,11 @@ const VALID_GITHUB_NAME = /^[a-zA-Z0-9_.-]+$/;
  */
 export async function routeCallback(callbackQuery, deps) {
   const data = callbackQuery.data;
+
+  // approve-publish callbacks: ap:, ape, apr, apb, apc, pst:, psp:, psa, psn, pss
+  if (isApproveCallback(data)) {
+    return handleApproveCallback(callbackQuery);
+  }
 
   if (data.startsWith('cmd_')) {
     return handleCommandCallback(callbackQuery, deps);

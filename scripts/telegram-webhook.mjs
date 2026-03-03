@@ -9,7 +9,9 @@ import rateLimit from 'express-rate-limit';
 import { spawn } from 'node:child_process';
 import { routeCommand } from './bot/commands.mjs';
 import { routeCallback } from './bot/callbacks.mjs';
-import { answerCallback } from './bot/telegram-api.mjs';
+import { answerCallback, sendMessage } from './bot/telegram-api.mjs';
+import { initApproveFlow, handleApproveTextEdit } from './bot/approve-publish.mjs';
+import { getSession } from './bot/state.mjs';
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -151,7 +153,8 @@ function extractDescriptionKo(text) {
 }
 
 // Dependencies injected into callback handlers
-const deps = { triggerWorkflow, generateKoDescription, extractDescriptionKo };
+import { fetchReposJson } from './bot/repos-reader.mjs';
+const deps = { triggerWorkflow, generateKoDescription, extractDescriptionKo, fetchReposJson };
 
 // ---------------------------------------------------------------------------
 // Webhook endpoint
@@ -182,8 +185,19 @@ app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
   try {
     if (update.callback_query) {
       await routeCallback(update.callback_query, deps);
-    } else if (update.message?.text?.startsWith('/')) {
-      await routeCommand(update.message.chat.id, update.message.text);
+    } else if (update.message?.text) {
+      const chatId = update.message.chat.id;
+      const text = update.message.text;
+
+      if (text.startsWith('/')) {
+        await routeCommand(chatId, text);
+      } else {
+        // Route plain text to active edit-text session
+        const session = getSession(chatId);
+        if (session?.command === 'approve-publish' && session?.step === 'edit-text') {
+          await handleApproveTextEdit(chatId, text);
+        }
+      }
     }
   } catch (err) {
     console.error(`Webhook error: ${err.message}`);
@@ -216,6 +230,38 @@ app.post('/api/describe', async (req, res) => {
   }
 });
 
+// ---------------------------------------------------------------------------
+// /api/approve — Trigger channel message approval flow (called by GitHub Actions)
+// ---------------------------------------------------------------------------
+
+app.post('/api/approve', async (req, res) => {
+  if (!API_SECRET || req.headers.authorization !== `Bearer ${API_SECRET}`) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const { owner, repo, sectionId, descriptionKo, stars, skills, skillCount } = req.body;
+  if (!owner || !repo) {
+    return res.status(400).json({ error: 'owner and repo are required' });
+  }
+  if (!VALID_GITHUB_NAME.test(owner) || !VALID_GITHUB_NAME.test(repo)) {
+    return res.status(400).json({ error: 'Invalid owner or repo name' });
+  }
+
+  res.json({ ok: true });
+
+  // Async: run approval flow in background
+  initApproveFlow(String(CHAT_ID), {
+    owner, repo, sectionId, descriptionKo, stars,
+    skills: skills || null,
+    skillCount: skillCount || 0,
+  }).catch(err => {
+    console.error(`[API] /api/approve error: ${err.message}`);
+    sendMessage(String(CHAT_ID),
+      `\u274C \uC2B9\uC778 \uD50C\uB85C\uC6B0 \uC624\uB958: ${owner}/${repo}\n${err.message}`
+    ).catch(() => {});
+  });
+});
+
 // Health check (localhost only)
 app.get('/health', (req, res) => {
   const ip = req.ip || req.socket.remoteAddress;
@@ -229,5 +275,5 @@ app.listen(PORT, () => {
   console.log(`AWC Webhook server running on port ${PORT}`);
   console.log(`Webhook: configured (token redacted)`);
   console.log(`Health: http://localhost:${PORT}/health`);
-  console.log(`Bot commands: /help, /list, /stats, /section, /search, /find, /add, /remove, /move, /edit`);
+  console.log(`Bot commands: /help, /list, /stats, /section, /search, /find, /add, /remove, /move, /edit, /skills`);
 });
