@@ -29,6 +29,11 @@
       "action": "skip",
       "skippedAt": "2026-03-03T09:41:33.100Z",
       "reason": "User skipped candidate"
+    },
+    "rudazy/web3-mcp-hub": {
+      "action": "skip",
+      "skippedAt": "2026-03-03T09:41:48.304Z",
+      "reason": "User skipped candidate"
     }
   }
 }
