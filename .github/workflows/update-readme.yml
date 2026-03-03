@@ -270,6 +270,9 @@ jobs:
             process.exit(0);
           }
 
+          const repoUrl = 'https://github.com/' + (process.env.GITHUB_REPOSITORY || 'sumsun-dev/awesome-web3-claude');
+          msg += '\\n\\n⭐ ' + repoUrl;
+
           // Post to public channel
           if (channelId) {
             await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
