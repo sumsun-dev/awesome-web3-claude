@@ -45,66 +45,66 @@
 
 | 스킬 | 설명 |
 |:-----|:------------|
-| [agentic-actions-auditor](https://github.com/trailofbits/skills/tree/main/plugins/agentic-actions-auditor/skills/agentic-actions-auditor) | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. |
-| [ask-questions-if-underspecified](https://github.com/trailofbits/skills/tree/main/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified) | Clarify requirements before implementing. Use when serious doubts arise. |
-| [audit-context-building](https://github.com/trailofbits/skills/tree/main/plugins/audit-context-building/skills/audit-context-building) | Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding. |
-| [algorand-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner) | Scans Algorand smart contracts for 11 common vulnerabilities including rekeying attacks, unchecked transaction fees, missing field validations, and access control issues. |
-| [audit-prep-assistant](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/audit-prep-assistant) | Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and genera... |
-| [cairo-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner) | Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion problems, and signature replay. |
-| [code-maturity-assessor](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/code-maturity-assessor) | Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation... |
-| [cosmos-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner) | Scans Cosmos SDK blockchains for 9 consensus-critical vulnerabilities including non-determinism, incorrect signers, ABCI panics, and rounding errors. |
-| [guidelines-advisor](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/guidelines-advisor) | Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implem... |
-| [secure-workflow-guide](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/secure-workflow-guide) | Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, he... |
-| [solana-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/solana-vulnerability-scanner) | Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs. |
-| [substrate-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner) | Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including arithmetic overflow, panic DoS, incorrect weights, and bad origin checks. |
-| [token-integration-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/token-integration-analyzer) | Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, asse... |
-| [ton-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/ton-vulnerability-scanner) | Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks. |
-| [burpsuite-project-parser](https://github.com/trailofbits/skills/tree/main/plugins/burpsuite-project-parser/skills) | Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy histo... |
-| [claude-in-chrome-troubleshooting](https://github.com/trailofbits/skills/tree/main/plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting) | Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return "Browser extension is not connected", or behave erratically. |
-| [constant-time-analysis](https://github.com/trailofbits/skills/tree/main/plugins/constant-time-analysis/skills/constant-time-analysis) | Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time program... |
-| [interpreting-culture-index](https://github.com/trailofbits/skills/tree/main/plugins/culture-index/skills/interpreting-culture-index) | Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, ... |
-| [debug-buttercup](https://github.com/trailofbits/skills/tree/main/plugins/debug-buttercup/skills/debug-buttercup) | debug-buttercup |
-| [devcontainer-setup](https://github.com/trailofbits/skills/tree/main/plugins/devcontainer-setup/skills/devcontainer-setup) | Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes. |
-| [differential-review](https://github.com/trailofbits/skills/tree/main/plugins/differential-review/skills/differential-review) | differential-review |
-| [dwarf-expert](https://github.com/trailofbits/skills/tree/main/plugins/dwarf-expert/skills/dwarf-expert) | Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5). |
-| [entry-point-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer/skills/entry-point-analyzer) | Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admi... |
-| [firebase-apk-scanner](https://github.com/trailofbits/skills/tree/main/plugins/firebase-apk-scanner/skills/firebase-apk-scanner) | Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions. |
-| [using-gh-cli](https://github.com/trailofbits/skills/tree/main/plugins/gh-cli/skills/using-gh-cli) | Guides usage of the GitHub CLI (gh) for interacting with GitHub repositories, PRs, issues, and API. Use when working with GitHub resources instead of WebFetch or curl. |
-| [git-cleanup](https://github.com/trailofbits/skills/tree/main/plugins/git-cleanup/skills/git-cleanup) | Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work. |
-| [insecure-defaults](https://github.com/trailofbits/skills/tree/main/plugins/insecure-defaults/skills/insecure-defaults) | Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive security) that allow apps to run insecurely in production. |
-| [let-fate-decide](https://github.com/trailofbits/skills/tree/main/plugins/let-fate-decide/skills/let-fate-decide) | Draws 4 Tarot cards using os.urandom() to inject entropy into planning when prompts are vague or underspecified. |
-| [modern-python](https://github.com/trailofbits/skills/tree/main/plugins/modern-python/skills/modern-python) | Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black. |
-| [property-based-testing](https://github.com/trailofbits/skills/tree/main/plugins/property-based-testing/skills/property-based-testing) | Provides guidance for property-based testing across multiple languages and smart contracts. Use when writing tests, reviewing code with serialization/validation/parsing patterns, designing features, o... |
-| [seatbelt-sandboxer](https://github.com/trailofbits/skills/tree/main/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer) | Generates minimal macOS Seatbelt sandbox configurations. Use when sandboxing, isolating, or restricting macOS applications with allowlist-based profiles. |
-| [second-opinion](https://github.com/trailofbits/skills/tree/main/plugins/second-opinion/skills/second-opinion) | Runs external LLM code reviews (OpenAI Codex or Google Gemini CLI) on uncommitted changes, branch diffs, or specific commits. |
-| [semgrep-rule-creator](https://github.com/trailofbits/skills/tree/main/plugins/semgrep-rule-creator/skills/semgrep-rule-creator) | Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections. |
-| [semgrep-rule-variant-creator](https://github.com/trailofbits/skills/tree/main/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator) | Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages. |
-| [sharp-edges](https://github.com/trailofbits/skills/tree/main/plugins/sharp-edges/skills/sharp-edges) | Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes. |
-| [skill-improver](https://github.com/trailofbits/skills/tree/main/plugins/skill-improver/skills/skill-improver) | Iteratively reviews and fixes Claude Code skill quality issues until they meet standards. Runs automated fix-review cycles using the skill-reviewer agent. |
-| [spec-to-code-compliance](https://github.com/trailofbits/skills/tree/main/plugins/spec-to-code-compliance/skills/spec-to-code-compliance) | Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing complianc... |
-| [codeql](https://github.com/trailofbits/skills/tree/main/plugins/static-analysis/skills/codeql) | >- |
-| [sarif-parsing](https://github.com/trailofbits/skills/tree/main/plugins/static-analysis/skills/sarif-parsing) | >- |
-| [semgrep](https://github.com/trailofbits/skills/tree/main/plugins/static-analysis/skills/semgrep) | >- |
-| [supply-chain-risk-auditor](https://github.com/trailofbits/skills/tree/main/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor) | Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements. |
-| [address-sanitizer](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/address-sanitizer) | address-sanitizer |
-| [aflpp](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/aflpp) | aflpp |
-| [atheris](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/atheris) | atheris |
-| [cargo-fuzz](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/cargo-fuzz) | cargo-fuzz |
-| [constant-time-testing](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/constant-time-testing) | constant-time-testing |
-| [coverage-analysis](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/coverage-analysis) | coverage-analysis |
-| [fuzzing-dictionary](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/fuzzing-dictionary) | fuzzing-dictionary |
-| [fuzzing-obstacles](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/fuzzing-obstacles) | fuzzing-obstacles |
-| [harness-writing](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/harness-writing) | harness-writing |
-| [libafl](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/libafl) | libafl |
-| [libfuzzer](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/libfuzzer) | libfuzzer |
-| [ossfuzz](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/ossfuzz) | ossfuzz |
-| [ruzzy](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/ruzzy) | ruzzy |
-| [testing-handbook-generator](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/testing-handbook-generator) | testing-handbook-generator |
-| [wycheproof](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/wycheproof) | wycheproof |
-| [variant-analysis](https://github.com/trailofbits/skills/tree/main/plugins/variant-analysis/skills/variant-analysis) | Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing s... |
-| [designing-workflow-skills](https://github.com/trailofbits/skills/tree/main/plugins/workflow-skill-design/skills/designing-workflow-skills) | >- |
-| [yara-rule-authoring](https://github.com/trailofbits/skills/tree/main/plugins/yara-authoring/skills/yara-rule-authoring) | yara-rule-authoring |
-| [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit/skills/zeroize-audit) | Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. |
+| [agentic-actions-auditor](https://github.com/trailofbits/skills/tree/main/plugins/agentic-actions-auditor/skills/agentic-actions-auditor) | AI 에이전트 통합(Claude Code Action, Gemini CLI, OpenAI Codex, GitHub AI Inference)의 GitHub Actions 워크플로우 보안 취약점 감사 |
+| [ask-questions-if-underspecified](https://github.com/trailofbits/skills/tree/main/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified) | 구현 전 요구사항 명확화. 심각한 의문이 있을 때 질문을 먼저 던지는 스킬 |
+| [audit-context-building](https://github.com/trailofbits/skills/tree/main/plugins/audit-context-building/skills/audit-context-building) | 취약점/버그 탐지 전 줄 단위 초정밀 코드 분석으로 깊은 아키텍처 컨텍스트 구축 |
+| [algorand-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner) | Algorand 스마트 컨트랙트의 리키잉 공격, 미확인 트랜잭션 수수료, 필드 검증 누락 등 11개 취약점 스캔 |
+| [audit-prep-assistant](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/audit-prep-assistant) | Trail of Bits 체크리스트 기반 보안 리뷰 준비. 리뷰 목표 설정, 정적 분석, 테스트 커버리지 향상, 데드 코드 제거 |
+| [cairo-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner) | Cairo/StarkNet 스마트 컨트랙트의 felt252 산술 오버플로, L1-L2 메시징, 주소 변환 등 6개 치명적 취약점 스캔 |
+| [code-maturity-assessor](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/code-maturity-assessor) | Trail of Bits 9개 카테고리 프레임워크로 코드 성숙도 체계적 평가. 산술 안전성, 감사 관행, 접근 제어, 복잡도 분석 |
+| [cosmos-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner) | Cosmos SDK 블록체인의 비결정성, 잘못된 서명자, ABCI 패닉, 반올림 오류 등 9개 합의 치명적 취약점 스캔 |
+| [guidelines-advisor](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/guidelines-advisor) | Trail of Bits 모범 사례 기반 스마트 컨트랙트 개발 어드바이저. 문서 생성, 아키텍처 리뷰, 업그레이드 패턴 확인 |
+| [secure-workflow-guide](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/secure-workflow-guide) | Trail of Bits 5단계 보안 개발 워크플로우 가이드. Slither 스캔, 업그레이드/ERC 적합성/토큰 통합 점검, 보안 다이어그램 생성 |
+| [solana-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/solana-vulnerability-scanner) | Solana 프로그램의 임의 CPI, 부적절한 PDA 검증, 서명자/소유권 체크 누락, sysvar 스푸핑 등 6개 치명적 취약점 스캔 |
+| [substrate-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner) | Substrate/Polkadot 팔렛의 산술 오버플로, 패닉 DoS, 부정확한 가중치, 잘못된 origin 체크 등 7개 치명적 취약점 스캔 |
+| [token-integration-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/token-integration-analyzer) | Trail of Bits 토큰 통합 체크리스트 기반 분석. ERC20/ERC721 적합성 확인, 20개 이상 이상 토큰 패턴 감지 |
+| [ton-vulnerability-scanner](https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/ton-vulnerability-scanner) | TON 스마트 컨트랙트의 정수-불리언 오용, 가짜 Jetton 컨트랙트, 가스 체크 없는 TON 전송 등 3개 치명적 취약점 스캔 |
+| [burpsuite-project-parser](https://github.com/trailofbits/skills/tree/main/plugins/burpsuite-project-parser/skills) | Burp Suite 프로젝트 파일(.burp) CLI 탐색. 정규식으로 응답 헤더/바디 검색, 보안 감사 결과 추출, 프록시 히스토리 덤프 |
+| [claude-in-chrome-troubleshooting](https://github.com/trailofbits/skills/tree/main/plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting) | Claude in Chrome MCP 확장 프로그램 연결 문제 진단 및 수정 |
+| [constant-time-analysis](https://github.com/trailofbits/skills/tree/main/plugins/constant-time-analysis/skills/constant-time-analysis) | 암호화 코드의 타이밍 사이드 채널 취약점 탐지. 비밀 값에 대한 나눗셈, 비밀 의존 분기 검사 |
+| [interpreting-culture-index](https://github.com/trailofbits/skills/tree/main/plugins/culture-index/skills/interpreting-culture-index) | Culture Index(CI) 설문, 행동 프로필, 성격 평가 데이터 해석. 팀 구성 분석, 번아웃 감지 지원 |
+| [debug-buttercup](https://github.com/trailofbits/skills/tree/main/plugins/debug-buttercup/skills/debug-buttercup) | Buttercup 디버깅 스킬 |
+| [devcontainer-setup](https://github.com/trailofbits/skills/tree/main/plugins/devcontainer-setup/skills/devcontainer-setup) | Claude Code, 언어별 도구(Python/Node/Rust/Go), 영구 볼륨이 포함된 devcontainer 생성 |
+| [differential-review](https://github.com/trailofbits/skills/tree/main/plugins/differential-review/skills/differential-review) | 차분 코드 리뷰 스킬 |
+| [dwarf-expert](https://github.com/trailofbits/skills/tree/main/plugins/dwarf-expert/skills/dwarf-expert) | DWARF 디버그 파일 분석 및 DWARF 디버그 포맷/표준(v3-v5) 전문 지식 제공 |
+| [entry-point-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer/skills/entry-point-analyzer) | 보안 감사를 위한 스마트 컨트랙트 상태 변경 진입점 분석. 외부 호출 가능한 상태 수정 함수 감지 |
+| [firebase-apk-scanner](https://github.com/trailofbits/skills/tree/main/plugins/firebase-apk-scanner/skills/firebase-apk-scanner) | Android APK의 Firebase 보안 설정 오류 스캔. 개방된 DB, 스토리지 버킷, 인증 문제, 노출된 클라우드 기능 감지 |
+| [using-gh-cli](https://github.com/trailofbits/skills/tree/main/plugins/gh-cli/skills/using-gh-cli) | GitHub CLI(gh) 사용 가이드. GitHub 레포, PR, 이슈, API 작업에 활용 |
+| [git-cleanup](https://github.com/trailofbits/skills/tree/main/plugins/git-cleanup/skills/git-cleanup) | 로컬 git 브랜치와 워크트리를 병합됨/스쿼시-병합됨/대체됨/활성 작업으로 분류하여 안전하게 정리 |
+| [insecure-defaults](https://github.com/trailofbits/skills/tree/main/plugins/insecure-defaults/skills/insecure-defaults) | 하드코딩된 시크릿, 약한 인증, 허용적 보안 등 프로덕션에서 앱이 안전하지 않게 실행되는 fail-open 인시큐어 디폴트 감지 |
+| [let-fate-decide](https://github.com/trailofbits/skills/tree/main/plugins/let-fate-decide/skills/let-fate-decide) | os.urandom()으로 타로 카드 4장을 뽑아 모호한 프롬프트에 엔트로피 주입 |
+| [modern-python](https://github.com/trailofbits/skills/tree/main/plugins/modern-python/skills/modern-python) | 모던 Python 도구(uv, ruff, ty)로 프로젝트 설정. pip/Poetry/mypy에서 마이그레이션 지원 |
+| [property-based-testing](https://github.com/trailofbits/skills/tree/main/plugins/property-based-testing/skills/property-based-testing) | 다국어 및 스마트 컨트랙트 속성 기반 테스팅 가이드. 직렬화/파싱 코드 리뷰 시 활용 |
+| [seatbelt-sandboxer](https://github.com/trailofbits/skills/tree/main/plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer) | 최소 macOS Seatbelt 샌드박스 설정 생성. 허용 목록 기반 프로필로 앱 격리 |
+| [second-opinion](https://github.com/trailofbits/skills/tree/main/plugins/second-opinion/skills/second-opinion) | 커밋되지 않은 변경사항, 브랜치 diff, 특정 커밋에 대해 외부 LLM(OpenAI Codex, Google Gemini CLI) 코드 리뷰 실행 |
+| [semgrep-rule-creator](https://github.com/trailofbits/skills/tree/main/plugins/semgrep-rule-creator/skills/semgrep-rule-creator) | 보안 취약점, 버그 패턴, 코드 패턴 감지를 위한 커스텀 Semgrep 규칙 생성 |
+| [semgrep-rule-variant-creator](https://github.com/trailofbits/skills/tree/main/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator) | 기존 Semgrep 규칙의 언어 변형 생성. 규칙을 지정된 타겟 언어로 포팅 |
+| [sharp-edges](https://github.com/trailofbits/skills/tree/main/plugins/sharp-edges/skills/sharp-edges) | 보안 실수를 유발하는 오류 유발 API, 위험한 설정, 풋건 설계 식별 |
+| [skill-improver](https://github.com/trailofbits/skills/tree/main/plugins/skill-improver/skills/skill-improver) | Claude Code 스킬 품질 이슈를 기준 충족까지 반복적으로 리뷰하고 수정. skill-reviewer 에이전트 활용 자동화 사이클 |
+| [spec-to-code-compliance](https://github.com/trailofbits/skills/tree/main/plugins/spec-to-code-compliance/skills/spec-to-code-compliance) | 블록체인 감사를 위해 코드가 문서에 명시된 사양을 정확히 구현했는지 검증. 화이트페이퍼와 코드 간 격차 발견 |
+| [codeql](https://github.com/trailofbits/skills/tree/main/plugins/static-analysis/skills/codeql) | CodeQL 정적 분석 스킬 |
+| [sarif-parsing](https://github.com/trailofbits/skills/tree/main/plugins/static-analysis/skills/sarif-parsing) | SARIF 결과 파일 파싱 스킬 |
+| [semgrep](https://github.com/trailofbits/skills/tree/main/plugins/static-analysis/skills/semgrep) | Semgrep 정적 분석 스킬 |
+| [supply-chain-risk-auditor](https://github.com/trailofbits/skills/tree/main/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor) | 악용 또는 탈취 위험이 높은 의존성 식별. 공급망 공격 표면 평가, 의존성 건강 상태 확인 |
+| [address-sanitizer](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/address-sanitizer) | AddressSanitizer(ASan) 메모리 오류 감지 도구 활용 |
+| [aflpp](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/aflpp) | AFL++ 퍼저 하네스 작성 및 실행 |
+| [atheris](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/atheris) | Atheris Python 퍼징 프레임워크 활용 |
+| [cargo-fuzz](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/cargo-fuzz) | Rust cargo-fuzz 퍼징 도구 활용 |
+| [constant-time-testing](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/constant-time-testing) | 상수 시간 코드 테스팅 (타이밍 공격 방지 검증) |
+| [coverage-analysis](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/coverage-analysis) | 코드 커버리지 분석 및 퍼징 효과 측정 |
+| [fuzzing-dictionary](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/fuzzing-dictionary) | 퍼징 딕셔너리 생성 및 최적화 |
+| [fuzzing-obstacles](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/fuzzing-obstacles) | 퍼징 장애물 식별 및 해결 |
+| [harness-writing](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/harness-writing) | 퍼징 하네스 작성 가이드 |
+| [libafl](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/libafl) | LibAFL 퍼징 프레임워크 활용 |
+| [libfuzzer](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/libfuzzer) | libFuzzer 커버리지 기반 퍼저 활용 |
+| [ossfuzz](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/ossfuzz) | OSS-Fuzz 연동 및 프로젝트 등록 |
+| [ruzzy](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/ruzzy) | Ruzzy Ruby 퍼저 활용 |
+| [testing-handbook-generator](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/testing-handbook-generator) | Trail of Bits Testing Handbook 기반 테스팅 가이드 생성 |
+| [wycheproof](https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/wycheproof) | Wycheproof 암호화 테스트 벡터 활용 |
+| [variant-analysis](https://github.com/trailofbits/skills/tree/main/plugins/variant-analysis/skills/variant-analysis) | 패턴 기반 분석으로 코드베이스 전반의 유사 취약점/버그 탐색. CodeQL/Semgrep 쿼리 작성 지원 |
+| [designing-workflow-skills](https://github.com/trailofbits/skills/tree/main/plugins/workflow-skill-design/skills/designing-workflow-skills) | 워크플로우 스킬 설계 가이드 |
+| [yara-rule-authoring](https://github.com/trailofbits/skills/tree/main/plugins/yara-authoring/skills/yara-rule-authoring) | YARA 규칙 작성 스킬 |
+| [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit/skills/zeroize-audit) | 소스 코드의 민감 데이터 제로화 누락 감지 및 컴파일러 최적화로 제거된 제로화를 어셈블리 수준에서 분석 |
 
 </details>
 
@@ -121,13 +121,13 @@
 
 | 스킬 | 설명 |
 |:-----|:------------|
-| [configurator](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-cca/skills/configurator) | Configure CCA (Continuous Clearing Auction) smart contract parameters through an interactive bulk form flow. |
-| [deployer](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-cca/skills/deployer) | Deploy CCA (Continuous Clearing Auction) smart contracts using the Factory pattern. Use when user says "deploy auction", "deploy cca", "factory deployment", or wants to deploy a configured auction. |
-| [liquidity-planner](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-driver/skills/liquidity-planner) | This skill should be used when the user asks to "provide liquidity", "create LP position", "add liquidity to pool", "become a liquidity provider", "create v3 position", "create v4 position", "concentr... |
-| [swap-planner](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-driver/skills/swap-planner) | This skill should be used when the user asks to "swap tokens", "trade ETH for USDC", "exchange tokens on Uniswap", "buy tokens", "sell tokens", "convert ETH to stablecoins", "find memecoins", "discove... |
-| [v4-security-foundations](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-hooks/skills/v4-security-foundations) | Security-first Uniswap v4 hook development. Use when user mentions "v4 hooks", "hook security", "PoolManager", "beforeSwap", "afterSwap", or asks about V4 hook best practices, vulnerabilities, or audi... |
-| [swap-integration](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-trading/skills/swap-integration) | Integrate Uniswap swaps into applications. Use when user says "integrate swaps", "uniswap", "trading api", "add swap functionality", "build a swap frontend", "create a swap script", "smart contract sw... |
-| [viem-integration](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-viem/skills/viem-integration) | Integrate EVM blockchains using viem. Use when user says "read blockchain data", "send transaction", "interact with smart contract", "connect to Ethereum", "use viem", "use wagmi", "wallet integration... |
+| [configurator](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-cca/skills/configurator) | CCA(Continuous Clearing Auction) 스마트 컨트랙트 매개변수를 인터랙티브 폼으로 설정 |
+| [deployer](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-cca/skills/deployer) | Factory 패턴으로 CCA 스마트 컨트랙트 배포 |
+| [liquidity-planner](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-driver/skills/liquidity-planner) | Uniswap v3/v4 유동성 공급 계획. LP 포지션 생성, 집중 유동성 범위 설정 |
+| [swap-planner](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-driver/skills/swap-planner) | Uniswap 토큰 스왑 계획. ETH↔USDC, 토큰 매수/매도, 밈코인 검색 |
+| [v4-security-foundations](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-hooks/skills/v4-security-foundations) | Uniswap v4 훅 보안 중심 개발. PoolManager, beforeSwap/afterSwap 보안 모범 사례, 취약점, 감사 가이드 |
+| [swap-integration](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-trading/skills/swap-integration) | Uniswap 스왑을 애플리케이션에 통합. Trading API, 스왑 프론트엔드, 스마트 컨트랙트 스왑 구현 |
+| [viem-integration](https://github.com/Uniswap/uniswap-ai/tree/main/packages/plugins/uniswap-viem/skills/viem-integration) | viem으로 EVM 블록체인 통합. 블록체인 데이터 읽기, 트랜잭션 전송, 스마트 컨트랙트 상호작용, wagmi 연동 |
 
 </details>
 
@@ -135,29 +135,29 @@
 
 | 스킬 | 설명 |
 |:-----|:------------|
-| [addresses](https://github.com/austintgriffith/ethskills/tree/main/addresses) | Verified contract addresses for major Ethereum protocols across mainnet and L2s. Use this instead of guessing or hallucinating addresses. |
-| [audit](https://github.com/austintgriffith/ethskills/tree/main/audit) | Deep EVM smart contract security audit system. Use when asked to audit a contract, find vulnerabilities, review code for security issues, or file security issues on a GitHub repo. |
-| [building-blocks](https://github.com/austintgriffith/ethskills/tree/main/building-blocks) | DeFi legos and protocol composability on Ethereum and L2s. Major protocols per chain — Aerodrome on Base, GMX/Pendle on Arbitrum, Velodrome on Optimism — plus mainnet primitives (Uniswap, Aave, Compou... |
-| [concepts](https://github.com/austintgriffith/ethskills/tree/main/concepts) | The essential mental models for building onchain — focused on what LLMs get wrong and what humans need explained. |
-| [contracts](https://github.com/austintgriffith/ethskills/tree/main/contracts) | Deprecated: this skill has moved to addresses. |
-| [defi](https://github.com/austintgriffith/ethskills/tree/main/defi) | Deprecated: this skill has moved to building-blocks. |
-| [frontend-playbook](https://github.com/austintgriffith/ethskills/tree/main/frontend-playbook) | The complete build-to-production pipeline for Ethereum dApps. Fork mode setup, IPFS deployment, Vercel config, ENS subdomain setup, and the full production checklist. |
-| [frontend-ux](https://github.com/austintgriffith/ethskills/tree/main/frontend-ux) | Frontend UX rules for Ethereum dApps that prevent the most common AI agent UI bugs. Mandatory patterns for onchain buttons, token approval flows, address display, USD values, RPC configuration, and pr... |
-| [gas](https://github.com/austintgriffith/ethskills/tree/main/gas) | Current Ethereum gas prices, transaction costs, and the real economics of building on Ethereum today. |
-| [indexing](https://github.com/austintgriffith/ethskills/tree/main/indexing) | How to read and query onchain data — events, The Graph, indexing patterns. Why you cannot just loop through blocks, and what to use instead. |
-| [l2](https://github.com/austintgriffith/ethskills/tree/main/l2) | Deprecated: this skill has moved to l2s. |
-| [l2s](https://github.com/austintgriffith/ethskills/tree/main/l2s) | Ethereum Layer 2 landscape — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo, and more. How they work, how to deploy on them, how to bridge, when to use which. |
-| [layer2](https://github.com/austintgriffith/ethskills/tree/main/layer2) | Deprecated: this skill has moved to l2s. |
-| [ethskills](https://github.com/austintgriffith/ethskills/tree/main/openclaw-skill) | Ethereum development knowledge for AI agents — from idea to deployed dApp. Fetch real-time docs on gas costs, Solidity patterns, Scaffold-ETH 2, Layer 2s, DeFi composability, security, testing, and pr... |
-| [orchestration](https://github.com/austintgriffith/ethskills/tree/main/orchestration) | How an AI agent plans, builds, and deploys a complete Ethereum dApp. The three-phase build system for Scaffold-ETH 2 projects. |
-| [qa](https://github.com/austintgriffith/ethskills/tree/main/qa) | Pre-ship audit checklist for Ethereum dApps built with Scaffold-ETH 2. Give this to a separate reviewer agent (or fresh context) AFTER the build is complete. |
-| [security](https://github.com/austintgriffith/ethskills/tree/main/security) | Solidity security patterns, common vulnerabilities, and pre-deploy audit checklist. The specific code patterns that prevent real losses — not just warnings, but defensive implementations. |
-| [ship](https://github.com/austintgriffith/ethskills/tree/main/ship) | End-to-end guide for AI agents — from a dApp idea to deployed production app. Fetch this FIRST, it routes you through all other skills. |
-| [standards](https://github.com/austintgriffith/ethskills/tree/main/standards) | Ethereum token and protocol standards — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004, and newer standards. |
-| [testing](https://github.com/austintgriffith/ethskills/tree/main/testing) | Smart contract testing with Foundry — unit tests, fuzz testing, fork testing, invariant testing. What to test, what not to test, and what LLMs get wrong. |
-| [tools](https://github.com/austintgriffith/ethskills/tree/main/tools) | Current Ethereum development tools, frameworks, libraries, RPCs, and block explorers. What actually works today for building on Ethereum. |
-| [wallets](https://github.com/austintgriffith/ethskills/tree/main/wallets) | How to create, manage, and use Ethereum wallets. Covers EOAs, smart contract wallets, multisig (Safe), and account abstraction. |
-| [why-ethereum](https://github.com/austintgriffith/ethskills/tree/main/why) | Why build on Ethereum specifically. The AI agent angle — ERC-8004, x402, composability, permissionless deployment. |
+| [addresses](https://github.com/austintgriffith/ethskills/tree/main/addresses) | Ethereum 메인넷과 L2의 주요 프로토콜 검증된 컨트랙트 주소. 주소 추측/환각 방지용 |
+| [audit](https://github.com/austintgriffith/ethskills/tree/main/audit) | EVM 스마트 컨트랙트 심층 보안 감사. 취약점 탐색, 코드 보안 리뷰, GitHub 보안 이슈 제출 |
+| [building-blocks](https://github.com/austintgriffith/ethskills/tree/main/building-blocks) | DeFi 레고 및 프로토콜 조합성. 체인별 주요 프로토콜 — Base의 Aerodrome, Arbitrum의 GMX/Pendle, Optimism의 Velodrome |
+| [concepts](https://github.com/austintgriffith/ethskills/tree/main/concepts) | 온체인 구축을 위한 핵심 멘탈 모델 — LLM이 틀리기 쉬운 것과 설명이 필요한 것에 집중 |
+| [contracts](https://github.com/austintgriffith/ethskills/tree/main/contracts) | (사용 중단됨) addresses 스킬로 이동 |
+| [defi](https://github.com/austintgriffith/ethskills/tree/main/defi) | (사용 중단됨) building-blocks 스킬로 이동 |
+| [frontend-playbook](https://github.com/austintgriffith/ethskills/tree/main/frontend-playbook) | Ethereum dApp 빌드→프로덕션 완전 파이프라인. 포크 모드 설정, IPFS 배포, Vercel 설정, ENS 서브도메인 |
+| [frontend-ux](https://github.com/austintgriffith/ethskills/tree/main/frontend-ux) | Ethereum dApp 프론트엔드 UX 규칙. 온체인 버튼, 토큰 승인 플로우, 주소 표시 등 AI 에이전트 UI 버그 방지 패턴 |
+| [gas](https://github.com/austintgriffith/ethskills/tree/main/gas) | 현재 Ethereum 가스 가격, 트랜잭션 비용, Ethereum 구축의 실제 경제학 |
+| [indexing](https://github.com/austintgriffith/ethskills/tree/main/indexing) | 온체인 데이터 읽기/쿼리 방법 — 이벤트, The Graph, 인덱싱 패턴. 블록 루프 대신 사용할 도구 |
+| [l2](https://github.com/austintgriffith/ethskills/tree/main/l2) | (사용 중단됨) l2s 스킬로 이동 |
+| [l2s](https://github.com/austintgriffith/ethskills/tree/main/l2s) | Ethereum L2 현황 — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo 등. 작동 원리, 배포, 브릿지 방법 |
+| [layer2](https://github.com/austintgriffith/ethskills/tree/main/layer2) | (사용 중단됨) l2s 스킬로 이동 |
+| [ethskills](https://github.com/austintgriffith/ethskills/tree/main/openclaw-skill) | AI 에이전트를 위한 Ethereum 개발 지식 — 아이디어에서 배포된 dApp까지. 가스 비용, Solidity 패턴, Scaffold-ETH 2, L2 실시간 문서 |
+| [orchestration](https://github.com/austintgriffith/ethskills/tree/main/orchestration) | AI 에이전트가 완전한 Ethereum dApp을 계획, 빌드, 배포하는 방법. Scaffold-ETH 2 프로젝트 3단계 빌드 시스템 |
+| [qa](https://github.com/austintgriffith/ethskills/tree/main/qa) | Scaffold-ETH 2로 빌드한 Ethereum dApp 출시 전 감사 체크리스트. 빌드 완료 후 별도 리뷰어 에이전트에 전달 |
+| [security](https://github.com/austintgriffith/ethskills/tree/main/security) | Solidity 보안 패턴, 일반적 취약점, 배포 전 감사 체크리스트. 실제 손실을 방지하는 구체적 코드 패턴 |
+| [ship](https://github.com/austintgriffith/ethskills/tree/main/ship) | AI 에이전트를 위한 E2E 가이드 — dApp 아이디어에서 프로덕션 배포까지. 가장 먼저 가져올 스킬, 다른 모든 스킬로 라우팅 |
+| [standards](https://github.com/austintgriffith/ethskills/tree/main/standards) | Ethereum 토큰 및 프로토콜 표준 — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004 등 |
+| [testing](https://github.com/austintgriffith/ethskills/tree/main/testing) | Foundry로 스마트 컨트랙트 테스팅 — 유닛 테스트, 퍼즈 테스팅, 포크 테스팅, 불변성 테스팅 |
+| [tools](https://github.com/austintgriffith/ethskills/tree/main/tools) | 현재 Ethereum 개발 도구, 프레임워크, 라이브러리, RPC, 블록 익스플로러. 오늘날 실제 작동하는 도구 |
+| [wallets](https://github.com/austintgriffith/ethskills/tree/main/wallets) | Ethereum 지갑 생성, 관리, 사용. EOA, 스마트 컨트랙트 지갑, 멀티시그(Safe), 계정 추상화 |
+| [why-ethereum](https://github.com/austintgriffith/ethskills/tree/main/why) | Ethereum에서 빌드하는 이유. AI 에이전트 관점 — ERC-8004, x402, 조합성, 무허가 배포 |
 
 </details>
 
@@ -165,11 +165,11 @@
 
 | 스킬 | 설명 |
 |:-----|:------------|
-| [assets](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/assets) | Work with the Trust Wallet assets repository — look up token logos and metadata, list assets by blockchain, and contribute new assets (add logo, info.json, update tokenlist). |
-| [barz](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/barz) | Build with, use, and contribute to Barz — Trust Wallet's modular ERC-4337 smart contract wallet. Use when working with trustwallet/barz, implementing account abstraction, adding wallet facets, writing... |
-| [trust-developer](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/trust-developer) | Build on the Trust Wallet developer platform. Use when integrating Trust Wallet deep links, detecting the browser extension, or setting up WalletConnect. |
-| [trust-web3-provider](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/trust-web3-provider) | Integrate and build on Trust Wallet's Web3 provider library. Use when working with trust-web3-provider, @trustwallet/web3-provider-*, or adding blockchain provider support for Ethereum, Solana, Cosmos... |
-| [wallet-core](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/wallet-core) | Build with Trust Wallet Core — HD wallet creation, address derivation, and transaction signing across 140+ blockchains. |
+| [assets](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/assets) | Trust Wallet 자산 저장소 — 토큰 로고/메타데이터 조회, 블록체인별 자산 목록, 새 자산 기여 |
+| [barz](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/barz) | Barz — Trust Wallet의 모듈식 ERC-4337 스마트 컨트랙트 지갑 빌드/사용/기여 |
+| [trust-developer](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/trust-developer) | Trust Wallet 개발자 플랫폼. 딥링크 통합, 브라우저 확장 감지, WalletConnect 설정 |
+| [trust-web3-provider](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/trust-web3-provider) | Trust Wallet Web3 프로바이더 라이브러리 통합. 멀티체인 dApp 연동, 블록체인 지원 추가 |
+| [wallet-core](https://github.com/trustwallet/tw-agent-skills/tree/main/skills/wallet-core) | Trust Wallet Core — 140+ 블록체인에서 HD 지갑 생성, 주소 파생, 트랜잭션 서명 |
 
 </details>
 
@@ -187,21 +187,21 @@
 
 | 스킬 | 설명 |
 |:-----|:------------|
-| [bankr-signals](https://github.com/BankrBot/openclaw-skills/tree/main/bankr-signals) | bankr-signals |
-| [bankr](https://github.com/BankrBot/openclaw-skills/tree/main/bankr) | AI-powered crypto trading agent and LLM gateway via natural language. Use when the user wants to trade crypto, check portfolio balances, view token prices, transfer crypto, manage NFTs, use leverage, ... |
-| [base](https://github.com/BankrBot/openclaw-skills/tree/main/base) | Placeholder for Base skill. |
-| [botchan](https://github.com/BankrBot/openclaw-skills/tree/main/botchan) | CLI for the onchain agent messaging layer on the Base blockchain, built on Net Protocol. Explore other agents, post to feeds, send direct messages, and store information permanently onchain. |
-| [clanker](https://github.com/BankrBot/openclaw-skills/tree/main/clanker) | Deploy ERC20 tokens on Base, Ethereum, Arbitrum, and other EVM chains using the Clanker SDK. Use when the user wants to deploy a new token, create a memecoin, set up token vesting, configure airdrops,... |
-| [endaoment](https://github.com/BankrBot/openclaw-skills/tree/main/endaoment) | Donate to charities onchain via Endaoment. Use when the user wants to donate crypto to charity, make a charitable contribution, give to nonprofits, support a cause, or donate to a 501(c)(3). |
-| [ens-primary-name](https://github.com/BankrBot/openclaw-skills/tree/main/ens-primary-name) | Set your primary ENS name on Base and other L2s. Use when user wants to set their ENS name, configure reverse resolution, set primary name, or make their address resolve to an ENS name. |
-| [erc-8004](https://github.com/BankrBot/openclaw-skills/tree/main/erc-8004) | Register AI agents on Ethereum mainnet using ERC-8004 (Trustless Agents). Use when the user wants to register their agent identity on-chain, create an agent profile, claim an agent NFT, set up agent r... |
-| [neynar](https://github.com/BankrBot/openclaw-skills/tree/main/neynar) | Interact with Farcaster via Neynar API. Use when the user wants to read Farcaster feeds, look up users, post casts, search content, or interact with the Farcaster social protocol. |
-| [onchainkit](https://github.com/BankrBot/openclaw-skills/tree/main/onchainkit) | Build onchain applications with React components and TypeScript utilities from Coinbase's OnchainKit. |
-| [qrcoin](https://github.com/BankrBot/openclaw-skills/tree/main/qrcoin) | Interact with QR Coin auctions on Base. Use when the user wants to participate in qrcoin.fun QR code auctions — check auction status, view current bids, create new bids, or contribute to existing bids... |
-| [siwa](https://github.com/BankrBot/openclaw-skills/tree/main/siwa) | siwa |
-| [veil](https://github.com/BankrBot/openclaw-skills/tree/main/veil) | Privacy and shielded transactions on Base via Veil Cash (veil.cash). Deposit ETH or USDC into private pools, withdraw/transfer privately using ZK proofs. |
-| [yoink](https://github.com/BankrBot/openclaw-skills/tree/main/yoink) | Play Yoink, an onchain capture-the-flag game on Base. Yoink the flag from the current holder, check game stats and leaderboards, view player scores, and compete for the trophy. |
-| [zapper](https://github.com/BankrBot/openclaw-skills/tree/main/zapper) | Placeholder for Zapper skill. |
+| [bankr-signals](https://github.com/BankrBot/openclaw-skills/tree/main/bankr-signals) | Bankr 트레이딩 시그널 스킬 |
+| [bankr](https://github.com/BankrBot/openclaw-skills/tree/main/bankr) | AI 기반 크립토 트레이딩 에이전트/LLM 게이트웨이. 자연어로 크립토 거래, 포트폴리오 잔고 확인, 토큰 가격 조회 |
+| [base](https://github.com/BankrBot/openclaw-skills/tree/main/base) | Base 체인 스킬 (플레이스홀더) |
+| [botchan](https://github.com/BankrBot/openclaw-skills/tree/main/botchan) | Base 블록체인 온체인 에이전트 메시징 CLI. 에이전트 탐색, 피드 게시, DM 전송, Net Protocol 기반 |
+| [clanker](https://github.com/BankrBot/openclaw-skills/tree/main/clanker) | Clanker SDK로 Base, Ethereum, Arbitrum 등 EVM 체인에 ERC20 토큰 배포. 밈코인 런치 지원 |
+| [endaoment](https://github.com/BankrBot/openclaw-skills/tree/main/endaoment) | Endaoment를 통한 온체인 자선 기부. 크립토로 비영리단체에 기부 |
+| [ens-primary-name](https://github.com/BankrBot/openclaw-skills/tree/main/ens-primary-name) | Base 및 L2에서 ENS 기본 이름 설정. 역방향 해석 설정, 기본 이름 구성 |
+| [erc-8004](https://github.com/BankrBot/openclaw-skills/tree/main/erc-8004) | ERC-8004(Trustless Agents)로 Ethereum 메인넷에 AI 에이전트 온체인 신원 등록 |
+| [neynar](https://github.com/BankrBot/openclaw-skills/tree/main/neynar) | Neynar API로 Farcaster 상호작용. 피드 읽기, 사용자 조회, 캐스트 게시, 콘텐츠 검색 |
+| [onchainkit](https://github.com/BankrBot/openclaw-skills/tree/main/onchainkit) | Coinbase OnchainKit으로 React 컴포넌트/TypeScript 유틸리티 기반 온체인 앱 빌드 |
+| [qrcoin](https://github.com/BankrBot/openclaw-skills/tree/main/qrcoin) | Base의 QR Coin 경매 참여. qrcoin.fun QR 코드 경매 상태 확인, 입찰, 리더보드 조회 |
+| [siwa](https://github.com/BankrBot/openclaw-skills/tree/main/siwa) | SIWA (Sign In With Account) 인증 스킬 |
+| [veil](https://github.com/BankrBot/openclaw-skills/tree/main/veil) | Veil Cash를 통한 Base 프라이버시/차폐 거래. ZK 증명으로 ETH/USDC 비공개 입출금/전송 |
+| [yoink](https://github.com/BankrBot/openclaw-skills/tree/main/yoink) | Yoink — Base 온체인 깃발뺏기 게임. 깃발 뺏기, 게임 통계/리더보드, 플레이어 점수 조회 |
+| [zapper](https://github.com/BankrBot/openclaw-skills/tree/main/zapper) | Zapper 스킬 (플레이스홀더) |
 
 </details>
 
@@ -209,14 +209,14 @@
 
 | 스킬 | 설명 |
 |:-----|:------------|
-| [cmc-api-crypto](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-crypto) | API reference for CoinMarketCap cryptocurrency endpoints including quotes, listings, OHLCV, trending, and categories. |
-| [cmc-api-dex](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-dex) | API reference for CoinMarketCap DEX endpoints including token lookup, pools, transactions, trending, and security analysis. |
-| [cmc-api-exchange](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-exchange) | API reference for CoinMarketCap exchange endpoints including exchange info, volume, market pairs, and assets. |
-| [cmc-api-market](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-market) | API reference for CoinMarketCap market-wide endpoints including global metrics, fear/greed, indices, trending topics, and charts. |
-| [cmc-mcp](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-mcp) | Fetches cryptocurrency market data, prices, technical analysis, news, and trends using the CoinMarketCap MCP. |
-| [cmc-x402](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-x402) | Access CoinMarketCap data via x402 pay-per-request protocol with USDC payments on Base. Use when users mention x402, want CMC data without API keys, ask about pay-per-request APIs, or need to integrat... |
-| [crypto-research](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/crypto-research) | Performs comprehensive due diligence on a cryptocurrency using CoinMarketCap MCP data. Use when users ask about a specific coin beyond just its price. |
-| [market-report](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/market-report) | Generates a comprehensive crypto market report using CoinMarketCap MCP data. Use when users ask about overall market conditions, sentiment, or want a summary. |
+| [cmc-api-crypto](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-crypto) | CoinMarketCap 암호화폐 API — 시세, 상장 목록, OHLCV, 트렌딩, 카테고리 엔드포인트 |
+| [cmc-api-dex](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-dex) | CoinMarketCap DEX API — 토큰 조회, 풀, 트랜잭션, 트렌딩, 보안 분석 엔드포인트 |
+| [cmc-api-exchange](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-exchange) | CoinMarketCap 거래소 API — 거래소 정보, 거래량, 마켓 페어, 자산 엔드포인트 |
+| [cmc-api-market](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-api-market) | CoinMarketCap 시장 전체 API — 글로벌 지표, 공포/탐욕 지수, 인덱스, 트렌딩 토픽, 차트 |
+| [cmc-mcp](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-mcp) | CoinMarketCap MCP로 암호화폐 시세, 기술적 분석, 뉴스, 트렌드 데이터 가져오기 |
+| [cmc-x402](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-x402) | x402 프로토콜(Base USDC 결제)로 CoinMarketCap 데이터 접근. API 키 없이 사용 가능 |
+| [crypto-research](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/crypto-research) | CoinMarketCap MCP 데이터로 암호화폐 종합 실사(DD). 가격 외 특정 코인 상세 분석 |
+| [market-report](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/market-report) | CoinMarketCap MCP 데이터로 종합 크립토 시장 리포트 생성. 시장 상황, 심리, 전반적 현황 분석 |
 
 </details>
 
