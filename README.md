@@ -182,6 +182,7 @@
 | [nirholas/free-crypto-news](https://github.com/nirholas/free-crypto-news) | ![](https://img.shields.io/github/stars/nirholas/free-crypto-news?style=flat-square&logo=github) | `Community` | '26.03 | 무료 암호화폐 뉴스 API — BTC, ETH, DeFi 실시간 집계, Claude MCP 서버 및 다국어 SDK 지원 |
 | [heilcheng/awesome-agent-skills](https://github.com/heilcheng/awesome-agent-skills) | ![](https://img.shields.io/github/stars/heilcheng/awesome-agent-skills?style=flat-square&logo=github) | `Community` | '26.03 | AI 코딩 에이전트(Claude, Codex, Copilot 등)를 위한 스킬, 도구, 튜토리얼 큐레이션 목록 |
 | [coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap) | ![](https://img.shields.io/github/stars/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap?style=flat-square&logo=github) | `Community` | '26.03 | CoinMarketCap이 AI 에이전트용으로 만든 스킬 모음으로, Claude Code/MCP와 통합하여 암호화폐 시세·정보 조회 등 Web3 기능을 AI 워크플로우에 자동화할 수 있습니다. `8개 스킬` |
+| [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) | ![](https://img.shields.io/github/stars/binance/binance-skills-hub?style=flat-square&logo=github) | `Community` | '26.03 | Binance Skills Hub는 AI 에이전트가 암호화폐 거래 및 블록체인 기능에 네이티브로 접근할 수 있는 스킬 마켓플레이스로, Claude나 MCP를 통해 AI가 직접 Binance 거래소와 상호작용하도록 확장할 수 있습니다. `7개 스킬` |
 
 <details><summary>BankrBot/openclaw-skills 스킬 상세 (15개)</summary>
 
@@ -217,6 +218,20 @@
 | [cmc-x402](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-x402) | x402 프로토콜(Base USDC 결제)로 CoinMarketCap 데이터 접근. API 키 없이 사용 가능 |
 | [crypto-research](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/crypto-research) | CoinMarketCap MCP 데이터로 암호화폐 종합 실사(DD). 가격 외 특정 코인 상세 분석 |
 | [market-report](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/market-report) | CoinMarketCap MCP 데이터로 종합 크립토 시장 리포트 생성. 시장 상황, 심리, 전반적 현황 분석 |
+
+</details>
+
+<details><summary>binance/binance-skills-hub 스킬 상세 (7개)</summary>
+
+| 스킬 | 설명 |
+|:-----|:------------|
+| [crypto-market-rank](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/crypto-market-rank) | Crypto market rankings and leaderboards. Query trending tokens, top searched tokens, Binance Alpha tokens, tokenized stocks, social hype sentiment ranks, smart money inflow token rankings, top meme to... |
+| [meme-rush](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/meme-rush) | Meme token fast-trading assistant with two core capabilities: 1. Meme Rush - Real-time meme token lists from launchpads (Pump.fun, Four.meme, etc.) across new, finalizing, and migrated stages 2. |
+| [query-address-info](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-address-info) | Query any on-chain wallet address token balances and positions. Retrieves all token holdings for a specified wallet address on a given chain, including token name, symbol, price, 24h price change, and... |
+| [query-token-audit](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-token-audit) | Query token security audit to detect scams, honeypots, and malicious contracts before trading. Returns comprehensive security analysis including contract risks, trading risks, and scam detection. |
+| [query-token-info](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-token-info) | Query token details by keyword, contract address, or chain. Search tokens, get metadata and social links, retrieve real-time market data (price, price trend, volume, holders, liquidity), and fetch K-L... |
+| [trading-signal](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/trading-signal) | Subscribe and retrieve on-chain Smart Money signals. Monitor trading activities of smart money addresses, including buy/sell signals, trigger price, current price, max gain, and exit rate. |
+| [spot](https://github.com/binance/binance-skills-hub/tree/main/skills/binance/spot) | Binance Spot request using the Binance API. Authentication requires API key and secret key. Supports testnet and mainnet. |
 
 </details>
 

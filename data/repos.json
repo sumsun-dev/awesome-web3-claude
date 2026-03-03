@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-03T15:12:21.183Z",
-    "totalEntries": 51,
-    "totalSkills": 118
+    "lastUpdated": "2026-03-03T17:43:10.971Z",
+    "totalEntries": 52,
+    "totalSkills": 125
   },
   "sections": [
     {
@@ -1231,6 +1231,82 @@
               "description": {
                 "ko": "CoinMarketCap MCP 데이터로 종합 크립토 시장 리포트 생성. 시장 상황, 심리, 전반적 현황 분석",
                 "en": "Generates a comprehensive crypto market report using CoinMarketCap MCP data. Use when users ask about overall market conditions, sentiment, or want a summary."
+              }
+            }
+          ]
+        },
+        {
+          "owner": "binance",
+          "repo": "binance-skills-hub",
+          "type": "Community",
+          "addedDate": "2026-03-03",
+          "description": {
+            "ko": "Binance Skills Hub는 AI 에이전트가 암호화폐 거래 및 블록체인 기능에 네이티브로 접근할 수 있는 스킬 마켓플레이스로, Claude나 MCP를 통해 AI가 직접 Binance 거래소와 상호작용하도록 확장할 수 있습니다.",
+            "en": "Binance Skills Hub is an open skills marketplace that gives AI agents native access to crypto"
+          },
+          "status": "active",
+          "health": {
+            "stars": 33,
+            "starsPrev": 33,
+            "archived": false,
+            "lastPush": "2026-03-03T16:10:09Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "crypto-market-rank",
+              "path": "skills/binance-web3/crypto-market-rank",
+              "description": {
+                "ko": null,
+                "en": "Crypto market rankings and leaderboards. Query trending tokens, top searched tokens, Binance Alpha tokens, tokenized stocks, social hype sentiment ranks, smart money inflow token rankings, top meme to..."
+              }
+            },
+            {
+              "name": "meme-rush",
+              "path": "skills/binance-web3/meme-rush",
+              "description": {
+                "ko": null,
+                "en": "Meme token fast-trading assistant with two core capabilities: 1. Meme Rush - Real-time meme token lists from launchpads (Pump.fun, Four.meme, etc.) across new, finalizing, and migrated stages 2."
+              }
+            },
+            {
+              "name": "query-address-info",
+              "path": "skills/binance-web3/query-address-info",
+              "description": {
+                "ko": null,
+                "en": "Query any on-chain wallet address token balances and positions. Retrieves all token holdings for a specified wallet address on a given chain, including token name, symbol, price, 24h price change, and..."
+              }
+            },
+            {
+              "name": "query-token-audit",
+              "path": "skills/binance-web3/query-token-audit",
+              "description": {
+                "ko": null,
+                "en": "Query token security audit to detect scams, honeypots, and malicious contracts before trading. Returns comprehensive security analysis including contract risks, trading risks, and scam detection."
+              }
+            },
+            {
+              "name": "query-token-info",
+              "path": "skills/binance-web3/query-token-info",
+              "description": {
+                "ko": null,
+                "en": "Query token details by keyword, contract address, or chain. Search tokens, get metadata and social links, retrieve real-time market data (price, price trend, volume, holders, liquidity), and fetch K-L..."
+              }
+            },
+            {
+              "name": "trading-signal",
+              "path": "skills/binance-web3/trading-signal",
+              "description": {
+                "ko": null,
+                "en": "Subscribe and retrieve on-chain Smart Money signals. Monitor trading activities of smart money addresses, including buy/sell signals, trigger price, current price, max gain, and exit rate."
+              }
+            },
+            {
+              "name": "spot",
+              "path": "skills/binance/spot",
+              "description": {
+                "ko": null,
+                "en": "Binance Spot request using the Binance API. Authentication requires API key and secret key. Supports testnet and mainnet."
               }
             }
           ]
