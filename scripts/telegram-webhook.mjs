@@ -1,14 +1,15 @@
 /**
  * telegram-webhook.mjs
- * Express 서버 (port 3847) — Telegram callback 수신 → GitHub workflow_dispatch 트리거
- * VPS에 배포하여 사용
+ * Express server (port 3847) — Telegram webhook entry point
+ * Routes messages to bot/commands.mjs and bot/callbacks.mjs
  */
 
 import express from 'express';
 import rateLimit from 'express-rate-limit';
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
+import { routeCommand } from './bot/commands.mjs';
+import { routeCallback } from './bot/callbacks.mjs';
+import { answerCallback } from './bot/telegram-api.mjs';
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -19,19 +20,18 @@ const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
 const PORT = process.env.PORT || 3847;
 
 if (!BOT_TOKEN || !CHAT_ID || !GITHUB_TOKEN) {
-  console.error('✗ Required env vars: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, GITHUB_TOKEN');
+  console.error('Required env vars: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, GITHUB_TOKEN');
   process.exit(1);
 }
 if (API_SECRET && API_SECRET.length < 32) {
-  console.error('✗ API_SECRET must be at least 32 characters');
+  console.error('API_SECRET must be at least 32 characters');
   process.exit(1);
 }
 
-const API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const app = express();
 app.use(express.json());
 
-// Rate limiting: /api/ 엔드포인트 — 15분당 30회
+// Rate limiting: /api/ endpoints — 30 requests per 15 minutes
 app.use('/api/', rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 30,
@@ -40,68 +40,31 @@ app.use('/api/', rateLimit({
   message: { error: 'Too many requests, try again later' },
 }));
 
-/**
- * Answer callback query (remove loading indicator)
- */
-async function answerCallback(callbackQueryId, text) {
-  await fetch(`${API_BASE}/answerCallbackQuery`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      callback_query_id: callbackQueryId,
-      text,
-      show_alert: false,
-    }),
-  });
-}
+// ---------------------------------------------------------------------------
+// Claude Code headless — Korean description generation (5min timeout)
+// ---------------------------------------------------------------------------
 
-/**
- * Edit inline keyboard message to show result (removes buttons to prevent double-click)
- */
-async function editMessage(chatId, messageId, text) {
-  await fetch(`${API_BASE}/editMessageText`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      message_id: messageId,
-      text,
-      parse_mode: 'HTML',
-      disable_web_page_preview: true,
-      reply_markup: JSON.stringify({ inline_keyboard: [] }),
-    }),
-  });
-}
+const VALID_GITHUB_NAME = /^[a-zA-Z0-9_.-]+$/;
 
-/**
- * Claude Code headless로 한국어 설명 생성 (5분 타임아웃)
- * stdin을 ignore해야 Claude CLI가 hang되지 않음
- *
- * @param {string} owner - GitHub owner
- * @param {string} repo - GitHub repo name
- * @param {object} [context] - 추가 컨텍스트 (description, readmeExcerpt, topics, language)
- */
 async function generateKoDescription(owner, repo, context) {
   let prompt;
   const args = ['-p'];
 
   if (context) {
-    // discover.mjs에서 호출: 컨텍스트 제공되므로 웹 접근 불필요
-    prompt = `GitHub 레포지토리 "${owner}/${repo}"의 정보:
-- 설명: ${context.description || 'N/A'}
-- README 발췌: ${(context.readmeExcerpt || '').slice(0, 300)}
-- 토픽: ${(context.topics || []).join(', ')}
-- 언어: ${context.language || 'N/A'}
+    prompt = `GitHub \uB808\uD3EC\uC9C0\uD1A0\uB9AC "${owner}/${repo}"\uC758 \uC815\uBCF4:
+- \uC124\uBA85: ${context.description || 'N/A'}
+- README \uBC1C\uCDB0: ${(context.readmeExcerpt || '').slice(0, 300)}
+- \uD1A0\uD53D: ${(context.topics || []).join(', ')}
+- \uC5B8\uC5B4: ${context.language || 'N/A'}
 
-이 레포가 Web3/블록체인 개발에서 어떤 역할을 하는지, Claude Code/MCP와 어떻게 활용할 수 있는지 한국어 1~2문장(100자 이내)으로 설명해줘. 설명만 출력해.`;
+\uC774 \uB808\uD3EC\uAC00 Web3/\uBE14\uB85D\uCCB4\uC778 \uAC1C\uBC1C\uC5D0\uC11C \uC5B4\uB5A4 \uC5ED\uD560\uC744 \uD558\uB294\uC9C0, Claude Code/MCP\uC640 \uC5B4\uB5BB\uAC8C \uD65C\uC6A9\uD560 \uC218 \uC788\uB294\uC9C0 \uD55C\uAD6D\uC5B4 1~2\uBB38\uC7A5(100\uC790 \uC774\uB0B4)\uC73C\uB85C \uC124\uBA85\uD574\uC918. \uC124\uBA85\uB9CC \uCD9C\uB825\uD574.`;
     args.push(prompt, '--model', 'haiku');
   } else {
-    // Telegram callback에서 호출: 웹 접근 필요
-    prompt = `GitHub 레포지토리 ${owner}/${repo}의 README와 description을 확인하고, awesome-web3-claude 목록에 넣을 한국어 설명 1문장(80자 이내)을 작성해줘. Claude Code/MCP/Web3 관점에서 이 도구가 뭘 하는지 간결하게. 설명만 출력하고 다른 말은 하지 마.`;
+    prompt = `GitHub \uB808\uD3EC\uC9C0\uD1A0\uB9AC ${owner}/${repo}\uC758 README\uC640 description\uC744 \uD655\uC778\uD558\uACE0, awesome-web3-claude \uBAA9\uB85D\uC5D0 \uB123\uC744 \uD55C\uAD6D\uC5B4 \uC124\uBA85 1\uBB38\uC7A5(80\uC790 \uC774\uB0B4)\uC744 \uC791\uC131\uD574\uC918. Claude Code/MCP/Web3 \uAD00\uC810\uC5D0\uC11C \uC774 \uB3C4\uAD6C\uAC00 \uBB58 \uD558\uB294\uC9C0 \uAC04\uACB0\uD558\uAC8C. \uC124\uBA85\uB9CC \uCD9C\uB825\uD558\uACE0 \uB2E4\uB978 \uB9D0\uC740 \uD558\uC9C0 \uB9C8.`;
     args.push(prompt, '--model', 'haiku', '--allowedTools', 'WebFetch', 'WebSearch');
   }
 
-  const TIMEOUT_MS = 300000; // 5분
+  const TIMEOUT_MS = 300000; // 5 minutes
 
   return new Promise((resolve) => {
     let resolved = false;
@@ -114,7 +77,7 @@ async function generateKoDescription(owner, repo, context) {
 
     let stdout = '';
     child.stdout.on('data', (d) => { stdout += d; });
-    child.stderr.on('data', (d) => { /* discard stderr */ });
+    child.stderr.on('data', () => {});
 
     const timer = setTimeout(() => {
       console.log('[CLAUDE] Timeout (5m), using fallback');
@@ -145,9 +108,18 @@ async function generateKoDescription(owner, repo, context) {
 /**
  * Trigger GitHub workflow_dispatch
  */
-async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo) {
+async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo, fromSectionId) {
   const [repoOwner, repoName] = GITHUB_REPO.split('/');
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/actions/workflows/update-readme.yml/dispatches`;
+
+  const inputs = {
+    action,
+    owner,
+    repo,
+    sectionId: sectionId || '',
+    descriptionKo: descriptionKo || '',
+  };
+  if (fromSectionId) inputs.fromSectionId = fromSectionId;
 
   const res = await fetch(url, {
     method: 'POST',
@@ -156,16 +128,7 @@ async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo) {
       Accept: 'application/vnd.github.v3+json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      ref: 'main',
-      inputs: {
-        action,
-        owner,
-        repo,
-        sectionId: sectionId || '',
-        descriptionKo: descriptionKo || '',
-      },
-    }),
+    body: JSON.stringify({ ref: 'main', inputs }),
   });
 
   if (!res.ok) {
@@ -177,161 +140,60 @@ async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo) {
 }
 
 /**
- * 알림 메시지 텍스트에서 한국어 설명 추출
- * notify-telegram.mjs의 메시지 형식: "📝 설명\n{descriptionKo}\n\n🔧"
+ * Extract Korean description from notification message text
  */
 function extractDescriptionKo(text) {
-  const match = text.match(/📝 설명\n(.+?)(?:\n\n|$)/s);
+  const match = text.match(/\uD83D\uDCDD \uC124\uBA85\n(.+?)(?:\n\n|$)/s);
   if (!match) return null;
   const desc = match[1].trim();
-  // 영문 description이 아닌 한국어인지 간단 체크
   if (!desc || /^[a-zA-Z\s.,!?()-]+$/.test(desc)) return null;
   return desc;
 }
 
-/**
- * GitHub owner/repo 이름 검증 (Command Injection 방어)
- * GitHub 규칙: alphanumeric, hyphen, underscore, dot만 허용
- */
-const VALID_GITHUB_NAME = /^[a-zA-Z0-9_.-]+$/;
+// Dependencies injected into callback handlers
+const deps = { triggerWorkflow, generateKoDescription, extractDescriptionKo };
 
-/**
- * Parse callback_data: "action:owner/repo:sectionId" or "action:hash:sectionId"
- */
-function parseCallbackData(data) {
-  const parts = data.split(':');
-  if (parts.length < 2) return null;
+// ---------------------------------------------------------------------------
+// Webhook endpoint
+// ---------------------------------------------------------------------------
 
-  const action = parts[0]; // add, skip, keep, remove
-  if (!['add', 'skip', 'keep', 'remove'].includes(action)) return null;
-
-  const repoOrHash = parts[1];
-  const sectionId = parts[2] || null;
-
-  // Check if it's a hash (8 hex chars)
-  if (/^[a-f0-9]{8}$/.test(repoOrHash)) {
-    return { action, hash: repoOrHash, sectionId, isHash: true };
-  }
-
-  // owner/repo format
-  const slashIdx = repoOrHash.indexOf('/');
-  if (slashIdx === -1) return null;
-
-  const owner = repoOrHash.slice(0, slashIdx);
-  const repo = repoOrHash.slice(slashIdx + 1);
-
-  if (!VALID_GITHUB_NAME.test(owner) || !VALID_GITHUB_NAME.test(repo)) return null;
-
-  return { action, owner, repo, sectionId, isHash: false };
-}
-
-/**
- * Webhook endpoint for Telegram updates
- */
 app.post(`/webhook/${BOT_TOKEN}`, async (req, res) => {
-  // Telegram webhook secret 검증
   if (WEBHOOK_SECRET && req.headers['x-telegram-bot-api-secret-token'] !== WEBHOOK_SECRET) {
     return res.sendStatus(403);
   }
 
-  res.sendStatus(200); // respond immediately
+  res.sendStatus(200);
 
   const update = req.body;
-  if (!update.callback_query) return;
-
-  const { callback_query } = update;
-  const fromId = String(callback_query.from.id);
-  const callbackData = callback_query.data;
-  const chatId = callback_query.message?.chat?.id;
-  const messageId = callback_query.message?.message_id;
+  const fromId = String(
+    update.callback_query?.from?.id
+    || update.message?.from?.id
+    || '',
+  );
 
   // Auth: only allow admin
   if (fromId !== String(CHAT_ID)) {
-    await answerCallback(callback_query.id, '⛔ 권한 없음');
-    return;
-  }
-
-  const parsed = parseCallbackData(callbackData);
-  if (!parsed) {
-    await answerCallback(callback_query.id, '❌ 파싱 오류');
+    if (update.callback_query) {
+      await answerCallback(update.callback_query.id, '\u26D4 \uAD8C\uD55C \uC5C6\uC74C');
+    }
     return;
   }
 
   try {
-    switch (parsed.action) {
-      case 'add': {
-        if (parsed.isHash) {
-          await answerCallback(callback_query.id, '❌ 해시 참조, 수동 처리 필요');
-          return;
-        }
-
-        // 알림 메시지에서 이미 생성된 한국어 설명 추출
-        const msgText = callback_query.message.text || '';
-        let descKo = extractDescriptionKo(msgText);
-
-        if (descKo) {
-          await answerCallback(callback_query.id, '✅ 추가 요청 전송');
-        } else {
-          // 설명이 없으면 Claude Code로 새로 생성
-          await answerCallback(callback_query.id, '⏳ 한국어 설명 생성 중...');
-          await editMessage(chatId, messageId,
-            msgText + '\n\n⏳ <b>한국어 설명 생성 중...</b>');
-          descKo = await generateKoDescription(parsed.owner, parsed.repo);
-        }
-
-        console.log(`[ADD] ${parsed.owner}/${parsed.repo} → ${parsed.sectionId} (ko: ${descKo || 'fallback'})`);
-
-        await triggerWorkflow('add', parsed.owner, parsed.repo, parsed.sectionId, descKo);
-        await editMessage(chatId, messageId,
-          msgText +
-          `\n\n✅ <b>추가 승인됨</b> — workflow 실행 중` +
-          (descKo ? `\n📝 설명: ${descKo}` : '\n⚠️ 한국어 설명 생성 실패, GitHub description 사용'));
-        break;
-      }
-      case 'remove': {
-        if (parsed.isHash) {
-          await answerCallback(callback_query.id, '❌ 해시 참조, 수동 처리 필요');
-          return;
-        }
-        await triggerWorkflow('remove', parsed.owner, parsed.repo, parsed.sectionId);
-        await answerCallback(callback_query.id, '🗑 삭제 요청 전송');
-        await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n🗑 <b>삭제 승인됨</b> — workflow 실행 중');
-        console.log(`[REMOVE] ${parsed.owner}/${parsed.repo}`);
-        break;
-      }
-      case 'skip': {
-        await answerCallback(callback_query.id, '❌ 스킵 (7일간 재추천 안 함)');
-        if (!parsed.isHash && parsed.owner && parsed.repo) {
-          await triggerWorkflow('skip', parsed.owner, parsed.repo, parsed.sectionId);
-        }
-        await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n❌ <b>스킵됨</b> (7일 후 재추천 가능)');
-        console.log(`[SKIP] ${parsed.owner}/${parsed.repo}`);
-        break;
-      }
-      case 'keep': {
-        await answerCallback(callback_query.id, '👍 유지 (7일간 재알림 안 함)');
-        if (!parsed.isHash && parsed.owner && parsed.repo) {
-          await triggerWorkflow('keep', parsed.owner, parsed.repo, parsed.sectionId);
-        }
-        await editMessage(chatId, messageId,
-          callback_query.message.text + '\n\n👍 <b>유지됨</b> (7일 후 재검토 가능)');
-        console.log(`[KEEP] ${parsed.owner}/${parsed.repo}`);
-        break;
-      }
-      default:
-        await answerCallback(callback_query.id, '❓ 알 수 없는 액션');
+    if (update.callback_query) {
+      await routeCallback(update.callback_query, deps);
+    } else if (update.message?.text?.startsWith('/')) {
+      await routeCommand(update.message.chat.id, update.message.text);
     }
   } catch (err) {
-    console.error(`Error handling callback: ${err.message}`);
-    await answerCallback(callback_query.id, `❌ 오류: ${err.message.slice(0, 100)}`);
+    console.error(`Webhook error: ${err.message}`);
   }
 });
 
 // ---------------------------------------------------------------------------
-// /api/describe — Claude Code headless로 한국어 설명 생성 (discover.mjs에서 호출)
+// /api/describe — Claude Code headless Korean description (called by discover.mjs)
 // ---------------------------------------------------------------------------
+
 app.post('/api/describe', async (req, res) => {
   if (!API_SECRET || req.headers.authorization !== `Bearer ${API_SECRET}`) {
     return res.status(401).json({ error: 'Unauthorized' });
@@ -354,7 +216,7 @@ app.post('/api/describe', async (req, res) => {
   }
 });
 
-// Health check endpoint (localhost only)
+// Health check (localhost only)
 app.get('/health', (req, res) => {
   const ip = req.ip || req.socket.remoteAddress;
   if (ip !== '127.0.0.1' && ip !== '::1' && ip !== '::ffff:127.0.0.1') {
@@ -367,4 +229,5 @@ app.listen(PORT, () => {
   console.log(`AWC Webhook server running on port ${PORT}`);
   console.log(`Webhook: configured (token redacted)`);
   console.log(`Health: http://localhost:${PORT}/health`);
+  console.log(`Bot commands: /help, /list, /stats, /section, /search, /find, /add, /remove, /move, /edit`);
 });

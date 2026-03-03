@@ -10,10 +10,12 @@ REMOTE_DIR="/root/awc-webhook"
 echo "=== Deploying AWC Webhook to VPS ==="
 
 # 1. Create remote directory
-ssh $VPS "mkdir -p $REMOTE_DIR"
+ssh $VPS "mkdir -p $REMOTE_DIR/bot"
 
 # 2. Copy files
 scp scripts/telegram-webhook.mjs $VPS:$REMOTE_DIR/
+scp scripts/config.mjs $VPS:$REMOTE_DIR/
+scp scripts/bot/*.mjs $VPS:$REMOTE_DIR/bot/
 scp package.json $VPS:$REMOTE_DIR/
 scp deploy/awc-webhook.service $VPS:/etc/systemd/system/
 
