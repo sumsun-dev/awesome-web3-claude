@@ -19,6 +19,11 @@
       "action": "skip",
       "skippedAt": "2026-03-03T09:41:11.297Z",
       "reason": "User skipped candidate"
+    },
+    "nirholas/defi-agents": {
+      "action": "skip",
+      "skippedAt": "2026-03-03T09:41:22.146Z",
+      "reason": "User skipped candidate"
     }
   }
 }
