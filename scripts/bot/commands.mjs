@@ -93,7 +93,8 @@ async function handleList(chatId) {
 
     text += `<b>${escapeHtml(SECTION_LABELS[sectionId])}</b> (${section.repos.length})\n`;
     for (const r of section.repos) {
-      text += `  <a href="https://github.com/${r.owner}/${r.repo}">${escapeHtml(r.owner)}/${escapeHtml(r.repo)}</a>\n`;
+      const skillBadge = r.skills?.length ? ` (${r.skills.length} skills)` : '';
+      text += `  <a href="https://github.com/${r.owner}/${r.repo}">${escapeHtml(r.owner)}/${escapeHtml(r.repo)}</a>${skillBadge}\n`;
     }
     text += '\n';
   }
@@ -111,6 +112,7 @@ async function handleStats(chatId) {
 
   let official = 0;
   let community = 0;
+  let totalSkills = 0;
   const sectionCounts = {};
   const allRepos = [];
 
@@ -119,6 +121,7 @@ async function handleStats(chatId) {
     for (const r of section.repos) {
       if (r.type === 'Official') official++;
       else community++;
+      if (r.skills) totalSkills += r.skills.length;
       allRepos.push(r);
     }
   }
@@ -129,6 +132,7 @@ async function handleStats(chatId) {
 
   let text = `<b>통계</b>\n\n`;
   text += `총 레포: <b>${data.metadata.totalEntries}</b>\n`;
+  text += `총 스킬: <b>${totalSkills}</b>\n`;
   text += `Official: ${official} / Community: ${community}\n\n`;
 
   text += `<b>섹션별 분포</b>\n`;
@@ -185,6 +189,11 @@ export async function sendSectionDetail(chatId, sectionId) {
     const desc = r.description?.ko || r.description?.en || '';
     text += `<a href="https://github.com/${r.owner}/${r.repo}">${escapeHtml(r.owner)}/${escapeHtml(r.repo)}</a>${stars}\n`;
     if (desc) text += `  ${escapeHtml(desc)}\n`;
+    if (r.skills && r.skills.length > 0) {
+      text += `  🔧 ${r.skills.length} skills: ${r.skills.slice(0, 5).map(s => s.name).join(', ')}`;
+      if (r.skills.length > 5) text += ` +${r.skills.length - 5}`;
+      text += '\n';
+    }
     text += '\n';
   }
 
@@ -207,9 +216,13 @@ async function handleSearch(chatId, keyword) {
 
   for (const section of data.sections) {
     for (const r of section.repos) {
+      const skillText = (r.skills || [])
+        .map(s => `${s.name} ${s.description?.ko || ''} ${s.description?.en || ''}`)
+        .join(' ');
       const haystack = [
         r.owner, r.repo,
         r.description?.ko || '', r.description?.en || '',
+        skillText,
       ].join(' ').toLowerCase();
 
       if (haystack.includes(kw)) {

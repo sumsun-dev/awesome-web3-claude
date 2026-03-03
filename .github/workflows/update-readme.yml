@@ -14,6 +14,7 @@ on:
           - keep
           - move
           - update-desc
+          - update-skills
       owner:
         description: 'Repository owner'
         required: true
@@ -70,6 +71,7 @@ jobs:
           node -e "
           import { readFileSync, writeFileSync } from 'node:fs';
           import { Octokit } from '@octokit/rest';
+          import { discoverSkillsInRepo, countTotalSkills } from './scripts/skill-utils.mjs';
 
           const data = JSON.parse(readFileSync('data/repos.json', 'utf-8'));
           const action = process.env.ACTION;
@@ -103,7 +105,7 @@ jobs:
 
             const descEn = ghRepo.description || '';
             const descKo = descriptionKo || descEn;
-            section.repos.push({
+            const addedRepo = {
               owner,
               repo,
               type: 'Community',
@@ -117,8 +119,39 @@ jobs:
                 lastPush: ghRepo.pushed_at,
                 exists: true,
               },
-            });
+            };
+
+            // Auto-discover skills if repo has SKILL.md files
+            try {
+              const skills = await discoverSkillsInRepo(owner, repo, process.env.GITHUB_TOKEN);
+              if (skills.length > 0) {
+                addedRepo.skills = skills;
+                console.log('Discovered', skills.length, 'skills in', fullName);
+              }
+            } catch (err) {
+              console.log('Skill discovery skipped:', err.message);
+            }
+
+            section.repos.push(addedRepo);
             console.log('Added:', fullName, 'to', sectionId, '(ko:', descKo.slice(0, 50), ')');
+
+          } else if (action === 'update-skills') {
+            // Refresh skills for a specific repo
+            let found = null;
+            for (const section of data.sections) {
+              found = section.repos.find(r => r.owner === owner && r.repo === repo);
+              if (found) break;
+            }
+            if (!found) { console.log('Not found:', fullName); process.exit(0); }
+
+            try {
+              const skills = await discoverSkillsInRepo(owner, repo, process.env.GITHUB_TOKEN);
+              found.skills = skills.length > 0 ? skills : undefined;
+              console.log('Updated skills for', fullName, ':', skills.length, 'skills');
+            } catch (err) {
+              console.error('Skill discovery failed:', err.message);
+              process.exit(1);
+            }
 
           } else if (action === 'remove') {
             let removed = false;
@@ -187,11 +220,12 @@ jobs:
 
           data.metadata.lastUpdated = new Date().toISOString();
           data.metadata.totalEntries = data.sections.reduce((s, sec) => s + sec.repos.length, 0);
+          data.metadata.totalSkills = countTotalSkills(data);
           writeFileSync('data/repos.json', JSON.stringify(data, null, 2) + '\n');
           " --input-type=module
 
       - name: Generate README files
-        if: inputs.action == 'add' || inputs.action == 'remove' || inputs.action == 'move' || inputs.action == 'update-desc'
+        if: inputs.action == 'add' || inputs.action == 'remove' || inputs.action == 'move' || inputs.action == 'update-desc' || inputs.action == 'update-skills'
         run: node scripts/generate-readme.mjs
 
       - name: Commit and push
@@ -214,12 +248,14 @@ jobs:
             git commit -m "refactor: move ${FULLNAME} to ${{ inputs.sectionId }}"
           elif [ "$ACTION" = "update-desc" ]; then
             git commit -m "docs: update description for ${FULLNAME}"
+          elif [ "$ACTION" = "update-skills" ]; then
+            git commit -m "refactor: update skills for ${FULLNAME}"
           fi
           git pull --rebase origin main
           git push
 
       - name: Notify public channel
-        if: inputs.action == 'add' || inputs.action == 'remove' || inputs.action == 'move' || inputs.action == 'update-desc'
+        if: inputs.action == 'add' || inputs.action == 'remove' || inputs.action == 'move' || inputs.action == 'update-desc' || inputs.action == 'update-skills'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
@@ -266,6 +302,17 @@ jobs:
             msg = '🔄 Moved: ' + fullName + (fromSec ? ' ' + fromSec + ' → ' : ' → ') + (section || '?');
           } else if (action === 'update-desc') {
             msg = '✏️ Updated: ' + fullName + (desc ? '\\n📝 ' + desc : '');
+          } else if (action === 'update-skills') {
+            // Read skill count from repos.json
+            let skillCount = 0;
+            try {
+              const data2 = JSON.parse(fs.readFileSync('data/repos.json', 'utf-8'));
+              for (const s2 of data2.sections) {
+                const r2 = s2.repos.find(r => r.owner === owner && r.repo === repoName);
+                if (r2 && r2.skills) { skillCount = r2.skills.length; break; }
+              }
+            } catch {}
+            msg = '🔄 Skills updated: ' + fullName + ' (' + skillCount + ' skills)';
           } else {
             process.exit(0);
           }

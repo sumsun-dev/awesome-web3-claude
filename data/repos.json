@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-03T09:32:06.067Z",
-    "totalEntries": 51
+    "lastUpdated": "2026-03-03T15:12:21.183Z",
+    "totalEntries": 51,
+    "totalSkills": 118
   },
   "sections": [
     {
@@ -32,7 +33,489 @@
             "archived": false,
             "lastPush": null,
             "exists": true
-          }
+          },
+          "skills": [
+            {
+              "name": "agentic-actions-auditor",
+              "path": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor",
+              "description": {
+                "ko": null,
+                "en": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference."
+              }
+            },
+            {
+              "name": "ask-questions-if-underspecified",
+              "path": "plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified",
+              "description": {
+                "ko": null,
+                "en": "Clarify requirements before implementing. Use when serious doubts arise."
+              }
+            },
+            {
+              "name": "audit-context-building",
+              "path": "plugins/audit-context-building/skills/audit-context-building",
+              "description": {
+                "ko": null,
+                "en": "Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding."
+              }
+            },
+            {
+              "name": "algorand-vulnerability-scanner",
+              "path": "plugins/building-secure-contracts/skills/algorand-vulnerability-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans Algorand smart contracts for 11 common vulnerabilities including rekeying attacks, unchecked transaction fees, missing field validations, and access control issues."
+              }
+            },
+            {
+              "name": "audit-prep-assistant",
+              "path": "plugins/building-secure-contracts/skills/audit-prep-assistant",
+              "description": {
+                "ko": null,
+                "en": "Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and genera..."
+              }
+            },
+            {
+              "name": "cairo-vulnerability-scanner",
+              "path": "plugins/building-secure-contracts/skills/cairo-vulnerability-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion problems, and signature replay."
+              }
+            },
+            {
+              "name": "code-maturity-assessor",
+              "path": "plugins/building-secure-contracts/skills/code-maturity-assessor",
+              "description": {
+                "ko": null,
+                "en": "Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation..."
+              }
+            },
+            {
+              "name": "cosmos-vulnerability-scanner",
+              "path": "plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans Cosmos SDK blockchains for 9 consensus-critical vulnerabilities including non-determinism, incorrect signers, ABCI panics, and rounding errors."
+              }
+            },
+            {
+              "name": "guidelines-advisor",
+              "path": "plugins/building-secure-contracts/skills/guidelines-advisor",
+              "description": {
+                "ko": null,
+                "en": "Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implem..."
+              }
+            },
+            {
+              "name": "secure-workflow-guide",
+              "path": "plugins/building-secure-contracts/skills/secure-workflow-guide",
+              "description": {
+                "ko": null,
+                "en": "Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, he..."
+              }
+            },
+            {
+              "name": "solana-vulnerability-scanner",
+              "path": "plugins/building-secure-contracts/skills/solana-vulnerability-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs."
+              }
+            },
+            {
+              "name": "substrate-vulnerability-scanner",
+              "path": "plugins/building-secure-contracts/skills/substrate-vulnerability-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including arithmetic overflow, panic DoS, incorrect weights, and bad origin checks."
+              }
+            },
+            {
+              "name": "token-integration-analyzer",
+              "path": "plugins/building-secure-contracts/skills/token-integration-analyzer",
+              "description": {
+                "ko": null,
+                "en": "Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, asse..."
+              }
+            },
+            {
+              "name": "ton-vulnerability-scanner",
+              "path": "plugins/building-secure-contracts/skills/ton-vulnerability-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks."
+              }
+            },
+            {
+              "name": "burpsuite-project-parser",
+              "path": "plugins/burpsuite-project-parser/skills",
+              "description": {
+                "ko": null,
+                "en": "Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy histo..."
+              }
+            },
+            {
+              "name": "claude-in-chrome-troubleshooting",
+              "path": "plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting",
+              "description": {
+                "ko": null,
+                "en": "Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return \"Browser extension is not connected\", or behave erratically."
+              }
+            },
+            {
+              "name": "constant-time-analysis",
+              "path": "plugins/constant-time-analysis/skills/constant-time-analysis",
+              "description": {
+                "ko": null,
+                "en": "Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time program..."
+              }
+            },
+            {
+              "name": "interpreting-culture-index",
+              "path": "plugins/culture-index/skills/interpreting-culture-index",
+              "description": {
+                "ko": null,
+                "en": "Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, ..."
+              }
+            },
+            {
+              "name": "debug-buttercup",
+              "path": "plugins/debug-buttercup/skills/debug-buttercup",
+              "description": {
+                "ko": null,
+                "en": "debug-buttercup"
+              }
+            },
+            {
+              "name": "devcontainer-setup",
+              "path": "plugins/devcontainer-setup/skills/devcontainer-setup",
+              "description": {
+                "ko": null,
+                "en": "Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes."
+              }
+            },
+            {
+              "name": "differential-review",
+              "path": "plugins/differential-review/skills/differential-review",
+              "description": {
+                "ko": null,
+                "en": "differential-review"
+              }
+            },
+            {
+              "name": "dwarf-expert",
+              "path": "plugins/dwarf-expert/skills/dwarf-expert",
+              "description": {
+                "ko": null,
+                "en": "Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5)."
+              }
+            },
+            {
+              "name": "entry-point-analyzer",
+              "path": "plugins/entry-point-analyzer/skills/entry-point-analyzer",
+              "description": {
+                "ko": null,
+                "en": "Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admi..."
+              }
+            },
+            {
+              "name": "firebase-apk-scanner",
+              "path": "plugins/firebase-apk-scanner/skills/firebase-apk-scanner",
+              "description": {
+                "ko": null,
+                "en": "Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions."
+              }
+            },
+            {
+              "name": "using-gh-cli",
+              "path": "plugins/gh-cli/skills/using-gh-cli",
+              "description": {
+                "ko": null,
+                "en": "Guides usage of the GitHub CLI (gh) for interacting with GitHub repositories, PRs, issues, and API. Use when working with GitHub resources instead of WebFetch or curl."
+              }
+            },
+            {
+              "name": "git-cleanup",
+              "path": "plugins/git-cleanup/skills/git-cleanup",
+              "description": {
+                "ko": null,
+                "en": "Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work."
+              }
+            },
+            {
+              "name": "insecure-defaults",
+              "path": "plugins/insecure-defaults/skills/insecure-defaults",
+              "description": {
+                "ko": null,
+                "en": "Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive security) that allow apps to run insecurely in production."
+              }
+            },
+            {
+              "name": "let-fate-decide",
+              "path": "plugins/let-fate-decide/skills/let-fate-decide",
+              "description": {
+                "ko": null,
+                "en": "Draws 4 Tarot cards using os.urandom() to inject entropy into planning when prompts are vague or underspecified."
+              }
+            },
+            {
+              "name": "modern-python",
+              "path": "plugins/modern-python/skills/modern-python",
+              "description": {
+                "ko": null,
+                "en": "Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black."
+              }
+            },
+            {
+              "name": "property-based-testing",
+              "path": "plugins/property-based-testing/skills/property-based-testing",
+              "description": {
+                "ko": null,
+                "en": "Provides guidance for property-based testing across multiple languages and smart contracts. Use when writing tests, reviewing code with serialization/validation/parsing patterns, designing features, o..."
+              }
+            },
+            {
+              "name": "seatbelt-sandboxer",
+              "path": "plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer",
+              "description": {
+                "ko": null,
+                "en": "Generates minimal macOS Seatbelt sandbox configurations. Use when sandboxing, isolating, or restricting macOS applications with allowlist-based profiles."
+              }
+            },
+            {
+              "name": "second-opinion",
+              "path": "plugins/second-opinion/skills/second-opinion",
+              "description": {
+                "ko": null,
+                "en": "Runs external LLM code reviews (OpenAI Codex or Google Gemini CLI) on uncommitted changes, branch diffs, or specific commits."
+              }
+            },
+            {
+              "name": "semgrep-rule-creator",
+              "path": "plugins/semgrep-rule-creator/skills/semgrep-rule-creator",
+              "description": {
+                "ko": null,
+                "en": "Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections."
+              }
+            },
+            {
+              "name": "semgrep-rule-variant-creator",
+              "path": "plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator",
+              "description": {
+                "ko": null,
+                "en": "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages."
+              }
+            },
+            {
+              "name": "sharp-edges",
+              "path": "plugins/sharp-edges/skills/sharp-edges",
+              "description": {
+                "ko": null,
+                "en": "Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes."
+              }
+            },
+            {
+              "name": "skill-improver",
+              "path": "plugins/skill-improver/skills/skill-improver",
+              "description": {
+                "ko": null,
+                "en": "Iteratively reviews and fixes Claude Code skill quality issues until they meet standards. Runs automated fix-review cycles using the skill-reviewer agent."
+              }
+            },
+            {
+              "name": "spec-to-code-compliance",
+              "path": "plugins/spec-to-code-compliance/skills/spec-to-code-compliance",
+              "description": {
+                "ko": null,
+                "en": "Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing complianc..."
+              }
+            },
+            {
+              "name": "codeql",
+              "path": "plugins/static-analysis/skills/codeql",
+              "description": {
+                "ko": null,
+                "en": ">-"
+              }
+            },
+            {
+              "name": "sarif-parsing",
+              "path": "plugins/static-analysis/skills/sarif-parsing",
+              "description": {
+                "ko": null,
+                "en": ">-"
+              }
+            },
+            {
+              "name": "semgrep",
+              "path": "plugins/static-analysis/skills/semgrep",
+              "description": {
+                "ko": null,
+                "en": ">-"
+              }
+            },
+            {
+              "name": "supply-chain-risk-auditor",
+              "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
+              "description": {
+                "ko": null,
+                "en": "Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements."
+              }
+            },
+            {
+              "name": "address-sanitizer",
+              "path": "plugins/testing-handbook-skills/skills/address-sanitizer",
+              "description": {
+                "ko": null,
+                "en": "address-sanitizer"
+              }
+            },
+            {
+              "name": "aflpp",
+              "path": "plugins/testing-handbook-skills/skills/aflpp",
+              "description": {
+                "ko": null,
+                "en": "aflpp"
+              }
+            },
+            {
+              "name": "atheris",
+              "path": "plugins/testing-handbook-skills/skills/atheris",
+              "description": {
+                "ko": null,
+                "en": "atheris"
+              }
+            },
+            {
+              "name": "cargo-fuzz",
+              "path": "plugins/testing-handbook-skills/skills/cargo-fuzz",
+              "description": {
+                "ko": null,
+                "en": "cargo-fuzz"
+              }
+            },
+            {
+              "name": "constant-time-testing",
+              "path": "plugins/testing-handbook-skills/skills/constant-time-testing",
+              "description": {
+                "ko": null,
+                "en": "constant-time-testing"
+              }
+            },
+            {
+              "name": "coverage-analysis",
+              "path": "plugins/testing-handbook-skills/skills/coverage-analysis",
+              "description": {
+                "ko": null,
+                "en": "coverage-analysis"
+              }
+            },
+            {
+              "name": "fuzzing-dictionary",
+              "path": "plugins/testing-handbook-skills/skills/fuzzing-dictionary",
+              "description": {
+                "ko": null,
+                "en": "fuzzing-dictionary"
+              }
+            },
+            {
+              "name": "fuzzing-obstacles",
+              "path": "plugins/testing-handbook-skills/skills/fuzzing-obstacles",
+              "description": {
+                "ko": null,
+                "en": "fuzzing-obstacles"
+              }
+            },
+            {
+              "name": "harness-writing",
+              "path": "plugins/testing-handbook-skills/skills/harness-writing",
+              "description": {
+                "ko": null,
+                "en": "harness-writing"
+              }
+            },
+            {
+              "name": "libafl",
+              "path": "plugins/testing-handbook-skills/skills/libafl",
+              "description": {
+                "ko": null,
+                "en": "libafl"
+              }
+            },
+            {
+              "name": "libfuzzer",
+              "path": "plugins/testing-handbook-skills/skills/libfuzzer",
+              "description": {
+                "ko": null,
+                "en": "libfuzzer"
+              }
+            },
+            {
+              "name": "ossfuzz",
+              "path": "plugins/testing-handbook-skills/skills/ossfuzz",
+              "description": {
+                "ko": null,
+                "en": "ossfuzz"
+              }
+            },
+            {
+              "name": "ruzzy",
+              "path": "plugins/testing-handbook-skills/skills/ruzzy",
+              "description": {
+                "ko": null,
+                "en": "ruzzy"
+              }
+            },
+            {
+              "name": "testing-handbook-generator",
+              "path": "plugins/testing-handbook-skills/skills/testing-handbook-generator",
+              "description": {
+                "ko": null,
+                "en": "testing-handbook-generator"
+              }
+            },
+            {
+              "name": "wycheproof",
+              "path": "plugins/testing-handbook-skills/skills/wycheproof",
+              "description": {
+                "ko": null,
+                "en": "wycheproof"
+              }
+            },
+            {
+              "name": "variant-analysis",
+              "path": "plugins/variant-analysis/skills/variant-analysis",
+              "description": {
+                "ko": null,
+                "en": "Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing s..."
+              }
+            },
+            {
+              "name": "designing-workflow-skills",
+              "path": "plugins/workflow-skill-design/skills/designing-workflow-skills",
+              "description": {
+                "ko": null,
+                "en": ">-"
+              }
+            },
+            {
+              "name": "yara-rule-authoring",
+              "path": "plugins/yara-authoring/skills/yara-rule-authoring",
+              "description": {
+                "ko": null,
+                "en": "yara-rule-authoring"
+              }
+            },
+            {
+              "name": "zeroize-audit",
+              "path": "plugins/zeroize-audit/skills/zeroize-audit",
+              "description": {
+                "ko": null,
+                "en": "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification."
+              }
+            }
+          ]
         },
         {
           "owner": "trailofbits",
@@ -118,7 +601,65 @@
             "archived": false,
             "lastPush": null,
             "exists": true
-          }
+          },
+          "skills": [
+            {
+              "name": "configurator",
+              "path": "packages/plugins/uniswap-cca/skills/configurator",
+              "description": {
+                "ko": null,
+                "en": "Configure CCA (Continuous Clearing Auction) smart contract parameters through an interactive bulk form flow."
+              }
+            },
+            {
+              "name": "deployer",
+              "path": "packages/plugins/uniswap-cca/skills/deployer",
+              "description": {
+                "ko": null,
+                "en": "Deploy CCA (Continuous Clearing Auction) smart contracts using the Factory pattern. Use when user says \"deploy auction\", \"deploy cca\", \"factory deployment\", or wants to deploy a configured auction."
+              }
+            },
+            {
+              "name": "liquidity-planner",
+              "path": "packages/plugins/uniswap-driver/skills/liquidity-planner",
+              "description": {
+                "ko": null,
+                "en": "This skill should be used when the user asks to \"provide liquidity\", \"create LP position\", \"add liquidity to pool\", \"become a liquidity provider\", \"create v3 position\", \"create v4 position\", \"concentr..."
+              }
+            },
+            {
+              "name": "swap-planner",
+              "path": "packages/plugins/uniswap-driver/skills/swap-planner",
+              "description": {
+                "ko": null,
+                "en": "This skill should be used when the user asks to \"swap tokens\", \"trade ETH for USDC\", \"exchange tokens on Uniswap\", \"buy tokens\", \"sell tokens\", \"convert ETH to stablecoins\", \"find memecoins\", \"discove..."
+              }
+            },
+            {
+              "name": "v4-security-foundations",
+              "path": "packages/plugins/uniswap-hooks/skills/v4-security-foundations",
+              "description": {
+                "ko": null,
+                "en": "Security-first Uniswap v4 hook development. Use when user mentions \"v4 hooks\", \"hook security\", \"PoolManager\", \"beforeSwap\", \"afterSwap\", or asks about V4 hook best practices, vulnerabilities, or audi..."
+              }
+            },
+            {
+              "name": "swap-integration",
+              "path": "packages/plugins/uniswap-trading/skills/swap-integration",
+              "description": {
+                "ko": null,
+                "en": "Integrate Uniswap swaps into applications. Use when user says \"integrate swaps\", \"uniswap\", \"trading api\", \"add swap functionality\", \"build a swap frontend\", \"create a swap script\", \"smart contract sw..."
+              }
+            },
+            {
+              "name": "viem-integration",
+              "path": "packages/plugins/uniswap-viem/skills/viem-integration",
+              "description": {
+                "ko": null,
+                "en": "Integrate EVM blockchains using viem. Use when user says \"read blockchain data\", \"send transaction\", \"interact with smart contract\", \"connect to Ethereum\", \"use viem\", \"use wagmi\", \"wallet integration..."
+              }
+            }
+          ]
         },
         {
           "owner": "austintgriffith",
@@ -136,7 +677,193 @@
             "archived": false,
             "lastPush": null,
             "exists": true
-          }
+          },
+          "skills": [
+            {
+              "name": "addresses",
+              "path": "addresses",
+              "description": {
+                "ko": null,
+                "en": "Verified contract addresses for major Ethereum protocols across mainnet and L2s. Use this instead of guessing or hallucinating addresses."
+              }
+            },
+            {
+              "name": "audit",
+              "path": "audit",
+              "description": {
+                "ko": null,
+                "en": "Deep EVM smart contract security audit system. Use when asked to audit a contract, find vulnerabilities, review code for security issues, or file security issues on a GitHub repo."
+              }
+            },
+            {
+              "name": "building-blocks",
+              "path": "building-blocks",
+              "description": {
+                "ko": null,
+                "en": "DeFi legos and protocol composability on Ethereum and L2s. Major protocols per chain — Aerodrome on Base, GMX/Pendle on Arbitrum, Velodrome on Optimism — plus mainnet primitives (Uniswap, Aave, Compou..."
+              }
+            },
+            {
+              "name": "concepts",
+              "path": "concepts",
+              "description": {
+                "ko": null,
+                "en": "The essential mental models for building onchain — focused on what LLMs get wrong and what humans need explained."
+              }
+            },
+            {
+              "name": "contracts",
+              "path": "contracts",
+              "description": {
+                "ko": null,
+                "en": "Deprecated: this skill has moved to addresses."
+              }
+            },
+            {
+              "name": "defi",
+              "path": "defi",
+              "description": {
+                "ko": null,
+                "en": "Deprecated: this skill has moved to building-blocks."
+              }
+            },
+            {
+              "name": "frontend-playbook",
+              "path": "frontend-playbook",
+              "description": {
+                "ko": null,
+                "en": "The complete build-to-production pipeline for Ethereum dApps. Fork mode setup, IPFS deployment, Vercel config, ENS subdomain setup, and the full production checklist."
+              }
+            },
+            {
+              "name": "frontend-ux",
+              "path": "frontend-ux",
+              "description": {
+                "ko": null,
+                "en": "Frontend UX rules for Ethereum dApps that prevent the most common AI agent UI bugs. Mandatory patterns for onchain buttons, token approval flows, address display, USD values, RPC configuration, and pr..."
+              }
+            },
+            {
+              "name": "gas",
+              "path": "gas",
+              "description": {
+                "ko": null,
+                "en": "Current Ethereum gas prices, transaction costs, and the real economics of building on Ethereum today."
+              }
+            },
+            {
+              "name": "indexing",
+              "path": "indexing",
+              "description": {
+                "ko": null,
+                "en": "How to read and query onchain data — events, The Graph, indexing patterns. Why you cannot just loop through blocks, and what to use instead."
+              }
+            },
+            {
+              "name": "l2",
+              "path": "l2",
+              "description": {
+                "ko": null,
+                "en": "Deprecated: this skill has moved to l2s."
+              }
+            },
+            {
+              "name": "l2s",
+              "path": "l2s",
+              "description": {
+                "ko": null,
+                "en": "Ethereum Layer 2 landscape — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo, and more. How they work, how to deploy on them, how to bridge, when to use which."
+              }
+            },
+            {
+              "name": "layer2",
+              "path": "layer2",
+              "description": {
+                "ko": null,
+                "en": "Deprecated: this skill has moved to l2s."
+              }
+            },
+            {
+              "name": "ethskills",
+              "path": "openclaw-skill",
+              "description": {
+                "ko": null,
+                "en": "Ethereum development knowledge for AI agents — from idea to deployed dApp. Fetch real-time docs on gas costs, Solidity patterns, Scaffold-ETH 2, Layer 2s, DeFi composability, security, testing, and pr..."
+              }
+            },
+            {
+              "name": "orchestration",
+              "path": "orchestration",
+              "description": {
+                "ko": null,
+                "en": "How an AI agent plans, builds, and deploys a complete Ethereum dApp. The three-phase build system for Scaffold-ETH 2 projects."
+              }
+            },
+            {
+              "name": "qa",
+              "path": "qa",
+              "description": {
+                "ko": null,
+                "en": "Pre-ship audit checklist for Ethereum dApps built with Scaffold-ETH 2. Give this to a separate reviewer agent (or fresh context) AFTER the build is complete."
+              }
+            },
+            {
+              "name": "security",
+              "path": "security",
+              "description": {
+                "ko": null,
+                "en": "Solidity security patterns, common vulnerabilities, and pre-deploy audit checklist. The specific code patterns that prevent real losses — not just warnings, but defensive implementations."
+              }
+            },
+            {
+              "name": "ship",
+              "path": "ship",
+              "description": {
+                "ko": null,
+                "en": "End-to-end guide for AI agents — from a dApp idea to deployed production app. Fetch this FIRST, it routes you through all other skills."
+              }
+            },
+            {
+              "name": "standards",
+              "path": "standards",
+              "description": {
+                "ko": null,
+                "en": "Ethereum token and protocol standards — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004, and newer standards."
+              }
+            },
+            {
+              "name": "testing",
+              "path": "testing",
+              "description": {
+                "ko": null,
+                "en": "Smart contract testing with Foundry — unit tests, fuzz testing, fork testing, invariant testing. What to test, what not to test, and what LLMs get wrong."
+              }
+            },
+            {
+              "name": "tools",
+              "path": "tools",
+              "description": {
+                "ko": null,
+                "en": "Current Ethereum development tools, frameworks, libraries, RPCs, and block explorers. What actually works today for building on Ethereum."
+              }
+            },
+            {
+              "name": "wallets",
+              "path": "wallets",
+              "description": {
+                "ko": null,
+                "en": "How to create, manage, and use Ethereum wallets. Covers EOAs, smart contract wallets, multisig (Safe), and account abstraction."
+              }
+            },
+            {
+              "name": "why-ethereum",
+              "path": "why",
+              "description": {
+                "ko": null,
+                "en": "Why build on Ethereum specifically. The AI agent angle — ERC-8004, x402, composability, permissionless deployment."
+              }
+            }
+          ]
         },
         {
           "owner": "trustwallet",
@@ -154,7 +881,49 @@
             "archived": false,
             "lastPush": null,
             "exists": true
-          }
+          },
+          "skills": [
+            {
+              "name": "assets",
+              "path": "skills/assets",
+              "description": {
+                "ko": null,
+                "en": "Work with the Trust Wallet assets repository — look up token logos and metadata, list assets by blockchain, and contribute new assets (add logo, info.json, update tokenlist)."
+              }
+            },
+            {
+              "name": "barz",
+              "path": "skills/barz",
+              "description": {
+                "ko": null,
+                "en": "Build with, use, and contribute to Barz — Trust Wallet's modular ERC-4337 smart contract wallet. Use when working with trustwallet/barz, implementing account abstraction, adding wallet facets, writing..."
+              }
+            },
+            {
+              "name": "trust-developer",
+              "path": "skills/trust-developer",
+              "description": {
+                "ko": null,
+                "en": "Build on the Trust Wallet developer platform. Use when integrating Trust Wallet deep links, detecting the browser extension, or setting up WalletConnect."
+              }
+            },
+            {
+              "name": "trust-web3-provider",
+              "path": "skills/trust-web3-provider",
+              "description": {
+                "ko": null,
+                "en": "Integrate and build on Trust Wallet's Web3 provider library. Use when working with trust-web3-provider, @trustwallet/web3-provider-*, or adding blockchain provider support for Ethereum, Solana, Cosmos..."
+              }
+            },
+            {
+              "name": "wallet-core",
+              "path": "skills/wallet-core",
+              "description": {
+                "ko": null,
+                "en": "Build with Trust Wallet Core — HD wallet creation, address derivation, and transaction signing across 140+ blockchains."
+              }
+            }
+          ]
         },
         {
           "owner": "ruvnet",
@@ -222,7 +991,129 @@
             "archived": false,
             "lastPush": null,
             "exists": true
-          }
+          },
+          "skills": [
+            {
+              "name": "bankr-signals",
+              "path": "bankr-signals",
+              "description": {
+                "ko": null,
+                "en": "bankr-signals"
+              }
+            },
+            {
+              "name": "bankr",
+              "path": "bankr",
+              "description": {
+                "ko": null,
+                "en": "AI-powered crypto trading agent and LLM gateway via natural language. Use when the user wants to trade crypto, check portfolio balances, view token prices, transfer crypto, manage NFTs, use leverage, ..."
+              }
+            },
+            {
+              "name": "base",
+              "path": "base",
+              "description": {
+                "ko": null,
+                "en": "Placeholder for Base skill."
+              }
+            },
+            {
+              "name": "botchan",
+              "path": "botchan",
+              "description": {
+                "ko": null,
+                "en": "CLI for the onchain agent messaging layer on the Base blockchain, built on Net Protocol. Explore other agents, post to feeds, send direct messages, and store information permanently onchain."
+              }
+            },
+            {
+              "name": "clanker",
+              "path": "clanker",
+              "description": {
+                "ko": null,
+                "en": "Deploy ERC20 tokens on Base, Ethereum, Arbitrum, and other EVM chains using the Clanker SDK. Use when the user wants to deploy a new token, create a memecoin, set up token vesting, configure airdrops,..."
+              }
+            },
+            {
+              "name": "endaoment",
+              "path": "endaoment",
+              "description": {
+                "ko": null,
+                "en": "Donate to charities onchain via Endaoment. Use when the user wants to donate crypto to charity, make a charitable contribution, give to nonprofits, support a cause, or donate to a 501(c)(3)."
+              }
+            },
+            {
+              "name": "ens-primary-name",
+              "path": "ens-primary-name",
+              "description": {
+                "ko": null,
+                "en": "Set your primary ENS name on Base and other L2s. Use when user wants to set their ENS name, configure reverse resolution, set primary name, or make their address resolve to an ENS name."
+              }
+            },
+            {
+              "name": "erc-8004",
+              "path": "erc-8004",
+              "description": {
+                "ko": null,
+                "en": "Register AI agents on Ethereum mainnet using ERC-8004 (Trustless Agents). Use when the user wants to register their agent identity on-chain, create an agent profile, claim an agent NFT, set up agent r..."
+              }
+            },
+            {
+              "name": "neynar",
+              "path": "neynar",
+              "description": {
+                "ko": null,
+                "en": "Interact with Farcaster via Neynar API. Use when the user wants to read Farcaster feeds, look up users, post casts, search content, or interact with the Farcaster social protocol."
+              }
+            },
+            {
+              "name": "onchainkit",
+              "path": "onchainkit",
+              "description": {
+                "ko": null,
+                "en": "Build onchain applications with React components and TypeScript utilities from Coinbase's OnchainKit."
+              }
+            },
+            {
+              "name": "qrcoin",
+              "path": "qrcoin",
+              "description": {
+                "ko": null,
+                "en": "Interact with QR Coin auctions on Base. Use when the user wants to participate in qrcoin.fun QR code auctions — check auction status, view current bids, create new bids, or contribute to existing bids..."
+              }
+            },
+            {
+              "name": "siwa",
+              "path": "siwa",
+              "description": {
+                "ko": null,
+                "en": "siwa"
+              }
+            },
+            {
+              "name": "veil",
+              "path": "veil",
+              "description": {
+                "ko": null,
+                "en": "Privacy and shielded transactions on Base via Veil Cash (veil.cash). Deposit ETH or USDC into private pools, withdraw/transfer privately using ZK proofs."
+              }
+            },
+            {
+              "name": "yoink",
+              "path": "yoink",
+              "description": {
+                "ko": null,
+                "en": "Play Yoink, an onchain capture-the-flag game on Base. Yoink the flag from the current holder, check game stats and leaderboards, view player scores, and compete for the trophy."
+              }
+            },
+            {
+              "name": "zapper",
+              "path": "zapper",
+              "description": {
+                "ko": null,
+                "en": "Placeholder for Zapper skill."
+              }
+            }
+          ]
         },
         {
           "owner": "nirholas",
@@ -276,7 +1167,73 @@
             "archived": false,
             "lastPush": "2026-03-02T12:42:04Z",
             "exists": true
-          }
+          },
+          "skills": [
+            {
+              "name": "cmc-api-crypto",
+              "path": "skills/cmc-api-crypto",
+              "description": {
+                "ko": null,
+                "en": "API reference for CoinMarketCap cryptocurrency endpoints including quotes, listings, OHLCV, trending, and categories."
+              }
+            },
+            {
+              "name": "cmc-api-dex",
+              "path": "skills/cmc-api-dex",
+              "description": {
+                "ko": null,
+                "en": "API reference for CoinMarketCap DEX endpoints including token lookup, pools, transactions, trending, and security analysis."
+              }
+            },
+            {
+              "name": "cmc-api-exchange",
+              "path": "skills/cmc-api-exchange",
+              "description": {
+                "ko": null,
+                "en": "API reference for CoinMarketCap exchange endpoints including exchange info, volume, market pairs, and assets."
+              }
+            },
+            {
+              "name": "cmc-api-market",
+              "path": "skills/cmc-api-market",
+              "description": {
+                "ko": null,
+                "en": "API reference for CoinMarketCap market-wide endpoints including global metrics, fear/greed, indices, trending topics, and charts."
+              }
+            },
+            {
+              "name": "cmc-mcp",
+              "path": "skills/cmc-mcp",
+              "description": {
+                "ko": null,
+                "en": "Fetches cryptocurrency market data, prices, technical analysis, news, and trends using the CoinMarketCap MCP."
+              }
+            },
+            {
+              "name": "cmc-x402",
+              "path": "skills/cmc-x402",
+              "description": {
+                "ko": null,
+                "en": "Access CoinMarketCap data via x402 pay-per-request protocol with USDC payments on Base. Use when users mention x402, want CMC data without API keys, ask about pay-per-request APIs, or need to integrat..."
+              }
+            },
+            {
+              "name": "crypto-research",
+              "path": "skills/crypto-research",
+              "description": {
+                "ko": null,
+                "en": "Performs comprehensive due diligence on a cryptocurrency using CoinMarketCap MCP data. Use when users ask about a specific coin beyond just its price."
+              }
+            },
+            {
+              "name": "market-report",
+              "path": "skills/market-report",
+              "description": {
+                "ko": null,
+                "en": "Generates a comprehensive crypto market report using CoinMarketCap MCP data. Use when users ask about overall market conditions, sentiment, or want a summary."
+              }
+            }
+          ]
         }
       ]
     },

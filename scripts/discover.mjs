@@ -11,6 +11,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Octokit } from '@octokit/rest';
 import { TRUSTED_ORGS } from './config.mjs';
+import { discoverSkillsInRepo } from './skill-utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -260,6 +261,19 @@ async function deepAnalyze(candidate) {
 
   // 6. 추천 등급
   candidate.recommendation = calcRecommendation(candidate);
+
+  // 6.5. Discover skills if repo has SKILL.md signals
+  if (signals.hasSkillMd) {
+    try {
+      const skills = await discoverSkillsInRepo(owner, repo, GITHUB_TOKEN);
+      if (skills.length > 0) {
+        candidate.skills = skills;
+        console.log(`  [Skills] Found ${skills.length} skills in ${candidate.fullName}`);
+      }
+    } catch (err) {
+      console.log(`  [Skills] Discovery failed: ${err.message}`);
+    }
+  }
 
   // 7. 한국어 설명 생성 (skip 제외)
   if (candidate.recommendation !== 'skip') {

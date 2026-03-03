@@ -58,14 +58,63 @@ function formatDate(dateStr) {
   return `'${yy}.${mm}`;
 }
 
+/** Escape pipe characters in markdown table cells */
+function escapePipe(str) {
+  return (str || '').replace(/\|/g, '\\|');
+}
+
 function repoRow(repo, lang) {
   const fullName = `${repo.owner}/${repo.repo}`;
   const link = `[${fullName}](https://github.com/${fullName})`;
   const stars = `![](https://img.shields.io/github/stars/${fullName}?style=flat-square&logo=github)`;
   const type = `\`${repo.type}\``;
   const date = formatDate(repo.addedDate);
-  const desc = repo.description[lang];
-  return `| ${link} | ${stars} | ${type} | ${date} | ${desc} |`;
+  let desc = (repo.description && repo.description[lang]) || '';
+
+  // Add skill count badge if repo has skills
+  const skillCount = repo.skills?.length || 0;
+  if (skillCount > 0) {
+    const badge = lang === 'ko' ? `\`${skillCount}개 스킬\`` : `\`${skillCount} skills\``;
+    desc += ` ${badge}`;
+  }
+
+  return `| ${link} | ${stars} | ${type} | ${date} | ${escapePipe(desc)} |`;
+}
+
+/**
+ * Generate <details> collapsible block for repos with skills.
+ * Returns an array of lines (empty if no skills).
+ */
+function skillsDetails(repo, lang) {
+  const skills = repo.skills;
+  if (!skills || skills.length === 0) return [];
+
+  const fullName = `${repo.owner}/${repo.repo}`;
+  const summary = lang === 'ko'
+    ? `${fullName} 스킬 상세 (${skills.length}개)`
+    : `${fullName} skill details (${skills.length})`;
+
+  const skillLabel = lang === 'ko' ? '스킬' : 'Skill';
+  const descLabel = lang === 'ko' ? '설명' : 'Description';
+
+  const lines = [];
+  lines.push(`<details><summary>${summary}</summary>`);
+  lines.push('');
+  lines.push(`| ${skillLabel} | ${descLabel} |`);
+  lines.push('|:-----|:------------|');
+
+  for (const skill of skills) {
+    const skillLink = `[${skill.name}](https://github.com/${fullName}/tree/main/${skill.path})`;
+    const desc = (lang === 'ko' && skill.description.ko)
+      ? skill.description.ko
+      : (skill.description.en || skill.name);
+    lines.push(`| ${skillLink} | ${escapePipe(desc)} |`);
+  }
+
+  lines.push('');
+  lines.push('</details>');
+  lines.push('');
+  return lines;
 }
 
 function generateReadme(data, lang) {
@@ -149,6 +198,11 @@ function generateReadme(data, lang) {
       lines.push(repoRow(repo, lang));
     }
     lines.push('');
+
+    // Skill details blocks after each section's table
+    for (const repo of section.repos) {
+      lines.push(...skillsDetails(repo, lang));
+    }
   }
 
   lines.push('---');
@@ -176,6 +230,11 @@ function generateReadme(data, lang) {
       lines.push(repoRow(repo, lang));
     }
     lines.push('');
+
+    // Skill details blocks after each section's table
+    for (const repo of section.repos) {
+      lines.push(...skillsDetails(repo, lang));
+    }
   }
 
   lines.push('---');
@@ -244,7 +303,7 @@ function main() {
   }
 
   console.log('=== Generating README files from repos.json ===\n');
-  console.log(`Source: ${data.metadata.totalEntries} entries, last updated: ${data.metadata.lastUpdated}\n`);
+  console.log(`Source: ${data.metadata.totalEntries} entries, ${data.metadata.totalSkills || 0} skills, last updated: ${data.metadata.lastUpdated}\n`);
 
   // Generate
   const koReadme = generateReadme(data, 'ko');

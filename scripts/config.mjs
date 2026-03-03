@@ -9,7 +9,7 @@ export const TRUSTED_ORGS = new Set([
   'alchemyplatform', 'thirdweb-dev', 'cyfrin', 'a16z',
   'moralisweb3', 'bankless', 'getalby', 'debridge-finance',
   'noditlabs', 'heurist-network', 'trustwallet', 'goat-sdk',
-  'scaffold-eth', 'elizaos', 'sendaifun',
+  'scaffold-eth', 'elizaos', 'sendaifun', 'binance',
 ]);
 
 export const SECTION_ORDER = [

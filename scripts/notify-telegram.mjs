@@ -149,6 +149,21 @@ function buildCandidateMessage(c) {
   else lines.push('⚠️ 라이선스 없음 — 사용 주의');
   lines.push('');
 
+  // Skills info (if discovered)
+  if (c.skills && c.skills.length > 0) {
+    lines.push('');
+    lines.push(`<b>🔧 스킬 (${c.skills.length}개)</b>`);
+    const shown = c.skills.slice(0, 8);
+    for (const skill of shown) {
+      const desc = skill.description?.en || '';
+      lines.push(`  • ${skill.name}${desc ? ' — ' + escapeHtml(desc.slice(0, 60)) : ''}`);
+    }
+    if (c.skills.length > 8) {
+      lines.push(`  ... +${c.skills.length - 8}개`);
+    }
+  }
+  lines.push('');
+
   // 추천 섹션
   lines.push(`📂 추천 섹션: <b>${SECTION_LABELS[c.suggestedSection] || c.suggestedSection}</b>`);
 

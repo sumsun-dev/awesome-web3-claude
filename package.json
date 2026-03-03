@@ -9,7 +9,8 @@
     "generate": "node scripts/generate-readme.mjs",
     "discover": "node scripts/discover.mjs",
     "notify": "node scripts/notify-telegram.mjs",
-    "webhook": "node scripts/telegram-webhook.mjs"
+    "webhook": "node scripts/telegram-webhook.mjs",
+    "migrate-skills": "node scripts/migrate-skills.mjs"
   },
   "dependencies": {
     "@octokit/rest": "^21.0.0",
