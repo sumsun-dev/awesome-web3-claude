@@ -14,6 +14,11 @@
       "action": "keep",
       "skippedAt": "2026-03-01T09:52:05.648Z",
       "reason": "User kept existing repo"
+    },
+    "hashgraph-online/registry-broker-skills": {
+      "action": "skip",
+      "skippedAt": "2026-03-03T09:41:11.297Z",
+      "reason": "User skipped candidate"
     }
   }
 }
