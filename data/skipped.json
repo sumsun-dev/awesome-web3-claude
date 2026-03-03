@@ -39,6 +39,11 @@
       "action": "skip",
       "skippedAt": "2026-03-03T09:42:05.125Z",
       "reason": "User skipped candidate"
+    },
+    "nirholas/ethereum-wallet-toolkit": {
+      "action": "skip",
+      "skippedAt": "2026-03-03T09:42:22.259Z",
+      "reason": "User skipped candidate"
     }
   }
 }
