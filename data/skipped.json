@@ -34,6 +34,11 @@
       "action": "skip",
       "skippedAt": "2026-03-03T09:41:48.304Z",
       "reason": "User skipped candidate"
+    },
+    "xspoonai/spoon-awesome-skill": {
+      "action": "skip",
+      "skippedAt": "2026-03-03T09:42:05.125Z",
+      "reason": "User skipped candidate"
     }
   }
 }
