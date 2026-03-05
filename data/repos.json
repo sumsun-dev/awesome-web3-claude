@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-05T03:18:41.007Z",
-    "totalEntries": 53,
-    "totalSkills": 126
+    "lastUpdated": "2026-03-05T04:23:14.949Z",
+    "totalEntries": 52,
+    "totalSkills": 125
   },
   "sections": [
     {
@@ -636,35 +636,6 @@
             "lastPush": null,
             "exists": true
           }
-        },
-        {
-          "owner": "pashov",
-          "repo": "skills",
-          "type": "Community",
-          "addedDate": "2026-03-05",
-          "description": {
-            "ko": "해당 레포지토리는 블록체인 보안 감사 전문 회사 Pashov Audit Group의 기술 스킬 저장소로, Web3 개발자나 보안 감사자들이 참고할 수 있는 리소스 모음입니다.",
-            "en": "Pashov Audit Group Skills",
-            "ja": "該当するリポジトリは、ブロックチェーン保安監査専門会社Pashov Audit Groupの技術スキル保存庫であり、Web3開発者やセキュリティ監査者が参考にできるリソース集です。"
-          },
-          "status": "active",
-          "health": {
-            "stars": 112,
-            "starsPrev": 112,
-            "archived": false,
-            "lastPush": "2026-03-04T13:44:48Z",
-            "exists": true
-          },
-          "skills": [
-            {
-              "name": "solidity-auditor",
-              "path": "solidity-auditor",
-              "description": {
-                "ko": null,
-                "en": "Security audit of Solidity code while you develop. Trigger on \"audit\", \"check this contract\", \"review for security\"."
-              }
-            }
-          ]
         }
       ]
     },

@@ -42,7 +42,6 @@ This space is early-stage — entries are selected for functionality and officia
 | [trailofbits/claude-code-config](https://github.com/trailofbits/claude-code-config) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-config?style=flat-square&logo=github) | `Official` | '26.02 | Opinionated Claude Code defaults, documentation, and workflows |
 | [trailofbits/claude-code-devcontainer](https://github.com/trailofbits/claude-code-devcontainer) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-devcontainer?style=flat-square&logo=github) | `Official` | '26.02 | Sandboxed devcontainer for running Claude Code safely in bypass mode |
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ![](https://img.shields.io/github/stars/trailofbits/skills-curated?style=flat-square&logo=github) | `Official` | '26.02 | Curated marketplace, community-vetted plugins with code review (warns of backdoor risks) |
-| [pashov/skills](https://github.com/pashov/skills) | ![](https://img.shields.io/github/stars/pashov/skills?style=flat-square&logo=github) | `Community` | '26.03 | Pashov Audit Group Skills `1 skills` |
 
 <details><summary>trailofbits/skills skill details (60)</summary>
 
@@ -108,14 +107,6 @@ This space is early-stage — entries are selected for functionality and officia
 | [designing-workflow-skills](https://github.com/trailofbits/skills/tree/main/plugins/workflow-skill-design/skills/designing-workflow-skills) | >- |
 | [yara-rule-authoring](https://github.com/trailofbits/skills/tree/main/plugins/yara-authoring/skills/yara-rule-authoring) | yara-rule-authoring |
 | [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit/skills/zeroize-audit) | Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification. |
-
-</details>
-
-<details><summary>pashov/skills skill details (1)</summary>
-
-| Skill | Description |
-|:-----|:------------|
-| [solidity-auditor](https://github.com/pashov/skills/tree/main/solidity-auditor) | Security audit of Solidity code while you develop. Trigger on "audit", "check this contract", "review for security". |
 
 </details>
 
