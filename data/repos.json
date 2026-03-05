@@ -10,11 +10,13 @@
       "group": "claude-code-native",
       "title": {
         "ko": "스킬 & 플러그인 — 보안 & 감사",
-        "en": "Skills & Plugins — Security & Auditing"
+        "en": "Skills & Plugins — Security & Auditing",
+        "ja": "スキル & プラグイン — セキュリティ & 監査"
       },
       "description": {
         "ko": null,
-        "en": null
+        "en": null,
+        "ja": null
       },
       "repos": [
         {
@@ -24,7 +26,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "보안 감사, 스마트 컨트랙트 분석, 정적분석(Semgrep, CodeQL), 속성 기반 테스팅, 취약점 탐지용 28개 플러그인",
-            "en": "28 plugins for security auditing, smart contract analysis, static analysis (Semgrep, CodeQL), property-based testing, and vulnerability detection"
+            "en": "28 plugins for security auditing, smart contract analysis, static analysis (Semgrep, CodeQL), property-based testing, and vulnerability detection",
+            "ja": "セキュリティ監査、スマートコントラクト分析、静的解析(Semgrep, CodeQL)、プロパティベーステスト、脆弱性検出用28個プラグイン"
           },
           "status": "active",
           "health": {
@@ -40,7 +43,8 @@
               "path": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor",
               "description": {
                 "ko": "AI 에이전트 통합(Claude Code Action, Gemini CLI, OpenAI Codex, GitHub AI Inference)의 GitHub Actions 워크플로우 보안 취약점 감사",
-                "en": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference."
+                "en": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference.",
+                "ja": "AIエージェント統合（Claude Code Action, Gemini CLI, OpenAI Codex, GitHub AI Inference）のGitHub Actionsワークフローセキュリティ脆弱性監査"
               }
             },
             {
@@ -48,7 +52,8 @@
               "path": "plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified",
               "description": {
                 "ko": "구현 전 요구사항 명확화. 심각한 의문이 있을 때 질문을 먼저 던지는 스킬",
-                "en": "Clarify requirements before implementing. Use when serious doubts arise."
+                "en": "Clarify requirements before implementing. Use when serious doubts arise.",
+                "ja": "実装前の要件明確化。深刻な疑問がある時に質問を先に投げるスキル"
               }
             },
             {
@@ -56,7 +61,8 @@
               "path": "plugins/audit-context-building/skills/audit-context-building",
               "description": {
                 "ko": "취약점/버그 탐지 전 줄 단위 초정밀 코드 분석으로 깊은 아키텍처 컨텍스트 구축",
-                "en": "Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding."
+                "en": "Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulnerability or bug finding.",
+                "ja": "脆弱性/バグ検出前の行単位超精密コード分析による深いアーキテクチャコンテキスト構築"
               }
             },
             {
@@ -64,7 +70,8 @@
               "path": "plugins/building-secure-contracts/skills/algorand-vulnerability-scanner",
               "description": {
                 "ko": "Algorand 스마트 컨트랙트의 리키잉 공격, 미확인 트랜잭션 수수료, 필드 검증 누락 등 11개 취약점 스캔",
-                "en": "Scans Algorand smart contracts for 11 common vulnerabilities including rekeying attacks, unchecked transaction fees, missing field validations, and access control issues."
+                "en": "Scans Algorand smart contracts for 11 common vulnerabilities including rekeying attacks, unchecked transaction fees, missing field validations, and access control issues.",
+                "ja": "Algorandスマートコントラクトのリキーイング攻撃、未確認トランザクション手数料、フィールド検証欠落など11個の脆弱性スキャン"
               }
             },
             {
@@ -72,7 +79,8 @@
               "path": "plugins/building-secure-contracts/skills/audit-prep-assistant",
               "description": {
                 "ko": "Trail of Bits 체크리스트 기반 보안 리뷰 준비. 리뷰 목표 설정, 정적 분석, 테스트 커버리지 향상, 데드 코드 제거",
-                "en": "Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and genera..."
+                "en": "Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and genera...",
+                "ja": "Trail of Bitsチェックリスト基盤のセキュリティレビュー準備。レビュー目標設定、静的解析、テストカバレッジ向上、デッドコード除去"
               }
             },
             {
@@ -80,7 +88,8 @@
               "path": "plugins/building-secure-contracts/skills/cairo-vulnerability-scanner",
               "description": {
                 "ko": "Cairo/StarkNet 스마트 컨트랙트의 felt252 산술 오버플로, L1-L2 메시징, 주소 변환 등 6개 치명적 취약점 스캔",
-                "en": "Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion problems, and signature replay."
+                "en": "Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion problems, and signature replay.",
+                "ja": "Cairo/StarkNetスマートコントラクトのfelt252算術オーバーフロー、L1-L2メッセージング、アドレス変換など6個の致命的脆弱性スキャン"
               }
             },
             {
@@ -88,7 +97,8 @@
               "path": "plugins/building-secure-contracts/skills/code-maturity-assessor",
               "description": {
                 "ko": "Trail of Bits 9개 카테고리 프레임워크로 코드 성숙도 체계적 평가. 산술 안전성, 감사 관행, 접근 제어, 복잡도 분석",
-                "en": "Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation..."
+                "en": "Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation...",
+                "ja": "Trail of Bitsの9カテゴリフレームワークによるコード成熟度の体系的評価。算術安全性、監査慣行、アクセス制御、複雑度分析"
               }
             },
             {
@@ -96,7 +106,8 @@
               "path": "plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner",
               "description": {
                 "ko": "Cosmos SDK 블록체인의 비결정성, 잘못된 서명자, ABCI 패닉, 반올림 오류 등 9개 합의 치명적 취약점 스캔",
-                "en": "Scans Cosmos SDK blockchains for 9 consensus-critical vulnerabilities including non-determinism, incorrect signers, ABCI panics, and rounding errors."
+                "en": "Scans Cosmos SDK blockchains for 9 consensus-critical vulnerabilities including non-determinism, incorrect signers, ABCI panics, and rounding errors.",
+                "ja": "Cosmos SDKブロックチェーンの非決定性、誤った署名者、ABCIパニック、丸めエラーなど9個のコンセンサス致命的脆弱性スキャン"
               }
             },
             {
@@ -104,7 +115,8 @@
               "path": "plugins/building-secure-contracts/skills/guidelines-advisor",
               "description": {
                 "ko": "Trail of Bits 모범 사례 기반 스마트 컨트랙트 개발 어드바이저. 문서 생성, 아키텍처 리뷰, 업그레이드 패턴 확인",
-                "en": "Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implem..."
+                "en": "Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implem...",
+                "ja": "Trail of Bitsベストプラクティス基盤のスマートコントラクト開発アドバイザー。ドキュメント生成、アーキテクチャレビュー、アップグレードパターン確認"
               }
             },
             {
@@ -112,7 +124,8 @@
               "path": "plugins/building-secure-contracts/skills/secure-workflow-guide",
               "description": {
                 "ko": "Trail of Bits 5단계 보안 개발 워크플로우 가이드. Slither 스캔, 업그레이드/ERC 적합성/토큰 통합 점검, 보안 다이어그램 생성",
-                "en": "Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, he..."
+                "en": "Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, he...",
+                "ja": "Trail of Bitsの5段階セキュア開発ワークフローガイド。Slitherスキャン、アップグレード/ERC適合性/トークン統合チェック、セキュリティダイアグラム生成"
               }
             },
             {
@@ -120,7 +133,8 @@
               "path": "plugins/building-secure-contracts/skills/solana-vulnerability-scanner",
               "description": {
                 "ko": "Solana 프로그램의 임의 CPI, 부적절한 PDA 검증, 서명자/소유권 체크 누락, sysvar 스푸핑 등 6개 치명적 취약점 스캔",
-                "en": "Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs."
+                "en": "Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs.",
+                "ja": "Solanaプログラムの任意CPI、不適切なPDA検証、署名者/所有権チェック欠落、sysvarスプーフィングなど6個の致命的脆弱性スキャン"
               }
             },
             {
@@ -128,7 +142,8 @@
               "path": "plugins/building-secure-contracts/skills/substrate-vulnerability-scanner",
               "description": {
                 "ko": "Substrate/Polkadot 팔렛의 산술 오버플로, 패닉 DoS, 부정확한 가중치, 잘못된 origin 체크 등 7개 치명적 취약점 스캔",
-                "en": "Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including arithmetic overflow, panic DoS, incorrect weights, and bad origin checks."
+                "en": "Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including arithmetic overflow, panic DoS, incorrect weights, and bad origin checks.",
+                "ja": "Substrate/Polkadotパレットの算術オーバーフロー、パニックDoS、不正確なウェイト、不正なoriginチェックなど7個の致命的脆弱性スキャン"
               }
             },
             {
@@ -136,7 +151,8 @@
               "path": "plugins/building-secure-contracts/skills/token-integration-analyzer",
               "description": {
                 "ko": "Trail of Bits 토큰 통합 체크리스트 기반 분석. ERC20/ERC721 적합성 확인, 20개 이상 이상 토큰 패턴 감지",
-                "en": "Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, asse..."
+                "en": "Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, asse...",
+                "ja": "Trail of Bitsトークン統合チェックリスト基盤の分析。ERC20/ERC721適合性確認、20以上の異常トークンパターン検出"
               }
             },
             {
@@ -144,7 +160,8 @@
               "path": "plugins/building-secure-contracts/skills/ton-vulnerability-scanner",
               "description": {
                 "ko": "TON 스마트 컨트랙트의 정수-불리언 오용, 가짜 Jetton 컨트랙트, 가스 체크 없는 TON 전송 등 3개 치명적 취약점 스캔",
-                "en": "Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks."
+                "en": "Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks.",
+                "ja": "TONスマートコントラクトの整数-ブーリアン誤用、偽Jettonコントラクト、ガスチェックなしのTON転送など3個の致命的脆弱性スキャン"
               }
             },
             {
@@ -152,7 +169,8 @@
               "path": "plugins/burpsuite-project-parser/skills",
               "description": {
                 "ko": "Burp Suite 프로젝트 파일(.burp) CLI 탐색. 정규식으로 응답 헤더/바디 검색, 보안 감사 결과 추출, 프록시 히스토리 덤프",
-                "en": "Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy histo..."
+                "en": "Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy histo...",
+                "ja": "Burp Suiteプロジェクトファイル(.burp) CLI探索。正規表現でレスポンスヘッダー/ボディ検索、セキュリティ監査結果抽出、プロキシ履歴ダンプ"
               }
             },
             {
@@ -160,7 +178,8 @@
               "path": "plugins/claude-in-chrome-troubleshooting/skills/claude-in-chrome-troubleshooting",
               "description": {
                 "ko": "Claude in Chrome MCP 확장 프로그램 연결 문제 진단 및 수정",
-                "en": "Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return \"Browser extension is not connected\", or behave erratically."
+                "en": "Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return \"Browser extension is not connected\", or behave erratically.",
+                "ja": "Claude in Chrome MCP拡張機能の接続問題診断と修正"
               }
             },
             {
@@ -168,7 +187,8 @@
               "path": "plugins/constant-time-analysis/skills/constant-time-analysis",
               "description": {
                 "ko": "암호화 코드의 타이밍 사이드 채널 취약점 탐지. 비밀 값에 대한 나눗셈, 비밀 의존 분기 검사",
-                "en": "Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time program..."
+                "en": "Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time program...",
+                "ja": "暗号コードのタイミングサイドチャネル脆弱性検出。秘密値の除算、秘密依存分岐の検査"
               }
             },
             {
@@ -176,7 +196,8 @@
               "path": "plugins/culture-index/skills/interpreting-culture-index",
               "description": {
                 "ko": "Culture Index(CI) 설문, 행동 프로필, 성격 평가 데이터 해석. 팀 구성 분석, 번아웃 감지 지원",
-                "en": "Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, ..."
+                "en": "Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, ...",
+                "ja": "Culture Index(CI)アンケート、行動プロファイル、性格評価データ解釈。チーム構成分析、バーンアウト検知サポート"
               }
             },
             {
@@ -184,7 +205,8 @@
               "path": "plugins/debug-buttercup/skills/debug-buttercup",
               "description": {
                 "ko": "Buttercup 디버깅 스킬",
-                "en": "debug-buttercup"
+                "en": "debug-buttercup",
+                "ja": "Buttercupデバッグスキル"
               }
             },
             {
@@ -192,7 +214,8 @@
               "path": "plugins/devcontainer-setup/skills/devcontainer-setup",
               "description": {
                 "ko": "Claude Code, 언어별 도구(Python/Node/Rust/Go), 영구 볼륨이 포함된 devcontainer 생성",
-                "en": "Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes."
+                "en": "Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes.",
+                "ja": "Claude Code、言語別ツール（Python/Node/Rust/Go）、永続ボリューム付きdevcontainer生成"
               }
             },
             {
@@ -200,7 +223,8 @@
               "path": "plugins/differential-review/skills/differential-review",
               "description": {
                 "ko": "차분 코드 리뷰 스킬",
-                "en": "differential-review"
+                "en": "differential-review",
+                "ja": "差分コードレビュースキル"
               }
             },
             {
@@ -208,7 +232,8 @@
               "path": "plugins/dwarf-expert/skills/dwarf-expert",
               "description": {
                 "ko": "DWARF 디버그 파일 분석 및 DWARF 디버그 포맷/표준(v3-v5) 전문 지식 제공",
-                "en": "Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5)."
+                "en": "Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5).",
+                "ja": "DWARFデバッグファイル分析およびDWARFデバッグフォーマット/標準(v3-v5)の専門知識提供"
               }
             },
             {
@@ -216,7 +241,8 @@
               "path": "plugins/entry-point-analyzer/skills/entry-point-analyzer",
               "description": {
                 "ko": "보안 감사를 위한 스마트 컨트랙트 상태 변경 진입점 분석. 외부 호출 가능한 상태 수정 함수 감지",
-                "en": "Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admi..."
+                "en": "Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admi...",
+                "ja": "セキュリティ監査のためのスマートコントラクト状態変更エントリポイント分析。外部呼び出し可能な状態変更関数の検出"
               }
             },
             {
@@ -224,7 +250,8 @@
               "path": "plugins/firebase-apk-scanner/skills/firebase-apk-scanner",
               "description": {
                 "ko": "Android APK의 Firebase 보안 설정 오류 스캔. 개방된 DB, 스토리지 버킷, 인증 문제, 노출된 클라우드 기능 감지",
-                "en": "Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions."
+                "en": "Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions.",
+                "ja": "Android APKのFirebaseセキュリティ設定エラースキャン。開放DB、ストレージバケット、認証問題、露出クラウド機能の検出"
               }
             },
             {
@@ -232,7 +259,8 @@
               "path": "plugins/gh-cli/skills/using-gh-cli",
               "description": {
                 "ko": "GitHub CLI(gh) 사용 가이드. GitHub 레포, PR, 이슈, API 작업에 활용",
-                "en": "Guides usage of the GitHub CLI (gh) for interacting with GitHub repositories, PRs, issues, and API. Use when working with GitHub resources instead of WebFetch or curl."
+                "en": "Guides usage of the GitHub CLI (gh) for interacting with GitHub repositories, PRs, issues, and API. Use when working with GitHub resources instead of WebFetch or curl.",
+                "ja": "GitHub CLI(gh)使用ガイド。GitHubリポジトリ、PR、Issue、API操作に活用"
               }
             },
             {
@@ -240,7 +268,8 @@
               "path": "plugins/git-cleanup/skills/git-cleanup",
               "description": {
                 "ko": "로컬 git 브랜치와 워크트리를 병합됨/스쿼시-병합됨/대체됨/활성 작업으로 분류하여 안전하게 정리",
-                "en": "Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work."
+                "en": "Safely analyzes and cleans up local git branches and worktrees by categorizing them as merged, squash-merged, superseded, or active work.",
+                "ja": "ローカルgitブランチとワークツリーをマージ済み/スカッシュマージ済み/置換済み/アクティブ作業に分類して安全にクリーンアップ"
               }
             },
             {
@@ -248,7 +277,8 @@
               "path": "plugins/insecure-defaults/skills/insecure-defaults",
               "description": {
                 "ko": "하드코딩된 시크릿, 약한 인증, 허용적 보안 등 프로덕션에서 앱이 안전하지 않게 실행되는 fail-open 인시큐어 디폴트 감지",
-                "en": "Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive security) that allow apps to run insecurely in production."
+                "en": "Detects fail-open insecure defaults (hardcoded secrets, weak auth, permissive security) that allow apps to run insecurely in production.",
+                "ja": "ハードコードされたシークレット、弱い認証、許容的セキュリティなどプロダクションでアプリが安全でなく実行されるfail-openインセキュアデフォルトの検出"
               }
             },
             {
@@ -256,7 +286,8 @@
               "path": "plugins/let-fate-decide/skills/let-fate-decide",
               "description": {
                 "ko": "os.urandom()으로 타로 카드 4장을 뽑아 모호한 프롬프트에 엔트로피 주입",
-                "en": "Draws 4 Tarot cards using os.urandom() to inject entropy into planning when prompts are vague or underspecified."
+                "en": "Draws 4 Tarot cards using os.urandom() to inject entropy into planning when prompts are vague or underspecified.",
+                "ja": "os.urandom()でタロットカード4枚を引いて曖昧なプロンプトにエントロピーを注入"
               }
             },
             {
@@ -264,7 +295,8 @@
               "path": "plugins/modern-python/skills/modern-python",
               "description": {
                 "ko": "모던 Python 도구(uv, ruff, ty)로 프로젝트 설정. pip/Poetry/mypy에서 마이그레이션 지원",
-                "en": "Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black."
+                "en": "Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black.",
+                "ja": "モダンPythonツール（uv, ruff, ty）でプロジェクト設定。pip/Poetry/mypyからのマイグレーションサポート"
               }
             },
             {
@@ -272,7 +304,8 @@
               "path": "plugins/property-based-testing/skills/property-based-testing",
               "description": {
                 "ko": "다국어 및 스마트 컨트랙트 속성 기반 테스팅 가이드. 직렬화/파싱 코드 리뷰 시 활용",
-                "en": "Provides guidance for property-based testing across multiple languages and smart contracts. Use when writing tests, reviewing code with serialization/validation/parsing patterns, designing features, o..."
+                "en": "Provides guidance for property-based testing across multiple languages and smart contracts. Use when writing tests, reviewing code with serialization/validation/parsing patterns, designing features, o...",
+                "ja": "多言語およびスマートコントラクトのプロパティベーステストガイド。シリアライゼーション/パーシングコードレビュー時に活用"
               }
             },
             {
@@ -280,7 +313,8 @@
               "path": "plugins/seatbelt-sandboxer/skills/seatbelt-sandboxer",
               "description": {
                 "ko": "최소 macOS Seatbelt 샌드박스 설정 생성. 허용 목록 기반 프로필로 앱 격리",
-                "en": "Generates minimal macOS Seatbelt sandbox configurations. Use when sandboxing, isolating, or restricting macOS applications with allowlist-based profiles."
+                "en": "Generates minimal macOS Seatbelt sandbox configurations. Use when sandboxing, isolating, or restricting macOS applications with allowlist-based profiles.",
+                "ja": "最小macOS Seatbeltサンドボックス設定生成。許可リストベースのプロファイルでアプリ隔離"
               }
             },
             {
@@ -288,7 +322,8 @@
               "path": "plugins/second-opinion/skills/second-opinion",
               "description": {
                 "ko": "커밋되지 않은 변경사항, 브랜치 diff, 특정 커밋에 대해 외부 LLM(OpenAI Codex, Google Gemini CLI) 코드 리뷰 실행",
-                "en": "Runs external LLM code reviews (OpenAI Codex or Google Gemini CLI) on uncommitted changes, branch diffs, or specific commits."
+                "en": "Runs external LLM code reviews (OpenAI Codex or Google Gemini CLI) on uncommitted changes, branch diffs, or specific commits.",
+                "ja": "コミットされていない変更、ブランチdiff、特定コミットに対する外部LLM（OpenAI Codex, Google Gemini CLI）コードレビュー実行"
               }
             },
             {
@@ -296,7 +331,8 @@
               "path": "plugins/semgrep-rule-creator/skills/semgrep-rule-creator",
               "description": {
                 "ko": "보안 취약점, 버그 패턴, 코드 패턴 감지를 위한 커스텀 Semgrep 규칙 생성",
-                "en": "Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections."
+                "en": "Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections.",
+                "ja": "セキュリティ脆弱性、バグパターン、コードパターン検出のためのカスタムSemgrepルール生成"
               }
             },
             {
@@ -304,7 +340,8 @@
               "path": "plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator",
               "description": {
                 "ko": "기존 Semgrep 규칙의 언어 변형 생성. 규칙을 지정된 타겟 언어로 포팅",
-                "en": "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages."
+                "en": "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages.",
+                "ja": "既存Semgrepルールの言語バリアント生成。ルールを指定ターゲット言語にポーティング"
               }
             },
             {
@@ -312,7 +349,8 @@
               "path": "plugins/sharp-edges/skills/sharp-edges",
               "description": {
                 "ko": "보안 실수를 유발하는 오류 유발 API, 위험한 설정, 풋건 설계 식별",
-                "en": "Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes."
+                "en": "Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes.",
+                "ja": "セキュリティミスを引き起こすエラー誘発API、危険な設定、フットガン設計の特定"
               }
             },
             {
@@ -320,7 +358,8 @@
               "path": "plugins/skill-improver/skills/skill-improver",
               "description": {
                 "ko": "Claude Code 스킬 품질 이슈를 기준 충족까지 반복적으로 리뷰하고 수정. skill-reviewer 에이전트 활용 자동화 사이클",
-                "en": "Iteratively reviews and fixes Claude Code skill quality issues until they meet standards. Runs automated fix-review cycles using the skill-reviewer agent."
+                "en": "Iteratively reviews and fixes Claude Code skill quality issues until they meet standards. Runs automated fix-review cycles using the skill-reviewer agent.",
+                "ja": "Claude Codeスキルの品質問題を基準達成まで反復的にレビュー・修正。skill-reviewerエージェント活用の自動化サイクル"
               }
             },
             {
@@ -328,7 +367,8 @@
               "path": "plugins/spec-to-code-compliance/skills/spec-to-code-compliance",
               "description": {
                 "ko": "블록체인 감사를 위해 코드가 문서에 명시된 사양을 정확히 구현했는지 검증. 화이트페이퍼와 코드 간 격차 발견",
-                "en": "Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing complianc..."
+                "en": "Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing complianc...",
+                "ja": "ブロックチェーン監査のためにコードがドキュメントに明示された仕様を正確に実装しているか検証。ホワイトペーパーとコード間のギャップ発見"
               }
             },
             {
@@ -336,7 +376,8 @@
               "path": "plugins/static-analysis/skills/codeql",
               "description": {
                 "ko": "CodeQL 정적 분석 스킬",
-                "en": ">-"
+                "en": ">-",
+                "ja": "CodeQL静的解析スキル"
               }
             },
             {
@@ -344,7 +385,8 @@
               "path": "plugins/static-analysis/skills/sarif-parsing",
               "description": {
                 "ko": "SARIF 결과 파일 파싱 스킬",
-                "en": ">-"
+                "en": ">-",
+                "ja": "SARIF結果ファイルパーシングスキル"
               }
             },
             {
@@ -352,7 +394,8 @@
               "path": "plugins/static-analysis/skills/semgrep",
               "description": {
                 "ko": "Semgrep 정적 분석 스킬",
-                "en": ">-"
+                "en": ">-",
+                "ja": "Semgrep静的解析スキル"
               }
             },
             {
@@ -360,7 +403,8 @@
               "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
               "description": {
                 "ko": "악용 또는 탈취 위험이 높은 의존성 식별. 공급망 공격 표면 평가, 의존성 건강 상태 확인",
-                "en": "Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements."
+                "en": "Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply chain attack surface, evaluating dependency health, or scoping security engagements.",
+                "ja": "悪用またはテイクオーバーリスクの高い依存関係の特定。サプライチェーン攻撃面評価、依存関係ヘルスチェック"
               }
             },
             {
@@ -368,7 +412,8 @@
               "path": "plugins/testing-handbook-skills/skills/address-sanitizer",
               "description": {
                 "ko": "AddressSanitizer(ASan) 메모리 오류 감지 도구 활용",
-                "en": "address-sanitizer"
+                "en": "address-sanitizer",
+                "ja": "AddressSanitizer(ASan)メモリエラー検出ツール活用"
               }
             },
             {
@@ -376,7 +421,8 @@
               "path": "plugins/testing-handbook-skills/skills/aflpp",
               "description": {
                 "ko": "AFL++ 퍼저 하네스 작성 및 실행",
-                "en": "aflpp"
+                "en": "aflpp",
+                "ja": "AFL++ファザーハーネス作成と実行"
               }
             },
             {
@@ -384,7 +430,8 @@
               "path": "plugins/testing-handbook-skills/skills/atheris",
               "description": {
                 "ko": "Atheris Python 퍼징 프레임워크 활용",
-                "en": "atheris"
+                "en": "atheris",
+                "ja": "Atheris Pythonファジングフレームワーク活用"
               }
             },
             {
@@ -392,7 +439,8 @@
               "path": "plugins/testing-handbook-skills/skills/cargo-fuzz",
               "description": {
                 "ko": "Rust cargo-fuzz 퍼징 도구 활용",
-                "en": "cargo-fuzz"
+                "en": "cargo-fuzz",
+                "ja": "Rust cargo-fuzzファジングツール活用"
               }
             },
             {
@@ -400,7 +448,8 @@
               "path": "plugins/testing-handbook-skills/skills/constant-time-testing",
               "description": {
                 "ko": "상수 시간 코드 테스팅 (타이밍 공격 방지 검증)",
-                "en": "constant-time-testing"
+                "en": "constant-time-testing",
+                "ja": "定数時間コードテスト（タイミング攻撃防止検証）"
               }
             },
             {
@@ -408,7 +457,8 @@
               "path": "plugins/testing-handbook-skills/skills/coverage-analysis",
               "description": {
                 "ko": "코드 커버리지 분석 및 퍼징 효과 측정",
-                "en": "coverage-analysis"
+                "en": "coverage-analysis",
+                "ja": "コードカバレッジ分析とファジング効果測定"
               }
             },
             {
@@ -416,7 +466,8 @@
               "path": "plugins/testing-handbook-skills/skills/fuzzing-dictionary",
               "description": {
                 "ko": "퍼징 딕셔너리 생성 및 최적화",
-                "en": "fuzzing-dictionary"
+                "en": "fuzzing-dictionary",
+                "ja": "ファジングディクショナリ生成と最適化"
               }
             },
             {
@@ -424,7 +475,8 @@
               "path": "plugins/testing-handbook-skills/skills/fuzzing-obstacles",
               "description": {
                 "ko": "퍼징 장애물 식별 및 해결",
-                "en": "fuzzing-obstacles"
+                "en": "fuzzing-obstacles",
+                "ja": "ファジング障害の特定と解決"
               }
             },
             {
@@ -432,7 +484,8 @@
               "path": "plugins/testing-handbook-skills/skills/harness-writing",
               "description": {
                 "ko": "퍼징 하네스 작성 가이드",
-                "en": "harness-writing"
+                "en": "harness-writing",
+                "ja": "ファジングハーネス作成ガイド"
               }
             },
             {
@@ -440,7 +493,8 @@
               "path": "plugins/testing-handbook-skills/skills/libafl",
               "description": {
                 "ko": "LibAFL 퍼징 프레임워크 활용",
-                "en": "libafl"
+                "en": "libafl",
+                "ja": "LibAFLファジングフレームワーク活用"
               }
             },
             {
@@ -448,7 +502,8 @@
               "path": "plugins/testing-handbook-skills/skills/libfuzzer",
               "description": {
                 "ko": "libFuzzer 커버리지 기반 퍼저 활용",
-                "en": "libfuzzer"
+                "en": "libfuzzer",
+                "ja": "libFuzzerカバレッジベースファザー活用"
               }
             },
             {
@@ -456,7 +511,8 @@
               "path": "plugins/testing-handbook-skills/skills/ossfuzz",
               "description": {
                 "ko": "OSS-Fuzz 연동 및 프로젝트 등록",
-                "en": "ossfuzz"
+                "en": "ossfuzz",
+                "ja": "OSS-Fuzz連携とプロジェクト登録"
               }
             },
             {
@@ -464,7 +520,8 @@
               "path": "plugins/testing-handbook-skills/skills/ruzzy",
               "description": {
                 "ko": "Ruzzy Ruby 퍼저 활용",
-                "en": "ruzzy"
+                "en": "ruzzy",
+                "ja": "Ruzzy Rubyファザー活用"
               }
             },
             {
@@ -472,7 +529,8 @@
               "path": "plugins/testing-handbook-skills/skills/testing-handbook-generator",
               "description": {
                 "ko": "Trail of Bits Testing Handbook 기반 테스팅 가이드 생성",
-                "en": "testing-handbook-generator"
+                "en": "testing-handbook-generator",
+                "ja": "Trail of Bits Testing Handbook基盤のテストガイド生成"
               }
             },
             {
@@ -480,7 +538,8 @@
               "path": "plugins/testing-handbook-skills/skills/wycheproof",
               "description": {
                 "ko": "Wycheproof 암호화 테스트 벡터 활용",
-                "en": "wycheproof"
+                "en": "wycheproof",
+                "ja": "Wycheproof暗号テストベクター活用"
               }
             },
             {
@@ -488,7 +547,8 @@
               "path": "plugins/variant-analysis/skills/variant-analysis",
               "description": {
                 "ko": "패턴 기반 분석으로 코드베이스 전반의 유사 취약점/버그 탐색. CodeQL/Semgrep 쿼리 작성 지원",
-                "en": "Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing s..."
+                "en": "Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing s...",
+                "ja": "パターンベース分析によるコードベース全体の類似脆弱性/バグ探索。CodeQL/Semgrepクエリ作成サポート"
               }
             },
             {
@@ -496,7 +556,8 @@
               "path": "plugins/workflow-skill-design/skills/designing-workflow-skills",
               "description": {
                 "ko": "워크플로우 스킬 설계 가이드",
-                "en": ">-"
+                "en": ">-",
+                "ja": "ワークフロースキル設計ガイド"
               }
             },
             {
@@ -504,7 +565,8 @@
               "path": "plugins/yara-authoring/skills/yara-rule-authoring",
               "description": {
                 "ko": "YARA 규칙 작성 스킬",
-                "en": "yara-rule-authoring"
+                "en": "yara-rule-authoring",
+                "ja": "YARAルール作成スキル"
               }
             },
             {
@@ -512,7 +574,8 @@
               "path": "plugins/zeroize-audit/skills/zeroize-audit",
               "description": {
                 "ko": "소스 코드의 민감 데이터 제로화 누락 감지 및 컴파일러 최적화로 제거된 제로화를 어셈블리 수준에서 분석",
-                "en": "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification."
+                "en": "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimizations, with assembly-level analysis, and control-flow verification.",
+                "ja": "ソースコードの機密データゼロ化漏れ検出およびコンパイラ最適化で除去されたゼロ化をアセンブリレベルで分析"
               }
             }
           ]
@@ -524,7 +587,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Claude Code 설정 프레임워크 (오피니어니티드 디폴트 및 워크플로우)",
-            "en": "Opinionated Claude Code defaults, documentation, and workflows"
+            "en": "Opinionated Claude Code defaults, documentation, and workflows",
+            "ja": "Claude Code設定フレームワーク（独自のデフォルトとワークフロー）"
           },
           "status": "active",
           "health": {
@@ -542,7 +606,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "바이패스 모드에서 안전하게 Claude Code를 실행하기 위한 샌드박스 devcontainer",
-            "en": "Sandboxed devcontainer for running Claude Code safely in bypass mode"
+            "en": "Sandboxed devcontainer for running Claude Code safely in bypass mode",
+            "ja": "バイパスモードでClaude Codeを安全に実行するためのサンドボックスdevcontainer"
           },
           "status": "active",
           "health": {
@@ -560,7 +625,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "큐레이티드 마켓플레이스, 코드 리뷰를 거친 커뮤니티 검증 플러그인 (백도어 위험 경고)",
-            "en": "Curated marketplace, community-vetted plugins with code review (warns of backdoor risks)"
+            "en": "Curated marketplace, community-vetted plugins with code review (warns of backdoor risks)",
+            "ja": "キュレーテッドマーケットプレイス、コードレビュー済みコミュニティ検証プラグイン（バックドアリスク警告付き）"
           },
           "status": "active",
           "health": {
@@ -578,11 +644,13 @@
       "group": "claude-code-native",
       "title": {
         "ko": "스킬 & 플러그인 — 프로토콜별",
-        "en": "Skills & Plugins — Protocol-Specific"
+        "en": "Skills & Plugins — Protocol-Specific",
+        "ja": "スキル & プラグイン — プロトコル別"
       },
       "description": {
         "ko": null,
-        "en": null
+        "en": null,
+        "ja": null
       },
       "repos": [
         {
@@ -592,7 +660,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "7개 스킬: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration",
-            "en": "7 skills: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration"
+            "en": "7 skills: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration",
+            "ja": "7つのスキル: Swap Planner, Liquidity Planner, Swap Integration, V4 Security, CCA Configurator/Deployer, viem Integration"
           },
           "status": "active",
           "health": {
@@ -608,7 +677,8 @@
               "path": "packages/plugins/uniswap-cca/skills/configurator",
               "description": {
                 "ko": "CCA(Continuous Clearing Auction) 스마트 컨트랙트 매개변수를 인터랙티브 폼으로 설정",
-                "en": "Configure CCA (Continuous Clearing Auction) smart contract parameters through an interactive bulk form flow."
+                "en": "Configure CCA (Continuous Clearing Auction) smart contract parameters through an interactive bulk form flow.",
+                "ja": "CCA（Continuous Clearing Auction）スマートコントラクトパラメータをインタラクティブフォームで設定"
               }
             },
             {
@@ -616,7 +686,8 @@
               "path": "packages/plugins/uniswap-cca/skills/deployer",
               "description": {
                 "ko": "Factory 패턴으로 CCA 스마트 컨트랙트 배포",
-                "en": "Deploy CCA (Continuous Clearing Auction) smart contracts using the Factory pattern. Use when user says \"deploy auction\", \"deploy cca\", \"factory deployment\", or wants to deploy a configured auction."
+                "en": "Deploy CCA (Continuous Clearing Auction) smart contracts using the Factory pattern. Use when user says \"deploy auction\", \"deploy cca\", \"factory deployment\", or wants to deploy a configured auction.",
+                "ja": "FactoryパターンでCCAスマートコントラクトをデプロイ"
               }
             },
             {
@@ -624,7 +695,8 @@
               "path": "packages/plugins/uniswap-driver/skills/liquidity-planner",
               "description": {
                 "ko": "Uniswap v3/v4 유동성 공급 계획. LP 포지션 생성, 집중 유동성 범위 설정",
-                "en": "This skill should be used when the user asks to \"provide liquidity\", \"create LP position\", \"add liquidity to pool\", \"become a liquidity provider\", \"create v3 position\", \"create v4 position\", \"concentr..."
+                "en": "This skill should be used when the user asks to \"provide liquidity\", \"create LP position\", \"add liquidity to pool\", \"become a liquidity provider\", \"create v3 position\", \"create v4 position\", \"concentr...",
+                "ja": "Uniswap v3/v4流動性供給プラン。LPポジション作成、集中流動性範囲設定"
               }
             },
             {
@@ -632,7 +704,8 @@
               "path": "packages/plugins/uniswap-driver/skills/swap-planner",
               "description": {
                 "ko": "Uniswap 토큰 스왑 계획. ETH↔USDC, 토큰 매수/매도, 밈코인 검색",
-                "en": "This skill should be used when the user asks to \"swap tokens\", \"trade ETH for USDC\", \"exchange tokens on Uniswap\", \"buy tokens\", \"sell tokens\", \"convert ETH to stablecoins\", \"find memecoins\", \"discove..."
+                "en": "This skill should be used when the user asks to \"swap tokens\", \"trade ETH for USDC\", \"exchange tokens on Uniswap\", \"buy tokens\", \"sell tokens\", \"convert ETH to stablecoins\", \"find memecoins\", \"discove...",
+                "ja": "Uniswapトークンスワッププラン。ETH↔USDC、トークン売買、ミームコイン検索"
               }
             },
             {
@@ -640,7 +713,8 @@
               "path": "packages/plugins/uniswap-hooks/skills/v4-security-foundations",
               "description": {
                 "ko": "Uniswap v4 훅 보안 중심 개발. PoolManager, beforeSwap/afterSwap 보안 모범 사례, 취약점, 감사 가이드",
-                "en": "Security-first Uniswap v4 hook development. Use when user mentions \"v4 hooks\", \"hook security\", \"PoolManager\", \"beforeSwap\", \"afterSwap\", or asks about V4 hook best practices, vulnerabilities, or audi..."
+                "en": "Security-first Uniswap v4 hook development. Use when user mentions \"v4 hooks\", \"hook security\", \"PoolManager\", \"beforeSwap\", \"afterSwap\", or asks about V4 hook best practices, vulnerabilities, or audi...",
+                "ja": "Uniswap v4フックセキュリティ中心開発。PoolManager、beforeSwap/afterSwapセキュリティベストプラクティス、脆弱性、監査ガイド"
               }
             },
             {
@@ -648,7 +722,8 @@
               "path": "packages/plugins/uniswap-trading/skills/swap-integration",
               "description": {
                 "ko": "Uniswap 스왑을 애플리케이션에 통합. Trading API, 스왑 프론트엔드, 스마트 컨트랙트 스왑 구현",
-                "en": "Integrate Uniswap swaps into applications. Use when user says \"integrate swaps\", \"uniswap\", \"trading api\", \"add swap functionality\", \"build a swap frontend\", \"create a swap script\", \"smart contract sw..."
+                "en": "Integrate Uniswap swaps into applications. Use when user says \"integrate swaps\", \"uniswap\", \"trading api\", \"add swap functionality\", \"build a swap frontend\", \"create a swap script\", \"smart contract sw...",
+                "ja": "Uniswapスワップをアプリケーションに統合。Trading API、スワップフロントエンド、スマートコントラクトスワップ実装"
               }
             },
             {
@@ -656,7 +731,8 @@
               "path": "packages/plugins/uniswap-viem/skills/viem-integration",
               "description": {
                 "ko": "viem으로 EVM 블록체인 통합. 블록체인 데이터 읽기, 트랜잭션 전송, 스마트 컨트랙트 상호작용, wagmi 연동",
-                "en": "Integrate EVM blockchains using viem. Use when user says \"read blockchain data\", \"send transaction\", \"interact with smart contract\", \"connect to Ethereum\", \"use viem\", \"use wagmi\", \"wallet integration..."
+                "en": "Integrate EVM blockchains using viem. Use when user says \"read blockchain data\", \"send transaction\", \"interact with smart contract\", \"connect to Ethereum\", \"use viem\", \"use wagmi\", \"wallet integration...",
+                "ja": "viemでEVMブロックチェーン統合。ブロックチェーンデータ読み取り、トランザクション送信、スマートコントラクトインタラクション、wagmi連携"
               }
             }
           ]
@@ -668,7 +744,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "LLM 사각지대(가스, 지갑, L2, 표준, 주소)를 교정하는 18개 스킬. [ethskills.com](https://ethskills.com/)",
-            "en": "18 skills correcting LLM blind spots (gas, wallets, L2s, standards, addresses). [ethskills.com](https://ethskills.com/)"
+            "en": "18 skills correcting LLM blind spots (gas, wallets, L2s, standards, addresses). [ethskills.com](https://ethskills.com/)",
+            "ja": "LLMの盲点（ガス、ウォレット、L2、規格、アドレス）を修正する18個のスキル。[ethskills.com](https://ethskills.com/)"
           },
           "status": "active",
           "health": {
@@ -684,7 +761,8 @@
               "path": "addresses",
               "description": {
                 "ko": "Ethereum 메인넷과 L2의 주요 프로토콜 검증된 컨트랙트 주소. 주소 추측/환각 방지용",
-                "en": "Verified contract addresses for major Ethereum protocols across mainnet and L2s. Use this instead of guessing or hallucinating addresses."
+                "en": "Verified contract addresses for major Ethereum protocols across mainnet and L2s. Use this instead of guessing or hallucinating addresses.",
+                "ja": "EthereumメインネットとL2の主要プロトコル検証済みコントラクトアドレス。アドレス推測/幻覚防止用"
               }
             },
             {
@@ -692,7 +770,8 @@
               "path": "audit",
               "description": {
                 "ko": "EVM 스마트 컨트랙트 심층 보안 감사. 취약점 탐색, 코드 보안 리뷰, GitHub 보안 이슈 제출",
-                "en": "Deep EVM smart contract security audit system. Use when asked to audit a contract, find vulnerabilities, review code for security issues, or file security issues on a GitHub repo."
+                "en": "Deep EVM smart contract security audit system. Use when asked to audit a contract, find vulnerabilities, review code for security issues, or file security issues on a GitHub repo.",
+                "ja": "EVMスマートコントラクト深層セキュリティ監査。脆弱性探索、コードセキュリティレビュー、GitHubセキュリティIssue提出"
               }
             },
             {
@@ -700,7 +779,8 @@
               "path": "building-blocks",
               "description": {
                 "ko": "DeFi 레고 및 프로토콜 조합성. 체인별 주요 프로토콜 — Base의 Aerodrome, Arbitrum의 GMX/Pendle, Optimism의 Velodrome",
-                "en": "DeFi legos and protocol composability on Ethereum and L2s. Major protocols per chain — Aerodrome on Base, GMX/Pendle on Arbitrum, Velodrome on Optimism — plus mainnet primitives (Uniswap, Aave, Compou..."
+                "en": "DeFi legos and protocol composability on Ethereum and L2s. Major protocols per chain — Aerodrome on Base, GMX/Pendle on Arbitrum, Velodrome on Optimism — plus mainnet primitives (Uniswap, Aave, Compou...",
+                "ja": "DeFiレゴとプロトコルコンポーザビリティ。チェーン別主要プロトコル — BaseのAerodrome、ArbitrumのGMX/Pendle、OptimismのVelodrome"
               }
             },
             {
@@ -708,7 +788,8 @@
               "path": "concepts",
               "description": {
                 "ko": "온체인 구축을 위한 핵심 멘탈 모델 — LLM이 틀리기 쉬운 것과 설명이 필요한 것에 집중",
-                "en": "The essential mental models for building onchain — focused on what LLMs get wrong and what humans need explained."
+                "en": "The essential mental models for building onchain — focused on what LLMs get wrong and what humans need explained.",
+                "ja": "オンチェーン構築のためのコアメンタルモデル — LLMが間違えやすいことと説明が必要なことに集中"
               }
             },
             {
@@ -716,7 +797,8 @@
               "path": "contracts",
               "description": {
                 "ko": "(사용 중단됨) addresses 스킬로 이동",
-                "en": "Deprecated: this skill has moved to addresses."
+                "en": "Deprecated: this skill has moved to addresses.",
+                "ja": "（非推奨）addressesスキルに移行"
               }
             },
             {
@@ -724,7 +806,8 @@
               "path": "defi",
               "description": {
                 "ko": "(사용 중단됨) building-blocks 스킬로 이동",
-                "en": "Deprecated: this skill has moved to building-blocks."
+                "en": "Deprecated: this skill has moved to building-blocks.",
+                "ja": "（非推奨）building-blocksスキルに移行"
               }
             },
             {
@@ -732,7 +815,8 @@
               "path": "frontend-playbook",
               "description": {
                 "ko": "Ethereum dApp 빌드→프로덕션 완전 파이프라인. 포크 모드 설정, IPFS 배포, Vercel 설정, ENS 서브도메인",
-                "en": "The complete build-to-production pipeline for Ethereum dApps. Fork mode setup, IPFS deployment, Vercel config, ENS subdomain setup, and the full production checklist."
+                "en": "The complete build-to-production pipeline for Ethereum dApps. Fork mode setup, IPFS deployment, Vercel config, ENS subdomain setup, and the full production checklist.",
+                "ja": "Ethereum dAppビルド→プロダクション完全パイプライン。フォークモード設定、IPFSデプロイ、Vercel設定、ENSサブドメイン"
               }
             },
             {
@@ -740,7 +824,8 @@
               "path": "frontend-ux",
               "description": {
                 "ko": "Ethereum dApp 프론트엔드 UX 규칙. 온체인 버튼, 토큰 승인 플로우, 주소 표시 등 AI 에이전트 UI 버그 방지 패턴",
-                "en": "Frontend UX rules for Ethereum dApps that prevent the most common AI agent UI bugs. Mandatory patterns for onchain buttons, token approval flows, address display, USD values, RPC configuration, and pr..."
+                "en": "Frontend UX rules for Ethereum dApps that prevent the most common AI agent UI bugs. Mandatory patterns for onchain buttons, token approval flows, address display, USD values, RPC configuration, and pr...",
+                "ja": "Ethereum dAppフロントエンドUXルール。オンチェーンボタン、トークン承認フロー、アドレス表示などAIエージェントUIバグ防止パターン"
               }
             },
             {
@@ -748,7 +833,8 @@
               "path": "gas",
               "description": {
                 "ko": "현재 Ethereum 가스 가격, 트랜잭션 비용, Ethereum 구축의 실제 경제학",
-                "en": "Current Ethereum gas prices, transaction costs, and the real economics of building on Ethereum today."
+                "en": "Current Ethereum gas prices, transaction costs, and the real economics of building on Ethereum today.",
+                "ja": "現在のEthereumガス価格、トランザクションコスト、Ethereum構築のリアルな経済学"
               }
             },
             {
@@ -756,7 +842,8 @@
               "path": "indexing",
               "description": {
                 "ko": "온체인 데이터 읽기/쿼리 방법 — 이벤트, The Graph, 인덱싱 패턴. 블록 루프 대신 사용할 도구",
-                "en": "How to read and query onchain data — events, The Graph, indexing patterns. Why you cannot just loop through blocks, and what to use instead."
+                "en": "How to read and query onchain data — events, The Graph, indexing patterns. Why you cannot just loop through blocks, and what to use instead.",
+                "ja": "オンチェーンデータ読み取り/クエリ方法 — イベント、The Graph、インデキシングパターン。ブロックループの代わりに使うツール"
               }
             },
             {
@@ -764,7 +851,8 @@
               "path": "l2",
               "description": {
                 "ko": "(사용 중단됨) l2s 스킬로 이동",
-                "en": "Deprecated: this skill has moved to l2s."
+                "en": "Deprecated: this skill has moved to l2s.",
+                "ja": "（非推奨）l2sスキルに移行"
               }
             },
             {
@@ -772,7 +860,8 @@
               "path": "l2s",
               "description": {
                 "ko": "Ethereum L2 현황 — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo 등. 작동 원리, 배포, 브릿지 방법",
-                "en": "Ethereum Layer 2 landscape — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo, and more. How they work, how to deploy on them, how to bridge, when to use which."
+                "en": "Ethereum Layer 2 landscape — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo, and more. How they work, how to deploy on them, how to bridge, when to use which.",
+                "ja": "Ethereum L2現況 — Arbitrum, Optimism, Base, zkSync, Scroll, Unichain, Celo等。動作原理、デプロイ、ブリッジ方法"
               }
             },
             {
@@ -780,7 +869,8 @@
               "path": "layer2",
               "description": {
                 "ko": "(사용 중단됨) l2s 스킬로 이동",
-                "en": "Deprecated: this skill has moved to l2s."
+                "en": "Deprecated: this skill has moved to l2s.",
+                "ja": "（非推奨）l2sスキルに移行"
               }
             },
             {
@@ -788,7 +878,8 @@
               "path": "openclaw-skill",
               "description": {
                 "ko": "AI 에이전트를 위한 Ethereum 개발 지식 — 아이디어에서 배포된 dApp까지. 가스 비용, Solidity 패턴, Scaffold-ETH 2, L2 실시간 문서",
-                "en": "Ethereum development knowledge for AI agents — from idea to deployed dApp. Fetch real-time docs on gas costs, Solidity patterns, Scaffold-ETH 2, Layer 2s, DeFi composability, security, testing, and pr..."
+                "en": "Ethereum development knowledge for AI agents — from idea to deployed dApp. Fetch real-time docs on gas costs, Solidity patterns, Scaffold-ETH 2, Layer 2s, DeFi composability, security, testing, and pr...",
+                "ja": "AIエージェントのためのEthereum開発知識 — アイデアからデプロイ済みdAppまで。ガスコスト、Solidityパターン、Scaffold-ETH 2、L2リアルタイムドキュメント"
               }
             },
             {
@@ -796,7 +887,8 @@
               "path": "orchestration",
               "description": {
                 "ko": "AI 에이전트가 완전한 Ethereum dApp을 계획, 빌드, 배포하는 방법. Scaffold-ETH 2 프로젝트 3단계 빌드 시스템",
-                "en": "How an AI agent plans, builds, and deploys a complete Ethereum dApp. The three-phase build system for Scaffold-ETH 2 projects."
+                "en": "How an AI agent plans, builds, and deploys a complete Ethereum dApp. The three-phase build system for Scaffold-ETH 2 projects.",
+                "ja": "AIエージェントが完全なEthereum dAppを計画、ビルド、デプロイする方法。Scaffold-ETH 2プロジェクト3段階ビルドシステム"
               }
             },
             {
@@ -804,7 +896,8 @@
               "path": "qa",
               "description": {
                 "ko": "Scaffold-ETH 2로 빌드한 Ethereum dApp 출시 전 감사 체크리스트. 빌드 완료 후 별도 리뷰어 에이전트에 전달",
-                "en": "Pre-ship audit checklist for Ethereum dApps built with Scaffold-ETH 2. Give this to a separate reviewer agent (or fresh context) AFTER the build is complete."
+                "en": "Pre-ship audit checklist for Ethereum dApps built with Scaffold-ETH 2. Give this to a separate reviewer agent (or fresh context) AFTER the build is complete.",
+                "ja": "Scaffold-ETH 2でビルドしたEthereum dAppリリース前監査チェックリスト。ビルド完了後に別のレビューエージェントに引き渡し"
               }
             },
             {
@@ -812,7 +905,8 @@
               "path": "security",
               "description": {
                 "ko": "Solidity 보안 패턴, 일반적 취약점, 배포 전 감사 체크리스트. 실제 손실을 방지하는 구체적 코드 패턴",
-                "en": "Solidity security patterns, common vulnerabilities, and pre-deploy audit checklist. The specific code patterns that prevent real losses — not just warnings, but defensive implementations."
+                "en": "Solidity security patterns, common vulnerabilities, and pre-deploy audit checklist. The specific code patterns that prevent real losses — not just warnings, but defensive implementations.",
+                "ja": "Solidityセキュリティパターン、一般的な脆弱性、デプロイ前監査チェックリスト。実際の損失を防ぐ具体的なコードパターン"
               }
             },
             {
@@ -820,7 +914,8 @@
               "path": "ship",
               "description": {
                 "ko": "AI 에이전트를 위한 E2E 가이드 — dApp 아이디어에서 프로덕션 배포까지. 가장 먼저 가져올 스킬, 다른 모든 스킬로 라우팅",
-                "en": "End-to-end guide for AI agents — from a dApp idea to deployed production app. Fetch this FIRST, it routes you through all other skills."
+                "en": "End-to-end guide for AI agents — from a dApp idea to deployed production app. Fetch this FIRST, it routes you through all other skills.",
+                "ja": "AIエージェントのためのE2Eガイド — dAppアイデアからプロダクションデプロイまで。最初にフェッチするスキル、他のすべてのスキルへルーティング"
               }
             },
             {
@@ -828,7 +923,8 @@
               "path": "standards",
               "description": {
                 "ko": "Ethereum 토큰 및 프로토콜 표준 — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004 등",
-                "en": "Ethereum token and protocol standards — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004, and newer standards."
+                "en": "Ethereum token and protocol standards — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004, and newer standards.",
+                "ja": "Ethereumトークンおよびプロトコル標準 — ERC-20, ERC-721, ERC-1155, ERC-4337, ERC-8004等"
               }
             },
             {
@@ -836,7 +932,8 @@
               "path": "testing",
               "description": {
                 "ko": "Foundry로 스마트 컨트랙트 테스팅 — 유닛 테스트, 퍼즈 테스팅, 포크 테스팅, 불변성 테스팅",
-                "en": "Smart contract testing with Foundry — unit tests, fuzz testing, fork testing, invariant testing. What to test, what not to test, and what LLMs get wrong."
+                "en": "Smart contract testing with Foundry — unit tests, fuzz testing, fork testing, invariant testing. What to test, what not to test, and what LLMs get wrong.",
+                "ja": "Foundryでスマートコントラクトテスト — ユニットテスト、ファズテスト、フォークテスト、不変条件テスト"
               }
             },
             {
@@ -844,7 +941,8 @@
               "path": "tools",
               "description": {
                 "ko": "현재 Ethereum 개발 도구, 프레임워크, 라이브러리, RPC, 블록 익스플로러. 오늘날 실제 작동하는 도구",
-                "en": "Current Ethereum development tools, frameworks, libraries, RPCs, and block explorers. What actually works today for building on Ethereum."
+                "en": "Current Ethereum development tools, frameworks, libraries, RPCs, and block explorers. What actually works today for building on Ethereum.",
+                "ja": "現在のEthereum開発ツール、フレームワーク、ライブラリ、RPC、ブロックエクスプローラー。今日実際に動作するツール"
               }
             },
             {
@@ -852,7 +950,8 @@
               "path": "wallets",
               "description": {
                 "ko": "Ethereum 지갑 생성, 관리, 사용. EOA, 스마트 컨트랙트 지갑, 멀티시그(Safe), 계정 추상화",
-                "en": "How to create, manage, and use Ethereum wallets. Covers EOAs, smart contract wallets, multisig (Safe), and account abstraction."
+                "en": "How to create, manage, and use Ethereum wallets. Covers EOAs, smart contract wallets, multisig (Safe), and account abstraction.",
+                "ja": "Ethereumウォレット作成、管理、使用。EOA、スマートコントラクトウォレット、マルチシグ(Safe)、アカウント抽象化"
               }
             },
             {
@@ -860,7 +959,8 @@
               "path": "why",
               "description": {
                 "ko": "Ethereum에서 빌드하는 이유. AI 에이전트 관점 — ERC-8004, x402, 조합성, 무허가 배포",
-                "en": "Why build on Ethereum specifically. The AI agent angle — ERC-8004, x402, composability, permissionless deployment."
+                "en": "Why build on Ethereum specifically. The AI agent angle — ERC-8004, x402, composability, permissionless deployment.",
+                "ja": "Ethereumでビルドする理由。AIエージェント視点 — ERC-8004, x402, コンポーザビリティ, パーミッションレスデプロイ"
               }
             }
           ]
@@ -872,7 +972,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "5개 스킬: trust-web3-provider (멀티체인 dApp 연동), wallet-core (140+ 체인 지갑/서명), barz (ERC-4337 스마트 지갑), assets (토큰 메타데이터), trust-developer (딥링크/WalletConnect)",
-            "en": "5 skills: trust-web3-provider (multichain dApp integration), wallet-core (140+ chain wallet/signing), barz (ERC-4337 smart wallet), assets (token metadata), trust-developer (deep links/WalletConnect)"
+            "en": "5 skills: trust-web3-provider (multichain dApp integration), wallet-core (140+ chain wallet/signing), barz (ERC-4337 smart wallet), assets (token metadata), trust-developer (deep links/WalletConnect)",
+            "ja": "5つのスキル: trust-web3-provider（マルチチェーンdApp連携）、wallet-core（140+チェーンウォレット/署名）、barz（ERC-4337スマートウォレット）、assets（トークンメタデータ）、trust-developer（ディープリンク/WalletConnect）"
           },
           "status": "active",
           "health": {
@@ -888,7 +989,8 @@
               "path": "skills/assets",
               "description": {
                 "ko": "Trust Wallet 자산 저장소 — 토큰 로고/메타데이터 조회, 블록체인별 자산 목록, 새 자산 기여",
-                "en": "Work with the Trust Wallet assets repository — look up token logos and metadata, list assets by blockchain, and contribute new assets (add logo, info.json, update tokenlist)."
+                "en": "Work with the Trust Wallet assets repository — look up token logos and metadata, list assets by blockchain, and contribute new assets (add logo, info.json, update tokenlist).",
+                "ja": "Trust Walletアセットリポジトリ — トークンロゴ/メタデータ照会、ブロックチェーン別アセット一覧、新規アセット貢献"
               }
             },
             {
@@ -896,7 +998,8 @@
               "path": "skills/barz",
               "description": {
                 "ko": "Barz — Trust Wallet의 모듈식 ERC-4337 스마트 컨트랙트 지갑 빌드/사용/기여",
-                "en": "Build with, use, and contribute to Barz — Trust Wallet's modular ERC-4337 smart contract wallet. Use when working with trustwallet/barz, implementing account abstraction, adding wallet facets, writing..."
+                "en": "Build with, use, and contribute to Barz — Trust Wallet's modular ERC-4337 smart contract wallet. Use when working with trustwallet/barz, implementing account abstraction, adding wallet facets, writing...",
+                "ja": "Barz — Trust Walletのモジュラー型ERC-4337スマートコントラクトウォレットのビルド/使用/貢献"
               }
             },
             {
@@ -904,7 +1007,8 @@
               "path": "skills/trust-developer",
               "description": {
                 "ko": "Trust Wallet 개발자 플랫폼. 딥링크 통합, 브라우저 확장 감지, WalletConnect 설정",
-                "en": "Build on the Trust Wallet developer platform. Use when integrating Trust Wallet deep links, detecting the browser extension, or setting up WalletConnect."
+                "en": "Build on the Trust Wallet developer platform. Use when integrating Trust Wallet deep links, detecting the browser extension, or setting up WalletConnect.",
+                "ja": "Trust Wallet開発者プラットフォーム。ディープリンク統合、ブラウザ拡張検出、WalletConnect設定"
               }
             },
             {
@@ -912,7 +1016,8 @@
               "path": "skills/trust-web3-provider",
               "description": {
                 "ko": "Trust Wallet Web3 프로바이더 라이브러리 통합. 멀티체인 dApp 연동, 블록체인 지원 추가",
-                "en": "Integrate and build on Trust Wallet's Web3 provider library. Use when working with trust-web3-provider, @trustwallet/web3-provider-*, or adding blockchain provider support for Ethereum, Solana, Cosmos..."
+                "en": "Integrate and build on Trust Wallet's Web3 provider library. Use when working with trust-web3-provider, @trustwallet/web3-provider-*, or adding blockchain provider support for Ethereum, Solana, Cosmos...",
+                "ja": "Trust Wallet Web3プロバイダーライブラリ統合。マルチチェーンdApp連携、ブロックチェーンサポート追加"
               }
             },
             {
@@ -920,7 +1025,8 @@
               "path": "skills/wallet-core",
               "description": {
                 "ko": "Trust Wallet Core — 140+ 블록체인에서 HD 지갑 생성, 주소 파생, 트랜잭션 서명",
-                "en": "Build with Trust Wallet Core — HD wallet creation, address derivation, and transaction signing across 140+ blockchains."
+                "en": "Build with Trust Wallet Core — HD wallet creation, address derivation, and transaction signing across 140+ blockchains.",
+                "ja": "Trust Wallet Core — 140以上のブロックチェーンでHDウォレット作成、アドレス導出、トランザクション署名"
               }
             }
           ]
@@ -932,7 +1038,8 @@
           "addedDate": "2026-03-01",
           "description": {
             "ko": "Claude Code와 MCP를 통해 여러 AI 에이전트를 조율하여 소프트웨어 엔지니어링 작업을 자동화하는 기업용 에이전트 오케스트레이션 플랫폼.",
-            "en": "🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate autonomous workflows, and build conversational AI systems. Features    enterprise-grade architecture, distributed swarm intelligence, RAG integration, and native Claude Code / Codex Integration"
+            "en": "🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate autonomous workflows, and build conversational AI systems. Features    enterprise-grade architecture, distributed swarm intelligence, RAG integration, and native Claude Code / Codex Integration",
+            "ja": "Claude CodeとMCPを通じて複数のAIエージェントを調整し、ソフトウェアエンジニアリングタスクを自動化するエンタープライズエージェントオーケストレーションプラットフォーム。"
           },
           "status": "active",
           "health": {
@@ -950,11 +1057,13 @@
       "group": "claude-code-native",
       "title": {
         "ko": "스킬 & 플러그인 — 범용 Web3 규칙",
-        "en": "Skills & Plugins — General Web3 Rules"
+        "en": "Skills & Plugins — General Web3 Rules",
+        "ja": "スキル & プラグイン — 汎用 Web3 ルール"
       },
       "description": {
         "ko": null,
-        "en": null
+        "en": null,
+        "ja": null
       },
       "repos": [
         {
@@ -964,7 +1073,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Cursor & Windsurf 커뮤니티 디렉토리, Web3 규칙 및 MCP 서버 탐색",
-            "en": "Cursor & Windsurf community directory, discover Web3 rules and MCP servers"
+            "en": "Cursor & Windsurf community directory, discover Web3 rules and MCP servers",
+            "ja": "Cursor & Windsurfコミュニティディレクトリ、Web3ルールとMCPサーバーの探索"
           },
           "status": "active",
           "health": {
@@ -982,7 +1092,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "OpenClaw 스킬 라이브러리, 크립토 트레이딩, DeFi 운영, Polymarket, 자동화 스킬 포함",
-            "en": "OpenClaw skill library, includes crypto trading, DeFi operations, Polymarket, and automation skills"
+            "en": "OpenClaw skill library, includes crypto trading, DeFi operations, Polymarket, and automation skills",
+            "ja": "OpenClawスキルライブラリ、暗号資産トレーディング、DeFi運用、Polymarket、自動化スキルを含む"
           },
           "status": "active",
           "health": {
@@ -998,7 +1109,8 @@
               "path": "bankr-signals",
               "description": {
                 "ko": "Bankr 트레이딩 시그널 스킬",
-                "en": "bankr-signals"
+                "en": "bankr-signals",
+                "ja": "Bankrトレーディングシグナルスキル"
               }
             },
             {
@@ -1006,7 +1118,8 @@
               "path": "bankr",
               "description": {
                 "ko": "AI 기반 크립토 트레이딩 에이전트/LLM 게이트웨이. 자연어로 크립토 거래, 포트폴리오 잔고 확인, 토큰 가격 조회",
-                "en": "AI-powered crypto trading agent and LLM gateway via natural language. Use when the user wants to trade crypto, check portfolio balances, view token prices, transfer crypto, manage NFTs, use leverage, ..."
+                "en": "AI-powered crypto trading agent and LLM gateway via natural language. Use when the user wants to trade crypto, check portfolio balances, view token prices, transfer crypto, manage NFTs, use leverage, ...",
+                "ja": "AI搭載暗号資産トレーディングエージェント/LLMゲートウェイ。自然言語で暗号取引、ポートフォリオ残高確認、トークン価格照会"
               }
             },
             {
@@ -1014,7 +1127,8 @@
               "path": "base",
               "description": {
                 "ko": "Base 체인 스킬 (플레이스홀더)",
-                "en": "Placeholder for Base skill."
+                "en": "Placeholder for Base skill.",
+                "ja": "Baseチェーンスキル（プレースホルダー）"
               }
             },
             {
@@ -1022,7 +1136,8 @@
               "path": "botchan",
               "description": {
                 "ko": "Base 블록체인 온체인 에이전트 메시징 CLI. 에이전트 탐색, 피드 게시, DM 전송, Net Protocol 기반",
-                "en": "CLI for the onchain agent messaging layer on the Base blockchain, built on Net Protocol. Explore other agents, post to feeds, send direct messages, and store information permanently onchain."
+                "en": "CLI for the onchain agent messaging layer on the Base blockchain, built on Net Protocol. Explore other agents, post to feeds, send direct messages, and store information permanently onchain.",
+                "ja": "BaseブロックチェーンオンチェーンエージェントメッセージングCLI。エージェント探索、フィード投稿、DM送信、Net Protocolベース"
               }
             },
             {
@@ -1030,7 +1145,8 @@
               "path": "clanker",
               "description": {
                 "ko": "Clanker SDK로 Base, Ethereum, Arbitrum 등 EVM 체인에 ERC20 토큰 배포. 밈코인 런치 지원",
-                "en": "Deploy ERC20 tokens on Base, Ethereum, Arbitrum, and other EVM chains using the Clanker SDK. Use when the user wants to deploy a new token, create a memecoin, set up token vesting, configure airdrops,..."
+                "en": "Deploy ERC20 tokens on Base, Ethereum, Arbitrum, and other EVM chains using the Clanker SDK. Use when the user wants to deploy a new token, create a memecoin, set up token vesting, configure airdrops,...",
+                "ja": "Clanker SDKでBase、Ethereum、Arbitrum等EVMチェーンにERC20トークンデプロイ。ミームコインローンチサポート"
               }
             },
             {
@@ -1038,7 +1154,8 @@
               "path": "endaoment",
               "description": {
                 "ko": "Endaoment를 통한 온체인 자선 기부. 크립토로 비영리단체에 기부",
-                "en": "Donate to charities onchain via Endaoment. Use when the user wants to donate crypto to charity, make a charitable contribution, give to nonprofits, support a cause, or donate to a 501(c)(3)."
+                "en": "Donate to charities onchain via Endaoment. Use when the user wants to donate crypto to charity, make a charitable contribution, give to nonprofits, support a cause, or donate to a 501(c)(3).",
+                "ja": "Endaomentを通じたオンチェーン慈善寄付。暗号資産で非営利団体に寄付"
               }
             },
             {
@@ -1046,7 +1163,8 @@
               "path": "ens-primary-name",
               "description": {
                 "ko": "Base 및 L2에서 ENS 기본 이름 설정. 역방향 해석 설정, 기본 이름 구성",
-                "en": "Set your primary ENS name on Base and other L2s. Use when user wants to set their ENS name, configure reverse resolution, set primary name, or make their address resolve to an ENS name."
+                "en": "Set your primary ENS name on Base and other L2s. Use when user wants to set their ENS name, configure reverse resolution, set primary name, or make their address resolve to an ENS name.",
+                "ja": "BaseおよびL2でのENSプライマリ名設定。逆引き解決設定、プライマリ名構成"
               }
             },
             {
@@ -1054,7 +1172,8 @@
               "path": "erc-8004",
               "description": {
                 "ko": "ERC-8004(Trustless Agents)로 Ethereum 메인넷에 AI 에이전트 온체인 신원 등록",
-                "en": "Register AI agents on Ethereum mainnet using ERC-8004 (Trustless Agents). Use when the user wants to register their agent identity on-chain, create an agent profile, claim an agent NFT, set up agent r..."
+                "en": "Register AI agents on Ethereum mainnet using ERC-8004 (Trustless Agents). Use when the user wants to register their agent identity on-chain, create an agent profile, claim an agent NFT, set up agent r...",
+                "ja": "ERC-8004（Trustless Agents）でEthereumメインネットにAIエージェントオンチェーンID登録"
               }
             },
             {
@@ -1062,7 +1181,8 @@
               "path": "neynar",
               "description": {
                 "ko": "Neynar API로 Farcaster 상호작용. 피드 읽기, 사용자 조회, 캐스트 게시, 콘텐츠 검색",
-                "en": "Interact with Farcaster via Neynar API. Use when the user wants to read Farcaster feeds, look up users, post casts, search content, or interact with the Farcaster social protocol."
+                "en": "Interact with Farcaster via Neynar API. Use when the user wants to read Farcaster feeds, look up users, post casts, search content, or interact with the Farcaster social protocol.",
+                "ja": "Neynar APIでFarcasterインタラクション。フィード読み取り、ユーザー照会、キャスト投稿、コンテンツ検索"
               }
             },
             {
@@ -1070,7 +1190,8 @@
               "path": "onchainkit",
               "description": {
                 "ko": "Coinbase OnchainKit으로 React 컴포넌트/TypeScript 유틸리티 기반 온체인 앱 빌드",
-                "en": "Build onchain applications with React components and TypeScript utilities from Coinbase's OnchainKit."
+                "en": "Build onchain applications with React components and TypeScript utilities from Coinbase's OnchainKit.",
+                "ja": "Coinbase OnchainKitでReactコンポーネント/TypeScriptユーティリティベースのオンチェーンアプリビルド"
               }
             },
             {
@@ -1078,7 +1199,8 @@
               "path": "qrcoin",
               "description": {
                 "ko": "Base의 QR Coin 경매 참여. qrcoin.fun QR 코드 경매 상태 확인, 입찰, 리더보드 조회",
-                "en": "Interact with QR Coin auctions on Base. Use when the user wants to participate in qrcoin.fun QR code auctions — check auction status, view current bids, create new bids, or contribute to existing bids..."
+                "en": "Interact with QR Coin auctions on Base. Use when the user wants to participate in qrcoin.fun QR code auctions — check auction status, view current bids, create new bids, or contribute to existing bids...",
+                "ja": "BaseのQR Coinオークション参加。qrcoin.fun QRコードオークション状況確認、入札、リーダーボード照会"
               }
             },
             {
@@ -1086,7 +1208,8 @@
               "path": "siwa",
               "description": {
                 "ko": "SIWA (Sign In With Account) 인증 스킬",
-                "en": "siwa"
+                "en": "siwa",
+                "ja": "SIWA（Sign In With Account）認証スキル"
               }
             },
             {
@@ -1094,7 +1217,8 @@
               "path": "veil",
               "description": {
                 "ko": "Veil Cash를 통한 Base 프라이버시/차폐 거래. ZK 증명으로 ETH/USDC 비공개 입출금/전송",
-                "en": "Privacy and shielded transactions on Base via Veil Cash (veil.cash). Deposit ETH or USDC into private pools, withdraw/transfer privately using ZK proofs."
+                "en": "Privacy and shielded transactions on Base via Veil Cash (veil.cash). Deposit ETH or USDC into private pools, withdraw/transfer privately using ZK proofs.",
+                "ja": "Veil Cashを通じたBaseプライバシー/シールドトランザクション。ZK証明でETH/USDCプライベート入出金/転送"
               }
             },
             {
@@ -1102,7 +1226,8 @@
               "path": "yoink",
               "description": {
                 "ko": "Yoink — Base 온체인 깃발뺏기 게임. 깃발 뺏기, 게임 통계/리더보드, 플레이어 점수 조회",
-                "en": "Play Yoink, an onchain capture-the-flag game on Base. Yoink the flag from the current holder, check game stats and leaderboards, view player scores, and compete for the trophy."
+                "en": "Play Yoink, an onchain capture-the-flag game on Base. Yoink the flag from the current holder, check game stats and leaderboards, view player scores, and compete for the trophy.",
+                "ja": "Yoink — Baseオンチェーンキャプチャー・ザ・フラッグゲーム。フラッグ奪取、ゲーム統計/リーダーボード、プレイヤースコア照会"
               }
             },
             {
@@ -1110,7 +1235,8 @@
               "path": "zapper",
               "description": {
                 "ko": "Zapper 스킬 (플레이스홀더)",
-                "en": "Placeholder for Zapper skill."
+                "en": "Placeholder for Zapper skill.",
+                "ja": "Zapperスキル（プレースホルダー）"
               }
             }
           ]
@@ -1122,7 +1248,8 @@
           "addedDate": "2026-03-01",
           "description": {
             "ko": "무료 암호화폐 뉴스 API — BTC, ETH, DeFi 실시간 집계, Claude MCP 서버 및 다국어 SDK 지원",
-            "en": "Free crypto news API - real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. Claude MCP server, SDKs (Python, TypeScript, Go, React, PHP)."
+            "en": "Free crypto news API - real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. Claude MCP server, SDKs (Python, TypeScript, Go, React, PHP).",
+            "ja": "無料暗号資産ニュースAPI — BTC、ETH、DeFiリアルタイム集約、Claude MCPサーバーおよび多言語SDK対応"
           },
           "status": "active",
           "health": {
@@ -1140,7 +1267,8 @@
           "addedDate": "2026-03-01",
           "description": {
             "ko": "AI 코딩 에이전트(Claude, Codex, Copilot 등)를 위한 스킬, 도구, 튜토리얼 큐레이션 목록",
-            "en": "A curated list of skills, tools, tutorials, and capabilities for AI coding agents (Claude, Codex, Antigravity, Copilot, VS Code)"
+            "en": "A curated list of skills, tools, tutorials, and capabilities for AI coding agents (Claude, Codex, Antigravity, Copilot, VS Code)",
+            "ja": "AIコーディングエージェント（Claude, Codex, Copilot等）のためのスキル、ツール、チュートリアルキュレーションリスト"
           },
           "status": "active",
           "health": {
@@ -1158,7 +1286,8 @@
           "addedDate": "2026-03-03",
           "description": {
             "ko": "CoinMarketCap이 AI 에이전트용으로 만든 스킬 모음으로, Claude Code/MCP와 통합하여 암호화폐 시세·정보 조회 등 Web3 기능을 AI 워크플로우에 자동화할 수 있습니다.",
-            "en": "This repository contains all skills created by the CoinMarketCap team to power AI agents."
+            "en": "This repository contains all skills created by the CoinMarketCap team to power AI agents.",
+            "ja": "CoinMarketCapがAIエージェント向けに作成したスキルコレクション。Claude Code/MCPと統合して暗号資産の相場・情報照会などWeb3機能をAIワークフローに自動化可能。"
           },
           "status": "active",
           "health": {
@@ -1174,7 +1303,8 @@
               "path": "skills/cmc-api-crypto",
               "description": {
                 "ko": "CoinMarketCap 암호화폐 API — 시세, 상장 목록, OHLCV, 트렌딩, 카테고리 엔드포인트",
-                "en": "API reference for CoinMarketCap cryptocurrency endpoints including quotes, listings, OHLCV, trending, and categories."
+                "en": "API reference for CoinMarketCap cryptocurrency endpoints including quotes, listings, OHLCV, trending, and categories.",
+                "ja": "CoinMarketCap暗号資産API — 相場、上場一覧、OHLCV、トレンド、カテゴリエンドポイント"
               }
             },
             {
@@ -1182,7 +1312,8 @@
               "path": "skills/cmc-api-dex",
               "description": {
                 "ko": "CoinMarketCap DEX API — 토큰 조회, 풀, 트랜잭션, 트렌딩, 보안 분석 엔드포인트",
-                "en": "API reference for CoinMarketCap DEX endpoints including token lookup, pools, transactions, trending, and security analysis."
+                "en": "API reference for CoinMarketCap DEX endpoints including token lookup, pools, transactions, trending, and security analysis.",
+                "ja": "CoinMarketCap DEX API — トークン照会、プール、トランザクション、トレンド、セキュリティ分析エンドポイント"
               }
             },
             {
@@ -1190,7 +1321,8 @@
               "path": "skills/cmc-api-exchange",
               "description": {
                 "ko": "CoinMarketCap 거래소 API — 거래소 정보, 거래량, 마켓 페어, 자산 엔드포인트",
-                "en": "API reference for CoinMarketCap exchange endpoints including exchange info, volume, market pairs, and assets."
+                "en": "API reference for CoinMarketCap exchange endpoints including exchange info, volume, market pairs, and assets.",
+                "ja": "CoinMarketCap取引所API — 取引所情報、取引量、マーケットペア、アセットエンドポイント"
               }
             },
             {
@@ -1198,7 +1330,8 @@
               "path": "skills/cmc-api-market",
               "description": {
                 "ko": "CoinMarketCap 시장 전체 API — 글로벌 지표, 공포/탐욕 지수, 인덱스, 트렌딩 토픽, 차트",
-                "en": "API reference for CoinMarketCap market-wide endpoints including global metrics, fear/greed, indices, trending topics, and charts."
+                "en": "API reference for CoinMarketCap market-wide endpoints including global metrics, fear/greed, indices, trending topics, and charts.",
+                "ja": "CoinMarketCap市場全体API — グローバル指標、恐怖/貪欲指数、インデックス、トレンドトピック、チャート"
               }
             },
             {
@@ -1206,7 +1339,8 @@
               "path": "skills/cmc-mcp",
               "description": {
                 "ko": "CoinMarketCap MCP로 암호화폐 시세, 기술적 분석, 뉴스, 트렌드 데이터 가져오기",
-                "en": "Fetches cryptocurrency market data, prices, technical analysis, news, and trends using the CoinMarketCap MCP."
+                "en": "Fetches cryptocurrency market data, prices, technical analysis, news, and trends using the CoinMarketCap MCP.",
+                "ja": "CoinMarketCap MCPで暗号資産の相場、テクニカル分析、ニュース、トレンドデータ取得"
               }
             },
             {
@@ -1214,7 +1348,8 @@
               "path": "skills/cmc-x402",
               "description": {
                 "ko": "x402 프로토콜(Base USDC 결제)로 CoinMarketCap 데이터 접근. API 키 없이 사용 가능",
-                "en": "Access CoinMarketCap data via x402 pay-per-request protocol with USDC payments on Base. Use when users mention x402, want CMC data without API keys, ask about pay-per-request APIs, or need to integrat..."
+                "en": "Access CoinMarketCap data via x402 pay-per-request protocol with USDC payments on Base. Use when users mention x402, want CMC data without API keys, ask about pay-per-request APIs, or need to integrat...",
+                "ja": "x402プロトコル（Base USDC決済）でCoinMarketCapデータアクセス。APIキー不要で使用可能"
               }
             },
             {
@@ -1222,7 +1357,8 @@
               "path": "skills/crypto-research",
               "description": {
                 "ko": "CoinMarketCap MCP 데이터로 암호화폐 종합 실사(DD). 가격 외 특정 코인 상세 분석",
-                "en": "Performs comprehensive due diligence on a cryptocurrency using CoinMarketCap MCP data. Use when users ask about a specific coin beyond just its price."
+                "en": "Performs comprehensive due diligence on a cryptocurrency using CoinMarketCap MCP data. Use when users ask about a specific coin beyond just its price.",
+                "ja": "CoinMarketCap MCPデータで暗号資産の総合デューデリジェンス(DD)。価格以外の特定コイン詳細分析"
               }
             },
             {
@@ -1230,7 +1366,8 @@
               "path": "skills/market-report",
               "description": {
                 "ko": "CoinMarketCap MCP 데이터로 종합 크립토 시장 리포트 생성. 시장 상황, 심리, 전반적 현황 분석",
-                "en": "Generates a comprehensive crypto market report using CoinMarketCap MCP data. Use when users ask about overall market conditions, sentiment, or want a summary."
+                "en": "Generates a comprehensive crypto market report using CoinMarketCap MCP data. Use when users ask about overall market conditions, sentiment, or want a summary.",
+                "ja": "CoinMarketCap MCPデータで総合暗号市場レポート生成。市場状況、センチメント、全体的な現況分析"
               }
             }
           ]
@@ -1318,11 +1455,13 @@
       "group": "claude-code-native",
       "title": {
         "ko": "MCP 서버 — 온체인 데이터 & 분석",
-        "en": "MCP Servers — Onchain Data & Analytics"
+        "en": "MCP Servers — Onchain Data & Analytics",
+        "ja": "MCP サーバー — オンチェーンデータ & 分析"
       },
       "description": {
         "ko": "Claude Code에서 온체인 데이터를 직접 조회할 수 있게 해주는 MCP 서버.",
-        "en": "MCP servers that let Claude Code query onchain data directly."
+        "en": "MCP servers that let Claude Code query onchain data directly.",
+        "ja": "Claude Codeからオンチェーンデータを直接クエリできるMCPサーバー。"
       },
       "repos": [
         {
@@ -1332,7 +1471,8 @@
           "addedDate": "2025-11-01",
           "description": {
             "ko": "범용 EVM MCP, Ethereum, Base, Arbitrum, Polygon 등과 상호작용",
-            "en": "General-purpose EVM MCP, interact with Ethereum, Base, Arbitrum, Polygon and more"
+            "en": "General-purpose EVM MCP, interact with Ethereum, Base, Arbitrum, Polygon and more",
+            "ja": "汎用EVM MCP、Ethereum、Base、Arbitrum、Polygonなどとインタラクション"
           },
           "status": "active",
           "health": {
@@ -1350,7 +1490,8 @@
           "addedDate": "2025-10-01",
           "description": {
             "ko": "크립토 딥 리서치 에이전트, 로컬, 무료, 프로토콜 분석 자동화",
-            "en": "Crypto deep research agent, local, free, protocol analysis automation"
+            "en": "Crypto deep research agent, local, free, protocol analysis automation",
+            "ja": "暗号資産ディープリサーチエージェント、ローカル、無料、プロトコル分析自動化"
           },
           "status": "active",
           "health": {
@@ -1368,7 +1509,8 @@
           "addedDate": "2026-01-01",
           "description": {
             "ko": "60개 이상 네트워크에서 잔액, 트랜잭션, NFT, 토큰 데이터",
-            "en": "Balances, transactions, NFTs, and token data across 60+ networks"
+            "en": "Balances, transactions, NFTs, and token data across 60+ networks",
+            "ja": "60以上のネットワークで残高、トランザクション、NFT、トークンデータ"
           },
           "status": "active",
           "health": {
@@ -1386,7 +1528,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "MCP를 통한 스마트 컨트랙트 상호작용, tx 조회, 토큰 정보",
-            "en": "Smart contract interactions, tx queries, and token info via MCP"
+            "en": "Smart contract interactions, tx queries, and token info via MCP",
+            "ja": "MCP経由のスマートコントラクトインタラクション、tx照会、トークン情報"
           },
           "status": "active",
           "health": {
@@ -1404,7 +1547,8 @@
           "addedDate": "2025-08-01",
           "description": {
             "ko": "솔라나 재단 공식 MCP 서버",
-            "en": "Solana Foundation MCP server"
+            "en": "Solana Foundation MCP server",
+            "ja": "Solana Foundation公式MCPサーバー"
           },
           "status": "active",
           "health": {
@@ -1422,7 +1566,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Web3 AI 에이전트 메시, 블록체인 분석, 보안 감사, 토큰 메트릭, DeFi 분석",
-            "en": "Web3 AI agent mesh, blockchain analysis, security audits, token metrics, DeFi analytics"
+            "en": "Web3 AI agent mesh, blockchain analysis, security audits, token metrics, DeFi analytics",
+            "ja": "Web3 AIエージェントメッシュ、ブロックチェーン分析、セキュリティ監査、トークンメトリクス、DeFi分析"
           },
           "status": "active",
           "health": {
@@ -1440,7 +1585,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "비트코인 라이트닝 지갑 MCP, Nostr Wallet Connect로 결제 송수신",
-            "en": "Bitcoin Lightning wallet MCP, send and receive payments via Nostr Wallet Connect"
+            "en": "Bitcoin Lightning wallet MCP, send and receive payments via Nostr Wallet Connect",
+            "ja": "ビットコインLightningウォレットMCP、Nostr Wallet Connectで決済の送受信"
           },
           "status": "active",
           "health": {
@@ -1458,7 +1604,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "CoinCap API를 통한 실시간 암호화폐 가격 분석",
-            "en": "Real-time crypto price analysis via CoinCap API"
+            "en": "Real-time crypto price analysis via CoinCap API",
+            "ja": "CoinCap API経由のリアルタイム暗号資産価格分析"
           },
           "status": "active",
           "health": {
@@ -1476,7 +1623,8 @@
           "addedDate": "2025-10-01",
           "description": {
             "ko": "DEX 데이터 MCP, 20개 이상 체인에서 실시간 가격, 유동성 풀, OHLCV",
-            "en": "DEX data MCP, real-time prices, liquidity pools, OHLCV across 20+ chains"
+            "en": "DEX data MCP, real-time prices, liquidity pools, OHLCV across 20+ chains",
+            "ja": "DEXデータMCP、20以上のチェーンでリアルタイム価格、流動性プール、OHLCV"
           },
           "status": "active",
           "health": {
@@ -1494,7 +1642,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Nodit Web3 Data API MCP, AI 에이전트를 위한 멀티체인 블록체인 데이터 접근",
-            "en": "Nodit Web3 Data API MCP, multi-chain blockchain data access for AI agents"
+            "en": "Nodit Web3 Data API MCP, multi-chain blockchain data access for AI agents",
+            "ja": "Nodit Web3 Data API MCP、AIエージェントのためのマルチチェーンブロックチェーンデータアクセス"
           },
           "status": "active",
           "health": {
@@ -1512,7 +1661,8 @@
           "addedDate": "2025-10-01",
           "description": {
             "ko": "Moralis Web3 API MCP, NFT, 토큰, DeFi 등 멀티 네트워크 블록체인 데이터 조회",
-            "en": "Moralis Web3 API MCP, query blockchain data across multiple networks including NFTs, tokens, and DeFi"
+            "en": "Moralis Web3 API MCP, query blockchain data across multiple networks including NFTs, tokens, and DeFi",
+            "ja": "Moralis Web3 API MCP、NFT、トークン、DeFiなどマルチネットワークブロックチェーンデータ照会"
           },
           "status": "active",
           "health": {
@@ -1530,11 +1680,13 @@
       "group": "claude-code-native",
       "title": {
         "ko": "MCP 서버 — 스마트 컨트랙트 & DeFi",
-        "en": "MCP Servers — Smart Contract & DeFi"
+        "en": "MCP Servers — Smart Contract & DeFi",
+        "ja": "MCP サーバー — スマートコントラクト & DeFi"
       },
       "description": {
         "ko": "스마트 컨트랙트 분석, 디컴파일, DeFi 프로토콜 접근.",
-        "en": "Smart contract analysis, decompilation, and DeFi protocol access."
+        "en": "Smart contract analysis, decompilation, and DeFi protocol access.",
+        "ja": "スマートコントラクト分析、デコンパイル、DeFiプロトコルアクセス。"
       },
       "repos": [
         {
@@ -1544,7 +1696,8 @@
           "addedDate": "2026-01-01",
           "description": {
             "ko": "Foundry용 MCP 서버, AI 에이전트를 통한 Solidity 컨트랙트 컴파일/테스트/배포",
-            "en": "MCP server for Foundry, compile/test/deploy Solidity contracts via AI agents"
+            "en": "MCP server for Foundry, compile/test/deploy Solidity contracts via AI agents",
+            "ja": "Foundry用MCPサーバー、AIエージェントによるSolidityコントラクトのコンパイル/テスト/デプロイ"
           },
           "status": "active",
           "health": {
@@ -1562,7 +1715,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "deBridge 프로토콜을 통한 크로스체인 스왑 및 전송을 AI 에이전트에서 실행",
-            "en": "Cross-chain swaps and transfers via deBridge protocol for AI agents"
+            "en": "Cross-chain swaps and transfers via deBridge protocol for AI agents",
+            "ja": "deBridgeプロトコル経由のクロスチェーンスワップと転送をAIエージェントで実行"
           },
           "status": "active",
           "health": {
@@ -1580,7 +1734,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "범용 컨트랙트 AI 인터페이스, 모든 스마트 컨트랙트용 ABI-to-MCP 서버 생성기",
-            "en": "Universal Contract AI Interface, ABI-to-MCP server generator for any smart contract"
+            "en": "Universal Contract AI Interface, ABI-to-MCP server generator for any smart contract",
+            "ja": "汎用コントラクトAIインターフェース、あらゆるスマートコントラクト用ABI-to-MCPサーバージェネレーター"
           },
           "status": "active",
           "health": {
@@ -1598,7 +1753,8 @@
           "addedDate": "2025-06-01",
           "description": {
             "ko": "AI 에이전트용 올인원 Web3 SDK (지갑, AA, RPC)",
-            "en": "All-in-one Web3 SDK (wallets, AA, RPC) for AI agents"
+            "en": "All-in-one Web3 SDK (wallets, AA, RPC) for AI agents",
+            "ja": "AIエージェント用オールインワンWeb3 SDK（ウォレット、AA、RPC）"
           },
           "status": "active",
           "health": {
@@ -1616,7 +1772,8 @@
           "addedDate": "2026-03-01",
           "description": {
             "ko": "Bitcoin-native MCP server for AI agents: BTC/STX wallets, DeFi yield, sBTC peg, NFTs, and x402 payments.",
-            "en": "Bitcoin-native MCP server for AI agents: BTC/STX wallets, DeFi yield, sBTC peg, NFTs, and x402 payments."
+            "en": "Bitcoin-native MCP server for AI agents: BTC/STX wallets, DeFi yield, sBTC peg, NFTs, and x402 payments.",
+            "ja": "AIエージェント用Bitcoin-native MCPサーバー: BTC/STXウォレット、DeFiイールド、sBTCペグ、NFT、x402決済"
           },
           "status": "active",
           "health": {
@@ -1634,11 +1791,13 @@
       "group": "compatible-tools",
       "title": {
         "ko": "스마트 컨트랙트 개발 도구",
-        "en": "Smart Contract Development Tools"
+        "en": "Smart Contract Development Tools",
+        "ja": "スマートコントラクト開発ツール"
       },
       "description": {
         "ko": "Claude Code가 Bash를 통해 직접 실행 가능한 핵심 CLI 도구.",
-        "en": "Core CLI tools directly executable by Claude Code via Bash."
+        "en": "Core CLI tools directly executable by Claude Code via Bash.",
+        "ja": "Claude CodeがBash経由で直接実行可能なコアCLIツール。"
       },
       "repos": [
         {
@@ -1648,7 +1807,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "표준 라이브러리, 모든 컨트랙트를 위한 임포트 패턴 및 보안 프리미티브",
-            "en": "The standard library, import patterns and security primitives for any contract"
+            "en": "The standard library, import patterns and security primitives for any contract",
+            "ja": "標準ライブラリ、あらゆるコントラクトのためのインポートパターンとセキュリティプリミティブ"
           },
           "status": "active",
           "health": {
@@ -1666,7 +1826,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "CLI 네이티브 툴킷, `forge test`, `cast call`을 에이전트가 직접 실행 가능",
-            "en": "CLI-native toolkit, `forge test`, `cast call` are directly executable by agents"
+            "en": "CLI-native toolkit, `forge test`, `cast call` are directly executable by agents",
+            "ja": "CLIネイティブツールキット、`forge test`、`cast call`をエージェントが直接実行可能"
           },
           "status": "active",
           "health": {
@@ -1684,7 +1845,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Ethereum 개발 환경, 컴파일/배포/테스트/디버그, `npx hardhat test` 에이전트 직접 실행 가능",
-            "en": "Ethereum development environment, compile/deploy/test/debug, `npx hardhat test` directly executable by agents"
+            "en": "Ethereum development environment, compile/deploy/test/debug, `npx hardhat test` directly executable by agents",
+            "ja": "Ethereum開発環境、コンパイル/デプロイ/テスト/デバッグ、`npx hardhat test`をエージェントが直接実行可能"
           },
           "status": "active",
           "health": {
@@ -1702,7 +1864,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "정적 분석, Claude Code에서 `slither .` 실행 후 취약점 분석 및 수정",
-            "en": "Static analysis, run `slither .` in Claude Code, analyze and fix vulnerabilities"
+            "en": "Static analysis, run `slither .` in Claude Code, analyze and fix vulnerabilities",
+            "ja": "静的解析、Claude Codeで`slither .`を実行して脆弱性分析と修正"
           },
           "status": "active",
           "health": {
@@ -1720,7 +1883,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "심볼릭 실행 분석기, `myth analyze` 실행으로 취약점 탐지",
-            "en": "Symbolic execution analyzer, run `myth analyze` to detect vulnerabilities"
+            "en": "Symbolic execution analyzer, run `myth analyze` to detect vulnerabilities",
+            "ja": "シンボリック実行アナライザー、`myth analyze`実行で脆弱性検出"
           },
           "status": "active",
           "health": {
@@ -1738,7 +1902,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "속성 기반 퍼징, 불변성 테스트 작성, echidna 실행, 결과 분석",
-            "en": "Property-based fuzzing, write invariant tests, run echidna, analyze results"
+            "en": "Property-based fuzzing, write invariant tests, run echidna, analyze results",
+            "ja": "プロパティベースファジング、不変条件テスト作成、echidna実行、結果分析"
           },
           "status": "active",
           "health": {
@@ -1756,7 +1921,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Solidity 린터, 스타일 및 보안 규칙 적용, `solhint .` 에이전트 직접 실행 가능",
-            "en": "Solidity linter, enforce style and security rules, `solhint .` directly executable by agents"
+            "en": "Solidity linter, enforce style and security rules, `solhint .` directly executable by agents",
+            "ja": "Solidityリンター、スタイルとセキュリティルール適用、`solhint .`をエージェントが直接実行可能"
           },
           "status": "active",
           "health": {
@@ -1774,7 +1940,8 @@
           "addedDate": "2025-12-01",
           "description": {
             "ko": "Solidity 테스트 코드 커버리지, 미테스트 컨트랙트 경로 식별",
-            "en": "Code coverage for Solidity tests, identify untested contract paths"
+            "en": "Code coverage for Solidity tests, identify untested contract paths",
+            "ja": "Solidityテストコードカバレッジ、未テストのコントラクトパス特定"
           },
           "status": "active",
           "health": {
@@ -1792,7 +1959,8 @@
           "addedDate": "2025-08-01",
           "description": {
             "ko": "EVM 스마트 컨트랙트 심볼릭 테스팅, CLI 기반 정형 검증",
-            "en": "Symbolic testing for EVM smart contracts, formal verification via CLI"
+            "en": "Symbolic testing for EVM smart contracts, formal verification via CLI",
+            "ja": "EVMスマートコントラクトのシンボリックテスト、CLIベースの形式検証"
           },
           "status": "active",
           "health": {
@@ -1810,7 +1978,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Rust 기반 Solidity 정적 분석기, Slither 보완용",
-            "en": "Rust-based Solidity static analyzer, complementary to Slither"
+            "en": "Rust-based Solidity static analyzer, complementary to Slither",
+            "ja": "RustベースのSolidity静的アナライザー、Slither補完用"
           },
           "status": "active",
           "health": {
@@ -1828,7 +1997,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "병렬 커버리지 기반 Solidity 퍼저, Echidna보다 빠른 대안",
-            "en": "Parallelized coverage-guided Solidity fuzzer, faster alternative to Echidna"
+            "en": "Parallelized coverage-guided Solidity fuzzer, faster alternative to Echidna",
+            "ja": "並列カバレッジベースSolidityファザー、Echidnaより高速な代替"
           },
           "status": "active",
           "health": {
@@ -1846,11 +2016,13 @@
       "group": "compatible-tools",
       "title": {
         "ko": "AI 에이전트 프레임워크 — 온체인",
-        "en": "AI Agent Frameworks — Onchain"
+        "en": "AI Agent Frameworks — Onchain",
+        "ja": "AI エージェントフレームワーク — オンチェーン"
       },
       "description": {
         "ko": "온체인 트랜잭션을 자율적으로 실행하는 AI 에이전트 프레임워크.",
-        "en": "Frameworks for AI agents that autonomously execute onchain transactions."
+        "en": "Frameworks for AI agents that autonomously execute onchain transactions.",
+        "ja": "オンチェーントランザクションを自律的に実行するAIエージェントフレームワーク。"
       },
       "repos": [
         {
@@ -1860,7 +2032,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "자율 AI 에이전트, 토큰 스왑, NFT 민팅, 온체인 tx (플러그인 시스템)",
-            "en": "Autonomous AI agent, token swaps, NFT minting, onchain txs with plugin system"
+            "en": "Autonomous AI agent, token swaps, NFT minting, onchain txs with plugin system",
+            "ja": "自律AIエージェント、トークンスワップ、NFTミント、オンチェーンtx（プラグインシステム）"
           },
           "status": "active",
           "health": {
@@ -1878,7 +2051,8 @@
           "addedDate": "2026-01-01",
           "description": {
             "ko": "솔라나 AI 에이전트 프레임워크, 모든 AI 에이전트를 솔라나 프로토콜에 연결",
-            "en": "Solana AI agent framework, connect any AI agent to Solana protocols"
+            "en": "Solana AI agent framework, connect any AI agent to Solana protocols",
+            "ja": "Solana AIエージェントフレームワーク、あらゆるAIエージェントをSolanaプロトコルに接続"
           },
           "status": "active",
           "health": {
@@ -1896,7 +2070,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "\"모든 AI 에이전트에게는 지갑이 필요합니다.\" ERC-4337 계정 추상화",
-            "en": "\"Every AI Agent deserves a wallet.\" ERC-4337 account abstraction"
+            "en": "\"Every AI Agent deserves a wallet.\" ERC-4337 account abstraction",
+            "ja": "「すべてのAIエージェントにウォレットを。」ERC-4337アカウント抽象化"
           },
           "status": "active",
           "health": {
@@ -1914,7 +2089,8 @@
           "addedDate": "2025-11-01",
           "description": {
             "ko": "DeFAI 스위스 아미 나이프, Solana 및 EVM용 AI 기반 DeFi 에이전트 툴킷",
-            "en": "DeFAI Swiss Army Knife, AI-powered DeFi agent toolkit for Solana and EVM"
+            "en": "DeFAI Swiss Army Knife, AI-powered DeFi agent toolkit for Solana and EVM",
+            "ja": "DeFAIスイスアーミーナイフ、SolanaとEVM用AI駆動DeFiエージェントツールキット"
           },
           "status": "active",
           "health": {
@@ -1932,7 +2108,8 @@
           "addedDate": "2026-01-01",
           "description": {
             "ko": "에이전틱 금융 툴킷, LLM 에이전트를 DeFi 프로토콜에 크로스체인 연결",
-            "en": "Agentic finance toolkit, connect LLM agents to DeFi protocols across chains"
+            "en": "Agentic finance toolkit, connect LLM agents to DeFi protocols across chains",
+            "ja": "エージェンティックファイナンスツールキット、LLMエージェントをDeFiプロトコルにクロスチェーン接続"
           },
           "status": "active",
           "health": {
@@ -1950,11 +2127,13 @@
       "group": "compatible-tools",
       "title": {
         "ko": "학습 & 레퍼런스",
-        "en": "Learning & Reference"
+        "en": "Learning & Reference",
+        "ja": "学習 & リファレンス"
       },
       "description": {
         "ko": "AI 코딩 에이전트를 활용한 Web3 개발 학습 자료.",
-        "en": "Resources for learning Web3 development with AI coding agents."
+        "en": "Resources for learning Web3 development with AI coding agents.",
+        "ja": "AIコーディングエージェントを活用したWeb3開発の学習リソース。"
       },
       "repos": [
         {
@@ -1964,7 +2143,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "MCP 서버 메가 목록, 새로운 Web3 MCP 서버 탐색 시작점",
-            "en": "MCP server mega-list, starting point for discovering new Web3 MCP servers"
+            "en": "MCP server mega-list, starting point for discovering new Web3 MCP servers",
+            "ja": "MCPサーバーメガリスト、新しいWeb3 MCPサーバー探索の出発点"
           },
           "status": "active",
           "health": {
@@ -1982,7 +2162,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "\"Mastering Ethereum\" 오픈소스 도서, AI 에이전트를 위한 포괄적 Ethereum/EVM 레퍼런스",
-            "en": "\"Mastering Ethereum\" open-source book, comprehensive Ethereum/EVM reference for AI agents"
+            "en": "\"Mastering Ethereum\" open-source book, comprehensive Ethereum/EVM reference for AI agents",
+            "ja": "「Mastering Ethereum」オープンソース書籍、AIエージェントのための包括的Ethereum/EVMリファレンス"
           },
           "status": "active",
           "health": {
@@ -2000,7 +2181,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Foundry 전체 과정, Claude Code를 활용한 Solidity 개발 학습 레퍼런스",
-            "en": "Foundry full course, learning reference for Solidity dev with Claude Code"
+            "en": "Foundry full course, learning reference for Solidity dev with Claude Code",
+            "ja": "Foundry完全コース、Claude Codeを活用したSolidity開発学習リファレンス"
           },
           "status": "active",
           "health": {
@@ -2018,7 +2200,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "보안 CTF, Claude Code로 풀면서 스마트 컨트랙트 보안 패턴 학습",
-            "en": "Security CTF, learn smart contract security patterns by solving with Claude Code"
+            "en": "Security CTF, learn smart contract security patterns by solving with Claude Code",
+            "ja": "セキュリティCTF、Claude Codeで解きながらスマートコントラクトセキュリティパターンを学習"
           },
           "status": "active",
           "health": {
@@ -2036,7 +2219,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "Next.js + Foundry/Hardhat 기반 포크 가능한 dApp 개발 스택, 빠른 프로토타이핑용",
-            "en": "Forkable dApp dev stack with Next.js + Foundry/Hardhat for rapid prototyping"
+            "en": "Forkable dApp dev stack with Next.js + Foundry/Hardhat for rapid prototyping",
+            "ja": "Next.js + Foundry/HardhatベースのフォーカブルdApp開発スタック、高速プロトタイピング用"
           },
           "status": "active",
           "health": {
@@ -2054,7 +2238,8 @@
           "addedDate": "2026-02-01",
           "description": {
             "ko": "솔라나 재단의 Solana 빌드를 위한 AI 툴링 큐레이션 목록",
-            "en": "Solana Foundation's curated list of AI tooling for building on Solana"
+            "en": "Solana Foundation's curated list of AI tooling for building on Solana",
+            "ja": "Solana FoundationのSolana構築のためのAIツーリングキュレーションリスト"
           },
           "status": "active",
           "health": {

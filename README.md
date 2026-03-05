@@ -1,5 +1,7 @@
 <div align="center">
 
+**[English](./README_EN.md)** | **한국어** | **[日本語](./README_JA.md)**
+
 # Awesome Web3 Claude Code
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
