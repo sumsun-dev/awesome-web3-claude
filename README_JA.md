@@ -42,6 +42,7 @@
 | [trailofbits/claude-code-config](https://github.com/trailofbits/claude-code-config) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-config?style=flat-square&logo=github) | `Official` | '26.02 | Claude Code設定フレームワーク（独自のデフォルトとワークフロー） |
 | [trailofbits/claude-code-devcontainer](https://github.com/trailofbits/claude-code-devcontainer) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-devcontainer?style=flat-square&logo=github) | `Official` | '26.02 | バイパスモードでClaude Codeを安全に実行するためのサンドボックスdevcontainer |
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ![](https://img.shields.io/github/stars/trailofbits/skills-curated?style=flat-square&logo=github) | `Official` | '26.02 | キュレーテッドマーケットプレイス、コードレビュー済みコミュニティ検証プラグイン（バックドアリスク警告付き） |
+| [pashov/skills](https://github.com/pashov/skills) | ![](https://img.shields.io/github/stars/pashov/skills?style=flat-square&logo=github) | `Community` | '26.03 | 該当するリポジトリは、ブロックチェーン保安監査専門会社Pashov Audit Groupの技術スキル保存庫であり、Web3開発者やセキュリティ監査者が参考にできるリソース集です。 `1個スキル` |
 
 <details><summary>trailofbits/skills スキル詳細 (60個)</summary>
 
@@ -107,6 +108,14 @@
 | [designing-workflow-skills](https://github.com/trailofbits/skills/tree/main/plugins/workflow-skill-design/skills/designing-workflow-skills) | ワークフロースキル設計ガイド |
 | [yara-rule-authoring](https://github.com/trailofbits/skills/tree/main/plugins/yara-authoring/skills/yara-rule-authoring) | YARAルール作成スキル |
 | [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit/skills/zeroize-audit) | ソースコードの機密データゼロ化漏れ検出およびコンパイラ最適化で除去されたゼロ化をアセンブリレベルで分析 |
+
+</details>
+
+<details><summary>pashov/skills スキル詳細 (1個)</summary>
+
+| スキル | 説明 |
+|:-----|:------------|
+| [solidity-auditor](https://github.com/pashov/skills/tree/main/solidity-auditor) | Security audit of Solidity code while you develop. Trigger on "audit", "check this contract", "review for security". |
 
 </details>
 
@@ -184,6 +193,7 @@
 | [nirholas/free-crypto-news](https://github.com/nirholas/free-crypto-news) | ![](https://img.shields.io/github/stars/nirholas/free-crypto-news?style=flat-square&logo=github) | `Community` | '26.03 | 無料暗号資産ニュースAPI — BTC、ETH、DeFiリアルタイム集約、Claude MCPサーバーおよび多言語SDK対応 |
 | [heilcheng/awesome-agent-skills](https://github.com/heilcheng/awesome-agent-skills) | ![](https://img.shields.io/github/stars/heilcheng/awesome-agent-skills?style=flat-square&logo=github) | `Community` | '26.03 | AIコーディングエージェント（Claude, Codex, Copilot等）のためのスキル、ツール、チュートリアルキュレーションリスト |
 | [coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap) | ![](https://img.shields.io/github/stars/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap?style=flat-square&logo=github) | `Community` | '26.03 | CoinMarketCapがAIエージェント向けに作成したスキルコレクション。Claude Code/MCPと統合して暗号資産の相場・情報照会などWeb3機能をAIワークフローに自動化可能。 `8個スキル` |
+| [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) | ![](https://img.shields.io/github/stars/binance/binance-skills-hub?style=flat-square&logo=github) | `Community` | '26.03 | Binance Skills Hub is an open skills marketplace that gives AI agents native access to crypto `7個スキル` |
 
 <details><summary>BankrBot/openclaw-skills スキル詳細 (15個)</summary>
 
@@ -219,6 +229,20 @@
 | [cmc-x402](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/cmc-x402) | x402プロトコル（Base USDC決済）でCoinMarketCapデータアクセス。APIキー不要で使用可能 |
 | [crypto-research](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/crypto-research) | CoinMarketCap MCPデータで暗号資産の総合デューデリジェンス(DD)。価格以外の特定コイン詳細分析 |
 | [market-report](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap/tree/main/skills/market-report) | CoinMarketCap MCPデータで総合暗号市場レポート生成。市場状況、センチメント、全体的な現況分析 |
+
+</details>
+
+<details><summary>binance/binance-skills-hub スキル詳細 (7個)</summary>
+
+| スキル | 説明 |
+|:-----|:------------|
+| [crypto-market-rank](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/crypto-market-rank) | Crypto market rankings and leaderboards. Query trending tokens, top searched tokens, Binance Alpha tokens, tokenized stocks, social hype sentiment ranks, smart money inflow token rankings, top meme to... |
+| [meme-rush](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/meme-rush) | Meme token fast-trading assistant with two core capabilities: 1. Meme Rush - Real-time meme token lists from launchpads (Pump.fun, Four.meme, etc.) across new, finalizing, and migrated stages 2. |
+| [query-address-info](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-address-info) | Query any on-chain wallet address token balances and positions. Retrieves all token holdings for a specified wallet address on a given chain, including token name, symbol, price, 24h price change, and... |
+| [query-token-audit](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-token-audit) | Query token security audit to detect scams, honeypots, and malicious contracts before trading. Returns comprehensive security analysis including contract risks, trading risks, and scam detection. |
+| [query-token-info](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-token-info) | Query token details by keyword, contract address, or chain. Search tokens, get metadata and social links, retrieve real-time market data (price, price trend, volume, holders, liquidity), and fetch K-L... |
+| [trading-signal](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/trading-signal) | Subscribe and retrieve on-chain Smart Money signals. Monitor trading activities of smart money addresses, including buy/sell signals, trigger price, current price, max gain, and exit rate. |
+| [spot](https://github.com/binance/binance-skills-hub/tree/main/skills/binance/spot) | Binance Spot request using the Binance API. Authentication requires API key and secret key. Supports testnet and mainnet. |
 
 </details>
 
