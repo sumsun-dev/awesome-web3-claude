@@ -42,6 +42,7 @@
 | [trailofbits/claude-code-config](https://github.com/trailofbits/claude-code-config) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-config?style=flat-square&logo=github) | `Official` | '26.02 | Claude Code設定フレームワーク（独自のデフォルトとワークフロー） |
 | [trailofbits/claude-code-devcontainer](https://github.com/trailofbits/claude-code-devcontainer) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-devcontainer?style=flat-square&logo=github) | `Official` | '26.02 | バイパスモードでClaude Codeを安全に実行するためのサンドボックスdevcontainer |
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ![](https://img.shields.io/github/stars/trailofbits/skills-curated?style=flat-square&logo=github) | `Official` | '26.02 | キュレーテッドマーケットプレイス、コードレビュー済みコミュニティ検証プラグイン（バックドアリスク警告付き） |
+| [pashov/skills](https://github.com/pashov/skills) | ![](https://img.shields.io/github/stars/pashov/skills?style=flat-square&logo=github) | `Community` | '26.03 | Pashov Audit Groupのスキルリポジトリであり、スマートコントラクト監査およびWeb3セキュリティ評価に必要なツールと方法論を提供します。Claude CodeからMCPを通じてアクセスすると、セキュリティ監査の自動化およびコード分析をサポートできます。 `1個スキル` |
 
 <details><summary>trailofbits/skills スキル詳細 (60個)</summary>
 
@@ -107,6 +108,14 @@
 | [designing-workflow-skills](https://github.com/trailofbits/skills/tree/main/plugins/workflow-skill-design/skills/designing-workflow-skills) | ワークフロースキル設計ガイド |
 | [yara-rule-authoring](https://github.com/trailofbits/skills/tree/main/plugins/yara-authoring/skills/yara-rule-authoring) | YARAルール作成スキル |
 | [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit/skills/zeroize-audit) | ソースコードの機密データゼロ化漏れ検出およびコンパイラ最適化で除去されたゼロ化をアセンブリレベルで分析 |
+
+</details>
+
+<details><summary>pashov/skills スキル詳細 (1個)</summary>
+
+| スキル | 説明 |
+|:-----|:------------|
+| [solidity-auditor](https://github.com/pashov/skills/tree/main/solidity-auditor) | Security audit of Solidity code while you develop. Trigger on "audit", "check this contract", "review for security". |
 
 </details>
 

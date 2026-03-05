@@ -42,6 +42,7 @@
 | [trailofbits/claude-code-config](https://github.com/trailofbits/claude-code-config) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-config?style=flat-square&logo=github) | `Official` | '26.02 | Claude Code 설정 프레임워크 (오피니어니티드 디폴트 및 워크플로우) |
 | [trailofbits/claude-code-devcontainer](https://github.com/trailofbits/claude-code-devcontainer) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-devcontainer?style=flat-square&logo=github) | `Official` | '26.02 | 바이패스 모드에서 안전하게 Claude Code를 실행하기 위한 샌드박스 devcontainer |
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ![](https://img.shields.io/github/stars/trailofbits/skills-curated?style=flat-square&logo=github) | `Official` | '26.02 | 큐레이티드 마켓플레이스, 코드 리뷰를 거친 커뮤니티 검증 플러그인 (백도어 위험 경고) |
+| [pashov/skills](https://github.com/pashov/skills) | ![](https://img.shields.io/github/stars/pashov/skills?style=flat-square&logo=github) | `Community` | '26.03 | Pashov Audit Group의 스킬 저장소로, 스마트 컨트랙트 감사 및 Web3 보안 평가에 필요한 도구와 방법론을 제공합니다. Claude Code에서 MCP를 통해 접근하면 보안 감사 자동화 및 코드 분석을 지원할 수 있습니다. `1개 스킬` |
 
 <details><summary>trailofbits/skills 스킬 상세 (60개)</summary>
 
@@ -107,6 +108,14 @@
 | [designing-workflow-skills](https://github.com/trailofbits/skills/tree/main/plugins/workflow-skill-design/skills/designing-workflow-skills) | 워크플로우 스킬 설계 가이드 |
 | [yara-rule-authoring](https://github.com/trailofbits/skills/tree/main/plugins/yara-authoring/skills/yara-rule-authoring) | YARA 규칙 작성 스킬 |
 | [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit/skills/zeroize-audit) | 소스 코드의 민감 데이터 제로화 누락 감지 및 컴파일러 최적화로 제거된 제로화를 어셈블리 수준에서 분석 |
+
+</details>
+
+<details><summary>pashov/skills 스킬 상세 (1개)</summary>
+
+| 스킬 | 설명 |
+|:-----|:------------|
+| [solidity-auditor](https://github.com/pashov/skills/tree/main/solidity-auditor) | Security audit of Solidity code while you develop. Trigger on "audit", "check this contract", "review for security". |
 
 </details>
 

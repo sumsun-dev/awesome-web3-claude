@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-05T04:23:14.949Z",
-    "totalEntries": 52,
-    "totalSkills": 125
+    "lastUpdated": "2026-03-05T04:41:02.896Z",
+    "totalEntries": 53,
+    "totalSkills": 126
   },
   "sections": [
     {
@@ -636,6 +636,35 @@
             "lastPush": null,
             "exists": true
           }
+        },
+        {
+          "owner": "pashov",
+          "repo": "skills",
+          "type": "Community",
+          "addedDate": "2026-03-05",
+          "description": {
+            "ko": "Pashov Audit Group의 스킬 저장소로, 스마트 컨트랙트 감사 및 Web3 보안 평가에 필요한 도구와 방법론을 제공합니다. Claude Code에서 MCP를 통해 접근하면 보안 감사 자동화 및 코드 분석을 지원할 수 있습니다.",
+            "en": "Pashov Audit Group Skills",
+            "ja": "Pashov Audit Groupのスキルリポジトリであり、スマートコントラクト監査およびWeb3セキュリティ評価に必要なツールと方法論を提供します。Claude CodeからMCPを通じてアクセスすると、セキュリティ監査の自動化およびコード分析をサポートできます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 114,
+            "starsPrev": 114,
+            "archived": false,
+            "lastPush": "2026-03-04T13:44:48Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "solidity-auditor",
+              "path": "solidity-auditor",
+              "description": {
+                "ko": null,
+                "en": "Security audit of Solidity code while you develop. Trigger on \"audit\", \"check this contract\", \"review for security\"."
+              }
+            }
+          ]
         }
       ]
     },
