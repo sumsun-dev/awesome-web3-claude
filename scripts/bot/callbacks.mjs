@@ -42,7 +42,7 @@ export async function routeCallback(callbackQuery, deps) {
 // Legacy discover callbacks (add:owner/repo:sectionId, skip:, keep:, remove:)
 // ---------------------------------------------------------------------------
 
-async function handleDiscoverCallback(callbackQuery, { triggerWorkflow, generateKoDescription, extractDescriptionKo }) {
+async function handleDiscoverCallback(callbackQuery, { triggerWorkflow, generateKoDescription, extractDescriptionKo, translateToJa }) {
   const data = callbackQuery.data;
   const chatId = callbackQuery.message?.chat?.id;
   const messageId = callbackQuery.message?.message_id;
@@ -63,18 +63,21 @@ async function handleDiscoverCallback(callbackQuery, { triggerWorkflow, generate
         }
 
         let descKo = extractDescriptionKo(msgText);
+        let descJa = null;
 
         if (descKo) {
           await answerCallback(callbackQuery.id, '\u2705 \uCD94\uAC00 \uC694\uCCAD \uC804\uC1A1');
+          descJa = await translateToJa(descKo);
         } else {
           await answerCallback(callbackQuery.id, '\u23F3 \uD55C\uAD6D\uC5B4 \uC124\uBA85 \uC0DD\uC131 \uC911...');
           await editMessage(chatId, messageId,
             msgText + '\n\n\u23F3 <b>\uD55C\uAD6D\uC5B4 \uC124\uBA85 \uC0DD\uC131 \uC911...</b>');
           descKo = await generateKoDescription(parsed.owner, parsed.repo);
+          descJa = await translateToJa(descKo);
         }
 
-        console.log(`[ADD] ${parsed.owner}/${parsed.repo} \u2192 ${parsed.sectionId} (ko: ${descKo || 'fallback'})`);
-        await triggerWorkflow('add', parsed.owner, parsed.repo, parsed.sectionId, descKo);
+        console.log(`[ADD] ${parsed.owner}/${parsed.repo} \u2192 ${parsed.sectionId} (ko: ${descKo || 'fallback'}, ja: ${descJa || 'fallback'})`);
+        await triggerWorkflow('add', parsed.owner, parsed.repo, parsed.sectionId, descKo, null, descJa);
         await editMessage(chatId, messageId,
           msgText +
           '\n\n\u2705 <b>\uCD94\uAC00 \uC2B9\uC778\uB428</b> \u2014 workflow \uC2E4\uD589 \uC911' +
@@ -126,7 +129,7 @@ async function handleDiscoverCallback(callbackQuery, { triggerWorkflow, generate
 // Command callbacks (cmd_*)
 // ---------------------------------------------------------------------------
 
-async function handleCommandCallback(callbackQuery, { triggerWorkflow, generateKoDescription }) {
+async function handleCommandCallback(callbackQuery, { triggerWorkflow, generateKoDescription, translateToJa }) {
   const data = callbackQuery.data;
   const chatId = callbackQuery.message?.chat?.id;
   const messageId = callbackQuery.message?.message_id;
@@ -163,7 +166,7 @@ async function handleCommandCallback(callbackQuery, { triggerWorkflow, generateK
       }
 
       if (session.command === 'add') {
-        return handleAddSectionSelected(callbackQuery, session, sectionId, { triggerWorkflow, generateKoDescription });
+        return handleAddSectionSelected(callbackQuery, session, sectionId, { triggerWorkflow, generateKoDescription, translateToJa });
       }
 
       if (session.command === 'move') {
@@ -179,7 +182,7 @@ async function handleCommandCallback(callbackQuery, { triggerWorkflow, generateK
         await answerCallback(callbackQuery.id, '\uC138\uC158 \uB9CC\uB8CC\uB428');
         return;
       }
-      return handleEditRegen(callbackQuery, session, { triggerWorkflow, generateKoDescription });
+      return handleEditRegen(callbackQuery, session, { triggerWorkflow, generateKoDescription, translateToJa });
     }
   } catch (err) {
     console.error(`Error handling command callback: ${err.message}`);
@@ -191,7 +194,7 @@ async function handleCommandCallback(callbackQuery, { triggerWorkflow, generateK
 // /add flow: section selected
 // ---------------------------------------------------------------------------
 
-async function handleAddSectionSelected(callbackQuery, session, sectionId, { triggerWorkflow, generateKoDescription }) {
+async function handleAddSectionSelected(callbackQuery, session, sectionId, { triggerWorkflow, generateKoDescription, translateToJa }) {
   const chatId = callbackQuery.message?.chat?.id;
   const messageId = callbackQuery.message?.message_id;
   const { owner, repo, repoInfo } = session;
@@ -208,8 +211,9 @@ async function handleAddSectionSelected(callbackQuery, session, sectionId, { tri
     language: repoInfo.language,
   } : null;
   const descKo = await generateKoDescription(owner, repo, context);
+  const descJa = await translateToJa(descKo);
 
-  setSession(chatId, { ...session, step: 'confirm', sectionId, descriptionKo: descKo });
+  setSession(chatId, { ...session, step: 'confirm', sectionId, descriptionKo: descKo, descriptionJa: descJa });
 
   await editMessage(chatId, messageId,
     `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\uC139\uC158: ${escapeHtml(label)}\n\n\uD55C\uAD6D\uC5B4 \uC124\uBA85:\n${escapeHtml(descKo || '(\uC0DD\uC131 \uC2E4\uD328 \u2014 GitHub description \uC0AC\uC6A9)')}`,
@@ -248,7 +252,7 @@ async function handleMoveSectionSelected(callbackQuery, session, sectionId, { tr
 // /edit flow: AI regeneration
 // ---------------------------------------------------------------------------
 
-async function handleEditRegen(callbackQuery, session, { triggerWorkflow, generateKoDescription }) {
+async function handleEditRegen(callbackQuery, session, { triggerWorkflow, generateKoDescription, translateToJa }) {
   const chatId = callbackQuery.message?.chat?.id;
   const messageId = callbackQuery.message?.message_id;
   const { owner, repo } = session;
@@ -259,8 +263,9 @@ async function handleEditRegen(callbackQuery, session, { triggerWorkflow, genera
   await sendChatAction(chatId);
 
   const descKo = await generateKoDescription(owner, repo);
+  const descJa = await translateToJa(descKo);
 
-  setSession(chatId, { ...session, step: 'confirm', descriptionKo: descKo });
+  setSession(chatId, { ...session, step: 'confirm', descriptionKo: descKo, descriptionJa: descJa });
 
   await editMessage(chatId, messageId,
     `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\n\uC0C8 \uC124\uBA85:\n${escapeHtml(descKo || '(\uC0DD\uC131 \uC2E4\uD328)')}`,
@@ -278,14 +283,14 @@ async function handleEditRegen(callbackQuery, session, { triggerWorkflow, genera
 async function executeSessionAction(callbackQuery, session, { triggerWorkflow }) {
   const chatId = callbackQuery.message?.chat?.id;
   const messageId = callbackQuery.message?.message_id;
-  const { command, owner, repo, sectionId, fromSectionId, descriptionKo } = session;
+  const { command, owner, repo, sectionId, fromSectionId, descriptionKo, descriptionJa } = session;
 
   clearSession(chatId);
 
   switch (command) {
     case 'add': {
       await answerCallback(callbackQuery.id, '\uCD94\uAC00 \uC694\uCCAD \uC804\uC1A1');
-      await triggerWorkflow('add', owner, repo, sectionId, descriptionKo);
+      await triggerWorkflow('add', owner, repo, sectionId, descriptionKo, null, descriptionJa);
       await editMessage(chatId, messageId,
         `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\n\u2705 <b>\uCD94\uAC00 \uC2B9\uC778\uB428</b> \u2014 workflow \uC2E4\uD589 \uC911` +
         (descriptionKo ? `\n\uC124\uBA85: ${escapeHtml(descriptionKo)}` : ''));
@@ -310,7 +315,7 @@ async function executeSessionAction(callbackQuery, session, { triggerWorkflow })
     }
     case 'edit': {
       await answerCallback(callbackQuery.id, '\uC124\uBA85 \uC5C5\uB370\uC774\uD2B8 \uC694\uCCAD \uC804\uC1A1');
-      await triggerWorkflow('update-desc', owner, repo, '', descriptionKo);
+      await triggerWorkflow('update-desc', owner, repo, '', descriptionKo, null, descriptionJa);
       await editMessage(chatId, messageId,
         `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\n\u270F\uFE0F <b>\uC124\uBA85 \uC218\uC815 \uC2B9\uC778\uB428</b> \u2014 workflow \uC2E4\uD589 \uC911` +
         (descriptionKo ? `\n\uC0C8 \uC124\uBA85: ${escapeHtml(descriptionKo)}` : ''));

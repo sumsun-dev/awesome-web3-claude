@@ -7,6 +7,7 @@
 import express from 'express';
 import rateLimit from 'express-rate-limit';
 import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { routeCommand } from './bot/commands.mjs';
 import { routeCallback } from './bot/callbacks.mjs';
 import { answerCallback, sendMessage } from './bot/telegram-api.mjs';
@@ -47,6 +48,11 @@ app.use('/api/', rateLimit({
 // ---------------------------------------------------------------------------
 
 const VALID_GITHUB_NAME = /^[a-zA-Z0-9_.-]+$/;
+const MCP_CONFIG_PATH = fileURLToPath(new URL('./mcp-config.json', import.meta.url));
+const ALLOWED_TOOLS = [
+  'WebFetch', 'WebSearch',
+  'mcp__github__get_file_contents', 'mcp__github__search_repositories', 'mcp__github__search_code',
+];
 
 async function generateKoDescription(owner, repo, context) {
   let prompt;
@@ -60,11 +66,10 @@ async function generateKoDescription(owner, repo, context) {
 - \uC5B8\uC5B4: ${context.language || 'N/A'}
 
 \uC774 \uB808\uD3EC\uAC00 Web3/\uBE14\uB85D\uCCB4\uC778 \uAC1C\uBC1C\uC5D0\uC11C \uC5B4\uB5A4 \uC5ED\uD560\uC744 \uD558\uB294\uC9C0, Claude Code/MCP\uC640 \uC5B4\uB5BB\uAC8C \uD65C\uC6A9\uD560 \uC218 \uC788\uB294\uC9C0 \uD55C\uAD6D\uC5B4 1~2\uBB38\uC7A5(100\uC790 \uC774\uB0B4)\uC73C\uB85C \uC124\uBA85\uD574\uC918. \uC124\uBA85\uB9CC \uCD9C\uB825\uD574.`;
-    args.push(prompt, '--model', 'haiku');
   } else {
     prompt = `GitHub \uB808\uD3EC\uC9C0\uD1A0\uB9AC ${owner}/${repo}\uC758 README\uC640 description\uC744 \uD655\uC778\uD558\uACE0, awesome-web3-claude \uBAA9\uB85D\uC5D0 \uB123\uC744 \uD55C\uAD6D\uC5B4 \uC124\uBA85 1\uBB38\uC7A5(80\uC790 \uC774\uB0B4)\uC744 \uC791\uC131\uD574\uC918. Claude Code/MCP/Web3 \uAD00\uC810\uC5D0\uC11C \uC774 \uB3C4\uAD6C\uAC00 \uBB58 \uD558\uB294\uC9C0 \uAC04\uACB0\uD558\uAC8C. \uC124\uBA85\uB9CC \uCD9C\uB825\uD558\uACE0 \uB2E4\uB978 \uB9D0\uC740 \uD558\uC9C0 \uB9C8.`;
-    args.push(prompt, '--model', 'haiku', '--allowedTools', 'WebFetch', 'WebSearch');
   }
+  args.push(prompt, '--model', 'haiku', '--mcp-config', MCP_CONFIG_PATH, '--allowedTools', ...ALLOWED_TOOLS);
 
   const TIMEOUT_MS = 300000; // 5 minutes
 
@@ -74,7 +79,11 @@ async function generateKoDescription(owner, repo, context) {
 
     const child = spawn('claude', args, {
       stdio: ['ignore', 'pipe', 'pipe'],
-      env: { ...process.env, HOME: process.env.HOME || '/root' },
+      env: {
+        ...process.env,
+        HOME: process.env.HOME || '/root',
+        GITHUB_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_TOKEN || process.env.GITHUB_PERSONAL_ACCESS_TOKEN || '',
+      },
     });
 
     let stdout = '';
@@ -95,6 +104,12 @@ async function generateKoDescription(owner, repo, context) {
         return;
       }
       const desc = stdout.trim().replace(/^["']|["']$/g, '');
+      // Reject garbage responses (error/inability messages from Claude)
+      if (desc && (desc.includes('죄송') || desc.includes('접근할 수 없') || desc.includes('확인할 수 없') || desc.includes('제공해주') || desc.includes('공유해주'))) {
+        console.log(`[CLAUDE] Rejected (invalid output): ${desc.slice(0, 80)}...`);
+        done(null);
+        return;
+      }
       console.log(`[CLAUDE] Generated: ${desc}`);
       done(desc || null);
     });
@@ -108,9 +123,58 @@ async function generateKoDescription(owner, repo, context) {
 }
 
 /**
+ * Translate Korean text to Japanese using Claude Code headless (1min timeout)
+ */
+async function translateToJa(koText) {
+  if (!koText) return null;
+  const prompt = `以下の韓国語テキストを日本語に翻訳してください。翻訳のみ出力し、他の文は書かないでください。\n\n${koText}`;
+  const args = ['-p', prompt, '--model', 'haiku'];
+
+  const TIMEOUT_MS = 60000;
+
+  return new Promise((resolve) => {
+    let resolved = false;
+    const done = (val) => { if (!resolved) { resolved = true; resolve(val); } };
+
+    const child = spawn('claude', args, {
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env: { ...process.env, HOME: process.env.HOME || '/root' },
+    });
+
+    let stdout = '';
+    child.stdout.on('data', (d) => { stdout += d; });
+    child.stderr.on('data', () => {});
+
+    const timer = setTimeout(() => {
+      console.log('[JA] Timeout (1m), skipping');
+      child.kill('SIGTERM');
+      done(null);
+    }, TIMEOUT_MS);
+
+    child.on('close', (code) => {
+      clearTimeout(timer);
+      if (code !== 0) {
+        console.log(`[JA] Exit code: ${code}`);
+        done(null);
+        return;
+      }
+      const desc = stdout.trim().replace(/^["']|["']$/g, '');
+      console.log(`[JA] Translated: ${desc}`);
+      done(desc || null);
+    });
+
+    child.on('error', (err) => {
+      clearTimeout(timer);
+      console.log(`[JA] Error: ${err.message}`);
+      done(null);
+    });
+  });
+}
+
+/**
  * Trigger GitHub workflow_dispatch
  */
-async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo, fromSectionId) {
+async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo, fromSectionId, descriptionJa) {
   const [repoOwner, repoName] = GITHUB_REPO.split('/');
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/actions/workflows/update-readme.yml/dispatches`;
 
@@ -122,6 +186,7 @@ async function triggerWorkflow(action, owner, repo, sectionId, descriptionKo, fr
     descriptionKo: descriptionKo || '',
   };
   if (fromSectionId) inputs.fromSectionId = fromSectionId;
+  if (descriptionJa) inputs.descriptionJa = descriptionJa;
 
   const res = await fetch(url, {
     method: 'POST',
@@ -154,7 +219,7 @@ function extractDescriptionKo(text) {
 
 // Dependencies injected into callback handlers
 import { fetchReposJson } from './bot/repos-reader.mjs';
-const deps = { triggerWorkflow, generateKoDescription, extractDescriptionKo, fetchReposJson };
+const deps = { triggerWorkflow, generateKoDescription, extractDescriptionKo, fetchReposJson, translateToJa };
 
 // ---------------------------------------------------------------------------
 // Webhook endpoint
@@ -223,7 +288,8 @@ app.post('/api/describe', async (req, res) => {
 
   try {
     const descKo = await generateKoDescription(owner, repo, context || null);
-    res.json({ descriptionKo: descKo });
+    const descJa = await translateToJa(descKo);
+    res.json({ descriptionKo: descKo, descriptionJa: descJa });
   } catch (err) {
     console.error(`[API] /api/describe error: ${err.message}`);
     res.status(500).json({ error: 'Internal server error' });

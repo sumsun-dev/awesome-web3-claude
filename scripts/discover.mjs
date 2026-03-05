@@ -204,9 +204,11 @@ async function generateKoDescription(candidate) {
     }
 
     const data = await res.json();
-    const text = data.descriptionKo || null;
-    if (text) console.log(`  [KO] ${candidate.fullName}: ${text.slice(0, 60)}...`);
-    return text;
+    const ko = data.descriptionKo || null;
+    const ja = data.descriptionJa || null;
+    if (ko) console.log(`  [KO] ${candidate.fullName}: ${ko.slice(0, 60)}...`);
+    if (ja) console.log(`  [JA] ${candidate.fullName}: ${ja.slice(0, 60)}...`);
+    return { ko, ja };
   } catch (err) {
     clearTimeout(timeout);
     console.log(`  [KO] Error: ${err.message}`);
@@ -275,9 +277,11 @@ async function deepAnalyze(candidate) {
     }
   }
 
-  // 7. 한국어 설명 생성 (skip 제외)
+  // 7. 한국어/일본어 설명 생성 (skip 제외)
   if (candidate.recommendation !== 'skip') {
-    candidate.descriptionKo = await generateKoDescription(candidate);
+    const descriptions = await generateKoDescription(candidate);
+    candidate.descriptionKo = descriptions?.ko || descriptions;
+    candidate.descriptionJa = descriptions?.ja || null;
   }
 
   await new Promise(r => setTimeout(r, 300));
