@@ -102,7 +102,9 @@ export async function initApproveFlow(chatId, repoData) {
   if (skills && skills.length > 0) {
     // Skill-based repo: AI recommend → toggle UI
     await sendMessage(chatId,
-      `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \u2014 ${skills.length}\uAC1C \uC2A4\uD0AC\nAI \uCD94\uCC9C \uBD84\uC11D \uC911...`);
+      `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589 \uC900\uBE44\n\n` +
+      `[1/3] \uC2A4\uD0AC \uC120\uBCC4\n` +
+      `${skills.length}\uAC1C \uC2A4\uD0AC\uC774 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. AI\uAC00 \uD575\uC2EC \uC2A4\uD0AC\uC744 \uCD94\uCC9C\uD569\uB2C8\uB2E4...`);
     await sendChatAction(chatId);
 
     const selected = await getAiRecommendedIndices(owner, repo, skills);
@@ -121,14 +123,15 @@ export async function initApproveFlow(chatId, repoData) {
       perPage: PER_PAGE,
     });
 
-    const aiNote = `AI \uCD94\uCC9C: ${selected.length}/${skills.length}\uAC1C \uC120\uD0DD\uB428\n`;
+    const aiNote = `\u2705 AI \uCD94\uCC9C \uC644\uB8CC: ${selected.length}/${skills.length}\uAC1C \uC120\uD0DD\uB428\n\uC544\uB798\uC5D0\uC11C \uBC1C\uD589\uD560 \uC2A4\uD0AC\uC744 \uC120\uD0DD/\uD574\uC81C\uD55C \uD6C4 "\uBBF8\uB9AC\uBCF4\uAE30"\uB97C \uB20C\uB7EC\uC8FC\uC138\uC694.\n`;
     const { text, keyboard } = renderSkillPage(owner, repo, skills, selected, 0, PER_PAGE);
     return sendMessage(chatId, aiNote + text, { inline_keyboard: keyboard });
   }
 
   // No-skill repo: generate AI channel message → preview
   await sendMessage(chatId,
-    `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\uD55C\uAE00 \uCC44\uB110 \uBA54\uC2DC\uC9C0 \uC0DD\uC131 \uC911...`);
+    `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589 \uC900\uBE44\n\n` +
+    `\uCC44\uB110 \uBA54\uC2DC\uC9C0 \uC0DD\uC131 \uC911...`);
   await sendChatAction(chatId);
 
   const channelMsg = await generateNoSkillChannelMessage(owner, repo, descriptionKo, stars, sectionId);
@@ -148,8 +151,10 @@ export async function initApproveFlow(chatId, repoData) {
     channelMsg,
   });
 
-  const previewText = `<b>\uBBF8\uB9AC\uBCF4\uAE30</b> \u2014 \uCC44\uB110\uC5D0 \uC804\uC1A1\uB420 \uBA54\uC2DC\uC9C0:\n\n` +
-    `\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n${channelMsg}\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`;
+  const previewText = `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589\n\n` +
+    `[\uBBF8\uB9AC\uBCF4\uAE30] \uCC44\uB110\uC5D0 \uC804\uC1A1\uB420 \uBA54\uC2DC\uC9C0:\n` +
+    `\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n${channelMsg}\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n` +
+    `\uC544\uB798 \uBC84\uD2BC\uC73C\uB85C \uC2B9\uC778, \uC218\uC815, \uB610\uB294 \uC2A4\uD0B5\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.`;
 
   return sendMessage(chatId, previewText, {
     inline_keyboard: [
@@ -205,8 +210,11 @@ export async function handleApproveTextEdit(chatId, text) {
 
   setSession(chatId, { ...session, step: 'preview', channelMsg: text });
 
-  const previewText = `<b>\uBBF8\uB9AC\uBCF4\uAE30</b> \u2014 \uCC44\uB110\uC5D0 \uC804\uC1A1\uB420 \uBA54\uC2DC\uC9C0:\n\n` +
-    `\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n${text}\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`;
+  const { owner, repo } = session;
+  const previewText = `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589\n\n` +
+    `[\uBBF8\uB9AC\uBCF4\uAE30] \uCC44\uB110\uC5D0 \uC804\uC1A1\uB420 \uBA54\uC2DC\uC9C0:\n` +
+    `\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n${text}\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n` +
+    `\uC544\uB798 \uBC84\uD2BC\uC73C\uB85C \uC2B9\uC778, \uC218\uC815, \uB610\uB294 \uC2A4\uD0B5\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.`;
 
   const buttons = session.skills
     ? [
@@ -411,7 +419,7 @@ async function handleSkillPreview(callbackQuery) {
 
   await answerCallback(callbackQuery.id, '\uD55C\uAE00 \uBA54\uC2DC\uC9C0 \uC0DD\uC131 \uC911...');
   await editMessage(chatId, messageId,
-    `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\uD55C\uAE00 \uCC44\uB110 \uBA54\uC2DC\uC9C0 \uC0DD\uC131 \uC911...`);
+    `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589\n\n\uCC44\uB110 \uBA54\uC2DC\uC9C0 \uC0DD\uC131 \uC911...`);
   await sendChatAction(chatId);
 
   const selectedSkills = selected
@@ -419,12 +427,14 @@ async function handleSkillPreview(callbackQuery) {
     .map(i => skills[i])
     .filter(Boolean);
 
-  const channelMsg = await generateSkillChannelMessage(owner, repo, selectedSkills, skills.length);
+  const channelMsg = await generateSkillChannelMessage(owner, repo, selectedSkills, skills.length, session.descriptionKo, session.stars);
 
   setSession(chatId, { ...session, step: 'preview', channelMsg });
 
-  const previewText = `<b>\uBBF8\uB9AC\uBCF4\uAE30</b> \u2014 \uCC44\uB110\uC5D0 \uC804\uC1A1\uB420 \uBA54\uC2DC\uC9C0:\n\n` +
-    `\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n${channelMsg}\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`;
+  const previewText = `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589\n\n` +
+    `[2/3] \uBBF8\uB9AC\uBCF4\uAE30 \u2014 \uCC44\uB110\uC5D0 \uC804\uC1A1\uB420 \uBA54\uC2DC\uC9C0:\n` +
+    `\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n${channelMsg}\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n` +
+    `\uC2B9\uC778\uD558\uBA74 \uCC44\uB110\uC5D0 \uBC14\uB85C \uC804\uC1A1\uB429\uB2C8\uB2E4.`;
 
   await editMessage(chatId, messageId, previewText, {
     inline_keyboard: [
@@ -476,8 +486,8 @@ async function handleApproveSend(callbackQuery) {
     : '';
 
   await editMessage(chatId, messageId,
-    `<b>${escapeHtml(owner)}/${escapeHtml(repo)}</b>\n\n` +
-    `\u2705 \uCC44\uB110 \uC804\uC1A1 \uC644\uB8CC ${summary}`);
+    `\uD83D\uDCCB <b>${escapeHtml(owner)}/${escapeHtml(repo)}</b> \uCC44\uB110 \uBC1C\uD589\n\n` +
+    `[3/3] \u2705 \uCC44\uB110 \uC804\uC1A1 \uC644\uB8CC ${summary}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -498,8 +508,9 @@ async function handleApproveEdit(callbackQuery) {
   await answerCallback(callbackQuery.id, '\uC218\uC815 \uBAA8\uB4DC');
 
   await editMessage(chatId, messageId,
-    `<b>${escapeHtml(session.owner)}/${escapeHtml(session.repo)}</b>\n\n` +
-    `\u270F\uFE0F \uCC44\uB110 \uBA54\uC2DC\uC9C0\uB97C \uC9C1\uC811 \uC785\uB825\uD574\uC8FC\uC138\uC694.\n` +
+    `\uD83D\uDCCB <b>${escapeHtml(session.owner)}/${escapeHtml(session.repo)}</b> \uCC44\uB110 \uBC1C\uD589\n\n` +
+    `\u270F\uFE0F \uC218\uC815 \uBAA8\uB4DC\n` +
+    `\uCC44\uB110 \uBA54\uC2DC\uC9C0\uB97C \uC9C1\uC811 \uC785\uB825\uD574\uC8FC\uC138\uC694.\n` +
     `\uD14D\uC2A4\uD2B8\uB97C \uBCF4\uB0B4\uBA74 \uBBF8\uB9AC\uBCF4\uAE30\uAC00 \uC5C5\uB370\uC774\uD2B8\uB429\uB2C8\uB2E4.`);
 }
 
@@ -538,10 +549,20 @@ async function handleApproveCancel(callbackQuery) {
   const chatId = callbackQuery.message?.chat?.id;
   const messageId = callbackQuery.message?.message_id;
 
+  const session = getSession(chatId);
+  const repoName = session ? `${session.owner}/${session.repo}` : '';
+
   clearSession(chatId);
   await answerCallback(callbackQuery.id, '\uC2A4\uD0B5\uB428');
-  await editMessage(chatId, messageId,
-    (callbackQuery.message?.text || '') + '\n\n\uC2A4\uD0B5\uB428');
+
+  const skipText = repoName
+    ? `\u23ED ${escapeHtml(repoName)} \uCC44\uB110 \uBC1C\uD589 \uC2A4\uD0B5\uB428\n\n` +
+      `\u2139\uFE0F \uB808\uD3EC\uB294 \uBAA9\uB85D(repos.json)\uC5D0 \uC774\uBBF8 \uCD94\uAC00\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.\n` +
+      `\uCC44\uB110 \uACF5\uC9C0\uB9CC \uAC74\uB108\uB6F0\uC5C8\uC2B5\uB2C8\uB2E4.\n` +
+      `\uB098\uC911\uC5D0 /skills ${repoName} \uB85C \uB2E4\uC2DC \uBC1C\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.`
+    : `\u23ED \uCC44\uB110 \uBC1C\uD589 \uC2A4\uD0B5\uB428`;
+
+  await editMessage(chatId, messageId, skipText);
 }
 
 // ---------------------------------------------------------------------------
@@ -603,20 +624,25 @@ function renderSkillPage(owner, repo, skills, selected, page, perPage) {
 // AI: Generate Korean channel message for skill-based repos
 // ---------------------------------------------------------------------------
 
-async function generateSkillChannelMessage(owner, repo, selectedSkills, totalCount) {
+async function generateSkillChannelMessage(owner, repo, selectedSkills, totalCount, descriptionKo, stars) {
   const skillLines = selectedSkills.map(s => {
     const desc = s.description?.ko || s.description?.en || '';
     return `- ${s.name}: ${desc}`;
   }).join('\n');
 
+  const repoInfo = descriptionKo ? `\n\uB808\uD3EC \uC124\uBA85: ${descriptionKo}` : '';
+  const starsInfo = stars ? `\n\uC2A4\uD0C0: ${stars}` : '';
+
   const prompt = `GitHub \uB808\uD3EC "${owner}/${repo}"\uC758 \uC2A4\uD0AC\uC744 Telegram \uCC44\uB110\uC5D0 \uC18C\uAC1C\uD558\uB294 \uD55C\uAD6D\uC5B4 \uBA54\uC2DC\uC9C0\uB97C \uC791\uC131\uD574\uC918.
+${repoInfo}${starsInfo}
 
 \uC120\uD0DD\uB41C \uC2A4\uD0AC (${selectedSkills.length}/${totalCount}\uAC1C):
 ${skillLines}
 
 \uC791\uC131 \uADDC\uCE59:
-- \uCCAB \uC904: \uD83D\uDD27 \uC774\uBAA8\uC9C0\uC640 \uB808\uD3EC \uC18C\uAC1C \uD5E4\uB354 (\uC608: "\uD83D\uDD27 owner/repo \uC8FC\uC694 \uC2A4\uD0AC \uC18C\uAC1C")
-- \uAC01 \uC2A4\uD0AC\uC744 \u2022 \uBD88\uB9BF \uD3EC\uC778\uD2B8\uB85C \uB098\uC5F4
+- \uCCAB \uC904: \uD83D\uDD27 \uC774\uBAA8\uC9C0\uC640 \uB808\uD3EC \uC18C\uAC1C \uD5E4\uB354
+- \uB458\uC9F8 \uC904: \uB808\uD3EC\uAC00 \uBB58 \uD558\uB294\uC9C0 1\uC904 \uC694\uC57D (\uC124\uBA85 \uCC38\uACE0)
+- \uC774\uD6C4: \uAC01 \uC2A4\uD0AC\uC744 \u2022 \uBD88\uB9BF \uD3EC\uC778\uD2B8\uB85C \uB098\uC5F4
 - \uAC01 \uC2A4\uD0AC\uC758 \uC124\uBA85\uC740 \uD55C\uAD6D\uC5B4 1\uBB38\uC7A5 (30\uC790 \uC774\uB0B4)
 - \uB9C8\uC9C0\uB9C9\uC5D0 \uD558\uB2E8 \uB9C1\uD06C 2\uAC1C:
   \uD83D\uDD17 https://github.com/${owner}/${repo}
@@ -628,11 +654,13 @@ ${skillLines}
 
   if (result) return result;
 
-  return buildSkillFallbackMessage(owner, repo, selectedSkills, totalCount);
+  return buildSkillFallbackMessage(owner, repo, selectedSkills, totalCount, descriptionKo, stars);
 }
 
-function buildSkillFallbackMessage(owner, repo, selectedSkills, totalCount) {
-  let text = `\uD83D\uDD27 ${owner}/${repo} \uC8FC\uC694 \uC2A4\uD0AC \uC18C\uAC1C (${selectedSkills.length}/${totalCount})\n\n`;
+function buildSkillFallbackMessage(owner, repo, selectedSkills, totalCount, descriptionKo, stars) {
+  let text = `\uD83D\uDD27 ${owner}/${repo} \uC8FC\uC694 \uC2A4\uD0AC \uC18C\uAC1C (${selectedSkills.length}/${totalCount})\n`;
+  if (descriptionKo) text += `${descriptionKo}\n`;
+  text += '\n';
 
   for (const skill of selectedSkills) {
     const desc = skill.description?.ko || skill.description?.en || '';
