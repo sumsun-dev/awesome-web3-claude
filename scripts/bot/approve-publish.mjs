@@ -652,7 +652,14 @@ ${skillLines}
 
   const result = await runClaude(prompt);
 
-  if (result) return result;
+  if (result) {
+    if (descriptionKo) {
+      const lines = result.split('\n');
+      lines.splice(1, 0, descriptionKo);
+      return lines.join('\n');
+    }
+    return result;
+  }
 
   return buildSkillFallbackMessage(owner, repo, selectedSkills, totalCount, descriptionKo, stars);
 }
