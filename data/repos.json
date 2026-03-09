@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-05T04:41:02.896Z",
-    "totalEntries": 53,
+    "lastUpdated": "2026-03-09T10:00:22.341Z",
+    "totalEntries": 54,
     "totalSkills": 126
   },
   "sections": [
@@ -1476,6 +1476,25 @@
               }
             }
           ]
+        },
+        {
+          "owner": "bitget-wallet-ai-lab",
+          "repo": "bitget-wallet-skill",
+          "type": "Community",
+          "addedDate": "2026-03-09",
+          "description": {
+            "ko": "Bitget Wallet API를 래핑한 AI 에이전트 스킬로, 자연어 명령으로 토큰 스왑, 크로스체인 브릿지, 가스리스 트랜잭션을 실행할 수 있습니다. Claude와 MCP를 통해 Web3 애플리케이션에 블록체인 기능을 자동화된 방식으로 통합할 수 있습니다.",
+            "en": "AI agent skill for Bitget Wallet — token swap, cross-chain bridge, and gasless transactions via Order Mode API. Supports 7 EVM chains + Solana.",
+            "ja": "Bitget Wallet APIをラップしたAIエージェントスキルで、自然言語コマンドでトークンスワップ、クロスチェーンブリッジ、ガスレストランザクションを実行できます。ClaudeとMCPを通じてWeb3アプリケーションにブロックチェーン機能を自動化された方法で統合できます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 112,
+            "starsPrev": 112,
+            "archived": false,
+            "lastPush": "2026-03-09T09:56:15Z",
+            "exists": true
+          }
         }
       ]
     },

@@ -194,6 +194,7 @@
 | [heilcheng/awesome-agent-skills](https://github.com/heilcheng/awesome-agent-skills) | ![](https://img.shields.io/github/stars/heilcheng/awesome-agent-skills?style=flat-square&logo=github) | `Community` | '26.03 | AIコーディングエージェント（Claude, Codex, Copilot等）のためのスキル、ツール、チュートリアルキュレーションリスト |
 | [coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap) | ![](https://img.shields.io/github/stars/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap?style=flat-square&logo=github) | `Community` | '26.03 | CoinMarketCapがAIエージェント向けに作成したスキルコレクション。Claude Code/MCPと統合して暗号資産の相場・情報照会などWeb3機能をAIワークフローに自動化可能。 `8個スキル` |
 | [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) | ![](https://img.shields.io/github/stars/binance/binance-skills-hub?style=flat-square&logo=github) | `Community` | '26.03 | Binance Skills Hub is an open skills marketplace that gives AI agents native access to crypto `7個スキル` |
+| [bitget-wallet-ai-lab/bitget-wallet-skill](https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill) | ![](https://img.shields.io/github/stars/bitget-wallet-ai-lab/bitget-wallet-skill?style=flat-square&logo=github) | `Community` | '26.03 | Bitget Wallet APIをラップしたAIエージェントスキルで、自然言語コマンドでトークンスワップ、クロスチェーンブリッジ、ガスレストランザクションを実行できます。ClaudeとMCPを通じてWeb3アプリケーションにブロックチェーン機能を自動化された方法で統合できます。 |
 
 <details><summary>BankrBot/openclaw-skills スキル詳細 (15個)</summary>
 
