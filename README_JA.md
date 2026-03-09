@@ -127,6 +127,7 @@
 | [austintgriffith/ethskills](https://github.com/austintgriffith/ethskills) | ![](https://img.shields.io/github/stars/austintgriffith/ethskills?style=flat-square&logo=github) | `Community` | '26.02 | LLMの盲点（ガス、ウォレット、L2、規格、アドレス）を修正する18個のスキル。[ethskills.com](https://ethskills.com/) `23個スキル` |
 | [trustwallet/tw-agent-skills](https://github.com/trustwallet/tw-agent-skills) | ![](https://img.shields.io/github/stars/trustwallet/tw-agent-skills?style=flat-square&logo=github) | `Official` | '26.02 | 5つのスキル: trust-web3-provider（マルチチェーンdApp連携）、wallet-core（140+チェーンウォレット/署名）、barz（ERC-4337スマートウォレット）、assets（トークンメタデータ）、trust-developer（ディープリンク/WalletConnect） `5個スキル` |
 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | ![](https://img.shields.io/github/stars/ruvnet/ruflo?style=flat-square&logo=github) | `Community` | '26.03 | Claude CodeとMCPを通じて複数のAIエージェントを調整し、ソフトウェアエンジニアリングタスクを自動化するエンタープライズエージェントオーケストレーションプラットフォーム。 |
+| [nirholas/universal-crypto-mcp](https://github.com/nirholas/universal-crypto-mcp) | ![](https://img.shields.io/github/stars/nirholas/universal-crypto-mcp?style=flat-square&logo=github) | `Community` | '26.03 | このMCPサーバーは、AIエージェントが自然言語でブロックチェーンと相互作用できるようにし、スワップ、ブリッジ、ステーキングなど様々なWeb3タスクを自動化します。Claudeに接続すると、複雑な暗号資産操作を簡単な会話で実行できます。 |
 
 <details><summary>Uniswap/uniswap-ai スキル詳細 (7個)</summary>
 
