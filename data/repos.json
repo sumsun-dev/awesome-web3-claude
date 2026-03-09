@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-09T12:56:22.322Z",
-    "totalEntries": 55,
-    "totalSkills": 126
+    "lastUpdated": "2026-03-09T13:17:47.019Z",
+    "totalEntries": 56,
+    "totalSkills": 127
   },
   "sections": [
     {
@@ -1514,6 +1514,35 @@
             "lastPush": "2026-03-09T09:56:15Z",
             "exists": true
           }
+        },
+        {
+          "owner": "quiknode-labs",
+          "repo": "blockchain-skills",
+          "type": "Community",
+          "addedDate": "2026-03-09",
+          "description": {
+            "ko": "블록체인 개발자들이 Claude Code, Cursor 등의 코딩 에이전트에서 사용할 수 있는 Web3/블록체인 관련 스킬을 모아둔 저장소입니다. Ethereum, Solana 등 다양한 블록체인 환경에서 스마트 컨트랙트 개발과 암호화폐 관련 작업을 더 효율적으로 수행할 수 있게 지원합니다.",
+            "en": "Blockchain skills you can use with your coding agent, such as Claude Code, OpenCode, Codex, Cursor and more.",
+            "ja": "ブロックチェーン開発者向けのClaude Code、Cursor等のコーディングエージェントで使用可能なWeb3/ブロックチェーン関連スキルをまとめたリポジトリです。Ethereum、Solana等の様々なブロックチェーン環境でスマートコントラクト開発と暗号資産関連作業をより効率的に実行できるよう支援します。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 7,
+            "starsPrev": 7,
+            "archived": false,
+            "lastPush": "2026-03-05T20:47:51Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "quicknode-skill",
+              "path": "skills/quicknode-skill",
+              "description": {
+                "ko": null,
+                "en": "Quicknode blockchain infrastructure including RPC endpoints (80+ chains), Streams (real-time data), Webhooks, IPFS storage, Marketplace Add-ons (Token API, NFT API, DeFi tools), Solana DAS API (Digita..."
+              }
+            }
+          ]
         }
       ]
     },
