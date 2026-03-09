@@ -12,7 +12,7 @@
     },
     "solana-foundation/solana-mcp-official": {
       "action": "keep",
-      "skippedAt": "2026-03-01T09:52:05.648Z",
+      "skippedAt": "2026-03-09T10:02:23.493Z",
       "reason": "User kept existing repo"
     },
     "hashgraph-online/registry-broker-skills": {
