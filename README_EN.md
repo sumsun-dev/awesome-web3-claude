@@ -196,7 +196,6 @@ This space is early-stage — entries are selected for functionality and officia
 | [coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap](https://github.com/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap) | ![](https://img.shields.io/github/stars/coinmarketcap-official/skills-for-ai-agents-by-CoinMarketCap?style=flat-square&logo=github) | `Community` | '26.03 | This repository contains all skills created by the CoinMarketCap team to power AI agents. `8 skills` |
 | [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) | ![](https://img.shields.io/github/stars/binance/binance-skills-hub?style=flat-square&logo=github) | `Community` | '26.03 | Binance Skills Hub is an open skills marketplace that gives AI agents native access to crypto `7 skills` |
 | [bitget-wallet-ai-lab/bitget-wallet-skill](https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill) | ![](https://img.shields.io/github/stars/bitget-wallet-ai-lab/bitget-wallet-skill?style=flat-square&logo=github) | `Community` | '26.03 | AI agent skill for Bitget Wallet — token swap, cross-chain bridge, and gasless transactions via Order Mode API. Supports 7 EVM chains + Solana. |
-| [quiknode-labs/blockchain-skills](https://github.com/quiknode-labs/blockchain-skills) | ![](https://img.shields.io/github/stars/quiknode-labs/blockchain-skills?style=flat-square&logo=github) | `Community` | '26.03 | Blockchain skills you can use with your coding agent, such as Claude Code, OpenCode, Codex, Cursor and more. `1 skills` |
 
 <details><summary>BankrBot/openclaw-skills skill details (15)</summary>
 
@@ -246,14 +245,6 @@ This space is early-stage — entries are selected for functionality and officia
 | [query-token-info](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/query-token-info) | Query token details by keyword, contract address, or chain. Search tokens, get metadata and social links, retrieve real-time market data (price, price trend, volume, holders, liquidity), and fetch K-L... |
 | [trading-signal](https://github.com/binance/binance-skills-hub/tree/main/skills/binance-web3/trading-signal) | Subscribe and retrieve on-chain Smart Money signals. Monitor trading activities of smart money addresses, including buy/sell signals, trigger price, current price, max gain, and exit rate. |
 | [spot](https://github.com/binance/binance-skills-hub/tree/main/skills/binance/spot) | Binance Spot request using the Binance API. Authentication requires API key and secret key. Supports testnet and mainnet. |
-
-</details>
-
-<details><summary>quiknode-labs/blockchain-skills skill details (1)</summary>
-
-| Skill | Description |
-|:-----|:------------|
-| [quicknode-skill](https://github.com/quiknode-labs/blockchain-skills/tree/main/skills/quicknode-skill) | Quicknode blockchain infrastructure including RPC endpoints (80+ chains), Streams (real-time data), Webhooks, IPFS storage, Marketplace Add-ons (Token API, NFT API, DeFi tools), Solana DAS API (Digita... |
 
 </details>
 
