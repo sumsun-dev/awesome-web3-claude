@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-09T13:17:47.019Z",
-    "totalEntries": 56,
+    "lastUpdated": "2026-03-16T10:04:54.124Z",
+    "totalEntries": 57,
     "totalSkills": 127
   },
   "sections": [
@@ -1095,6 +1095,25 @@
             "starsPrev": 21,
             "archived": false,
             "lastPush": "2026-02-13T20:39:11Z",
+            "exists": true
+          }
+        },
+        {
+          "owner": "hashgraph-online",
+          "repo": "registry-broker-skills",
+          "type": "Community",
+          "addedDate": "2026-03-16",
+          "description": {
+            "ko": "이 레포는 72,000개 이상의 AI 에이전트를 여러 블록체인 프로토콜에서 검색하고 등록할 수 있는 Universal Registry를 제공하며, Claude를 포함한 AI 코딩 어시스턴트에서 MCP 기반 스킬로 활용하여 Web3 에이전트 생태계에 접근할 수 있게 합니다.",
+            "en": "AI agent skills for the Universal Registry - search, chat, and register 72,000+ agents across 14+ protocols. Works with Claude, Codex, Cursor, OpenClaw, and any AI assistant.",
+            "ja": "このリポジトリは、72,000個以上のAIエージェントを複数のブロックチェーンプロトコルで検索および登録できるユニバーサルレジストリを提供し、Claudeを含むAIコーディングアシスタントでMCPベースのスキルとして活用して、Web3エージェントエコシステムにアクセスできるようにします。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 139,
+            "starsPrev": 139,
+            "archived": false,
+            "lastPush": "2026-03-09T17:35:32Z",
             "exists": true
           }
         }
