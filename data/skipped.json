@@ -7,7 +7,7 @@
     },
     "a16z/halmos": {
       "action": "keep",
-      "skippedAt": "2026-03-01T09:32:05.666Z",
+      "skippedAt": "2026-03-16T10:05:45.133Z",
       "reason": "User kept existing repo"
     },
     "solana-foundation/solana-mcp-official": {
