@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-16T10:04:54.124Z",
-    "totalEntries": 57,
+    "lastUpdated": "2026-03-23T10:10:23.762Z",
+    "totalEntries": 58,
     "totalSkills": 127
   },
   "sections": [
@@ -1896,6 +1896,25 @@
             "starsPrev": 7,
             "archived": false,
             "lastPush": "2026-02-28T05:54:41Z",
+            "exists": true
+          }
+        },
+        {
+          "owner": "minhoyoo-iotrust",
+          "repo": "WAIaaS",
+          "type": "Community",
+          "addedDate": "2026-03-23",
+          "description": {
+            "ko": "이 레포는 AI 에이전트가 블록체인 자산을 자동으로 관리할 수 있도록 하는 지갑 서비스로, MCP 표준을 통해 Claude 같은 LLM 에이전트에 직접 통합되어 Web3 작업을 수행합니다.",
+            "en": "Wallet-as-a-Service for all AI agents in the world",
+            "ja": "このレポはAIエージェントがブロックチェーン資産を自動的に管理できるようにするウォレットサービスであり、MCP標準を通じてClaudeのようなLLMエージェントに直接統合されてWeb3タスクを実行します。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 14,
+            "starsPrev": 14,
+            "archived": false,
+            "lastPush": "2026-03-23T07:47:13Z",
             "exists": true
           }
         }

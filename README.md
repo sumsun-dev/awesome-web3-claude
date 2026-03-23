@@ -287,6 +287,7 @@
 | [nirholas/UCAI](https://github.com/nirholas/UCAI) | ![](https://img.shields.io/github/stars/nirholas/UCAI?style=flat-square&logo=github) | `Community` | '26.02 | 범용 컨트랙트 AI 인터페이스, 모든 스마트 컨트랙트용 ABI-to-MCP 서버 생성기 |
 | [thirdweb-dev/ai](https://github.com/thirdweb-dev/ai) | ![](https://img.shields.io/github/stars/thirdweb-dev/ai?style=flat-square&logo=github) | `Official` | '25.06 | AI 에이전트용 올인원 Web3 SDK (지갑, AA, RPC) |
 | [aibtcdev/aibtc-mcp-server](https://github.com/aibtcdev/aibtc-mcp-server) | ![](https://img.shields.io/github/stars/aibtcdev/aibtc-mcp-server?style=flat-square&logo=github) | `Community` | '26.03 | Bitcoin-native MCP server for AI agents: BTC/STX wallets, DeFi yield, sBTC peg, NFTs, and x402 payments. |
+| [minhoyoo-iotrust/WAIaaS](https://github.com/minhoyoo-iotrust/WAIaaS) | ![](https://img.shields.io/github/stars/minhoyoo-iotrust/WAIaaS?style=flat-square&logo=github) | `Community` | '26.03 | 이 레포는 AI 에이전트가 블록체인 자산을 자동으로 관리할 수 있도록 하는 지갑 서비스로, MCP 표준을 통해 Claude 같은 LLM 에이전트에 직접 통합되어 Web3 작업을 수행합니다. |
 
 ---
 

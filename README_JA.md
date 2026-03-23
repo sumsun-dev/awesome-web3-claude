@@ -287,6 +287,7 @@
 | [nirholas/UCAI](https://github.com/nirholas/UCAI) | ![](https://img.shields.io/github/stars/nirholas/UCAI?style=flat-square&logo=github) | `Community` | '26.02 | 汎用コントラクトAIインターフェース、あらゆるスマートコントラクト用ABI-to-MCPサーバージェネレーター |
 | [thirdweb-dev/ai](https://github.com/thirdweb-dev/ai) | ![](https://img.shields.io/github/stars/thirdweb-dev/ai?style=flat-square&logo=github) | `Official` | '25.06 | AIエージェント用オールインワンWeb3 SDK（ウォレット、AA、RPC） |
 | [aibtcdev/aibtc-mcp-server](https://github.com/aibtcdev/aibtc-mcp-server) | ![](https://img.shields.io/github/stars/aibtcdev/aibtc-mcp-server?style=flat-square&logo=github) | `Community` | '26.03 | AIエージェント用Bitcoin-native MCPサーバー: BTC/STXウォレット、DeFiイールド、sBTCペグ、NFT、x402決済 |
+| [minhoyoo-iotrust/WAIaaS](https://github.com/minhoyoo-iotrust/WAIaaS) | ![](https://img.shields.io/github/stars/minhoyoo-iotrust/WAIaaS?style=flat-square&logo=github) | `Community` | '26.03 | このレポはAIエージェントがブロックチェーン資産を自動的に管理できるようにするウォレットサービスであり、MCP標準を通じてClaudeのようなLLMエージェントに直接統合されてWeb3タスクを実行します。 |
 
 ---
 
