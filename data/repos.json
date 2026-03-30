@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-23T10:10:23.762Z",
-    "totalEntries": 58,
+    "lastUpdated": "2026-03-30T12:46:17.424Z",
+    "totalEntries": 59,
     "totalSkills": 127
   },
   "sections": [
@@ -1785,6 +1785,25 @@
             "starsPrev": 0,
             "archived": false,
             "lastPush": null,
+            "exists": true
+          }
+        },
+        {
+          "owner": "Cortex-AI-Software",
+          "repo": "Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine",
+          "type": "Community",
+          "addedDate": "2026-03-30",
+          "description": {
+            "ko": "이 레포는 MCP 프로토콜과 LLM을 활용한 자동화 거래 에이전트로, 솔라나와 EVM 체인에서 플래시 론을 이용한 차익거래를 수행합니다. Claude Code에서 MCP 서버로 연동하여 AI 기반 블록체인 거래 자동화를 구현할 수 있습니다.",
+            "en": "🧠 Autonomous AI Trading Agent & Multi-Chain Flash-Arb Engine (v2.0 Beta). Powered by MCP-Protocol & LLM reasoning. High-frequency arbitrage on Solana, Base, and EVM L2s. Built by Cortex Software Labs.",
+            "ja": "このレポはMCPプロトコルとLLMを活用した自動化取引エージェントで、ソラナとEVMチェーンでフラッシュローンを利用したアービトラージを実行します。Claude CodeからMCPサーバーとして連携して、AI基盤のブロックチェーン取引自動化を実装できます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 24,
+            "starsPrev": 24,
+            "archived": false,
+            "lastPush": "2026-03-22T12:57:26Z",
             "exists": true
           }
         }

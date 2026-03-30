@@ -275,6 +275,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [coinpaprika/dexpaprika-mcp](https://github.com/coinpaprika/dexpaprika-mcp) | ![](https://img.shields.io/github/stars/coinpaprika/dexpaprika-mcp?style=flat-square&logo=github) | `Official` | '25.10 | DEX data MCP, real-time prices, liquidity pools, OHLCV across 20+ chains |
 | [noditlabs/nodit-mcp-server](https://github.com/noditlabs/nodit-mcp-server) | ![](https://img.shields.io/github/stars/noditlabs/nodit-mcp-server?style=flat-square&logo=github) | `Official` | '26.02 | Nodit Web3 Data API MCP, multi-chain blockchain data access for AI agents |
 | [MoralisWeb3/moralis-mcp-server](https://github.com/MoralisWeb3/moralis-mcp-server) | ![](https://img.shields.io/github/stars/MoralisWeb3/moralis-mcp-server?style=flat-square&logo=github) | `Official` | '25.10 | Moralis Web3 API MCP, query blockchain data across multiple networks including NFTs, tokens, and DeFi |
+| [Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine](https://github.com/Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine) | ![](https://img.shields.io/github/stars/Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine?style=flat-square&logo=github) | `Community` | '26.03 | 🧠 Autonomous AI Trading Agent & Multi-Chain Flash-Arb Engine (v2.0 Beta). Powered by MCP-Protocol & LLM reasoning. High-frequency arbitrage on Solana, Base, and EVM L2s. Built by Cortex Software Labs. |
 
 ## MCP Servers — Smart Contract & DeFi
 

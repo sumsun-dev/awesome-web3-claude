@@ -275,6 +275,7 @@
 | [coinpaprika/dexpaprika-mcp](https://github.com/coinpaprika/dexpaprika-mcp) | ![](https://img.shields.io/github/stars/coinpaprika/dexpaprika-mcp?style=flat-square&logo=github) | `Official` | '25.10 | DEXデータMCP、20以上のチェーンでリアルタイム価格、流動性プール、OHLCV |
 | [noditlabs/nodit-mcp-server](https://github.com/noditlabs/nodit-mcp-server) | ![](https://img.shields.io/github/stars/noditlabs/nodit-mcp-server?style=flat-square&logo=github) | `Official` | '26.02 | Nodit Web3 Data API MCP、AIエージェントのためのマルチチェーンブロックチェーンデータアクセス |
 | [MoralisWeb3/moralis-mcp-server](https://github.com/MoralisWeb3/moralis-mcp-server) | ![](https://img.shields.io/github/stars/MoralisWeb3/moralis-mcp-server?style=flat-square&logo=github) | `Official` | '25.10 | Moralis Web3 API MCP、NFT、トークン、DeFiなどマルチネットワークブロックチェーンデータ照会 |
+| [Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine](https://github.com/Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine) | ![](https://img.shields.io/github/stars/Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine?style=flat-square&logo=github) | `Community` | '26.03 | このレポはMCPプロトコルとLLMを活用した自動化取引エージェントで、ソラナとEVMチェーンでフラッシュローンを利用したアービトラージを実行します。Claude CodeからMCPサーバーとして連携して、AI基盤のブロックチェーン取引自動化を実装できます。 |
 
 ## MCP サーバー — スマートコントラクト & DeFi
 
