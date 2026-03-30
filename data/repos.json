@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-30T12:46:57.973Z",
-    "totalEntries": 58,
-    "totalSkills": 127
+    "lastUpdated": "2026-03-30T12:47:13.731Z",
+    "totalEntries": 59,
+    "totalSkills": 138
   },
   "sections": [
     {
@@ -662,6 +662,115 @@
               "description": {
                 "ko": null,
                 "en": "Security audit of Solidity code while you develop. Trigger on \"audit\", \"check this contract\", \"review for security\"."
+              }
+            }
+          ]
+        },
+        {
+          "owner": "shuvonsec",
+          "repo": "web3-bug-bounty-hunting-ai-skills",
+          "type": "Community",
+          "addedDate": "2026-03-30",
+          "description": {
+            "ko": "이 레포는 Immunefi 보고서와 실제 해킹 사례를 기반으로 만든 18개의 Claude Code 스킬로, 스마트 컨트랙트 보안 감사와 버그 바운티 헌팅을 자동화합니다. Claude Code에서 이 스킬들을 활용하면 취약점 탐지, 코드 분석, 익스플로잇 개발을 빠르게 수행할 수 있습니다.",
+            "en": "18 Claude Code skill files for smart contract security — built from 2,749 Immunefi reports, 681 DeFiHack reproductions, and real hunt experience",
+            "ja": "このリポジトリはImmunefiレポートと実際のハッキング事例に基づいた18個のClaude Codeスキルで構成されており、スマートコントラクトセキュリティ監査とバグバウンティハンティングを自動化します。Claude Codeでこれらのスキルを活用すれば、脆弱性検出、コード分析、エクスプロイト開発を迅速に実行できます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 33,
+            "starsPrev": 33,
+            "archived": false,
+            "lastPush": "2026-03-15T09:08:45Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "web3-ai-tools",
+              "path": "web3-ai-tools",
+              "description": {
+                "ko": null,
+                "en": "AI-powered tools for Web3 bug bounty automation. Use when you want to automate recon, run autonomous audits, or use AI agents for vulnerability discovery."
+              }
+            },
+            {
+              "name": "web3-bug-classes",
+              "path": "web3-bug-classes",
+              "description": {
+                "ko": null,
+                "en": "Complete reference for all 10 DeFi smart contract bug classes. Use this when hunting for specific vulnerability types, need attack patterns for accounting desync, access control, incomplete path, off-..."
+              }
+            },
+            {
+              "name": "web3-case-study-role-misconfig",
+              "path": "web3-case-study-role-misconfig",
+              "description": {
+                "ko": null,
+                "en": "Case study - role misconfiguration bug class applied to a yield aggregator protocol. Use as a template for applying all 10 bug classes to a single target."
+              }
+            },
+            {
+              "name": "web3-grep-arsenal",
+              "path": "web3-grep-arsenal",
+              "description": {
+                "ko": null,
+                "en": "Master grep command arsenal for Web3 smart contract auditing. Use when starting a new protocol scan, before deep code review, or when hunting specific vulnerability classes."
+              }
+            },
+            {
+              "name": "web3-hunt-foundation",
+              "path": "web3-hunt-foundation",
+              "description": {
+                "ko": null,
+                "en": "Hunter mindset, recon setup, and target scoring for Web3 bug bounty. Use at the START of any new protocol hunt - scoring targets, setting up environment, understanding architecture."
+              }
+            },
+            {
+              "name": "web3-hunt-zksync-era",
+              "path": "web3-hunt-zksync-era",
+              "description": {
+                "ko": null,
+                "en": "ZKsync Era (Immunefi) completed hunt — 0 findings after exhaustive 5-session audit. Use as a DEFENSE STUDY — learn what makes a protocol unhuntable, which patterns block all 10 bug classes, and when t..."
+              }
+            },
+            {
+              "name": "web3-methodology-research",
+              "path": "web3-methodology-research",
+              "description": {
+                "ko": null,
+                "en": "External research synthesis from Trail of Bits, SlowMist, ConsenSys, Immunefi, and Cyfrin. Use this for advanced audit methodology, Echidna/Medusa fuzzing setup, Slither custom detector writing, attac..."
+              }
+            },
+            {
+              "name": "web3-poc-foundry",
+              "path": "web3-poc-foundry",
+              "description": {
+                "ko": null,
+                "en": "Complete Foundry PoC writing guide + all cheatcodes + DeFiHackLabs reproduction patterns. Use this when building a proof of concept exploit, setting up a fork test, using Foundry cheatcodes, or reprod..."
+              }
+            },
+            {
+              "name": "web3-solidity-audit-mcp",
+              "path": "web3-solidity-audit-mcp",
+              "description": {
+                "ko": null,
+                "en": "MCP server integrating Slither + Aderyn + SWC patterns into Claude Code for smart contract auditing. Use when analyzing Solidity files, running DeFi-specific detectors, or generating invariants."
+              }
+            },
+            {
+              "name": "web3-start-here",
+              "path": "web3-start-here",
+              "description": {
+                "ko": null,
+                "en": "Master index for the web3 smart contract security knowledge base. Use this to navigate the skill chain. Read files in order — each ends with NEXT."
+              }
+            },
+            {
+              "name": "web3-triage-report",
+              "path": "web3-triage-report",
+              "description": {
+                "ko": null,
+                "en": "Bug triage validation system, Immunefi report format, and 20 real paid bounty examples dissected. Use this when validating a finding before submitting, writing an Immunefi report, checking if a bug is..."
               }
             }
           ]

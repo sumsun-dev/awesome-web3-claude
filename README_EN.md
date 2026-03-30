@@ -43,6 +43,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [trailofbits/claude-code-devcontainer](https://github.com/trailofbits/claude-code-devcontainer) | ![](https://img.shields.io/github/stars/trailofbits/claude-code-devcontainer?style=flat-square&logo=github) | `Official` | '26.02 | Sandboxed devcontainer for running Claude Code safely in bypass mode |
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ![](https://img.shields.io/github/stars/trailofbits/skills-curated?style=flat-square&logo=github) | `Official` | '26.02 | Curated marketplace, community-vetted plugins with code review (warns of backdoor risks) |
 | [pashov/skills](https://github.com/pashov/skills) | ![](https://img.shields.io/github/stars/pashov/skills?style=flat-square&logo=github) | `Community` | '26.03 | Pashov Audit Group Skills `1 skills` |
+| [shuvonsec/web3-bug-bounty-hunting-ai-skills](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills) | ![](https://img.shields.io/github/stars/shuvonsec/web3-bug-bounty-hunting-ai-skills?style=flat-square&logo=github) | `Community` | '26.03 | 18 Claude Code skill files for smart contract security — built from 2,749 Immunefi reports, 681 DeFiHack reproductions, and real hunt experience `11 skills` |
 
 <details><summary>trailofbits/skills skill details (60)</summary>
 
@@ -116,6 +117,24 @@ This space is early-stage — entries are selected for functionality and officia
 | Skill | Description |
 |:-----|:------------|
 | [solidity-auditor](https://github.com/pashov/skills/tree/main/solidity-auditor) | Security audit of Solidity code while you develop. Trigger on "audit", "check this contract", "review for security". |
+
+</details>
+
+<details><summary>shuvonsec/web3-bug-bounty-hunting-ai-skills skill details (11)</summary>
+
+| Skill | Description |
+|:-----|:------------|
+| [web3-ai-tools](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-ai-tools) | AI-powered tools for Web3 bug bounty automation. Use when you want to automate recon, run autonomous audits, or use AI agents for vulnerability discovery. |
+| [web3-bug-classes](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-bug-classes) | Complete reference for all 10 DeFi smart contract bug classes. Use this when hunting for specific vulnerability types, need attack patterns for accounting desync, access control, incomplete path, off-... |
+| [web3-case-study-role-misconfig](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-case-study-role-misconfig) | Case study - role misconfiguration bug class applied to a yield aggregator protocol. Use as a template for applying all 10 bug classes to a single target. |
+| [web3-grep-arsenal](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-grep-arsenal) | Master grep command arsenal for Web3 smart contract auditing. Use when starting a new protocol scan, before deep code review, or when hunting specific vulnerability classes. |
+| [web3-hunt-foundation](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-hunt-foundation) | Hunter mindset, recon setup, and target scoring for Web3 bug bounty. Use at the START of any new protocol hunt - scoring targets, setting up environment, understanding architecture. |
+| [web3-hunt-zksync-era](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-hunt-zksync-era) | ZKsync Era (Immunefi) completed hunt — 0 findings after exhaustive 5-session audit. Use as a DEFENSE STUDY — learn what makes a protocol unhuntable, which patterns block all 10 bug classes, and when t... |
+| [web3-methodology-research](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-methodology-research) | External research synthesis from Trail of Bits, SlowMist, ConsenSys, Immunefi, and Cyfrin. Use this for advanced audit methodology, Echidna/Medusa fuzzing setup, Slither custom detector writing, attac... |
+| [web3-poc-foundry](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-poc-foundry) | Complete Foundry PoC writing guide + all cheatcodes + DeFiHackLabs reproduction patterns. Use this when building a proof of concept exploit, setting up a fork test, using Foundry cheatcodes, or reprod... |
+| [web3-solidity-audit-mcp](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-solidity-audit-mcp) | MCP server integrating Slither + Aderyn + SWC patterns into Claude Code for smart contract auditing. Use when analyzing Solidity files, running DeFi-specific detectors, or generating invariants. |
+| [web3-start-here](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-start-here) | Master index for the web3 smart contract security knowledge base. Use this to navigate the skill chain. Read files in order — each ends with NEXT. |
+| [web3-triage-report](https://github.com/shuvonsec/web3-bug-bounty-hunting-ai-skills/tree/main/web3-triage-report) | Bug triage validation system, Immunefi report format, and 20 real paid bounty examples dissected. Use this when validating a finding before submitting, writing an Immunefi report, checking if a bug is... |
 
 </details>
 
