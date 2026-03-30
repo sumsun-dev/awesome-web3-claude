@@ -332,7 +332,6 @@
 
 | 레포지토리 | 스타 | 유형 | 마지막 업데이트 | 설명 |
 |:-----------|------:|:----:|:---:|:------------|
-| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | ![](https://img.shields.io/github/stars/punkpeye/awesome-mcp-servers?style=flat-square&logo=github) | `Community` | '26.02 | MCP 서버 메가 목록, 새로운 Web3 MCP 서버 탐색 시작점 |
 | [ethereumbook/ethereumbook](https://github.com/ethereumbook/ethereumbook) | ![](https://img.shields.io/github/stars/ethereumbook/ethereumbook?style=flat-square&logo=github) | `Community` | '26.02 | "Mastering Ethereum" 오픈소스 도서, AI 에이전트를 위한 포괄적 Ethereum/EVM 레퍼런스 |
 | [Cyfrin/foundry-full-course-cu](https://github.com/Cyfrin/foundry-full-course-cu) | ![](https://img.shields.io/github/stars/Cyfrin/foundry-full-course-cu?style=flat-square&logo=github) | `Official` | '26.02 | Foundry 전체 과정, Claude Code를 활용한 Solidity 개발 학습 레퍼런스 |
 | [OpenZeppelin/ethernaut](https://github.com/OpenZeppelin/ethernaut) | ![](https://img.shields.io/github/stars/OpenZeppelin/ethernaut?style=flat-square&logo=github) | `Official` | '26.02 | 보안 CTF, Claude Code로 풀면서 스마트 컨트랙트 보안 패턴 학습 |

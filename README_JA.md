@@ -332,7 +332,6 @@
 
 | リポジトリ | スター | タイプ | 最終更新 | 説明 |
 |:-----------|------:|:----:|:---:|:------------|
-| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | ![](https://img.shields.io/github/stars/punkpeye/awesome-mcp-servers?style=flat-square&logo=github) | `Community` | '26.02 | MCPサーバーメガリスト、新しいWeb3 MCPサーバー探索の出発点 |
 | [ethereumbook/ethereumbook](https://github.com/ethereumbook/ethereumbook) | ![](https://img.shields.io/github/stars/ethereumbook/ethereumbook?style=flat-square&logo=github) | `Community` | '26.02 | 「Mastering Ethereum」オープンソース書籍、AIエージェントのための包括的Ethereum/EVMリファレンス |
 | [Cyfrin/foundry-full-course-cu](https://github.com/Cyfrin/foundry-full-course-cu) | ![](https://img.shields.io/github/stars/Cyfrin/foundry-full-course-cu?style=flat-square&logo=github) | `Official` | '26.02 | Foundry完全コース、Claude Codeを活用したSolidity開発学習リファレンス |
 | [OpenZeppelin/ethernaut](https://github.com/OpenZeppelin/ethernaut) | ![](https://img.shields.io/github/stars/OpenZeppelin/ethernaut?style=flat-square&logo=github) | `Official` | '26.02 | セキュリティCTF、Claude Codeで解きながらスマートコントラクトセキュリティパターンを学習 |

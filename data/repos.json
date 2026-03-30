@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-30T12:46:17.424Z",
-    "totalEntries": 59,
+    "lastUpdated": "2026-03-30T12:46:57.973Z",
+    "totalEntries": 58,
     "totalSkills": 127
   },
   "sections": [
@@ -2289,25 +2289,6 @@
         "ja": "AIコーディングエージェントを活用したWeb3開発の学習リソース。"
       },
       "repos": [
-        {
-          "owner": "punkpeye",
-          "repo": "awesome-mcp-servers",
-          "type": "Community",
-          "addedDate": "2026-02-01",
-          "description": {
-            "ko": "MCP 서버 메가 목록, 새로운 Web3 MCP 서버 탐색 시작점",
-            "en": "MCP server mega-list, starting point for discovering new Web3 MCP servers",
-            "ja": "MCPサーバーメガリスト、新しいWeb3 MCPサーバー探索の出発点"
-          },
-          "status": "active",
-          "health": {
-            "stars": 0,
-            "starsPrev": 0,
-            "archived": false,
-            "lastPush": null,
-            "exists": true
-          }
-        },
         {
           "owner": "ethereumbook",
           "repo": "ethereumbook",

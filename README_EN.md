@@ -332,7 +332,6 @@ This space is early-stage — entries are selected for functionality and officia
 
 | Repository | Stars | Type | Last Updated | Description |
 |:-----------|------:|:----:|:---:|:------------|
-| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | ![](https://img.shields.io/github/stars/punkpeye/awesome-mcp-servers?style=flat-square&logo=github) | `Community` | '26.02 | MCP server mega-list, starting point for discovering new Web3 MCP servers |
 | [ethereumbook/ethereumbook](https://github.com/ethereumbook/ethereumbook) | ![](https://img.shields.io/github/stars/ethereumbook/ethereumbook?style=flat-square&logo=github) | `Community` | '26.02 | "Mastering Ethereum" open-source book, comprehensive Ethereum/EVM reference for AI agents |
 | [Cyfrin/foundry-full-course-cu](https://github.com/Cyfrin/foundry-full-course-cu) | ![](https://img.shields.io/github/stars/Cyfrin/foundry-full-course-cu?style=flat-square&logo=github) | `Official` | '26.02 | Foundry full course, learning reference for Solidity dev with Claude Code |
 | [OpenZeppelin/ethernaut](https://github.com/OpenZeppelin/ethernaut) | ![](https://img.shields.io/github/stars/OpenZeppelin/ethernaut?style=flat-square&logo=github) | `Official` | '26.02 | Security CTF, learn smart contract security patterns by solving with Claude Code |
