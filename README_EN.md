@@ -344,6 +344,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [coinbase/agentkit](https://github.com/coinbase/agentkit) | ![](https://img.shields.io/github/stars/coinbase/agentkit?style=flat-square&logo=github) | `Official` | '26.02 | "Every AI Agent deserves a wallet." ERC-4337 account abstraction |
 | [piotrostr/listen](https://github.com/piotrostr/listen) | ![](https://img.shields.io/github/stars/piotrostr/listen?style=flat-square&logo=github) | `Community` | '25.11 | DeFAI Swiss Army Knife, AI-powered DeFi agent toolkit for Solana and EVM |
 | [goat-sdk/goat](https://github.com/goat-sdk/goat) | ![](https://img.shields.io/github/stars/goat-sdk/goat?style=flat-square&logo=github) | `Community` | '26.01 | Agentic finance toolkit, connect LLM agents to DeFi protocols across chains |
+| [swapperfinance/swapper-toolkit](https://github.com/swapperfinance/swapper-toolkit) | ![](https://img.shields.io/github/stars/swapperfinance/swapper-toolkit?style=flat-square&logo=github) | `Community` | '26.04 | DeFi toolkit for AI agents and coding assistants — deposit funds, execute trades, and manage crypto wallets. Works with Claude Code, Cursor,   Windsurf, OpenClaw, CrewAI, AutoGPT, and other AI agent frameworks. |
 
 ## Learning & Reference
 

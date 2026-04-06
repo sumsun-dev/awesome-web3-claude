@@ -344,6 +344,7 @@
 | [coinbase/agentkit](https://github.com/coinbase/agentkit) | ![](https://img.shields.io/github/stars/coinbase/agentkit?style=flat-square&logo=github) | `Official` | '26.02 | 「すべてのAIエージェントにウォレットを。」ERC-4337アカウント抽象化 |
 | [piotrostr/listen](https://github.com/piotrostr/listen) | ![](https://img.shields.io/github/stars/piotrostr/listen?style=flat-square&logo=github) | `Community` | '25.11 | DeFAIスイスアーミーナイフ、SolanaとEVM用AI駆動DeFiエージェントツールキット |
 | [goat-sdk/goat](https://github.com/goat-sdk/goat) | ![](https://img.shields.io/github/stars/goat-sdk/goat?style=flat-square&logo=github) | `Community` | '26.01 | エージェンティックファイナンスツールキット、LLMエージェントをDeFiプロトコルにクロスチェーン接続 |
+| [swapperfinance/swapper-toolkit](https://github.com/swapperfinance/swapper-toolkit) | ![](https://img.shields.io/github/stars/swapperfinance/swapper-toolkit?style=flat-square&logo=github) | `Community` | '26.04 | AI エージェントが直接暗号資産ウォレットを管理し、トークンを取引できるようにする DeFi ツールキットで、Claude Code のような AI コーディング アシスタントに統合され、自動化されたブロックチェーン処理を実行します。 |
 
 ## 学習 & リファレンス
 

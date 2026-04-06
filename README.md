@@ -344,6 +344,7 @@
 | [coinbase/agentkit](https://github.com/coinbase/agentkit) | ![](https://img.shields.io/github/stars/coinbase/agentkit?style=flat-square&logo=github) | `Official` | '26.02 | "모든 AI 에이전트에게는 지갑이 필요합니다." ERC-4337 계정 추상화 |
 | [piotrostr/listen](https://github.com/piotrostr/listen) | ![](https://img.shields.io/github/stars/piotrostr/listen?style=flat-square&logo=github) | `Community` | '25.11 | DeFAI 스위스 아미 나이프, Solana 및 EVM용 AI 기반 DeFi 에이전트 툴킷 |
 | [goat-sdk/goat](https://github.com/goat-sdk/goat) | ![](https://img.shields.io/github/stars/goat-sdk/goat?style=flat-square&logo=github) | `Community` | '26.01 | 에이전틱 금융 툴킷, LLM 에이전트를 DeFi 프로토콜에 크로스체인 연결 |
+| [swapperfinance/swapper-toolkit](https://github.com/swapperfinance/swapper-toolkit) | ![](https://img.shields.io/github/stars/swapperfinance/swapper-toolkit?style=flat-square&logo=github) | `Community` | '26.04 | AI 에이전트가 직접 암호화폐 지갑을 관리하고 토큰을 거래할 수 있도록 해주는 DeFi 툴킷으로, Claude Code 같은 AI 코딩 어시스턴트에 통합되어 자동화된 블록체인 작업을 수행합니다. |
 
 ## 학습 & 레퍼런스
 
