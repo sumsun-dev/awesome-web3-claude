@@ -217,6 +217,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) | ![](https://img.shields.io/github/stars/binance/binance-skills-hub?style=flat-square&logo=github) | `Community` | '26.03 | Binance Skills Hub is an open skills marketplace that gives AI agents native access to crypto `7 skills` |
 | [bitget-wallet-ai-lab/bitget-wallet-skill](https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill) | ![](https://img.shields.io/github/stars/bitget-wallet-ai-lab/bitget-wallet-skill?style=flat-square&logo=github) | `Community` | '26.03 | AI agent skill for Bitget Wallet — token swap, cross-chain bridge, and gasless transactions via Order Mode API. Supports 7 EVM chains + Solana. |
 | [quiknode-labs/blockchain-skills](https://github.com/quiknode-labs/blockchain-skills) | ![](https://img.shields.io/github/stars/quiknode-labs/blockchain-skills?style=flat-square&logo=github) | `Community` | '26.03 | Blockchain skills you can use with your coding agent, such as Claude Code, OpenCode, Codex, Cursor and more. `1 skills` |
+| [bitrouter/bitrouter](https://github.com/bitrouter/bitrouter) | ![](https://img.shields.io/github/stars/bitrouter/bitrouter?style=flat-square&logo=github) | `Community` | '26.04 | The agentic proxy for modern agent runtimes. Smart, safe, agent-controlled routing across LLMs, tools, and agents. |
 
 <details><summary>BankrBot/openclaw-skills skill details (15)</summary>
 

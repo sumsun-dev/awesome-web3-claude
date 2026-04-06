@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-04-06T14:12:39.881Z",
-    "totalEntries": 60,
+    "lastUpdated": "2026-04-06T14:13:29.290Z",
+    "totalEntries": 61,
     "totalSkills": 138
   },
   "sections": [
@@ -1671,6 +1671,25 @@
               }
             }
           ]
+        },
+        {
+          "owner": "bitrouter",
+          "repo": "bitrouter",
+          "type": "Community",
+          "addedDate": "2026-04-06",
+          "description": {
+            "ko": "bitrouter는 AI 에이전트의 LLM, 도구, 에이전트 간 라우팅을 관리하는 프록시로, Web3 환경에서 에이전트 기반 자동화를 안전하게 제어합니다. Claude Code와 MCP를 통해 에이전트 워크플로우를 구성하고 블록체인 작업을 자동화할 수 있습니다.",
+            "en": "The agentic proxy for modern agent runtimes. Smart, safe, agent-controlled routing across LLMs, tools, and agents.",
+            "ja": "bitrrouterは、AI エージェントの LLM、ツール、エージェント間のルーティングを管理するプロキシであり、Web3 環境でエージェント ベースの自動化を安全に制御します。Claude Code と MCP を通じてエージェント ワークフローを構成し、ブロックチェーン タスクを自動化できます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 73,
+            "starsPrev": 73,
+            "archived": false,
+            "lastPush": "2026-04-06T13:14:28Z",
+            "exists": true
+          }
         }
       ]
     },
