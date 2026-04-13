@@ -218,6 +218,7 @@
 | [bitget-wallet-ai-lab/bitget-wallet-skill](https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill) | ![](https://img.shields.io/github/stars/bitget-wallet-ai-lab/bitget-wallet-skill?style=flat-square&logo=github) | `Community` | '26.03 | Bitget Wallet API를 래핑한 AI 에이전트 스킬로, 자연어 명령으로 토큰 스왑, 크로스체인 브릿지, 가스리스 트랜잭션을 실행할 수 있습니다. Claude와 MCP를 통해 Web3 애플리케이션에 블록체인 기능을 자동화된 방식으로 통합할 수 있습니다. |
 | [quiknode-labs/blockchain-skills](https://github.com/quiknode-labs/blockchain-skills) | ![](https://img.shields.io/github/stars/quiknode-labs/blockchain-skills?style=flat-square&logo=github) | `Community` | '26.03 | 블록체인 개발자들이 Claude Code, Cursor 등의 코딩 에이전트에서 사용할 수 있는 Web3/블록체인 관련 스킬을 모아둔 저장소입니다. Ethereum, Solana 등 다양한 블록체인 환경에서 스마트 컨트랙트 개발과 암호화폐 관련 작업을 더 효율적으로 수행할 수 있게 지원합니다. `1개 스킬` |
 | [bitrouter/bitrouter](https://github.com/bitrouter/bitrouter) | ![](https://img.shields.io/github/stars/bitrouter/bitrouter?style=flat-square&logo=github) | `Community` | '26.04 | bitrouter는 AI 에이전트의 LLM, 도구, 에이전트 간 라우팅을 관리하는 프록시로, Web3 환경에서 에이전트 기반 자동화를 안전하게 제어합니다. Claude Code와 MCP를 통해 에이전트 워크플로우를 구성하고 블록체인 작업을 자동화할 수 있습니다. |
+| [nirholas/cryptocurrency.cv](https://github.com/nirholas/cryptocurrency.cv) | ![](https://img.shields.io/github/stars/nirholas/cryptocurrency.cv?style=flat-square&logo=github) | `Community` | '26.04 | 암호화폐 시장 뉴스를 실시간으로 수집하는 무료 API로, Claude MCP 서버로 연동되어 AI 에이전트가 직접 최신 블록체인/암호화폐 정보를 조회할 수 있게 해줍니다. |
 
 <details><summary>BankrBot/openclaw-skills 스킬 상세 (15개)</summary>
 

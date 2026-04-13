@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-04-06T14:13:29.290Z",
-    "totalEntries": 61,
+    "lastUpdated": "2026-04-13T10:35:28.107Z",
+    "totalEntries": 62,
     "totalSkills": 138
   },
   "sections": [
@@ -1688,6 +1688,25 @@
             "starsPrev": 73,
             "archived": false,
             "lastPush": "2026-04-06T13:14:28Z",
+            "exists": true
+          }
+        },
+        {
+          "owner": "nirholas",
+          "repo": "cryptocurrency.cv",
+          "type": "Community",
+          "addedDate": "2026-04-13",
+          "description": {
+            "ko": "암호화폐 시장 뉴스를 실시간으로 수집하는 무료 API로, Claude MCP 서버로 연동되어 AI 에이전트가 직접 최신 블록체인/암호화폐 정보를 조회할 수 있게 해줍니다.",
+            "en": "Free crypto news API - real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. RSS/Atom feeds, JSON REST API, historical archive with market context, embeddable widgets, ChatGPT plugin, Claude MCP server, SDKs (Python, TypeScript, Go, React, PHP). AI/LLM ready. Vibe coding friendly. Open source.",
+            "ja": "暗号資産市場ニュースをリアルタイムで収集する無料APIで、Claude MCPサーバーと連携され、AIエージェントが直接最新ブロックチェーン/暗号資産情報を照会できるようにしてくれます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 143,
+            "starsPrev": 143,
+            "archived": false,
+            "lastPush": "2026-04-13T06:15:57Z",
             "exists": true
           }
         }

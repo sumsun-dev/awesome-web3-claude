@@ -218,6 +218,7 @@
 | [bitget-wallet-ai-lab/bitget-wallet-skill](https://github.com/bitget-wallet-ai-lab/bitget-wallet-skill) | ![](https://img.shields.io/github/stars/bitget-wallet-ai-lab/bitget-wallet-skill?style=flat-square&logo=github) | `Community` | '26.03 | Bitget Wallet APIをラップしたAIエージェントスキルで、自然言語コマンドでトークンスワップ、クロスチェーンブリッジ、ガスレストランザクションを実行できます。ClaudeとMCPを通じてWeb3アプリケーションにブロックチェーン機能を自動化された方法で統合できます。 |
 | [quiknode-labs/blockchain-skills](https://github.com/quiknode-labs/blockchain-skills) | ![](https://img.shields.io/github/stars/quiknode-labs/blockchain-skills?style=flat-square&logo=github) | `Community` | '26.03 | ブロックチェーン開発者向けのClaude Code、Cursor等のコーディングエージェントで使用可能なWeb3/ブロックチェーン関連スキルをまとめたリポジトリです。Ethereum、Solana等の様々なブロックチェーン環境でスマートコントラクト開発と暗号資産関連作業をより効率的に実行できるよう支援します。 `1個スキル` |
 | [bitrouter/bitrouter](https://github.com/bitrouter/bitrouter) | ![](https://img.shields.io/github/stars/bitrouter/bitrouter?style=flat-square&logo=github) | `Community` | '26.04 | bitrrouterは、AI エージェントの LLM、ツール、エージェント間のルーティングを管理するプロキシであり、Web3 環境でエージェント ベースの自動化を安全に制御します。Claude Code と MCP を通じてエージェント ワークフローを構成し、ブロックチェーン タスクを自動化できます。 |
+| [nirholas/cryptocurrency.cv](https://github.com/nirholas/cryptocurrency.cv) | ![](https://img.shields.io/github/stars/nirholas/cryptocurrency.cv?style=flat-square&logo=github) | `Community` | '26.04 | 暗号資産市場ニュースをリアルタイムで収集する無料APIで、Claude MCPサーバーと連携され、AIエージェントが直接最新ブロックチェーン/暗号資産情報を照会できるようにしてくれます。 |
 
 <details><summary>BankrBot/openclaw-skills スキル詳細 (15個)</summary>
 
