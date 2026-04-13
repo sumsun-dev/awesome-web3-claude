@@ -219,6 +219,7 @@
 | [quiknode-labs/blockchain-skills](https://github.com/quiknode-labs/blockchain-skills) | ![](https://img.shields.io/github/stars/quiknode-labs/blockchain-skills?style=flat-square&logo=github) | `Community` | '26.03 | ブロックチェーン開発者向けのClaude Code、Cursor等のコーディングエージェントで使用可能なWeb3/ブロックチェーン関連スキルをまとめたリポジトリです。Ethereum、Solana等の様々なブロックチェーン環境でスマートコントラクト開発と暗号資産関連作業をより効率的に実行できるよう支援します。 `1個スキル` |
 | [bitrouter/bitrouter](https://github.com/bitrouter/bitrouter) | ![](https://img.shields.io/github/stars/bitrouter/bitrouter?style=flat-square&logo=github) | `Community` | '26.04 | bitrrouterは、AI エージェントの LLM、ツール、エージェント間のルーティングを管理するプロキシであり、Web3 環境でエージェント ベースの自動化を安全に制御します。Claude Code と MCP を通じてエージェント ワークフローを構成し、ブロックチェーン タスクを自動化できます。 |
 | [nirholas/cryptocurrency.cv](https://github.com/nirholas/cryptocurrency.cv) | ![](https://img.shields.io/github/stars/nirholas/cryptocurrency.cv?style=flat-square&logo=github) | `Community` | '26.04 | 暗号資産市場ニュースをリアルタイムで収集する無料APIで、Claude MCPサーバーと連携され、AIエージェントが直接最新ブロックチェーン/暗号資産情報を照会できるようにしてくれます。 |
+| [asksurf-ai/surf-skills](https://github.com/asksurf-ai/surf-skills) | ![](https://img.shields.io/github/stars/asksurf-ai/surf-skills?style=flat-square&logo=github) | `Community` | '26.04 | Claude Codeエージェントに、暗号資産価格、ウォレット、オンチェーンデータなど83以上のWeb3エンドポイントを提供するスキルライブラリであり、MCPを通じてブロックチェーン開発時に様々なクリプトデータに直接アクセスできるようにします。 `1個スキル` |
 
 <details><summary>BankrBot/openclaw-skills スキル詳細 (15個)</summary>
 
@@ -276,6 +277,14 @@
 | スキル | 説明 |
 |:-----|:------------|
 | [quicknode-skill](https://github.com/quiknode-labs/blockchain-skills/tree/main/skills/quicknode-skill) | Quicknode blockchain infrastructure including RPC endpoints (80+ chains), Streams (real-time data), Webhooks, IPFS storage, Marketplace Add-ons (Token API, NFT API, DeFi tools), Solana DAS API (Digita... |
+
+</details>
+
+<details><summary>asksurf-ai/surf-skills スキル詳細 (1個)</summary>
+
+| スキル | 説明 |
+|:-----|:------------|
+| [surf](https://github.com/asksurf-ai/surf-skills/tree/main/skills/surf) | >- |
 
 </details>
 

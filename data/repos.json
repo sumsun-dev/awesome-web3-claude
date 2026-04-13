@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-04-13T10:35:28.107Z",
-    "totalEntries": 62,
-    "totalSkills": 138
+    "lastUpdated": "2026-04-13T10:36:23.264Z",
+    "totalEntries": 63,
+    "totalSkills": 139
   },
   "sections": [
     {
@@ -1709,6 +1709,35 @@
             "lastPush": "2026-04-13T06:15:57Z",
             "exists": true
           }
+        },
+        {
+          "owner": "asksurf-ai",
+          "repo": "surf-skills",
+          "type": "Community",
+          "addedDate": "2026-04-13",
+          "description": {
+            "ko": "Claude Code 에이전트에게 암호화폐 가격, 지갑, 온체인 데이터 등 83개 이상의 Web3 엔드포인트를 제공하는 스킬 라이브러리로, MCP를 통해 블록체인 개발 시 다양한 크립토 데이터에 직접 접근할 수 있게 합니다.",
+            "en": "Give your AI agent access to all crypto data — prices, wallets, social, on-chain, prediction markets. One skill, 83+ endpoints.",
+            "ja": "Claude Codeエージェントに、暗号資産価格、ウォレット、オンチェーンデータなど83以上のWeb3エンドポイントを提供するスキルライブラリであり、MCPを通じてブロックチェーン開発時に様々なクリプトデータに直接アクセスできるようにします。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 28,
+            "starsPrev": 28,
+            "archived": false,
+            "lastPush": "2026-04-10T19:39:09Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "surf",
+              "path": "skills/surf",
+              "description": {
+                "ko": null,
+                "en": ">-"
+              }
+            }
+          ]
         }
       ]
     },
