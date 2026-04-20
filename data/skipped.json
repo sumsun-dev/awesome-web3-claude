@@ -49,6 +49,11 @@
       "action": "skip",
       "skippedAt": "2026-04-20T10:51:43.809Z",
       "reason": "User skipped candidate"
+    },
+    "asgard-ai-platform/skills": {
+      "action": "skip",
+      "skippedAt": "2026-04-20T10:51:59.869Z",
+      "reason": "User skipped candidate"
     }
   }
 }
