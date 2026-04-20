@@ -220,6 +220,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [bitrouter/bitrouter](https://github.com/bitrouter/bitrouter) | ![](https://img.shields.io/github/stars/bitrouter/bitrouter?style=flat-square&logo=github) | `Community` | '26.04 | The agentic proxy for modern agent runtimes. Smart, safe, agent-controlled routing across LLMs, tools, and agents. |
 | [nirholas/cryptocurrency.cv](https://github.com/nirholas/cryptocurrency.cv) | ![](https://img.shields.io/github/stars/nirholas/cryptocurrency.cv?style=flat-square&logo=github) | `Community` | '26.04 | Free crypto news API - real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. RSS/Atom feeds, JSON REST API, historical archive with market context, embeddable widgets, ChatGPT plugin, Claude MCP server, SDKs (Python, TypeScript, Go, React, PHP). AI/LLM ready. Vibe coding friendly. Open source. |
 | [asksurf-ai/surf-skills](https://github.com/asksurf-ai/surf-skills) | ![](https://img.shields.io/github/stars/asksurf-ai/surf-skills?style=flat-square&logo=github) | `Community` | '26.04 | Give your AI agent access to all crypto data — prices, wallets, social, on-chain, prediction markets. One skill, 83+ endpoints. `1 skills` |
+| [drpcorg/drpc-agent-skills](https://github.com/drpcorg/drpc-agent-skills) | ![](https://img.shields.io/github/stars/drpcorg/drpc-agent-skills?style=flat-square&logo=github) | `Community` | '26.04 | Blockchain RPC skills for AI coding agents — 200+ networks via DRPC `1 skills` |
 
 <details><summary>BankrBot/openclaw-skills skill details (15)</summary>
 
@@ -285,6 +286,14 @@ This space is early-stage — entries are selected for functionality and officia
 | Skill | Description |
 |:-----|:------------|
 | [surf](https://github.com/asksurf-ai/surf-skills/tree/main/skills/surf) | >- |
+
+</details>
+
+<details><summary>drpcorg/drpc-agent-skills skill details (1)</summary>
+
+| Skill | Description |
+|:-----|:------------|
+| [drpc-rpc](https://github.com/drpcorg/drpc-agent-skills/tree/main/skills/drpc-rpc) | Use when the user needs blockchain data (balances, transactions, blocks, gas prices, contract reads), wants to set up blockchain RPC access, or mentions DRPC, Web3, or Ethereum RPC. |
 
 </details>
 

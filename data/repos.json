@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-04-13T10:36:23.264Z",
-    "totalEntries": 63,
-    "totalSkills": 139
+    "lastUpdated": "2026-04-20T10:52:44.450Z",
+    "totalEntries": 64,
+    "totalSkills": 140
   },
   "sections": [
     {
@@ -1735,6 +1735,35 @@
               "description": {
                 "ko": null,
                 "en": ">-"
+              }
+            }
+          ]
+        },
+        {
+          "owner": "drpcorg",
+          "repo": "drpc-agent-skills",
+          "type": "Community",
+          "addedDate": "2026-04-20",
+          "description": {
+            "ko": "DRPC 에이전트 스킬은 AI 코딩 에이전트에게 200개 이상의 블록체인 네트워크에 RPC로 접근할 수 있게 해주는 MCP 도구입니다. Claude Code나 Cursor 같은 AI 에이전트에서 Web3 개발 시 별도 설정 없이 즉시 블록체인 데이터를 조회하고 상호작용할 수 있습니다.",
+            "en": "Blockchain RPC skills for AI coding agents — 200+ networks via DRPC",
+            "ja": "DRPC エージェント スキルは、AI コーディング エージェントに 200 以上のブロックチェーン ネットワークへの RPC アクセスを可能にする MCP ツールです。Claude Code や Cursor などの AI エージェントで Web3 開発を行う際、追加設定なしに即座にブロックチェーン データを照会し、相互作用することができます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 16,
+            "starsPrev": 16,
+            "archived": false,
+            "lastPush": "2026-04-16T14:06:08Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "drpc-rpc",
+              "path": "skills/drpc-rpc",
+              "description": {
+                "ko": null,
+                "en": "Use when the user needs blockchain data (balances, transactions, blocks, gas prices, contract reads), wants to set up blockchain RPC access, or mentions DRPC, Web3, or Ethereum RPC."
               }
             }
           ]

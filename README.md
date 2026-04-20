@@ -220,6 +220,7 @@
 | [bitrouter/bitrouter](https://github.com/bitrouter/bitrouter) | ![](https://img.shields.io/github/stars/bitrouter/bitrouter?style=flat-square&logo=github) | `Community` | '26.04 | bitrouter는 AI 에이전트의 LLM, 도구, 에이전트 간 라우팅을 관리하는 프록시로, Web3 환경에서 에이전트 기반 자동화를 안전하게 제어합니다. Claude Code와 MCP를 통해 에이전트 워크플로우를 구성하고 블록체인 작업을 자동화할 수 있습니다. |
 | [nirholas/cryptocurrency.cv](https://github.com/nirholas/cryptocurrency.cv) | ![](https://img.shields.io/github/stars/nirholas/cryptocurrency.cv?style=flat-square&logo=github) | `Community` | '26.04 | 암호화폐 시장 뉴스를 실시간으로 수집하는 무료 API로, Claude MCP 서버로 연동되어 AI 에이전트가 직접 최신 블록체인/암호화폐 정보를 조회할 수 있게 해줍니다. |
 | [asksurf-ai/surf-skills](https://github.com/asksurf-ai/surf-skills) | ![](https://img.shields.io/github/stars/asksurf-ai/surf-skills?style=flat-square&logo=github) | `Community` | '26.04 | Claude Code 에이전트에게 암호화폐 가격, 지갑, 온체인 데이터 등 83개 이상의 Web3 엔드포인트를 제공하는 스킬 라이브러리로, MCP를 통해 블록체인 개발 시 다양한 크립토 데이터에 직접 접근할 수 있게 합니다. `1개 스킬` |
+| [drpcorg/drpc-agent-skills](https://github.com/drpcorg/drpc-agent-skills) | ![](https://img.shields.io/github/stars/drpcorg/drpc-agent-skills?style=flat-square&logo=github) | `Community` | '26.04 | DRPC 에이전트 스킬은 AI 코딩 에이전트에게 200개 이상의 블록체인 네트워크에 RPC로 접근할 수 있게 해주는 MCP 도구입니다. Claude Code나 Cursor 같은 AI 에이전트에서 Web3 개발 시 별도 설정 없이 즉시 블록체인 데이터를 조회하고 상호작용할 수 있습니다. `1개 스킬` |
 
 <details><summary>BankrBot/openclaw-skills 스킬 상세 (15개)</summary>
 
@@ -285,6 +286,14 @@
 | 스킬 | 설명 |
 |:-----|:------------|
 | [surf](https://github.com/asksurf-ai/surf-skills/tree/main/skills/surf) | >- |
+
+</details>
+
+<details><summary>drpcorg/drpc-agent-skills 스킬 상세 (1개)</summary>
+
+| 스킬 | 설명 |
+|:-----|:------------|
+| [drpc-rpc](https://github.com/drpcorg/drpc-agent-skills/tree/main/skills/drpc-rpc) | Use when the user needs blockchain data (balances, transactions, blocks, gas prices, contract reads), wants to set up blockchain RPC access, or mentions DRPC, Web3, or Ethereum RPC. |
 
 </details>
 
