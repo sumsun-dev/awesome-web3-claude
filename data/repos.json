@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-04-20T10:52:44.450Z",
-    "totalEntries": 64,
+    "lastUpdated": "2026-04-20T10:52:55.455Z",
+    "totalEntries": 63,
     "totalSkills": 140
   },
   "sections": [
@@ -1964,25 +1964,6 @@
             "ko": "Nodit Web3 Data API MCP, AI 에이전트를 위한 멀티체인 블록체인 데이터 접근",
             "en": "Nodit Web3 Data API MCP, multi-chain blockchain data access for AI agents",
             "ja": "Nodit Web3 Data API MCP、AIエージェントのためのマルチチェーンブロックチェーンデータアクセス"
-          },
-          "status": "active",
-          "health": {
-            "stars": 0,
-            "starsPrev": 0,
-            "archived": false,
-            "lastPush": null,
-            "exists": true
-          }
-        },
-        {
-          "owner": "MoralisWeb3",
-          "repo": "moralis-mcp-server",
-          "type": "Official",
-          "addedDate": "2025-10-01",
-          "description": {
-            "ko": "Moralis Web3 API MCP, NFT, 토큰, DeFi 등 멀티 네트워크 블록체인 데이터 조회",
-            "en": "Moralis Web3 API MCP, query blockchain data across multiple networks including NFTs, tokens, and DeFi",
-            "ja": "Moralis Web3 API MCP、NFT、トークン、DeFiなどマルチネットワークブロックチェーンデータ照会"
           },
           "status": "active",
           "health": {

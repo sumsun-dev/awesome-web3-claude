@@ -313,7 +313,6 @@
 | [truss44/mcp-crypto-price](https://github.com/truss44/mcp-crypto-price) | ![](https://img.shields.io/github/stars/truss44/mcp-crypto-price?style=flat-square&logo=github) | `Community` | '26.02 | CoinCap API를 통한 실시간 암호화폐 가격 분석 |
 | [coinpaprika/dexpaprika-mcp](https://github.com/coinpaprika/dexpaprika-mcp) | ![](https://img.shields.io/github/stars/coinpaprika/dexpaprika-mcp?style=flat-square&logo=github) | `Official` | '25.10 | DEX 데이터 MCP, 20개 이상 체인에서 실시간 가격, 유동성 풀, OHLCV |
 | [noditlabs/nodit-mcp-server](https://github.com/noditlabs/nodit-mcp-server) | ![](https://img.shields.io/github/stars/noditlabs/nodit-mcp-server?style=flat-square&logo=github) | `Official` | '26.02 | Nodit Web3 Data API MCP, AI 에이전트를 위한 멀티체인 블록체인 데이터 접근 |
-| [MoralisWeb3/moralis-mcp-server](https://github.com/MoralisWeb3/moralis-mcp-server) | ![](https://img.shields.io/github/stars/MoralisWeb3/moralis-mcp-server?style=flat-square&logo=github) | `Official` | '25.10 | Moralis Web3 API MCP, NFT, 토큰, DeFi 등 멀티 네트워크 블록체인 데이터 조회 |
 | [Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine](https://github.com/Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine) | ![](https://img.shields.io/github/stars/Cortex-AI-Software/Autonomous-AI-Trading-Agent-MCP-Flash-Arb-Engine?style=flat-square&logo=github) | `Community` | '26.03 | 이 레포는 MCP 프로토콜과 LLM을 활용한 자동화 거래 에이전트로, 솔라나와 EVM 체인에서 플래시 론을 이용한 차익거래를 수행합니다. Claude Code에서 MCP 서버로 연동하여 AI 기반 블록체인 거래 자동화를 구현할 수 있습니다. |
 
 ## MCP 서버 — 스마트 컨트랙트 & DeFi
