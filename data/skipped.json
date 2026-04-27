@@ -54,6 +54,11 @@
       "action": "skip",
       "skippedAt": "2026-04-20T10:51:59.869Z",
       "reason": "User skipped candidate"
+    },
+    "jsonbored/claudepro-directory": {
+      "action": "skip",
+      "skippedAt": "2026-04-27T11:07:08.757Z",
+      "reason": "User skipped candidate"
     }
   }
 }
