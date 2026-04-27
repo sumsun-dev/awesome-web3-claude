@@ -59,6 +59,11 @@
       "action": "skip",
       "skippedAt": "2026-04-27T11:07:08.757Z",
       "reason": "User skipped candidate"
+    },
+    "nirholas/x402-deploy": {
+      "action": "skip",
+      "skippedAt": "2026-04-27T11:07:20.545Z",
+      "reason": "User skipped candidate"
     }
   }
 }
