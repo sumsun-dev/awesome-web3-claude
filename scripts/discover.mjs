@@ -387,7 +387,7 @@ function loadExisting() {
     skippedData = { skippedRepos: {} };
   }
 
-  // Clean expired skipped entries (cooldown window)
+  // Clean expired skipped entries (older than SKIP_COOLDOWN_DAYS)
   const now = Date.now();
   const cleaned = {};
   for (const [key, val] of Object.entries(skippedData.skippedRepos)) {
