@@ -209,7 +209,7 @@ jobs:
             if (!updated) { console.log('Not found:', fullName); process.exit(0); }
 
           } else if (action === 'skip' || action === 'keep') {
-            // Record decision in skipped.json (7-day cooldown)
+            // Record decision in skipped.json (30-day cooldown)
             let skipped;
             try {
               skipped = JSON.parse(readFileSync('data/skipped.json', 'utf-8'));
@@ -221,7 +221,7 @@ jobs:
               reason: action === 'skip' ? 'User skipped candidate' : 'User kept existing repo',
             };
             writeFileSync('data/skipped.json', JSON.stringify(skipped, null, 2) + '\n');
-            console.log(action === 'skip' ? 'Skipped:' : 'Kept:', fullName, '(7-day cooldown)');
+            console.log(action === 'skip' ? 'Skipped:' : 'Kept:', fullName, '(30-day cooldown)');
             process.exit(0);
           }
 
@@ -248,9 +248,9 @@ jobs:
           elif [ "$ACTION" = "remove" ]; then
             git commit -m "chore: remove ${FULLNAME}"
           elif [ "$ACTION" = "skip" ]; then
-            git commit -m "chore: skip ${FULLNAME} (7-day cooldown)"
+            git commit -m "chore: skip ${FULLNAME} (30-day cooldown)"
           elif [ "$ACTION" = "keep" ]; then
-            git commit -m "chore: keep ${FULLNAME} (7-day cooldown)"
+            git commit -m "chore: keep ${FULLNAME} (30-day cooldown)"
           elif [ "$ACTION" = "move" ]; then
             git commit -m "refactor: move ${FULLNAME} to ${{ inputs.sectionId }}"
           elif [ "$ACTION" = "update-desc" ]; then

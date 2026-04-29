@@ -27,6 +27,10 @@ const VPS_API_SECRET = process.env.VPS_API_SECRET;
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
+// Skipped/kept repos are hidden from discovery for this many days before re-surfacing.
+const SKIP_COOLDOWN_DAYS = 30;
+const SKIP_COOLDOWN_MS = SKIP_COOLDOWN_DAYS * 24 * 60 * 60 * 1000;
+
 // ---------------------------------------------------------------------------
 // 검색 쿼리 — Web3 + Claude Code/MCP 교집합에 집중
 // ---------------------------------------------------------------------------
@@ -383,11 +387,11 @@ function loadExisting() {
     skippedData = { skippedRepos: {} };
   }
 
-  // Clean expired skipped entries (7 days)
+  // Clean expired skipped entries (cooldown window)
   const now = Date.now();
   const cleaned = {};
   for (const [key, val] of Object.entries(skippedData.skippedRepos)) {
-    if (now - new Date(val.skippedAt).getTime() < 7 * 24 * 60 * 60 * 1000) {
+    if (now - new Date(val.skippedAt).getTime() < SKIP_COOLDOWN_MS) {
       cleaned[key] = val;
     }
   }
@@ -495,7 +499,7 @@ async function healthCheckExisting(reposData, skipped) {
 
   for (const section of reposData.sections) {
     for (const repo of section.repos) {
-      // Skip repos that were recently "kept" (7-day cooldown)
+      // Skip repos that were recently "kept" (30-day cooldown)
       const fullNameLower = `${repo.owner}/${repo.repo}`.toLowerCase();
       if (skipped.has(fullNameLower)) {
         checked++;

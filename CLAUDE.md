@@ -78,7 +78,7 @@ awesome-web3-claude/
 │       └── approve-publish.mjs # 채널 메시지 승인 발행 (스킬 유무 통합)
 ├── data/
 │   ├── repos.json              # 마스터 데이터 (전체 레포)
-│   ├── skipped.json            # 스킵/유지 기록 (7일 쿨다운)
+│   ├── skipped.json            # 스킵/유지 기록 (30일 쿨다운)
 │   └── discover-results.json   # 일일 탐색 결과
 ├── README.md                   # 한국어 큐레이션 목록
 └── README_EN.md                # 영어 큐레이션 목록
