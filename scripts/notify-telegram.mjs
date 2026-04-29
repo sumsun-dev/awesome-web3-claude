@@ -22,6 +22,9 @@ if (!BOT_TOKEN || !CHAT_ID) {
 
 const API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
+const MAX_RETRIES = 3;
+const RETRY_BASE_MS = 1000;
+
 async function sendMessage(chatId, text, replyMarkup) {
   const body = {
     chat_id: chatId,
@@ -33,17 +36,40 @@ async function sendMessage(chatId, text, replyMarkup) {
     body.reply_markup = JSON.stringify(replyMarkup);
   }
 
-  const res = await fetch(`${API_BASE}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+  let lastErr;
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    try {
+      const res = await fetch(`${API_BASE}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Telegram API error: ${res.status} ${err}`);
+      if (res.ok) return res.json();
+
+      const errText = await res.text();
+      // Retry on 5xx, fail fast on 4xx
+      if (res.status >= 500 && attempt < MAX_RETRIES - 1) {
+        lastErr = new Error(`Telegram API ${res.status}: ${errText}`);
+        console.warn(`[Telegram] ${res.status}, retry ${attempt + 1}/${MAX_RETRIES - 1}`);
+      } else {
+        throw new Error(`Telegram API error: ${res.status} ${errText}`);
+      }
+    } catch (err) {
+      // Network errors (ETIMEDOUT, ECONNRESET, fetch failed) — retry
+      const isNetworkErr = err.cause?.code === 'ETIMEDOUT'
+        || err.cause?.code === 'ECONNRESET'
+        || err.cause?.code === 'ENOTFOUND'
+        || err.message?.includes('fetch failed');
+      if (!isNetworkErr || attempt >= MAX_RETRIES - 1) throw err;
+      lastErr = err;
+      console.warn(`[Telegram] network error (${err.cause?.code || err.message}), retry ${attempt + 1}/${MAX_RETRIES - 1}`);
+    }
+
+    await new Promise(r => setTimeout(r, RETRY_BASE_MS * Math.pow(2, attempt)));
   }
-  return res.json();
+
+  throw lastErr;
 }
 
 function buildCallbackData(action, fullName, sectionId) {
