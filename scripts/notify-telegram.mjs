@@ -38,6 +38,9 @@ async function sendMessage(chatId, text, replyMarkup) {
 
   let lastErr;
   for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    const isLast = attempt >= MAX_RETRIES - 1;
+    let waitMs = RETRY_BASE_MS * Math.pow(2, attempt);
+
     try {
       const res = await fetch(`${API_BASE}/sendMessage`, {
         method: 'POST',
@@ -48,12 +51,21 @@ async function sendMessage(chatId, text, replyMarkup) {
       if (res.ok) return res.json();
 
       const errText = await res.text();
-      // Retry on 5xx, fail fast on 4xx
-      if (res.status >= 500 && attempt < MAX_RETRIES - 1) {
-        lastErr = new Error(`Telegram API ${res.status}: ${errText}`);
-        console.warn(`[Telegram] ${res.status}, retry ${attempt + 1}/${MAX_RETRIES - 1}`);
+      const httpErr = new Error(`Telegram API error: ${res.status} ${errText}`);
+
+      // 429 Too Many Requests — honor Retry-After header
+      if (res.status === 429 && !isLast) {
+        const retryAfter = parseInt(res.headers.get('Retry-After') || '5', 10);
+        waitMs = Math.max(retryAfter, 1) * 1000;
+        lastErr = httpErr;
+        console.warn(`[Telegram] 429 rate limit, waiting ${waitMs}ms (attempt ${attempt + 1}/${MAX_RETRIES})`);
+      } else if (res.status >= 500 && !isLast) {
+        // Retry on 5xx
+        lastErr = httpErr;
+        console.warn(`[Telegram] ${res.status}, attempt ${attempt + 1}/${MAX_RETRIES} failed, retrying...`);
       } else {
-        throw new Error(`Telegram API error: ${res.status} ${errText}`);
+        // 4xx (other than 429) or last attempt — fail fast
+        throw httpErr;
       }
     } catch (err) {
       // Network errors (ETIMEDOUT, ECONNRESET, fetch failed) — retry
@@ -61,12 +73,12 @@ async function sendMessage(chatId, text, replyMarkup) {
         || err.cause?.code === 'ECONNRESET'
         || err.cause?.code === 'ENOTFOUND'
         || err.message?.includes('fetch failed');
-      if (!isNetworkErr || attempt >= MAX_RETRIES - 1) throw err;
+      if (!isNetworkErr || isLast) throw err;
       lastErr = err;
-      console.warn(`[Telegram] network error (${err.cause?.code || err.message}), retry ${attempt + 1}/${MAX_RETRIES - 1}`);
+      console.warn(`[Telegram] network error (${err.cause?.code || err.message}), attempt ${attempt + 1}/${MAX_RETRIES} failed, retrying...`);
     }
 
-    await new Promise(r => setTimeout(r, RETRY_BASE_MS * Math.pow(2, attempt)));
+    await new Promise(r => setTimeout(r, waitMs));
   }
 
   throw lastErr;
