@@ -64,6 +64,11 @@
       "action": "skip",
       "skippedAt": "2026-04-27T11:07:20.545Z",
       "reason": "User skipped candidate"
+    },
+    "voltagent/awesome-agent-skills": {
+      "action": "skip",
+      "skippedAt": "2026-05-04T11:23:48.026Z",
+      "reason": "User skipped candidate"
     }
   }
 }
