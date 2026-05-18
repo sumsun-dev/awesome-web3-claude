@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdated": "2026-05-18T13:08:41.912Z",
-    "totalEntries": 64,
+    "lastUpdated": "2026-05-18T13:14:42.175Z",
+    "totalEntries": 65,
     "totalSkills": 149
   },
   "sections": [
@@ -2215,6 +2215,25 @@
               }
             }
           ]
+        },
+        {
+          "owner": "beihaili",
+          "repo": "Get-Started-with-Web3",
+          "type": "Community",
+          "addedDate": "2026-05-18",
+          "description": {
+            "ko": "이 레포는 Web3 기초부터 DeFi, DAO 등 고급 주제까지 다루는 AI 기반 교육 자료로, Claude Code/MCP를 통해 블록체인 개발 학습과 스마트 컨트랙트 작성을 지원합니다.",
+            "en": "Open-source bilingual AI-native Web3 curriculum: wallets, Bitcoin, Ethereum, DeFi, L2, DAO, smart accounts, llms.txt and MCP",
+            "ja": "このリポジトリはWeb3の基礎からDeFi、DAO等の高度なテーマまでを扱うAIベースの教育資料であり、Claude Code/MCPを通じてブロックチェーン開発学習とスマートコントラクト作成をサポートします。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 614,
+            "starsPrev": 614,
+            "archived": false,
+            "lastPush": "2026-05-18T06:38:51Z",
+            "exists": true
+          }
         }
       ]
     },

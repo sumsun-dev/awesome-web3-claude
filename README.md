@@ -328,6 +328,7 @@
 | [aibtcdev/aibtc-mcp-server](https://github.com/aibtcdev/aibtc-mcp-server) | ![](https://img.shields.io/github/stars/aibtcdev/aibtc-mcp-server?style=flat-square&logo=github) | `Community` | '26.03 | Bitcoin-native MCP server for AI agents: BTC/STX wallets, DeFi yield, sBTC peg, NFTs, and x402 payments. |
 | [minhoyoo-iotrust/WAIaaS](https://github.com/minhoyoo-iotrust/WAIaaS) | ![](https://img.shields.io/github/stars/minhoyoo-iotrust/WAIaaS?style=flat-square&logo=github) | `Community` | '26.03 | 이 레포는 AI 에이전트가 블록체인 자산을 자동으로 관리할 수 있도록 하는 지갑 서비스로, MCP 표준을 통해 Claude 같은 LLM 에이전트에 직접 통합되어 Web3 작업을 수행합니다. |
 | [PlaceNL2026/okx-agent-trade-kit](https://github.com/PlaceNL2026/okx-agent-trade-kit) | ![](https://img.shields.io/github/stars/PlaceNL2026/okx-agent-trade-kit?style=flat-square&logo=github) | `Community` | '26.05 | OKX 거래소 API를 Claude AI 에이전트와 연동하여 자동 매매를 구현하는 MCP 툴킷으로, TypeScript 기반의 오픈소스 DeFi 거래봇 개발에 활용됩니다. `9개 스킬` |
+| [beihaili/Get-Started-with-Web3](https://github.com/beihaili/Get-Started-with-Web3) | ![](https://img.shields.io/github/stars/beihaili/Get-Started-with-Web3?style=flat-square&logo=github) | `Community` | '26.05 | 이 레포는 Web3 기초부터 DeFi, DAO 등 고급 주제까지 다루는 AI 기반 교육 자료로, Claude Code/MCP를 통해 블록체인 개발 학습과 스마트 컨트랙트 작성을 지원합니다. |
 
 <details><summary>PlaceNL2026/okx-agent-trade-kit 스킬 상세 (9개)</summary>
 

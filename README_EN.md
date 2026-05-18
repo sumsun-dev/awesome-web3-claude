@@ -328,6 +328,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [aibtcdev/aibtc-mcp-server](https://github.com/aibtcdev/aibtc-mcp-server) | ![](https://img.shields.io/github/stars/aibtcdev/aibtc-mcp-server?style=flat-square&logo=github) | `Community` | '26.03 | Bitcoin-native MCP server for AI agents: BTC/STX wallets, DeFi yield, sBTC peg, NFTs, and x402 payments. |
 | [minhoyoo-iotrust/WAIaaS](https://github.com/minhoyoo-iotrust/WAIaaS) | ![](https://img.shields.io/github/stars/minhoyoo-iotrust/WAIaaS?style=flat-square&logo=github) | `Community` | '26.03 | Wallet-as-a-Service for all AI agents in the world |
 | [PlaceNL2026/okx-agent-trade-kit](https://github.com/PlaceNL2026/okx-agent-trade-kit) | ![](https://img.shields.io/github/stars/PlaceNL2026/okx-agent-trade-kit?style=flat-square&logo=github) | `Community` | '26.05 | OKX trading MCP CLI cryptocurrency spot futures swap AI agent Model Context Protocol Cursor Claude npm automated trading crypto API toolkit TypeScript open-source DeFi CEX `9 skills` |
+| [beihaili/Get-Started-with-Web3](https://github.com/beihaili/Get-Started-with-Web3) | ![](https://img.shields.io/github/stars/beihaili/Get-Started-with-Web3?style=flat-square&logo=github) | `Community` | '26.05 | Open-source bilingual AI-native Web3 curriculum: wallets, Bitcoin, Ethereum, DeFi, L2, DAO, smart accounts, llms.txt and MCP |
 
 <details><summary>PlaceNL2026/okx-agent-trade-kit skill details (9)</summary>
 
