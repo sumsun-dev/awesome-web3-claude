@@ -327,6 +327,23 @@
 | [thirdweb-dev/ai](https://github.com/thirdweb-dev/ai) | ![](https://img.shields.io/github/stars/thirdweb-dev/ai?style=flat-square&logo=github) | `Official` | '25.06 | AIエージェント用オールインワンWeb3 SDK（ウォレット、AA、RPC） |
 | [aibtcdev/aibtc-mcp-server](https://github.com/aibtcdev/aibtc-mcp-server) | ![](https://img.shields.io/github/stars/aibtcdev/aibtc-mcp-server?style=flat-square&logo=github) | `Community` | '26.03 | AIエージェント用Bitcoin-native MCPサーバー: BTC/STXウォレット、DeFiイールド、sBTCペグ、NFT、x402決済 |
 | [minhoyoo-iotrust/WAIaaS](https://github.com/minhoyoo-iotrust/WAIaaS) | ![](https://img.shields.io/github/stars/minhoyoo-iotrust/WAIaaS?style=flat-square&logo=github) | `Community` | '26.03 | このレポはAIエージェントがブロックチェーン資産を自動的に管理できるようにするウォレットサービスであり、MCP標準を通じてClaudeのようなLLMエージェントに直接統合されてWeb3タスクを実行します。 |
+| [PlaceNL2026/okx-agent-trade-kit](https://github.com/PlaceNL2026/okx-agent-trade-kit) | ![](https://img.shields.io/github/stars/PlaceNL2026/okx-agent-trade-kit?style=flat-square&logo=github) | `Community` | '26.05 | OKX取引所APIをClaude AIエージェントと連携させ、自動売買を実装するMCPツールキットであり、TypeScript ベースのオープンソースDeFi取引ボット開発に活用されます。 `9個スキル` |
+
+<details><summary>PlaceNL2026/okx-agent-trade-kit スキル詳細 (9個)</summary>
+
+| スキル | 説明 |
+|:-----|:------------|
+| [okx-cex-auth](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-auth) | Use this skill when the user wants to 'login/log in/sign in', 'authenticate', 'authorize', 'connect OKX account', 'set up credentials', 'first time setup', 'configure okx', '登录', '授权', '认证', '连接账户', '... |
+| [okx-cex-bot](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-bot) | Manage Grid bots (spot/contract/coin-margined) and DCA Martingale bots (Spot DCA 现货马丁 / Contract DCA 合约马丁) on OKX. |
+| [okx-cex-earn](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-earn) | Manages OKX Simple Earn (flexible savings/lending), Flash Earn, On-chain Earn (staking/DeFi), Dual Investment (DCD/双币赢), and AutoEarn (自动赚币) via the okx CLI. |
+| [okx-cex-market](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-market) | Use this skill when the user asks for: price of any asset, ticker, order book, candles, OHLCV, funding rate, open interest, OI change scanner, market screener (top movers, high-volume, newly listed),... |
+| [okx-cex-portfolio](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-portfolio) | This skill should be used when the user asks about 'account balance', 'how much USDT do I have', 'my funding account', 'show my positions', 'open positions', 'position P&L', 'unrealized PnL', 'closed... |
+| [okx-cex-skill-mp](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-skill-mp) | Use this skill when the user asks to: 'find a trading skill', 'search for skills', 'install a skill', 'add a skill', 'download a skill', 'browse skill marketplace', 'what skills are available', 'updat... |
+| [okx-cex-smartmoney](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-smartmoney) | Smart Money analytics on OKX: leaderboard traders, position tracking, trade records, aggregated consensus signals, and signal history. |
+| [okx-cex-trade](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-cex-trade) | Use this skill when the user asks to 'buy BTC', 'sell ETH', 'place a limit order', 'cancel my order', 'amend my order', 'long BTC perp', 'short ETH swap', 'open a position', 'close a position', 'set T... |
+| [okx-sentiment-tracker](https://github.com/PlaceNL2026/okx-agent-trade-kit/tree/main/skills/okx-sentiment-tracker) | Use this skill when the user asks about: 'any crypto news', 'latest news', 'market update', 'daily briefing', 'BTC news', 'ETH news', 'news on SOL', 'search SEC ETF', 'regulation news', 'Bitcoin halvi... |
+
+</details>
 
 ---
 

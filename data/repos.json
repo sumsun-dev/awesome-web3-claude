@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "lastUpdated": "2026-04-20T10:52:55.455Z",
-    "totalEntries": 63,
-    "totalSkills": 140
+    "lastUpdated": "2026-05-18T13:08:41.912Z",
+    "totalEntries": 64,
+    "totalSkills": 149
   },
   "sections": [
     {
@@ -2122,6 +2122,99 @@
             "lastPush": "2026-03-23T07:47:13Z",
             "exists": true
           }
+        },
+        {
+          "owner": "PlaceNL2026",
+          "repo": "okx-agent-trade-kit",
+          "type": "Community",
+          "addedDate": "2026-05-18",
+          "description": {
+            "ko": "OKX 거래소 API를 Claude AI 에이전트와 연동하여 자동 매매를 구현하는 MCP 툴킷으로, TypeScript 기반의 오픈소스 DeFi 거래봇 개발에 활용됩니다.",
+            "en": "OKX trading MCP CLI cryptocurrency spot futures swap AI agent Model Context Protocol Cursor Claude npm automated trading crypto API toolkit TypeScript open-source DeFi CEX",
+            "ja": "OKX取引所APIをClaude AIエージェントと連携させ、自動売買を実装するMCPツールキットであり、TypeScript ベースのオープンソースDeFi取引ボット開発に活用されます。"
+          },
+          "status": "active",
+          "health": {
+            "stars": 132,
+            "starsPrev": 132,
+            "archived": false,
+            "lastPush": "2026-05-13T09:01:02Z",
+            "exists": true
+          },
+          "skills": [
+            {
+              "name": "okx-cex-auth",
+              "path": "skills/okx-cex-auth",
+              "description": {
+                "ko": null,
+                "en": "Use this skill when the user wants to 'login/log in/sign in', 'authenticate', 'authorize', 'connect OKX account', 'set up credentials', 'first time setup', 'configure okx', '登录', '授权', '认证', '连接账户', '..."
+              }
+            },
+            {
+              "name": "okx-cex-bot",
+              "path": "skills/okx-cex-bot",
+              "description": {
+                "ko": null,
+                "en": "Manage Grid bots (spot/contract/coin-margined) and DCA Martingale bots (Spot DCA 现货马丁 / Contract DCA 合约马丁) on OKX."
+              }
+            },
+            {
+              "name": "okx-cex-earn",
+              "path": "skills/okx-cex-earn",
+              "description": {
+                "ko": null,
+                "en": "Manages OKX Simple Earn (flexible savings/lending), Flash Earn, On-chain Earn (staking/DeFi), Dual Investment (DCD/双币赢), and AutoEarn (自动赚币) via the okx CLI."
+              }
+            },
+            {
+              "name": "okx-cex-market",
+              "path": "skills/okx-cex-market",
+              "description": {
+                "ko": null,
+                "en": "Use this skill when the user asks for: price of any asset, ticker, order book, candles, OHLCV, funding rate, open interest, OI change scanner, market screener (top movers, high-volume, newly listed),..."
+              }
+            },
+            {
+              "name": "okx-cex-portfolio",
+              "path": "skills/okx-cex-portfolio",
+              "description": {
+                "ko": null,
+                "en": "This skill should be used when the user asks about 'account balance', 'how much USDT do I have', 'my funding account', 'show my positions', 'open positions', 'position P&L', 'unrealized PnL', 'closed..."
+              }
+            },
+            {
+              "name": "okx-cex-skill-mp",
+              "path": "skills/okx-cex-skill-mp",
+              "description": {
+                "ko": null,
+                "en": "Use this skill when the user asks to: 'find a trading skill', 'search for skills', 'install a skill', 'add a skill', 'download a skill', 'browse skill marketplace', 'what skills are available', 'updat..."
+              }
+            },
+            {
+              "name": "okx-cex-smartmoney",
+              "path": "skills/okx-cex-smartmoney",
+              "description": {
+                "ko": null,
+                "en": "Smart Money analytics on OKX: leaderboard traders, position tracking, trade records, aggregated consensus signals, and signal history."
+              }
+            },
+            {
+              "name": "okx-cex-trade",
+              "path": "skills/okx-cex-trade",
+              "description": {
+                "ko": null,
+                "en": "Use this skill when the user asks to 'buy BTC', 'sell ETH', 'place a limit order', 'cancel my order', 'amend my order', 'long BTC perp', 'short ETH swap', 'open a position', 'close a position', 'set T..."
+              }
+            },
+            {
+              "name": "okx-sentiment-tracker",
+              "path": "skills/okx-sentiment-tracker",
+              "description": {
+                "ko": null,
+                "en": "Use this skill when the user asks about: 'any crypto news', 'latest news', 'market update', 'daily briefing', 'BTC news', 'ETH news', 'news on SOL', 'search SEC ETF', 'regulation news', 'Bitcoin halvi..."
+              }
+            }
+          ]
         }
       ]
     },
