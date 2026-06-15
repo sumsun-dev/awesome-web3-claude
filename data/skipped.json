@@ -69,6 +69,11 @@
       "action": "skip",
       "skippedAt": "2026-05-04T11:23:48.026Z",
       "reason": "User skipped candidate"
+    },
+    "nexu-io/open-design": {
+      "action": "skip",
+      "skippedAt": "2026-06-15T15:41:54.036Z",
+      "reason": "User skipped candidate"
     }
   }
 }
