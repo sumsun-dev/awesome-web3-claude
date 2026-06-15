@@ -79,6 +79,11 @@
       "action": "skip",
       "skippedAt": "2026-06-15T15:42:11.379Z",
       "reason": "User skipped candidate"
+    },
+    "piotrostr/listen": {
+      "action": "keep",
+      "skippedAt": "2026-06-15T15:43:03.456Z",
+      "reason": "User kept existing repo"
     }
   }
 }
