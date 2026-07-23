@@ -313,6 +313,7 @@ This space is early-stage — entries are selected for functionality and officia
 | [truss44/mcp-crypto-price](https://github.com/truss44/mcp-crypto-price) | ![](https://img.shields.io/github/stars/truss44/mcp-crypto-price?style=flat-square&logo=github) | `Community` | '26.02 | Real-time crypto price analysis via CoinCap API |
 | [coinpaprika/dexpaprika-mcp](https://github.com/coinpaprika/dexpaprika-mcp) | ![](https://img.shields.io/github/stars/coinpaprika/dexpaprika-mcp?style=flat-square&logo=github) | `Official` | '25.10 | DEX data MCP, real-time prices, liquidity pools, OHLCV across 20+ chains |
 | [noditlabs/nodit-mcp-server](https://github.com/noditlabs/nodit-mcp-server) | ![](https://img.shields.io/github/stars/noditlabs/nodit-mcp-server?style=flat-square&logo=github) | `Official` | '26.02 | Nodit Web3 Data API MCP, multi-chain blockchain data access for AI agents |
+| [getformo/cli](https://github.com/getformo/cli) | ![](https://img.shields.io/github/stars/getformo/cli?style=flat-square&logo=github) | `Official` | '26.07 | Official read-only MCP server for product and onchain analytics, including KPIs, SQL, funnels, retention, revenue, users, and wallet profiles |
 
 ## MCP Servers — Smart Contract & DeFi
 
