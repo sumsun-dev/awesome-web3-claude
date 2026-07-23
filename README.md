@@ -313,6 +313,7 @@
 | [truss44/mcp-crypto-price](https://github.com/truss44/mcp-crypto-price) | ![](https://img.shields.io/github/stars/truss44/mcp-crypto-price?style=flat-square&logo=github) | `Community` | '26.02 | CoinCap API를 통한 실시간 암호화폐 가격 분석 |
 | [coinpaprika/dexpaprika-mcp](https://github.com/coinpaprika/dexpaprika-mcp) | ![](https://img.shields.io/github/stars/coinpaprika/dexpaprika-mcp?style=flat-square&logo=github) | `Official` | '25.10 | DEX 데이터 MCP, 20개 이상 체인에서 실시간 가격, 유동성 풀, OHLCV |
 | [noditlabs/nodit-mcp-server](https://github.com/noditlabs/nodit-mcp-server) | ![](https://img.shields.io/github/stars/noditlabs/nodit-mcp-server?style=flat-square&logo=github) | `Official` | '26.02 | Nodit Web3 Data API MCP, AI 에이전트를 위한 멀티체인 블록체인 데이터 접근 |
+| [getformo/cli](https://github.com/getformo/cli) | ![](https://img.shields.io/github/stars/getformo/cli?style=flat-square&logo=github) | `Official` | '26.07 | 제품 및 온체인 분석을 위한 공식 읽기 전용 MCP 서버로, KPI, SQL, 퍼널, 리텐션, 매출, 사용자 및 지갑 프로필을 조회 |
 
 ## MCP 서버 — 스마트 컨트랙트 & DeFi
 

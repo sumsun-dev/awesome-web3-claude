@@ -313,6 +313,7 @@
 | [truss44/mcp-crypto-price](https://github.com/truss44/mcp-crypto-price) | ![](https://img.shields.io/github/stars/truss44/mcp-crypto-price?style=flat-square&logo=github) | `Community` | '26.02 | CoinCap API経由のリアルタイム暗号資産価格分析 |
 | [coinpaprika/dexpaprika-mcp](https://github.com/coinpaprika/dexpaprika-mcp) | ![](https://img.shields.io/github/stars/coinpaprika/dexpaprika-mcp?style=flat-square&logo=github) | `Official` | '25.10 | DEXデータMCP、20以上のチェーンでリアルタイム価格、流動性プール、OHLCV |
 | [noditlabs/nodit-mcp-server](https://github.com/noditlabs/nodit-mcp-server) | ![](https://img.shields.io/github/stars/noditlabs/nodit-mcp-server?style=flat-square&logo=github) | `Official` | '26.02 | Nodit Web3 Data API MCP、AIエージェントのためのマルチチェーンブロックチェーンデータアクセス |
+| [getformo/cli](https://github.com/getformo/cli) | ![](https://img.shields.io/github/stars/getformo/cli?style=flat-square&logo=github) | `Official` | '26.07 | プロダクトおよびオンチェーン分析向けの公式読み取り専用MCPサーバー。KPI、SQL、ファネル、リテンション、収益、ユーザー、ウォレットプロファイルを照会 |
 
 ## MCP サーバー — スマートコントラクト & DeFi
 
