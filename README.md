@@ -328,6 +328,7 @@
 | [minhoyoo-iotrust/WAIaaS](https://github.com/minhoyoo-iotrust/WAIaaS) | ![](https://img.shields.io/github/stars/minhoyoo-iotrust/WAIaaS?style=flat-square&logo=github) | `Community` | '26.03 | 이 레포는 AI 에이전트가 블록체인 자산을 자동으로 관리할 수 있도록 하는 지갑 서비스로, MCP 표준을 통해 Claude 같은 LLM 에이전트에 직접 통합되어 Web3 작업을 수행합니다. |
 | [PlaceNL2026/okx-agent-trade-kit](https://github.com/PlaceNL2026/okx-agent-trade-kit) | ![](https://img.shields.io/github/stars/PlaceNL2026/okx-agent-trade-kit?style=flat-square&logo=github) | `Community` | '26.05 | OKX 거래소 API를 Claude AI 에이전트와 연동하여 자동 매매를 구현하는 MCP 툴킷으로, TypeScript 기반의 오픈소스 DeFi 거래봇 개발에 활용됩니다. `9개 스킬` |
 | [beihaili/Get-Started-with-Web3](https://github.com/beihaili/Get-Started-with-Web3) | ![](https://img.shields.io/github/stars/beihaili/Get-Started-with-Web3?style=flat-square&logo=github) | `Community` | '26.05 | 이 레포는 Web3 기초부터 DeFi, DAO 등 고급 주제까지 다루는 AI 기반 교육 자료로, Claude Code/MCP를 통해 블록체인 개발 학습과 스마트 컨트랙트 작성을 지원합니다. |
+| [stipend-sh/stipend](https://github.com/stipend-sh/stipend) | ![](https://img.shields.io/github/stars/stipend-sh/stipend?style=flat-square&logo=github) | `Community` | '26.08 | AI 에이전트용 논커스터디얼 USDC 지갑(Base). 건당·일일·수취인별 지출 한도와 출금 주소 화이트리스트를 프롬프트가 아니라 코드로, 서명 직전 경로에서 강제. x402 자동 결제 지원, 로컬 stdio MCP 서버(7개 도구). 미감사 |
 
 <details><summary>PlaceNL2026/okx-agent-trade-kit 스킬 상세 (9개)</summary>
 
